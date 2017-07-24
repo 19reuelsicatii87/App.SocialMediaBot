@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!-- Use URL for BrowserStack capability information https://www.browserstack.com/automate/java -->
+
+<properties>
+	<entry key = "BrowserType">CHROME</entry>
+	<entry key = "Environment">Windows</entry>
+
+	
+<!-- Use below configuration for Intrivio Web Application -->
+	<entry key = "IntrovioDEVURL">http://dev.intrv.io/</entry>
+	<entry key = "IntrovioSTAURL"></entry>
+	<entry key = "IntrovioPRODURL"></entry>
+	<entry key = "IntrovioUsername">clayton@truelogic.com.ph</entry>
+	<entry key = "IntrovioPassword">happy123</entry>
+	
+<!-- Use below configuration for Compass Web Application -->
+	<entry key = "CompassDEVURL">http://dev.app.compass/</entry>
+	<entry key = "CompassDEVURL_Login">http://dev.app.compass/login</entry>
+	<entry key = "CompassDEVURL_Client">http://dev.app.compass/clients/bucket/1/18839</entry>
+	<entry key = "CompassDEVURL_Deployment">http://dev.app.compass/tasks/deployments</entry>
+	<entry key = "CompassDEVURL_Queue">http://dev.app.compass/project-management/queue</entry>
+	<entry key = "CompassDEVURL_Invoices">http://dev.app.compass/clients/bucket/1/18839/invoices</entry>
+	<entry key = "CompassDEVURL_Task">http://dev.app.compass/tasks</entry>
+	<entry key = "CompassDEVURL_Logout">http://dev.app.compass/logout</entry>
+	
+<!-- Use below configuration for Seoreseller Web Application -->
+	<entry key = "SeoresellerDEVURL_Store">http://dev.account.seoreseller.com/store</entry>
+	
+	
+<!-- Use below configuration for Compass Web Application -->
+	<entry key = "WriterDEVURL_Login">http://dev.writers.paypercontent.net/login</entry>
+	<entry key = "WriterDEVURL_Task">http://dev.writers.paypercontent.net/tasks</entry>
+	
+	
+	<!-- Use below configuration for Compass Web Application -->
+	<entry key = "PaypercontentDEVURL_Login">http://dev.beta.paypercontent.net/login</entry>
+	<entry key = "PaypercontentDEVURL_Home">http://dev.beta.paypercontent.net/</entry>
+
+	
+	
+</properties>
+
