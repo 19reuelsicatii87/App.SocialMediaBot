@@ -61,6 +61,7 @@ public class Mail extends Helper
  		props.put("mail.smtp.starttls.enable", "true");
  		props.put("mail.smtp.host", host);
  		props.put("mail.smtp.port", Port);
+ 		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
          
         Session session = Session.getDefaultInstance(props,  
@@ -171,6 +172,7 @@ public class Mail extends Helper
  		props.put("mail.smtp.starttls.enable", "true");
  		props.put("mail.smtp.host", host);
  		props.put("mail.smtp.port", Port);
+ 		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
          
         Session session = Session.getDefaultInstance(props,  
         		   new javax.mail.Authenticator() {  
