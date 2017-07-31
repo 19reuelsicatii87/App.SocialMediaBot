@@ -164,7 +164,7 @@ Feature: [QAO-04] Compass Smoke Test Suite v0.1
     And I hover COM06_ProjectManagement tab
     And I click COM06_Project dropdown
     And I click COM08_AddAProject button
-    And I populate COM08_NameTheProject textfield with "TestAutomation - BasicWebDesign"
+    And I populate COM08_NameTheProject textfield with "TestAutomation"
     And I select <Product> over COM08_SelectAProduct dropdown
     And I click COM08_SaveProject button
     Then I see the product associated with the project
@@ -181,6 +181,9 @@ Feature: [QAO-04] Compass Smoke Test Suite v0.1
     And I populate COM11_Campaign textfield with "www.seleniumhq.org/projects/"
     And I click COM11_Deploy button
     #And I populate COM12_MonthNo with "1"
+    And I select "1" over COM12_Template dropdown
+    And I populate COM12_From with "Today"
+    And I populate COM12_To with "Next Day"
     And I click COM12_DeployNow button
     Then Ill see <Product> is deployed over COMDEV_Queue
     And Ill see <Product> task correctly deployed
