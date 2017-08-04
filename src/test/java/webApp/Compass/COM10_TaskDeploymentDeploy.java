@@ -1,6 +1,7 @@
 package webApp.Compass;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.util.List;
@@ -37,6 +38,9 @@ public class COM10_TaskDeploymentDeploy extends Helper{
 	@FindBy(xpath=".//button[text()='Deploy!']")
 	WebElement Deploy_button;
 	
+	@FindBy(xpath=".//button[contains(.,'Yes')]")
+	WebElement Yes_button;
+	
 
 	
 
@@ -58,6 +62,12 @@ public class COM10_TaskDeploymentDeploy extends Helper{
 	@When("^I click COM10_Deploy button$")
 	public void i_click_Deploy_button() throws Throwable, UnhandledAlertException {
 		Deploy_button.click();
+	}
+	
+	@When("^I click COM10_Yes button$")
+	public void i_click_Yes_button() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(Yes_button));
+		Yes_button.click();
 	}
 	
 		
@@ -92,13 +102,29 @@ public class COM10_TaskDeploymentDeploy extends Helper{
 		File jsonfile;
 		jsonfile = new File(System.getProperty("user.dir") + "\\Data\\" + arg1.replaceAll("\\s+","") + ".json");		
 		
-		int i = 0;
-		for (WebElement TL : Tasklist) 
-		{				
-				assertEquals(JsonPath.read(jsonfile, "$.Tasklist[" + i + "]").toString(), TL.getText());			
-				i++;
+		//Tasklist validation
+		if (!Tasklist.isEmpty()) 
+		{
+			for (WebElement TL : Tasklist) 
+			{		
+					for (int i = 0; i < 10; i++) 
+					{
+						if (JsonPath.read(jsonfile, "$.Tasklist[" + i + "]").toString().contentEquals(TL.getText())) 
+						{
+							break;
+						}
+					}
+			}
+			
 		}
 		
+		else 
+		{
+			fail("Expected set of Tasklist is not correctly deployed");
+		}
+		
+
+		//Status validation
 		int s = 0;
 		for (WebElement S : Status) 
 		{				
@@ -106,6 +132,7 @@ public class COM10_TaskDeploymentDeploy extends Helper{
 				s++;
 		}
 		
+		//Priority validation
 		int p = 0;
 		for (WebElement P : Priority) 
 		{				
