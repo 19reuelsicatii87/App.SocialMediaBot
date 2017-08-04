@@ -49,6 +49,7 @@ public class COM08_ClientsBucket118839ProjectSubproject extends Helper{
 
 	@When("^I populate COM08_NameTheProject textfield with \"([^\"]*)\"$")
 	public void i_populate_NameTheProject_textfield_with(String arg1) throws Throwable {
+		Thread.sleep(2000);;
 		NameTheProject_textfield.sendKeys(arg1);
 	}
 	

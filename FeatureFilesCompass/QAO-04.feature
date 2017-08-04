@@ -95,6 +95,7 @@ Feature: [QAO-04] Compass Smoke Test Suite v0.1
     And I click COM09_Deployment button
     And I populate COM10_MonthNo with "1"
     And I click COM10_Deploy button
+    And I click COM10_Yes button
     Then Ill see <Product> is deployed over COMDEV_Deployment
     And Ill see <Product> task correctly deployed
     When I navigate to "COMDEV_Logout"
