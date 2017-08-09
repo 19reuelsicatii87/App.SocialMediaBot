@@ -27,7 +27,7 @@ import com.cucumber.listener.*;
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/CompassReport.html","rerun:target/rerun.txt"},
-        tags = {"@COMSMOKETEST_TS01"}
+        tags = {"@COMSMOKETEST_TS01, @COMSMOKETEST_TS04"}
    
 
 )
