@@ -28,7 +28,10 @@ Feature: [TAA-15] Lumen Smoke Test Suite v0.1
     And I add parameter Key as "site_id" and Value as <SiteID>
     And I build RequestSpecification
     And I execute a POST method
+    And I attached response to JsonPath
+    And I retrieve token
     Then I receive a response with StatusCode <StatusCode> over LoginAuthenticate
+    And I see that response JSON contains all the expected fields and values over LoginAuthenticate
 
     Examples: 
       | BasePath            | Email                  | Password | SiteID | StatusCode |
