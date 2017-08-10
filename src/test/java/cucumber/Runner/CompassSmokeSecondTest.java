@@ -1,10 +1,9 @@
 package cucumber.Runner;
 
 
-
-
-
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import org.junit.AfterClass;
@@ -23,7 +22,7 @@ import com.Utilities.*;
 		format = { "pretty", "html:target/cucumber","json:target/JSON/OutputRerun.json" },
         features = {"@target/rerun.txt"},
         glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/CucumberReport_ReRun.html","rerun:target/rerun1.txt"}
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/CompassReportReRun.html","rerun:target/rerun1.txt"}
    
 
 )
@@ -34,27 +33,8 @@ public class CompassSmokeSecondTest extends Helper{
 	@BeforeClass
 	public static void SecondBeforeClass() throws Exception 
 	{
-	
-		if(GetPropertValue("Data/TestProperties.xml","BrowserType").equalsIgnoreCase("MOBIWEB"))
-		{
-			ReUsablesKeyword.Prerequisite_Mobile();
-			
-		}
 		
-		
-		File file = new File("target/rerun.txt");
-		while (!file.exists()) 
-		{
-			Thread.sleep(1000);
-		}
-		
-		while(!file .canWrite())
-		{
-			Thread.sleep(1000);
-		}
-		
-		  Thread.sleep(10000); 
-		  log.info("Execution is started from Second Runner Test - BeforeClass Annotation");
+		log.info("Execution is started from First Runner Test - BeforeClass Annotation");
 		  
 	}
 	
@@ -63,18 +43,21 @@ public class CompassSmokeSecondTest extends Helper{
  	
 	@AfterClass
 	public static void SecondAfterClass() throws Exception
-	{
+	{		
 		
-		/*if(SetUp.getScenarioName().substring(0, 12).contentEquals("COMSMOKETEST"))
+		
+		BufferedReader br = new BufferedReader(new FileReader("target/rerun.txt"));
+		if (br.readLine() == null) 
 		{
-			
-		Mail.SendMultipleReports("CompassDEVURL", "[SMOKE TEST]: COMPASS - ");
-		}*/
-		
-		Mail.SendMultipleReports("CompassDEVURL", "[SMOKE TEST]: COMPASS - ");
-		
-		Helper.log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
-		
+		    System.out.println("File is EMPTY");
+
+		}
+		else 
+		{
+		    System.out.println("File is not EMPTY");
+			Mail.SendReport("CompassReportReRun.html", "CompassDEVURL", "[SMOKE TEST]: COMPASS RERUN - ");
+			log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
+		}		
 	}
 	
 }
