@@ -26,7 +26,7 @@ import com.cucumber.listener.*;
 		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/CucumberReport.html","rerun:target/rerun.txt"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/CompassReport.html","rerun:target/rerun.txt"},
         tags = {"@COMSMOKETEST_TS01, @COMSMOKETEST_TS04"}
    
 
@@ -40,6 +40,7 @@ public class CompassSmokeFirstTest extends Helper{
 	{
 
 		log.info("Execution is started from First Runner Test - BeforeClass Annotation");
+		
 
 	}	
 		
@@ -47,14 +48,9 @@ public class CompassSmokeFirstTest extends Helper{
 	@AfterClass
 	public static void AfterClass() throws IOException, Throwable
 	{	
-		/*File file = new File(System.getProperty("user.dir") + "\\target\\rerun.txt");
-		if(SetUp.getScenarioName().substring(0, 12).contentEquals("COMSMOKETEST") && file.length() == 0){
-			
-			Mail.SendMultipleReports("CompassDEVURL", "[SMOKE TEST]: COMPASS - ");
-		
-		}*/
-		
-		Helper.log.info("Execution is Ended from First Runner Test");
+	
+		Mail.SendReport("CompassReport.html", "CompassDEVURL", "[SMOKE TEST]: COMPASS - ");
+		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 		
 	}
 	

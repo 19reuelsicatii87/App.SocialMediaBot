@@ -33,13 +33,13 @@ import cucumber.Framework.Helper;
 public class Mail extends Helper
 {
   
-	public static void SendReport(String URLKey, String Subject) throws Exception
+	public static void SendReport(String ReportName, String URLKey, String Subject) throws Exception
     {
    	
     	
     	String BrowserType=GetPropertValue("Data/TestProperties.xml","BrowserType");
     	String URL=GetPropertValue("Data/TestProperties.xml",URLKey);
-    	String filename="target/CucumberReport.html";		
+    	String filename="target/" + ReportName;		
 		
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
@@ -98,7 +98,7 @@ public class Mail extends Helper
             				+ System.lineSeparator() + 
             		"Browser Name = " + BrowserType 
             				+ System.lineSeparator() + 
-            		"SITE = " + URL 
+            		"TestEnv = " + URL 
             				+ System.lineSeparator()
             				+ System.lineSeparator()
             				+ System.lineSeparator() + 
@@ -133,7 +133,7 @@ public class Mail extends Helper
             //Data source
             DataSource source = new FileDataSource(filename);
             messageBodyPart.setDataHandler(new DataHandler(source));
-            messageBodyPart.setFileName("CucumberReport.html");
+            messageBodyPart.setFileName(ReportName);
             multipart.addBodyPart(messageBodyPart);
            
 
@@ -146,7 +146,7 @@ public class Mail extends Helper
       }  
 	
 	
-	public static void SendMultipleReports(String URLKey, String Subject) throws Exception
+	public static void SendReports(String ReportName, String URLKey, String Subject) throws Exception
     {
 
     	
@@ -207,7 +207,7 @@ public class Mail extends Helper
             				+ System.lineSeparator() + 
             		"Browser Name =" + BrowserType 
             				+ System.lineSeparator() + 
-            		"SITE =" + URL 
+            		"TestEnv =" + URL 
             				+ System.lineSeparator()
             				+ System.lineSeparator()
             				+ System.lineSeparator() + 
