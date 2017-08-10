@@ -22,7 +22,7 @@ import cucumber.api.junit.Cucumber;
 		features = {"."},
 		glue = {"webApi.Lumen"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/LumenReport.html","rerun:target/rerun_api.txt"},
-        tags = {"@SignUp_TS01"}
+        tags = {"@LUMENSMOKETEST"}
    
 
 )
