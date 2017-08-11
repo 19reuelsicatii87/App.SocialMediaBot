@@ -60,7 +60,7 @@ Feature: [TAA-15] Lumen Smoke Test Suite v0.1
   Scenario Outline: SignUp_TS01
     Given Im an Account Manager
     When I set baseURI
-    And I set basePath to  <BasePath>
+    And I set basePath to <BasePath>
     And I add parameter Key as "password" and Value as <Password>
     And I add parameter Key as "confirmPassword" and Value as <ConfirmPassword>
     And I add parameter Key as "site_id" and Value as <SiteID>
@@ -95,14 +95,6 @@ Feature: [TAA-15] Lumen Smoke Test Suite v0.1
     Examples: 
       | BasePath | Email                            | Password | ConfirmPassword | SiteID | StatusCode | ExpectedJSON     |
       | /signup  | randomgenerator@truelogic.com.ph | Abcd1234 | Abcd1234        |      1 |        200 | SignUp_TS01_TC01 |
-
-      
-      
-      
-      
-      
-      
-      
       
       
       
