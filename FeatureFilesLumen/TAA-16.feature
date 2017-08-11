@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: [TAA-15] Lumen Smoke Test Suite v0.1
+Feature: [TAA-16] Lumen Smoke Test Suite v0.1
  
   @LUMENSMOKETEST @AuditWebauditt_TS01
   Scenario Outline: AuditWebauditt_TS01
@@ -73,8 +73,8 @@ Feature: [TAA-15] Lumen Smoke Test Suite v0.1
       | /audits/web-audit | done            |               10 | desc      |        401 | AuditWebaudit_TS02_TC01 |
       
       
-      	@LUMENSMOKETEST @AuditWebauditt_TS02
-  Scenario Outline: AuditWebauditt_TS02
+      	@LUMENSMOKETEST @AuditWebauditt_TS03
+  Scenario Outline: AuditWebauditt_TS03
     Given Im an Account Manager
     When I set baseURI
     And I set basePath to <BasePath>
