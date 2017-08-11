@@ -61,12 +61,34 @@ public class CommonSteps extends APIHelper{
 		
 	}
 	
+	@When("^I add token to parameter$")
+	public void I_add_token_to_parameter() throws Throwable {	
+
+		reqB.addParam("token", Token);
+		
+	}
+	
+	@When("^I add header Key as \"([^\"]*)\" and Value as ([^\"]*)$")
+	public void i_add_header_Key_as_VALUE_and_Value_as_VARIABLE(String arg0, String arg1) throws Throwable {	
+
+		reqB.addHeader(arg0, arg1);
+		
+	}
+	
+	@When("^I add header Key as \"([^\"]*)\" and Value as \"([^\"]*)\"$")
+	public void i_add_header_Key_as_VALUE_and_Value_as_VALUE(String arg0, String arg1) throws Throwable {	
+
+		reqB.addHeader(arg0, arg1);
+		
+	}
+	
 	
 	
 	@When("^I build RequestSpecification$")
 	public void i_build_RequestSpecification() throws Throwable {		
 
-		requestSpecification = reqB.build();				
+		requestSpecification = reqB.build();
+		//System.out.println(requestSpecification.log().all());
 		
 	}
 	
@@ -90,6 +112,7 @@ public class CommonSteps extends APIHelper{
 	public void I_execute_a_GET_method() {
 		
 		Resp = get();
+		//System.out.println(Resp.asString());
 
 	}
 	
@@ -98,6 +121,7 @@ public class CommonSteps extends APIHelper{
 	public void i_execute_a_POST_method() throws Throwable {
 		
 		Resp = post();
+		//System.out.println(Resp.asString());
 
 	}
 	
