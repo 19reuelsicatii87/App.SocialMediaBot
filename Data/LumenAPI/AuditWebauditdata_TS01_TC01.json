@@ -1,0 +1,328 @@
+{
+    "statusCode": 200,
+    "response": {
+        "data": {
+            "audit": {
+                "status": "DONE",
+                "url": "http://www.felipeandsons.com/",
+                "ip": "192.185.52.150",
+                "hasRobots": true,
+                "hasSitemap": false,
+                "sitemapURL": null,
+                "title": "Felipe and Sons | Barbershop + Haberdashery",
+                "description": "Felipe and Sons is the only men's lifestyle brand in the Philippines that offers grooming and custom tailoring from head to toe.",
+                "hasBlog": true,
+                "hasGWT": false,
+                "malwareScore": 0,
+                "desktopScreenshot": null,
+                "desktopPageSpeed": 37,
+                "mobilePageSpeed": 38,
+                "lastAuditDate": "2017-08-14 06:11:40",
+                "pdfUrl": null,
+                "hasGTM": false,
+                "social": {
+                    "facebook": {
+                        "url": [
+                            "https://www.facebook.com/felipeandsons"
+                        ],
+                        "likes_count": 65538,
+                        "comment_count": 0,
+                        "share_count": 0
+                    },
+                    "twitter": {
+                        "url": [],
+                        "followers_count": 0
+                    },
+                    "instagram": {
+                        "url": [
+                            "https://www.instagram.com/felipeandsons/"
+                        ]
+                    },
+                    "linkedIn": {
+                        "url": []
+                    },
+                    "pinterest": {
+                        "url": []
+                    },
+                    "youtube": {
+                        "url": []
+                    },
+                    "googlePlus": {
+                        "url": []
+                    }
+                },
+                "linkMetrics": [
+                    {
+                        "lnt": "www.felipeandsons.com",
+                        "lrid": 304738265729,
+                        "lsrc": 161907082003,
+                        "ltgt": 40636662671,
+                        "luuu": "www.felipeandsons.com/",
+                        "ut": "",
+                        "uu": "www.daimonbarber.co.uk/pages/stockists"
+                    },
+                    {
+                        "lnt": "Website",
+                        "lrid": 304738265725,
+                        "lsrc": 59305136247,
+                        "ltgt": 40636662671,
+                        "luuu": "www.felipeandsons.com/",
+                        "ut": "",
+                        "uu": "looloo.com/p/felipe-sons-barberdashery-salcedo-village-makati"
+                    },
+                    {
+                        "lnt": "http://www.felipeandsons.com",
+                        "lrid": 304738265726,
+                        "lsrc": 140073765726,
+                        "ltgt": 40636662671,
+                        "luuu": "www.felipeandsons.com/",
+                        "ut": "Like women, men need pampering too: relaxing beauty lounges, luxurious spas and more | The Philippine Online Chronicles",
+                        "uu": "thepoc.net/index.php/like-women-men-need-pampering-too-relaxing-beauty-lounges-luxurious-spas-and-more/"
+                    },
+                    {
+                        "lnt": "www.felipeandsons.com",
+                        "lrid": 304738265728,
+                        "lsrc": 152469337490,
+                        "ltgt": 40636662671,
+                        "luuu": "www.felipeandsons.com/",
+                        "ut": "Making The Cut: A Guy's Guide To Manila's Cool Concept Barbershops | SPOT.ph",
+                        "uu": "www.spot.ph/shopping/the-latest-shopping/57100/making-the-cut-a-guys-guide-to-manilas-concept-barbershops"
+                    },
+                    {
+                        "lnt": "Felipe and Sons Barberdashery",
+                        "lrid": 304738265724,
+                        "lsrc": 26265506537,
+                        "ltgt": 40636662671,
+                        "luuu": "www.felipeandsons.com/",
+                        "ut": "The Luxury Shave at Felipe and Sons Barberdashery - Bespoke Man",
+                        "uu": "bespokemanblog.com/the-luxury-shave-at-felipe-and-sons-barberdashery/"
+                    },
+                    {
+                        "lnt": "www.felipeandsons.com",
+                        "lrid": 304738265727,
+                        "lsrc": 152468882238,
+                        "ltgt": 40636662671,
+                        "luuu": "www.felipeandsons.com/",
+                        "ut": "",
+                        "uu": "www.scoutmag.ph/section/fashion/style/top-five-barbershops-around-metro/"
+                    }
+                ],
+                "linkMetricsDomain": [],
+                "domain": {
+                    "hasMalware": false,
+                    "ip": "192.185.52.150",
+                    "url": "felipeandsons.com",
+                    "location": {
+                        "server": {
+                            "countryCode": "US",
+                            "cityName": "Houston",
+                            "countryName": "United States",
+                            "ipAddress": "192.185.52.150",
+                            "latitude": "29.8312",
+                            "longitude": "-95.4741",
+                            "regionName": "Texas",
+                            "statusCode": "OK",
+                            "statusMessage": "",
+                            "timeZone": "-05:00",
+                            "zipCode": "77092"
+                        }
+                    },
+                    "redirects": {
+                        "www": {
+                            "url": "http://felipeandsons.com/",
+                            "redirects": {
+                                "status_code": 301,
+                                "url": "http://www.felipeandsons.com"
+                            }
+                        },
+                        "no_www": {
+                            "url": "http://felipeandsons.com/",
+                            "redirects": {
+                                "status_code": 200,
+                                "url": "http://felipeandsons.com"
+                            }
+                        }
+                    },
+                    "websiteScreenshot": {
+                        "url": "",
+                        "date": ""
+                    },
+                    "whois": {
+                        "contactEmail": "makatigbak@gmail.com",
+                        "createdDate": "2013-10-10T15:50:25Z",
+                        "domainAge": 1403,
+                        "expiresDate": "2017-10-10T15:50:25Z",
+                        "registrarName": "Launchpad, Inc. (HostGator)",
+                        "updatedDate": "2016-10-02T04:58:48Z",
+                        "administrativeContact": {
+                            "city": "Makati City",
+                            "country": "PHILIPPINES",
+                            "email": "makatigbak@gmail.com",
+                            "name": "Marco Katigbak",
+                            "postalCode": "1229",
+                            "rawText": "Admin Name: Marco Katigbak\nAdmin Organization: 1\nAdmin Street: 122 LP Leviste St\nAdmin City: Makati City\nAdmin State/Province: Makati City\nAdmin Postal Code: 1229\nAdmin Country: PH\nAdmin Phone: +63.9178088880\nAdmin Email: makatigbak@gmail.com",
+                            "state": "Makati City",
+                            "street1": "122 LP Leviste St",
+                            "telephone": "639178088880"
+                        },
+                        "registrant": {
+                            "city": "Makati City",
+                            "country": "PHILIPPINES",
+                            "email": "makatigbak@gmail.com",
+                            "name": "Marco Katigbak",
+                            "postalCode": "1229",
+                            "rawText": "Registrant Name: Marco Katigbak\nRegistrant Organization: 1\nRegistrant Street: 122 LP Leviste St\nRegistrant City: Makati City\nRegistrant State/Province: Makati City\nRegistrant Postal Code: 1229\nRegistrant Country: PH\nRegistrant Phone: +63.9178088880\nRegistrant Email: makatigbak@gmail.com",
+                            "state": "Makati City",
+                            "street1": "122 LP Leviste St",
+                            "telephone": "639178088880"
+                        }
+                    }
+                },
+                "majesticItemIndex": {
+                    "citationFlow": 0,
+                    "trustFlow": 0,
+                    "extBackLinks": 0,
+                    "indexedUrls": 0
+                },
+                "urlMetrics": {
+                    "uid": 6,
+                    "upa": 35.609786431345,
+                    "ueid": 5,
+                    "umrp": 3.4616723270296,
+                    "umrr": 1.8403103683943e-13,
+                    "pda": 24.757270266638
+                },
+                "clearbit": {
+                    "tech": [
+                        "Wordpress",
+                        "Nginx",
+                        "Woo Commerce",
+                        "Google Analytics",
+                        "Facebook Connect"
+                    ]
+                },
+                "googleAnalyticsIds": [
+                    "UA-2274631-37"
+                ],
+                "robots": [],
+                "seo": {
+                    "terms": [
+                        {
+                            "keyword": "de manila",
+                            "value": 1
+                        },
+                        {
+                            "keyword": "el pueblo",
+                            "value": 1
+                        },
+                        {
+                            "keyword": "facebook instagram",
+                            "value": 1
+                        },
+                        {
+                            "keyword": "felipe",
+                            "value": 3
+                        },
+                        {
+                            "keyword": "manifesto contact gallery",
+                            "value": 1
+                        },
+                        {
+                            "keyword": "ortigas facebook instagram",
+                            "value": 1
+                        },
+                        {
+                            "keyword": "son",
+                            "value": 3
+                        },
+                        {
+                            "keyword": "style tips",
+                            "value": 1
+                        },
+                        {
+                            "keyword": "successfully subscribed",
+                            "value": 1
+                        }
+                    ],
+                    "onpage": {
+                        "title": {
+                            "count": 43,
+                            "text": "Felipe and Sons | Barbershop + Haberdashery"
+                        },
+                        "description": {
+                            "count": 128,
+                            "text": "Felipe and Sons is the only men's lifestyle brand in the Philippines that offers grooming and custom tailoring from head to toe."
+                        },
+                        "content": {
+                            "text": "0 Shopping Cart HOME BARBERSHOP HABERDASHERY PRODUCTS BLOG OUR MANIFESTO CONTACT GALLERY BLACK CARD Search Facebook Instagram Know more about us BARBERSHOP HABERDASHERY PRODUCTS CUT SHAVE SCULPT COLOR The  Barbershop ORTIGAS SAN AGUSTIN LEVISTE\r\n CHINO ROCES\r\n BGC\r\n THIRSTY BARBER\r\n Who we are: Felipe is neither a barber nor a tailor, and neither are we his sons. The meaning of our name is simple: Felipe is the Philippines and we are all his sons. For we remember our fathers and grandfathers as models of proprietyin how they acted and in how they dressed. As a barbershop and haberdashery, Felipe and Sons stands to safeguard this heritage. ...",
+                            "count": 150
+                        },
+                        "images": {
+                            "count": 7,
+                            "noAltsCount": 4
+                        },
+                        "headings": {
+                            "h1": [
+                                "Know more about us",
+                                "\nCUT\nSHAVE\nSCULPT\nCOLOR\n",
+                                "The Barbershop  Book Now"
+                            ],
+                            "h2": [
+                                "Who we are:",
+                                "Receive updates on our new products and services, grooming and style tips and special events.",
+                                "You have Successfully Subscribed!"
+                            ],
+                            "h3": [],
+                            "h4": [],
+                            "h5": [],
+                            "h6": []
+                        },
+                        "blog": {
+                            "url": "http://felipeandsons.com/blog/"
+                        }
+                    },
+                    "favicon": "",
+                    "contact": {
+                        "email": [],
+                        "phoneNumber": [],
+                        "url": "http://felipeandsons.com/contact-us/"
+                    }
+                },
+                "goodAudit": [
+                    "Found robots.txt.",
+                    "Domain resolves from either www or no www."
+                ],
+                "cautionAudit": [
+                    "Your headings can be further optimized.",
+                    "Blog needs optimization.",
+                    "Google Webmasters Tools is recommended.",
+                    "Footer needs optimization."
+                ],
+                "criticalAudit": [
+                    "No sitemap.xml found.",
+                    "You have 4 missing or empty alt attributes.",
+                    "Your domain authority is only 24.76."
+                ]
+            },
+            "nap": {
+                "businessName": "Felipe and Sons",
+                "businessCity": "Makati",
+                "businessCountry": "PH",
+                "businessState": "Metro Manila",
+                "businessZip": "1227",
+                "businessAddress": " Salcedo",
+                "businessTel": "+63 2 949 7703",
+                "businessEmail": "bvillalon@felipeandsons.com"
+            },
+            "report": {
+                "proposalKeywordId": 116,
+                "businessName": "Felipe and Sons, San Agustin St., Makati",
+                "businessAddress": "Mezzanine A, LPL Mansions San Agustin St., Salcedo, Salcedo Village, Makati, 1227 Metro Manila, Philippines",
+                "keywords": "felipeandsons.com",
+                "token": "VdhkpYJ3Ttk",
+                "url": "http://www.felipeandsons.com",
+                "datePosted": "2017-08-14 06:11:53"
+            }
+        }
+    }
+}
