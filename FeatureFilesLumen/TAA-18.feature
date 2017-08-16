@@ -39,7 +39,7 @@ Feature: [TAA-18] Lumen Smoke Test Suite v0.1
   Scenario Outline: AuditWebauditdata_TS02
     Given Im an Account Manager
     When I draft RequestSpecBuilder
-    And I set baseURII
+    And I set baseURI
     And I set basePath to <BasePath>
     And I remove "auditToken" parameter
     And I build RequestSpecification
