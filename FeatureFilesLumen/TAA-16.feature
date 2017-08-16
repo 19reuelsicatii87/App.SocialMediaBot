@@ -21,7 +21,8 @@ Feature: [TAA-16] Lumen Smoke Test Suite v0.1
   @LUMENSMOKETEST @AuditWebaudit_TS01
   Scenario Outline: AuditWebaudit_TS01
     Given Im an Account Manager
-    When I set baseURI
+    When I draft RequestSpecBuilder
+    And I set baseURI
     And I set basePath to "/login/authenticate"
     And I add parameter Key as "email" and Value as "bordy@truelogic.com.ph"
     And I add parameter Key as "password" and Value as "Abcd1234"
@@ -30,6 +31,8 @@ Feature: [TAA-16] Lumen Smoke Test Suite v0.1
     And I execute a POST method
     And I attached response to JsonPath
     And I retrieve token
+    And I draft RequestSpecBuilder
+    And I set baseURI
     And I set basePath to <BasePath>
     And I add parameter Key as "owner_id" and Value as "18805"
     And I add token to parameter
@@ -54,7 +57,8 @@ Feature: [TAA-16] Lumen Smoke Test Suite v0.1
 	@LUMENSMOKETEST @AuditWebaudit_TS02
   Scenario Outline: AuditWebaudit_TS02
     Given Im an Account Manager
-    When I set baseURI
+    When I draft RequestSpecBuilder
+    And I set baseURI
     And I set basePath to <BasePath>
     And I add parameter Key as "owner_id" and Value as "18805"
     And I add parameter Key as "token" and Value as "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOm51bGwsImlhdCI6MTUwMjQyNTg4NCwiZXhwIjoxNTAyNDI5NDg0LCJuYmYiOjE1MDI0MjU4ODQsImp0aSI6Ik1oN0VWNUF4SThiZ014MlciLCJzdWIiOjE4ODA1fQ.cAfLng0GhiREj3jaMjOkduG9SjevEEPoVHeF5aQcuTI"
@@ -76,7 +80,8 @@ Feature: [TAA-16] Lumen Smoke Test Suite v0.1
       	@LUMENSMOKETEST @AuditWebaudit_TS03
   Scenario Outline: AuditWebaudit_TS03
     Given Im an Account Manager
-    When I set baseURI
+    When I draft RequestSpecBuilder
+    And I set baseURI
     And I set basePath to <BasePath>
     And I add parameter Key as "owner_id" and Value as "18805"
     And I add parameter Key as "token" and Value as "cAfLng0GhiREj3jaMjOkduG9SjevEEPoVHeF5aQcuTI"
