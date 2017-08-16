@@ -3,19 +3,28 @@ package webApi.Lumen;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.*;
+
+
 
 
 public class CommonSteps extends APIHelper{
 	
 	
+	//RequestSpecBuilder reqB;
 
 	@Given("^Im an Account Manager$")
 	public void im_an_Account_Manager() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 
+	}
+	
+	@When("^I draft RequestSpecBuilder$")
+	public void i_draft_RequestSpecBuilder() throws Throwable {
+	
+		reqB = getRequestSpecBuilder();
+		
 	}
 
 	
@@ -91,12 +100,7 @@ public class CommonSteps extends APIHelper{
 	public void i_build_RequestSpecification() throws Throwable {
 	
 		requestSpecification = reqB.build();
-		
-		//System.out.println("===================================================");
-		//System.out.println(requestSpecification.log().all());
-		//System.out.println("===================================================");
-		
-		
+		System.out.println(requestSpecification.log().all());
 		
 	}
 	

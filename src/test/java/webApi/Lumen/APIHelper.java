@@ -1,7 +1,6 @@
 package webApi.Lumen;
 
 import io.restassured.response.Response;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -17,7 +16,7 @@ public class APIHelper{
 	public static String Token;
 	public static Response Resp;
 	public static Properties properties;
-	public static RequestSpecBuilder reqB = new RequestSpecBuilder();
+	public static RequestSpecBuilder reqB;
 	public static JsonParser parser = new JsonParser();
 
 	
@@ -46,7 +45,10 @@ public class APIHelper{
 	 }
 	
 	
-	
+    public static RequestSpecBuilder getRequestSpecBuilder() {
+    	return 	new RequestSpecBuilder();
+
+    }
 	
 
 }

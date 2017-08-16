@@ -21,7 +21,8 @@ Feature: [TAA-15] Lumen Smoke Test Suite v0.1
   @LUMENSMOKETEST @LoginAuthenticate_TS01
   Scenario Outline: LoginAuthenticate_TS01
     Given Im an Account Manager
-    When I set baseURI
+    When I draft RequestSpecBuilder
+    And I set baseURI
     And I set basePath to <BasePath>
     And I add parameter Key as "email" and Value as <Email>
     And I add parameter Key as "password" and Value as <Password>
@@ -40,7 +41,8 @@ Feature: [TAA-15] Lumen Smoke Test Suite v0.1
   @LUMENSMOKETEST @LoginAuthenticate_TS02
   Scenario Outline: LoginAuthenticate_TS02
     Given Im an Account Manager
-    When I set baseURI
+    When I draft RequestSpecBuilder
+    And I set baseURI
     And I set basePath to <BasePath>
     And I add parameter Key as "email" and Value as <Email>
     And I add parameter Key as "password" and Value as <Password>
@@ -59,7 +61,8 @@ Feature: [TAA-15] Lumen Smoke Test Suite v0.1
   @LUMENSMOKETEST @SignUp_TS01
   Scenario Outline: SignUp_TS01
     Given Im an Account Manager
-    When I set baseURI
+    When I draft RequestSpecBuilder
+    And I set baseURI
     And I set basePath to <BasePath>
     And I add parameter Key as "password" and Value as <Password>
     And I add parameter Key as "confirmPassword" and Value as <ConfirmPassword>
@@ -80,7 +83,8 @@ Feature: [TAA-15] Lumen Smoke Test Suite v0.1
   @LUMENSMOKETEST @Campaign_TS01
   Scenario Outline: Campaign_TS01
     Given Im an Account Manager
-    When I set baseURI
+    When I draft RequestSpecBuilder
+    And I set baseURI
     And I set basePath to "/login/authenticate"
     And I add parameter Key as "email" and Value as "bordy@truelogic.com.ph"
     And I add parameter Key as "password" and Value as "Abcd1234"
