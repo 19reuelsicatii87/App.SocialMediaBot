@@ -35,3 +35,22 @@ Feature: [TAA-19] Lumen Smoke Test Suite v0.1
     Examples: 
       | BasePath              | StatusCode | ExpectedJSON                |
       | /site-page-tree-nodes |        200 | Sitepagetreenodes_TS01_TC01 |
+      
+      
+  @LUMENSMOKETEST @Sitepagetreenodes_TS02
+  Scenario Outline: Sitepagetreenodes_TS02
+    Given Im an Account Manager
+    When I draft RequestSpecBuilder
+    And I set baseURI
+    And I set basePath to <BasePath>
+    And I add parameter Key as "site_id" and Value as "8"
+    And I add parameter Key as "pagination_clause[pagination_limit]" and Value as "none"
+    And I build RequestSpecification
+    And I execute a GET method
+    Then I receive a response with StatusCode <StatusCode> over Sitepagetreenodes
+    And I see that response JSON is equal to <ExpectedJSON> over Sitepagetreenodes
+
+    Examples: 
+      | BasePath              | StatusCode | ExpectedJSON                |
+      | /site-page-tree-nodes |        422 | Sitepagetreenodes_TS02_TC01 |
+      
