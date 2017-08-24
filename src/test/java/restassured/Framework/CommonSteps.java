@@ -1,9 +1,10 @@
-package webApi.Lumen;
+package restassured.Framework;
 
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import io.restassured.path.json.JsonPath;
+
 import static io.restassured.RestAssured.*;
 
 

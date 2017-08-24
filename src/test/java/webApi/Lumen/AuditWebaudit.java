@@ -3,6 +3,8 @@ package webApi.Lumen;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import restassured.Framework.APIHelper;
+
 import java.io.File;
 import java.io.IOException;
 import org.apache.commons.io.FileUtils;

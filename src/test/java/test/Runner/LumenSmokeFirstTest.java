@@ -1,4 +1,4 @@
-package cucumber.Runner;
+package test.Runner;
 
 import java.io.IOException;
 
@@ -20,9 +20,10 @@ import cucumber.api.junit.Cucumber;
 		
 		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
 		features = {"."},
-		glue = {"webApi.Lumen"},
+		glue = {"webApi.Lumen", "restassured.Framework"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/LumenReport.html","rerun:target/rerun_api.txt"},
         tags = {"@LUMENSMOKETEST"}
+
    
 
 )

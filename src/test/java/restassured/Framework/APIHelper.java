@@ -1,4 +1,4 @@
-package webApi.Lumen;
+package restassured.Framework;
 
 import io.restassured.response.Response;
 import java.io.FileInputStream;
