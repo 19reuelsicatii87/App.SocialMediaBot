@@ -29,10 +29,17 @@ public class CommonSteps extends APIHelper{
 	}
 
 	
-	@When("^I set baseURI$")
-	public void I_set_baseURI() throws Throwable{	
+	@When("^I set baseURI for LumenDEVURL$")
+	public void I_set_baseURI_for_LumenDEVURL() throws Throwable{	
 		
 		reqB.setBaseUri(GetPropertValue("Data/TestProperties.xml","LumenDEVURL"));		
+		
+	}
+	
+	@When("^I set baseURI for KratosDEVURL$")
+	public void I_set_baseURI_for_KratosDEVURL() throws Throwable{	
+		
+		reqB.setBaseUri(GetPropertValue("Data/TestProperties.xml","KratosDEVURL"));		
 		
 	}
 	

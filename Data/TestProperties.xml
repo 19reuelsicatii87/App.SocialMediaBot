@@ -43,6 +43,7 @@
 
 <!-- Use below configuration for Lumen API Application -->
 	<entry key = "LumenDEVURL">http://192.168.10.5/api</entry>
+	<entry key = "KratosDEVURL">http://192.168.10.33:8888/api/v1</entry>
 	
 	
 </properties>
