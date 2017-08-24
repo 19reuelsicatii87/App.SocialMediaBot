@@ -22,7 +22,7 @@ Feature: [TAA-19] Lumen Smoke Test Suite v0.1
   Scenario Outline: Sitepagetreenodes_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder
-    And I set baseURI
+    And I set baseURI for LumenDEVURL
     And I set basePath to <BasePath>
     And I add parameter Key as "site_id" and Value as "8"
     And I add parameter Key as "pagination_clause[pagination_limit]" and Value as "none"
@@ -41,7 +41,7 @@ Feature: [TAA-19] Lumen Smoke Test Suite v0.1
   Scenario Outline: Sitepagetreenodes_TS02
     Given Im an Account Manager
     When I draft RequestSpecBuilder
-    And I set baseURI
+    And I set baseURI for LumenDEVURL
     And I set basePath to <BasePath>
     And I add parameter Key as "site_id" and Value as "8"
     And I add parameter Key as "pagination_clause[pagination_limit]" and Value as "none"

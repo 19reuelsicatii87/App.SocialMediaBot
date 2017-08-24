@@ -2,6 +2,8 @@ package webApi.Lumen;
 
 
 import cucumber.api.java.en.Then;
+import restassured.Framework.APIHelper;
+
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
