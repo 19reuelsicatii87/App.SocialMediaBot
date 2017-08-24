@@ -21,7 +21,7 @@ import cucumber.api.junit.Cucumber;
 		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
 		features = {"."},
 		glue = {"webApi.Kratos", "restassured.Framework"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/LumenReport.html","rerun:target/rerun_apikratos.txt"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/KratosReport.html","rerun:target/rerun_apikratos.txt"},
         tags = {"@KRATOSSMOKETEST"}
 
    

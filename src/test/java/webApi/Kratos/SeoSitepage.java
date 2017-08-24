@@ -23,19 +23,19 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;;
 public class SeoSitepage extends APIHelper{
 	
 	
-	@Then("^I receive a response with StatusCode ([^\"]*) over AuditWebaudit$")
-	public void I_receive_a_response_with_StatusCode_STATUSCODE_over_AuditWebaudit(int arg0) {
+	@Then("^I receive a response with StatusCode ([^\"]*) over SeoSitepage$")
+	public void I_receive_a_response_with_StatusCode_STATUSCODE_over_SeoSitepage(int arg0) {
 		//System.out.println(Resp.getStatusCode());
 		assertEquals(arg0, Resp.getStatusCode());		
 		
 	}
 	
-	@Then("^I see that response JSON is equal to ([^\"]*) over AuditWebaudit$")
-	public void I_see_that_response_JSON_is_equal_to_EXPECTEDJSON_over_AuditWebaudit(String arg0) throws IOException {
+	@Then("^I see that response JSON is equal to ([^\"]*) over SeoSitepage$")
+	public void I_see_that_response_JSON_is_equal_to_EXPECTEDJSON_over_SeoSitepage(String arg0) throws IOException {
 		
 		//System.out.println(Resp.asString());
 		File expectedjsonfile;
-		expectedjsonfile = new File(System.getProperty("user.dir") + "\\Data\\LumenAPI\\" + arg0+ ".json");		
+		expectedjsonfile = new File(System.getProperty("user.dir") + "\\Data\\KratosAPI\\" + arg0+ ".json");		
 		
 		JsonElement Expected = parser.parse(FileUtils.readFileToString(expectedjsonfile));
 		JsonElement Actual = parser.parse(Resp.asString());
@@ -45,12 +45,12 @@ public class SeoSitepage extends APIHelper{
 		
 	}
 	
-	@Then("^I see that response JSON matches to ([^\"]*) Schema over AuditWebaudit$")
-	public void I_see_that_response_JSON_matches_to_EXPECTEDJSON_Schema_over_AuditWebaudit(String arg0) throws IOException {
+	@Then("^I see that response JSON matches to ([^\"]*) Schema over SeoSitepage$")
+	public void I_see_that_response_JSON_matches_to_EXPECTEDJSON_Schema_over_SeoSitepage(String arg0) throws IOException {
 		
 
 		File expectedjsonfile;
-		expectedjsonfile = new File(System.getProperty("user.dir") + "\\Data\\LumenAPI\\" + arg0+ ".json");		
+		expectedjsonfile = new File(System.getProperty("user.dir") + "\\Data\\KratosAPI\\" + arg0+ ".json");		
 		
 		//System.out.println(Resp.asString());
 		System.out.println(FileUtils.readFileToString(expectedjsonfile));
