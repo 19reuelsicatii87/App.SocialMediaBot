@@ -23,7 +23,6 @@ import cucumber.api.junit.Cucumber;
 		glue = {"webApi.Lumen", "restassured.Framework"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/LumenReport.html","rerun:target/rerun_apilumen.txt"},
         tags = {"@LUMENSMOKETEST"}
-
    
 
 )

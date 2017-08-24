@@ -16,10 +16,10 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: [TAA-19] Lumen Smoke Test Suite v0.1
+Feature: [TAA-20] Kratos Smoke Test Suite v0.1
 
-  @KRATOSSMOKETEST @Sitepagetreenodes_TS01
-  Scenario Outline: Sitepagetreenodes_TS01
+  @KRATOSSMOKETEST @SeoSitepage_TS01
+  Scenario Outline: SeoSitepage_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder
     And I set baseURI for KratosDEVURL
