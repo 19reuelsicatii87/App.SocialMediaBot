@@ -22,7 +22,7 @@ Feature: [TAA-17] Lumen Smoke Test Suite v0.1
   Scenario Outline: Generateaudit_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder
-    And I set baseURI
+    And I set baseURI for LumenDEVURL
     And I set basePath to "/login/authenticate"
     And I add parameter Key as "email" and Value as "bordy@truelogic.com.ph"
     And I add parameter Key as "password" and Value as "Abcd1234"
@@ -32,7 +32,7 @@ Feature: [TAA-17] Lumen Smoke Test Suite v0.1
     And I attached response to JsonPath
     And I retrieve token
     And I draft RequestSpecBuilder
-    And I set baseURI
+    And I set baseURI for LumenDEVURL
     And I set basePath to <BasePath>
     And I add parameter Key as "url" and Value as <URL>
     And I add parameter Key as "user_id" and Value as "18805"
@@ -55,7 +55,7 @@ Feature: [TAA-17] Lumen Smoke Test Suite v0.1
   Scenario Outline: Generateaudit_TS02
     Given Im an Account Manager
     When I draft RequestSpecBuilder
-    And I set baseURI
+    And I set baseURI for LumenDEVURL
     And I set basePath to "/login/authenticate"
     And I add parameter Key as "email" and Value as "bordy@truelogic.com.ph"
     And I add parameter Key as "password" and Value as "Abcd1234"
@@ -65,7 +65,7 @@ Feature: [TAA-17] Lumen Smoke Test Suite v0.1
     And I attached response to JsonPath
     And I retrieve token
     And I draft RequestSpecBuilder
-    And I set baseURI
+    And I set baseURI for LumenDEVURL
     And I set basePath to <BasePath>
     And I add parameter Key as "url" and Value as <URL>
     And I add parameter Key as "user_id" and Value as "18805"
@@ -88,7 +88,7 @@ Feature: [TAA-17] Lumen Smoke Test Suite v0.1
   Scenario Outline: Generateaudit_TS03
     Given Im an Account Manager
     When I draft RequestSpecBuilder
-    And I set baseURI
+    And I set baseURI for LumenDEVURL
     And I set basePath to "/login/authenticate"
     And I add parameter Key as "email" and Value as "bordy@truelogic.com.ph"
     And I add parameter Key as "password" and Value as "Abcd1234"
@@ -98,7 +98,7 @@ Feature: [TAA-17] Lumen Smoke Test Suite v0.1
     And I attached response to JsonPath
     And I retrieve token
     And I draft RequestSpecBuilder
-    And I set baseURI
+    And I set baseURI for LumenDEVURL
     And I set basePath to <BasePath>
     And I add parameter Key as "url" and Value as <URL>
     And I add parameter Key as "user_id" and Value as "18805"
