@@ -16,10 +16,10 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: [TAA-20] Kratos Smoke Test Suite v0.1
+Feature: [TAA-22] Kratos Smoke Test Suite v0.1
 
-  @KRATOSSMOKETEST @SeoSitepage_TS01
-  Scenario Outline: SeoSitepage_TS01
+  @KRATOSSMOKETEST @SeoRobot_TS01
+  Scenario Outline: SeoRobot_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder
     And I set baseURI for KratosDEVURL
@@ -27,10 +27,10 @@ Feature: [TAA-20] Kratos Smoke Test Suite v0.1
     And I add parameter Key as "url" and Value as <URL>
     And I build RequestSpecification
     And I execute a GET method
-    Then I receive a response with StatusCode <StatusCode> over SeoSitepage
-    And I see that response JSON matches to <ExpectedJSON> Schema over SeoSitepage
+    Then I receive a response with StatusCode <StatusCode> over SeoRobot
+    And I see that response JSON is equal to <ExpectedJSON> over SeoRobot
 
     Examples: 
-      | BasePath       | URL                          | StatusCode | ExpectedJSON          |
-      | /seo/site_page | https://www.truelogic.com.ph |        200 | SeoSitepage_TS01_TC01 |
-      | /seo/site_page | BadURLInput                  |        400 | SeoSitepage_TS01_TC02 |
+      | BasePath   | URL                          | StatusCode | ExpectedJSON       |
+      | /seo/robot | https://www.truelogic.com.ph |        200 | SeoRobot_TS01_TC01 |
+      | /seo/robot | BadURLInput                  |        400 | SeoRobot_TS01_TC02 |
