@@ -1,5 +1,19 @@
 {
     "message": {
+        "httpsNoWww": {
+            "redirects": {
+                "statusCode": 301,
+                "url": "https://truelogic.com.ph"
+            },
+            "url": "https://www.truelogic.com.ph/"
+        },
+        "httpsWww": {
+            "redirects": {
+                "statusCode": 200,
+                "url": "https://www.truelogic.com.ph"
+            },
+            "url": "https://www.truelogic.com.ph/"
+        },
         "noWww": {
             "redirects": {
                 "statusCode": 301,
