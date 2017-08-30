@@ -18,7 +18,7 @@
 #Sample Feature Definition Template
 Feature: [TAA-17] Lumen Smoke Test Suite v0.1
 
-  @LUMENSMOKETEST @Generateaudit_TS01
+  @LUMENSMOKETEST @Generateaudit @Generateaudit_TS01
   Scenario Outline: Generateaudit_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder
@@ -51,7 +51,7 @@ Feature: [TAA-17] Lumen Smoke Test Suite v0.1
       | audits/generate-audit | http://www.felipeandsons.com/ |         0 |        200 |
       | audits/generate-audit | http://www.felipeandsons.com/ |         1 |        200 |
 
-  @LUMENSMOKETEST @Generateaudit_TS02
+  @LUMENSMOKETEST @Generateaudit @Generateaudit_TS02
   Scenario Outline: Generateaudit_TS02
     Given Im an Account Manager
     When I draft RequestSpecBuilder
