@@ -18,7 +18,7 @@
 #Sample Feature Definition Template
 Feature: [TAA-21] Kratos Smoke Test Suite v0.1
 
-  @KRATOSSMOKETEST @SeoDomainredirect_TS01
+  @KRATOSSMOKETEST @SeoDomainredirect @SeoDomainredirect_TS01
   Scenario Outline: SeoDomainredirect_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder

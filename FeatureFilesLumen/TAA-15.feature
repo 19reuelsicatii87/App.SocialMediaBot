@@ -18,7 +18,7 @@
 #Sample Feature Definition Template
 Feature: [TAA-15] Lumen Smoke Test Suite v0.1
 
-  @LUMENSMOKETEST @LoginAuthenticate_TS01
+  @LUMENSMOKETEST @LoginAuthenticate @LoginAuthenticate_TS01
   Scenario Outline: LoginAuthenticate_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder
@@ -38,7 +38,7 @@ Feature: [TAA-15] Lumen Smoke Test Suite v0.1
       | BasePath            | Email                  | Password | SiteID | StatusCode |
       | /login/authenticate | bordy@truelogic.com.ph | Abcd1234 |      8 |        200 |
 
-  @LUMENSMOKETEST @LoginAuthenticate_TS02
+  @LUMENSMOKETEST @LoginAuthenticate @LoginAuthenticate_TS02
   Scenario Outline: LoginAuthenticate_TS02
     Given Im an Account Manager
     When I draft RequestSpecBuilder

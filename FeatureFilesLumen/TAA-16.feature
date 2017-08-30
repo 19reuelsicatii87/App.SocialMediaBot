@@ -18,7 +18,7 @@
 #Sample Feature Definition Template
 Feature: [TAA-16] Lumen Smoke Test Suite v0.1
  
-  @LUMENSMOKETEST @AuditWebaudit_TS01
+  @LUMENSMOKETEST @AuditWebaudit @AuditWebaudit_TS01
   Scenario Outline: AuditWebaudit_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder
@@ -54,7 +54,7 @@ Feature: [TAA-16] Lumen Smoke Test Suite v0.1
       
       
       
-	@LUMENSMOKETEST @AuditWebaudit_TS02
+	@LUMENSMOKETEST @AuditWebaudit @AuditWebaudit_TS02
   Scenario Outline: AuditWebaudit_TS02
     Given Im an Account Manager
     When I draft RequestSpecBuilder

@@ -50,12 +50,22 @@ public class AuditWebaudit extends APIHelper{
 		
 
 		File expectedjsonfile;
-		expectedjsonfile = new File(System.getProperty("user.dir") + "\\Data\\LumenAPI\\" + arg0+ ".json");		
-		
 		//System.out.println(Resp.asString());
-		System.out.println(FileUtils.readFileToString(expectedjsonfile));
+				
 		
-		assertThat(Resp.asString(), matchesJsonSchema(FileUtils.readFileToString(expectedjsonfile)));
+		try 
+		{
+			expectedjsonfile = new File(System.getProperty("user.dir") + "\\Data\\LumenAPI\\" + arg0+ ".json");	
+			//System.out.println(FileUtils.readFileToString(expectedjsonfile));			
+			assertThat(Resp.asString(), matchesJsonSchema(FileUtils.readFileToString(expectedjsonfile)));
+			
+		} 
+		catch (AssertionError e) 
+		{
+			expectedjsonfile = new File(System.getProperty("user.dir") + "\\Data\\LumenAPI\\" + arg0+ "E.json");	
+			//System.out.println(FileUtils.readFileToString(expectedjsonfile));			
+			assertThat(Resp.asString(), matchesJsonSchema(FileUtils.readFileToString(expectedjsonfile)));
+		}
 				
 		
 	}
