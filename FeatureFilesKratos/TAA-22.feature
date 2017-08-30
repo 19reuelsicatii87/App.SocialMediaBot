@@ -18,7 +18,7 @@
 #Sample Feature Definition Template
 Feature: [TAA-22] Kratos Smoke Test Suite v0.1
 
-  @KRATOSSMOKETEST @SeoRobot_TS01
+  @KRATOSSMOKETEST @SeoRobot @SeoRobot_TS01
   Scenario Outline: SeoRobot_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder

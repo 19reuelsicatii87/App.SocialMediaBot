@@ -18,7 +18,7 @@
 #Sample Feature Definition Template
 Feature: [TAA-18] Lumen Smoke Test Suite v0.1
 
-  @LUMENSMOKETEST @AuditWebauditdata_TS01
+  @LUMENSMOKETEST @AuditWebauditdata @AuditWebauditdata_TS01
   Scenario Outline: AuditWebauditdata_TS01
     Given Im an Account Manager
     When I draft RequestSpecBuilder
@@ -32,10 +32,10 @@ Feature: [TAA-18] Lumen Smoke Test Suite v0.1
 
     Examples: 
       | BasePath              | auditToken  | StatusCode | ExpectedJSON                |
-      | audits/web-audit-data | VdhkpYJ3Ttk |        200 | AuditWebauditdata_TS01_TC01 |
+      | audits/web-audit-data | QJwrsm9zMo7 |        200 | AuditWebauditdata_TS01_TC01 |
       | audits/web-audit-data | jWg4gzmH9Ga |        200 | AuditWebauditdata_TS01_TC02 |
 
-  @LUMENSMOKETEST @AuditWebauditdata_TS02
+  @LUMENSMOKETEST @AuditWebauditdata @AuditWebauditdata_TS02
   Scenario Outline: AuditWebauditdata_TS02
     Given Im an Account Manager
     When I draft RequestSpecBuilder
