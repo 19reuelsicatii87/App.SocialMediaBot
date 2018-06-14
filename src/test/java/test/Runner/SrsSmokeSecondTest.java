@@ -1,22 +1,16 @@
 package test.Runner;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import org.openqa.jetty.html.Break;
-
-import cucumber.Framework.Helper;
-import cucumber.Framework.SetUp;
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
 
 import com.Utilities.Mail;
-import com.cucumber.listener.*;
+
+import cucumber.Framework.Helper;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
 
 
 
@@ -25,35 +19,27 @@ import com.cucumber.listener.*;
 		
 		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
 		features = {"."},
-		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/CompassReport.html","rerun:target/rerun.txt"},
-        tags = {"@COMSMOKETEST_TS01, @COMSMOKETEST_TS04"}
+		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SEOResellerReport.html","rerun:target/rerun.txt"},
+        tags = {"@TAA-43, @TAA-44, @TAA-45"}
    
-
 )
 
 
-public class CompassSmokeFirstTest extends Helper{
+public class SrsSmokeSecondTest extends Helper{
 	
 	@BeforeClass
 	public static void BeforeClass() throws Exception
 	{
-
 		log.info("Execution is started from First Runner Test - BeforeClass Annotation");
-		
-
 	}	
-		
  	
 	@AfterClass
 	public static void AfterClass() throws IOException, Throwable
 	{	
-	
-		Mail.SendReport("CompassReport.html", "CompassDEVURL", "[SMOKE TEST]: COMPASS - ");
+		Mail.SendReport("SRSForgotPassSTGReport.html", "SeoresellerSTGURL_Login", "[SMOKE TEST]: SRS - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
-		
 	}
-	
 }
 
 

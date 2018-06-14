@@ -28,7 +28,7 @@ import com.Utilities.*;
 )
 
 
-public class CompassSmokeSecondTest extends Helper{
+public class R2_CompassSmokeTest extends Helper{
 	
 	@BeforeClass
 	public static void SecondBeforeClass() throws Exception 

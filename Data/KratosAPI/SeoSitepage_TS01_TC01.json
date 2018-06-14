@@ -100,7 +100,7 @@
                   "id": "/properties/message/properties/content/properties/terms/properties/company", 
                   "type": "integer"
                 }, 
-                "gero": {
+                "optimization": {
                   "id": "/properties/message/properties/content/properties/terms/properties/gero", 
                   "type": "integer"
                 }, 
@@ -108,7 +108,7 @@
                   "id": "/properties/message/properties/content/properties/terms/properties/http", 
                   "type": "integer"
                 }, 
-                "itamar": {
+                "service": {
                   "id": "/properties/message/properties/content/properties/terms/properties/itamar", 
                   "type": "integer"
                 }, 
@@ -140,7 +140,7 @@
                   "id": "/properties/message/properties/content/properties/terms/properties/social", 
                   "type": "integer"
                 }, 
-                "tips": {
+                "strategy": {
                   "id": "/properties/message/properties/content/properties/terms/properties/tips", 
                   "type": "integer"
                 }, 
@@ -162,10 +162,10 @@
                 "campaign", 
                 "marketing", 
                 "brand", 
-                "gero", 
-                "itamar", 
+                "optimization", 
+                "service", 
                 "audience", 
-                "tips", 
+                "strategy", 
                 "keyword", 
                 "social", 
                 "seo", 

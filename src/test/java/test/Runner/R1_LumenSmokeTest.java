@@ -20,16 +20,15 @@ import cucumber.api.junit.Cucumber;
 		
 		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
 		features = {"."},
-		glue = {"webApi.Kratos", "restassured.Framework"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/KratosReport.html","rerun:target/rerun_apikratos.txt"},
-        tags = {"@KRATOSSMOKETEST"}
-
+		glue = {"webApi.Lumen", "restassured.Framework"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/LumenReport.html","rerun:target/rerun_apilumen.txt"},
+        tags = {"@LUMENSMOKETEST"}
    
 
 )
 
 
-public class KratosSmokeFirstTest extends Helper {
+public class R1_LumenSmokeTest extends Helper {
 	
 	@BeforeClass
 	public static void BeforeClass() throws Exception
@@ -41,7 +40,7 @@ public class KratosSmokeFirstTest extends Helper {
 	@AfterClass
 	public static void AfterClass() throws IOException, Throwable
 	{	
-		Mail.SendReport("KratosReport.html", "KratosDEVURL", "[SMOKE TEST]: KRATOS - ");		
+		Mail.SendReport("LumenReport.html", "LumenDEVURL", "[SMOKE TEST]: LUMEN - ");		
 		log.info("Execution is ended from First Runner - Test AfterClass Annotation");
 		
 	}
