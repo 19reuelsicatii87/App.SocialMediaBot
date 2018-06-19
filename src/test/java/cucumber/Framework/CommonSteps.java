@@ -5,21 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.relevantcodes.extentreports.LogStatus;
-
-import cucumber.api.DataTable;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -81,6 +68,16 @@ public class CommonSteps extends Helper {
 			case "SEODEV_Store": 
 				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerDEVURL_Store");
 				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
+	        break;
+	        
+			case "SEODEV_Login": 
+				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerDEVURL_Login");
+				log.info("User Navigate to the SeoresellerDEVURL_Login "+ arg1.toUpperCase());
+	        break;
+	        
+			case "SEOSTG_Login": 
+				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerSTGURL_Login");
+				log.info("User Navigate to the SeoresellerSTGURL_Login "+ arg1.toUpperCase());
 	        break;
 	        
 			case "PPCDEV_Login": 
