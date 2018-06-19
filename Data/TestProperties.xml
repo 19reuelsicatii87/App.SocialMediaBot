@@ -29,7 +29,8 @@
 	
 <!-- Use below configuration for Seoreseller Web Application -->
 	<entry key = "SeoresellerDEVURL_Store">http://dev.account.seoreseller.com/store</entry>
-	
+	<entry key = "SeoresellerDEVURL_Login">http://dev.account.seoreseller.com/login</entry>
+	<entry key = "SeoresellerSTGURL_Login">http://staging.account.seoreseller.com/login</entry>
 	
 <!-- Use below configuration for Compass Web Application -->
 	<entry key = "WriterDEVURL_Login">http://dev.writers.paypercontent.net/login</entry>
