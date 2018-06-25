@@ -24,7 +24,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   #When I Click Forgot Password
   #And Successfully Changed the Password
   #Then I'll see the Dashboard Page
-  @TAA-43
+  @TAA-43 @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS01
   Scenario Outline: TAA-43
 		Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
@@ -71,7 +71,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   #When I Click Forgot Password
   #And Unsuccessfully Changed the Password
   #Then I'll not see the Dashboard Page
-  @TAA-44
+  @TAA-44 @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS02
   Scenario Outline: TAA-44  
  		Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
@@ -114,7 +114,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   #When I Click Forgot Password
   #And did not change the Password
   #Then I'll see the Dashboard Page
-  @TAA-45
+  @TAA-45 @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS03
   Scenario Outline: TAA-45  
  		Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
@@ -152,12 +152,3 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
       | Email                         | Password  | Domain |  Condition               | Subject                				 |        
       | RNDAutomationTest10@gmail.com | happy123$ | google |  Reset Your Password     | Reset Account Password Request |
       | RNDAutomationTest10@gmail.com | happy123$ | google |  Reset Password Link     | Reset Account Password Request |
-      
-  #Scenario Description:
-  #Covered Tickets : SRS-2493, SRS-3106z
-	#Given I'm a  Partner,
-	#When I Attempt to Change My Password
-	#And I let the link expire
-	#And I Request for a New Reset Link
-	#And Successfully Changed the Password
-	#Then I'll see the Dashboard Page
