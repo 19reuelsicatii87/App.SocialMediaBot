@@ -20,13 +20,13 @@ import cucumber.api.junit.Cucumber;
 		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SEOResellerReport.html","rerun:target/rerun.txt"},
-        tags = {"@TAA-43, @TAA-44, @TAA-45"}
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardReport.html","rerun:target/SrsRerun.txt"},
+        tags = {"@SRSSMOKETEST"}
    
 )
 
 
-public class SrsSmokeSecondTest extends Helper{
+public class R1_SrsSmokeTest extends Helper{
 	
 	@BeforeClass
 	public static void BeforeClass() throws Exception
@@ -37,7 +37,7 @@ public class SrsSmokeSecondTest extends Helper{
 	@AfterClass
 	public static void AfterClass() throws IOException, Throwable
 	{	
-		Mail.SendReport("SRSForgotPassSTGReport.html", "SeoresellerSTGURL_Login", "[SMOKE TEST]: SRS - ");
+		Mail.SendReport("SRSDashboardReport.html", "SeoresellerSTGURL_Login", "[SMOKE TEST]: SRS - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }

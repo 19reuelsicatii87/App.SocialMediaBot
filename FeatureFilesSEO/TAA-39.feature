@@ -24,7 +24,7 @@ Feature: [TAA-39] SRS Login/Logout Smoke Test Suite v0.1
   #When I Manual log in Successfully
   #And Click Log Out
   #Then I'll see the Log in Page
-  @TAA-40
+  @TAA-40 @SRSSMOKETEST @LoginLogout @LoginLogout_TS01
   Scenario Outline: TAA-40
 		Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
@@ -52,7 +52,7 @@ Feature: [TAA-39] SRS Login/Logout Smoke Test Suite v0.1
   #Given I'm a  Partner
   #When I Manual log in unsuccessfully
   #Then I'll not be redirected to the Dashboard
-  @TAA-41
+  @TAA-41 @SRSSMOKETEST @LoginLogout @LoginLogout_TS02
   Scenario Outline: TAA-41
 		Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
@@ -80,7 +80,7 @@ Feature: [TAA-39] SRS Login/Logout Smoke Test Suite v0.1
   #When I Google log in Successfully
   #And Click Log Out
   #Then I'll see the Log in Page
-  @TAA-42
+  @TAA-42 @SRSSMOKETEST @LoginLogout @LoginLogout_TS03
     Scenario Outline: TAA-42
 		Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
@@ -104,7 +104,7 @@ Feature: [TAA-39] SRS Login/Logout Smoke Test Suite v0.1
 		And I click the Logout
 		Then Ill see the Log In Page
 		
-	  Examples: 
+	  Examples:
       | Email                        | Password     |
       | RNDAutomationTest7@gmail.com | happy123$    |
 		
