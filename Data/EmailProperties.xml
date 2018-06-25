@@ -4,7 +4,6 @@
 
 
 <properties>
-	
 	<entry key ="SMTP_HOST_NAME">smtp.gmail.com</entry>
 	<entry key ="SMTP_PORT">587</entry>
 	<entry key ="reportType">Basic</entry>
@@ -12,5 +11,4 @@
 	<entry key ="subject">GQA Automation Report</entry>
 	<entry key ="from">testautomation@truelogic.com.ph</entry>
 	<entry key ="password">TLOStest123</entry>
-	
 </properties>
