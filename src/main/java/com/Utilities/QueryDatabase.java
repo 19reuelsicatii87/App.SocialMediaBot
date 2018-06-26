@@ -65,9 +65,4 @@ public class QueryDatabase {
 		statement.executeUpdate(Query);
 		
 	}
-
-	 public static void main(String[] argv) throws SQLException {
-		 ReturnSpecificData("SELECT * FROM tbl_user WHERE email = 'rndautomationtest5@gmail.com'", "id");
-	 }
-		
 }
