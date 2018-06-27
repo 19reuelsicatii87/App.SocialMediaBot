@@ -11,7 +11,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SEO07_CommonSteps extends Helper{
+public class SEO00_CommonSteps extends Helper{
 	@FindBy(xpath="//nav[@id='main-menu']//li/a[text()='Home']")
 	WebElement SrsHome_Link;
 	
@@ -36,7 +36,7 @@ public class SEO07_CommonSteps extends Helper{
 	@FindBy(xpath="//div[@class='ii gt']//div/a[contains(text(),'account')]")
 	WebElement ResetYourPassword_Link;
 	
-	public SEO07_CommonSteps() {
+	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
 		
 	}

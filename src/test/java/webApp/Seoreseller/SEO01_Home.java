@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import cucumber.Framework.Helper;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class SEO01_Home extends Helper{
@@ -137,19 +138,32 @@ public class SEO01_Home extends Helper{
 	
 	
 	@When("^I populate the SEO01_DomainUrl textfield with \"([^\"]*)\"$")
-	public void i_populate_the_SEO__DomainUrl_textfield_with(String arg1) throws Throwable {
+	public void i_populate_the_SEO01_DomainUrl_textfield_with(String arg1) throws Throwable {
 		DomainUrl_textfield.sendKeys(arg1);
 	}
 
-	@When("^I click the User Avatar")
+	@When("^I click the User Avatar$")
 	public void i_click_user_avatar() throws Throwable, UnhandledAlertException {
 		UserAvatar_image.click();
 	}
 	
-	@When("^I click the Logout")
+	@When("^I click the Logout$")
 	public void i_click_the_logout() throws Throwable, UnhandledAlertException {
 		Logout.click();
 	}
+	
+	
+	@Then("^I see the SEO01_SeoReseller banner$")
+	public void i_see_the_SEO01_SeoReseller_banner() throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	@When("^I click SEO01_SignUp link$")
+	public void i_click_SEO01_SignUp_link() throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+
 
 
 

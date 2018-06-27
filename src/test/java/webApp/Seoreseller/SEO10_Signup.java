@@ -1,12 +1,15 @@
 package webApp.Seoreseller;
 
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import cucumber.Framework.Helper;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
-public class SEO010_Signup extends Helper{
+public class SEO10_Signup extends Helper{
 	
 	@FindBy(xpath="//div[@id='signup-box-title-container']/h3/strong[text()='Create Your Account']")
 	WebElement CreateYourAccount_Text;
@@ -50,11 +53,47 @@ public class SEO010_Signup extends Helper{
 	
 	
 	
-	
-	
-	public SEO010_Signup() {
+	public SEO10_Signup() {
 		PageFactory.initElements(driver, this);
 		
 	}
+	
+	
+	@Then("^I see the SEO10_SignUp page$")
+	public void i_see_the_SEO10_SignUp_page() throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	@Then("^I see \"([^\"]*)\"$")
+	public void i_see_value(String arg1) throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	@When("^I populate the SEO10_FirstName textfield with ([^\"]*)$")
+	public void i_populate_the_FirstName_textfield_with_variable(String arg1) throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	@When("^I populate the SEO10_LastName textfield with ([^\"]*)$")
+	public void i_populate_the_LastName_textfield_with_variable(String arg1) throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	@When("^I populate the SEO10_Email textfield with ([^\"]*)$")
+	public void i_populate_the_Email_textfield_with_variable(String arg1) throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	
+	@When("^I populate the SEO10_Password textfield with ([^\"]*)$")
+	public void i_populate_the_Password_textfield_with_variable(String arg1) throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	@Then("^I click SEO10_CREATEACCOUNT button$")
+	public void i_click_SEO10_CREATEACCOUNT_button() throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
 	
 }
