@@ -46,6 +46,12 @@ public class SEO07_CommonSteps extends Helper{
 	    // Write code here that turns the phrase above into concrete actions
 	}
 	
+	
+	@Given("^SEO07_Im a new Partner$")
+	public void im_a_new_Partner() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	}
+	
 	@Then("^Ill see the Dashboard Page$")
 	public void ill_see_the_dashboard_page() throws Throwable {
         Thread.sleep(3000);

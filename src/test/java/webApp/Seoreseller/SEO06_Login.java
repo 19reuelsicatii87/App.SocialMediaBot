@@ -113,4 +113,14 @@ public class SEO06_Login extends Helper{
 		TermsOfUseAndPrivacyPolicyVerbiage_Text.click();
 	}
 	
+	@Then("^Ill see the SEO06_SeoReseller Banner$")
+	public void ill_see_the_seoreseller_banner() throws Throwable, UnhandledAlertException {
+			Assert.assertEquals(true, SrsBanner_Image.isDisplayed());
+	}
+	
+	@When("^I click the SEO06_SignUp Link$")
+	public void i_click_the_signup_link() throws Throwable, UnhandledAlertException {
+		SignUp_Link.click();
+	}
+	
 }
