@@ -13,7 +13,7 @@ Feature: [TAA-38] [SEOReseller]: Registration
   #Then I'll see the Home Page of the Dashboard
   @SRSSMOKETEST @Registration @Registration_TS01 @TAA-88
   Scenario Outline: TAA-40
-		Given SEO00_Im a new Partner
+		Given Im a new Partner
 		And I check if <Email> should not exist as pre condition 
 		When I navigate to "SEOSTG_Login"
 		Then Ill see the SEO06_SeoReseller Banner

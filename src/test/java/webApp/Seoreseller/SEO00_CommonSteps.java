@@ -48,7 +48,7 @@ public class SEO00_CommonSteps extends Helper{
 	    // Write code here that turns the phrase above into concrete actions
 	}
 	
-	@Given("^SEO00_Im a new Partner$")
+	@Given("^Im a new Partner$")
 	public void im_a_new_Partner() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	}

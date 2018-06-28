@@ -173,11 +173,6 @@ public class SEO01_Home extends Helper{
 	    //CodeHere
 	}
 	
-	@When("^I click SEO01_SignUp link$")
-	public void i_click_SEO01_SignUp_link() throws Throwable, UnhandledAlertException {
-	    //CodeHere
-	}
-	
 	@Then("^Ill see the SEO01_SuccessAccountVerifyMessage message$")
 	public void i_see_the_SSEO01_SuccessAccountVerifyMessage_message() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, SuccessAccountVerifyMessage_text.isDisplayed());
