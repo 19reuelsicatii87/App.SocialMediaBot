@@ -226,7 +226,11 @@ public class Email extends Helper{
 	
 	@When("^I click the Email_Redirect ([^\"]*)$")
 	public void i_click_the_email_redirect_value(String redirect) throws Throwable, UnhandledAlertException {
-		// Code
+		if(redirect.equals("Go to my dashboard button")){
+			GoToDashBoard_button.click();
+		}else{
+			RegistratrionConfirm_link.click();
+		}
 	}
 	
 }
