@@ -138,5 +138,6 @@ public class SEO010_Signup extends Helper{
 	public void i_click_create_account_button() throws Throwable, UnhandledAlertException {
 		CreateAccount_Button.click();
         Thread.sleep(50000);
+        
 	}
 }
