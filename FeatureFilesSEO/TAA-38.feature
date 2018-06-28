@@ -3,7 +3,52 @@
 
 
 Feature: [TAA-38] [SEOReseller]: Registration
-
+  #Covered Ticket : SRS-2544, SRS-2690, SRS-3160, SRS-2545, SRS-2546, SRS-4157
+	#Scenario Description:
+  #Given I'm a new Partner
+  #When I Manual Sign-Up successfully
+  #Then I'll be directed to Welcome Page
+  #When I verify the email
+  #And Finish the Company Profile Set up
+  #Then I'll see the Home Page of the Dashboard
+  @SRSSMOKETEST @Registration @Registration_TS01 @TAA-88
+  Scenario Outline: TAA-40
+		Given SEO00_Im a new Partner
+		And I check if <Email> should not exist as pre condition 
+		When I navigate to "SEOSTG_Login"
+		Then Ill see the SEO06_SeoReseller Banner
+		
+		When I click SEO06_SignUp link
+		Then Ill see the SEO010_SignUp Page
+		And Ill see "2 minute setup to get started with SEOReseller right away. Grow your agency by outsourcing your SEO, Web Design, Social Media, Link Building and more!" 
+		And Ill see the SEO010_SignInWithGoogle button
+		And Ill see the SEO010_FirstName textfield
+		And Ill see the SEO010_LastName textfield
+		And Ill see the SEO010_EmailAddress textfield
+		And Ill see the SEO010Password textfield
+		And Ill see the SEO010_TermsAndPrivacy text
+		And Ill see "Already have an account"
+		And Ill see the Create Account button
+		
+		When I populate the SEO010_FirstName textfield with <FirstName>
+		And I populate the SEO010_LastName textfield with <LastName>
+		And I populate the SEO010_Email textfield with <Email>
+		And I populate the SEO010_Password textfield with <Password>
+		And I click SEO010_CreateAccount button
+		
+		When I click the SEO011_GoToMailbox button
+		And I login using my <Email> and <Password> for my <Domain> Mailbox
+		And Ill see the email with Subject <Subject> for my <Domain> Mailbox
+		
+		When I select email with Subject <Subject> for my <Domain> Mailbox
+		Then Ill see the Email_SeoReseller logo
+		And Ill see the Email_ThankYouForRegistering message
+		And Ill see the Email_GoToDashboard button
+		And Ill see the Email_RegistrationConfirm link
+		
+    Examples: 
+      | FirstName  | LastName     | Email                           | Password  | Domain  | MailRedirect               | Country      | CompanyName    | CompanyProfile                  |   ExistingClients    | CompanyWebsites  | BusinessPhone  | Address  |   Subject                             |
+      | RND        | Automation   | RNDAutomationTest12@gmail.com   | happy123$ | google  | Go to my dashboard button  | Philippines  | This is a test | I have more than 30 employees   |   Exceeds 20 Clients | www.test.com     | 9171111111     | Makati   |   Please Confirm Your Email Address   |
 
   #Covered Ticket : SRS-2544,SRS-2690,SRS-3160,SRS-2545,SRS-2546,SRS-4157
   #Scenario Description:

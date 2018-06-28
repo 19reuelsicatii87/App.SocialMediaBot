@@ -53,9 +53,7 @@ public class QueryDatabase {
 			System.out.println("Failed to make connection!");
 		}
 		
-		System.out.println("finalResult " + finalResult);
 		return finalResult;
-		
 	}
 	
 	public static void DeleteSpecificData (String Query) throws SQLException{

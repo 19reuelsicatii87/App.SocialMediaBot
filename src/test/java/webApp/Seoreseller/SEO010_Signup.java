@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import cucumber.Framework.Helper;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class SEO010_Signup extends Helper{
 	
@@ -68,18 +69,74 @@ public class SEO010_Signup extends Helper{
 			Assert.assertEquals(true, TwoMinutesSetupToGetStarted_Text.isDisplayed());
 	}
 	
-	@Then("^Ill see the SEO010_SignInWithGoogle Button$")
+	@Then("^Ill see the SEO010_SignInWithGoogle button$")
 	public void ill_see_the_signin_with_google_message() throws Throwable, UnhandledAlertException {
 			Assert.assertEquals(true, SignInWithGoogle_Button.isDisplayed());
 	}
 	
-	@Then("^Ill see the SEO010_FirstName Text Field$")
+	@Then("^Ill see the SEO010_FirstName textfield$")
 	public void ill_see_the_firstname_textfield() throws Throwable, UnhandledAlertException {
 			Assert.assertEquals(true, FirstName_Textfield.isDisplayed());
 	}
 	
-	@Then("^Ill see the SEO010_LastName Text Field$")
+	@Then("^Ill see the SEO010_LastName textfield$")
 	public void ill_see_the_lastname_textfield() throws Throwable, UnhandledAlertException {
 			Assert.assertEquals(true, LastName_Textfield.isDisplayed());
+	}
+	
+	@Then("^Ill see the SEO010_EmailAddress textfield$")
+	public void ill_see_the_email_textfield() throws Throwable, UnhandledAlertException {
+			Assert.assertEquals(true, EmailAddress_Textfield.isDisplayed());
+	}
+	
+	@Then("^Ill see the SEO010Password textfield$")
+	public void ill_see_the_password_textfield() throws Throwable, UnhandledAlertException {
+			Assert.assertEquals(true, Password_Textfield.isDisplayed());
+	}
+	
+	@Then("^Ill see the SEO010_TermsAndPrivacy text$")
+	public void ill_see_the_terms_and_privacy_text() throws Throwable, UnhandledAlertException {
+			Assert.assertEquals(true, TermsOfUseAndPrivacyPolicyVerbiage_Text.isDisplayed());
+	}
+
+	@Then("^Ill see \"Already have an account\"$")
+	public void ill_see_the_already_have_an_account_text() throws Throwable, UnhandledAlertException {
+			Assert.assertEquals(true, AlreadyhaveAnAccount_Text.isDisplayed());
+	}
+	
+	@Then("^Ill see the Create Account button$")
+	public void ill_see_the_create_account_button() throws Throwable, UnhandledAlertException {
+			Assert.assertEquals(true, CreateAccount_Button.isDisplayed());
+	}
+	
+	
+	@When("^I populate the SEO010_FirstName textfield with ([^\"]*)$")
+	public void i_populate_firstname_field_with_firstname_value(String firstName) throws Throwable, UnhandledAlertException {
+		FirstName_Textfield.sendKeys(firstName);
+        Thread.sleep(3000);
+	}
+	
+	@Then("^I populate the SEO010_LastName textfield with ([^\"]*)$")
+	public void i_populate_lastname_field_with_lastname_value(String lastName) throws Throwable, UnhandledAlertException {
+		LastName_Textfield.sendKeys(lastName);
+        Thread.sleep(3000);
+	}
+	
+	@Then("^I populate the SEO010_Email textfield with ([^\"]*)$")
+	public void i_populate_email_field_with_email_value(String email) throws Throwable, UnhandledAlertException {
+		EmailAddress_Textfield.sendKeys(email);
+        Thread.sleep(3000);
+	}
+	
+	@Then("^I populate the SEO010_Password textfield with ([^\"]*)$")
+	public void i_populate_password_field_with_password_value(String password) throws Throwable, UnhandledAlertException {
+		Password_Textfield.sendKeys(password);
+        Thread.sleep(3000);
+	}
+	
+	@Then("^I click SEO010_CreateAccount button$")
+	public void i_click_create_account_button() throws Throwable, UnhandledAlertException {
+		CreateAccount_Button.click();
+        Thread.sleep(50000);
 	}
 }

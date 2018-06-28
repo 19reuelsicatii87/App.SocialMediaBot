@@ -44,6 +44,21 @@ public class Email extends Helper{
 		return EmailSubject;
 	}
 	
+	@FindBy(xpath="//a[text()='GO TO MY DASHBOARD']")
+	WebElement GoToDashBoard_button;	
+
+	@FindBy(xpath="//p[contains(.,'Thank you for registering at SEOReseller.com ')]")
+	WebElement ThankYouForRegistering_text;	
+	
+	@FindBy(xpath="//a[contains(.,'account.seoreseller')]")
+	WebElement RegistratrionConfirmation_text;
+	
+	@FindBy(xpath="//p/strong/../..//div[2]/img")
+	WebElement SeoReseller_image;
+	
+	@FindBy(xpath="//a[contains(.,'account.seoreseller')]")
+	WebElement RegistratrionConfirm_link;
+	
 	public Email() {
 		PageFactory.initElements(driver, this);
 		
@@ -133,8 +148,79 @@ public class Email extends Helper{
 	    //CodeHere
 	}
 	
+	@Then("^I login using my ([^\"]*) and ([^\"]*) for my ([^\"]*) Mailbox$")
+	public void i_login_my_value_for_specific_mailbox(String email, String password,String domain) throws Throwable, UnhandledAlertException {
+			if(domain.equals("google")){
+				Thread.sleep(3000);
+				GoogleHomeSignIn_Link.click();
+				WD.until(ExpectedConditions.elementToBeClickable(GoogleEmail_TextField));
+				GoogleEmail_TextField.sendKeys(email);
+				GoogleNext_Button.click();
+				WD.until(ExpectedConditions.elementToBeClickable(GooglePassword_TextField));
+				GooglePassword_TextField.sendKeys(password);
+				GoogleNext_Button.click();
+			}
+	}
 	
+	@Then("^Ill see the email with Subject ([^\"]*) for my ([^\"]*) Mailbox$")
+	public void ill_see_email_for_specific_mailbox(String subject, String domain) throws Throwable, UnhandledAlertException {
+		if(domain.equals("google")){
+			loop:
+				for(int i=0;i<3; i++){
+					Google_Hyperlink.click();
+					Thread.sleep(10000);
+					if(SearchEmail(subject).isDisplayed()){
+						SearchEmail(subject).click();
+						break loop;
+					}else{
+						if(i==2){
+							fail("Expected to receive the email with subject: "+subject );
+						}
+					}
+				}
+		}
+	}
 	
+	@Then("^Ill see the Email_SeoReseller logo$")
+	public void ill_see_email_seoreseller_logo () throws Throwable, UnhandledAlertException {
+		SeoReseller_image.click();
+
+	}
 	
+	@Then("^Ill see the Email_ThankYouForRegistering message$")
+	public void ill_see_email_thankyou_for_registering_text() throws Throwable, UnhandledAlertException {
+		ThankYouForRegistering_text.click();
+
+	}
+	
+	@Then("^Ill see the Email_GoToDashboard button$")
+	public void ill_see_email_goto_dashboard_button() throws Throwable, UnhandledAlertException {
+		GoToDashBoard_button.click();
+
+	}
+
+	@Then("^Ill see the Email_RegistrationConfirm link$")
+	public void ill_see_email_registration_link() throws Throwable, UnhandledAlertException {
+		RegistratrionConfirm_link.click();
+	}
+
+	@When("^I select email with Subject ([^\"]*) for my ([^\"]*) Mailbox$")
+	public void i_click_the_email_specific_domain(String subject, String domain) throws Throwable, UnhandledAlertException {
+		if(domain.equals("google")){
+			loop:
+				for(int i=0;i<3; i++){
+					Google_Hyperlink.click();
+					Thread.sleep(10000);
+					if(SearchEmail(subject).isDisplayed()){
+						SearchEmail(subject).click();
+						break loop;
+					}else{
+						if(i==2){
+							fail("Expected to receive the email with subject: "+subject );
+						}
+					}
+				}
+		}
+	}
 	
 }

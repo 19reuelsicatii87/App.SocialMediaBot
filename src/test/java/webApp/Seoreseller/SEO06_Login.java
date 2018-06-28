@@ -118,7 +118,7 @@ public class SEO06_Login extends Helper{
 			Assert.assertEquals(true, SrsBanner_Image.isDisplayed());
 	}
 	
-	@When("^I click the SEO06_SignUp Link$")
+	@When("^I click SEO06_SignUp link$")
 	public void i_click_the_signup_link() throws Throwable, UnhandledAlertException {
 		SignUp_Link.click();
 	}
