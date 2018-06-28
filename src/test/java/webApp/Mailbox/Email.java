@@ -122,4 +122,19 @@ public class Email extends Helper{
 
 			}
 	}
+	
+	@When("^I navigate back to my Mailbox$")
+	public void i_navigate_back_to_my_Mailbox() throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	@When("^I see the new email verification$")
+	public void i_see_the_new_email_verification() throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	
+	
+	
+	
 }

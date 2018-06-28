@@ -33,5 +33,15 @@ public class SEO11_Signupsuccess extends Helper{
 	    //CodeHere
 	}
 	
+	@When("^I navigate back to SRS Welcome page$")
+	public void i_navigate_back_to_SRS_Welcome_page() throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
+	@When("^I click the SEO11_resend link$")
+	public void i_click_the_SEO11_resend_link() throws Throwable, UnhandledAlertException {
+	    //CodeHere
+	}
+	
 	
 }
