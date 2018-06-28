@@ -1,5 +1,6 @@
 package webApp.Seoreseller;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
@@ -61,7 +62,7 @@ public class SEO01_Home extends Helper{
 	@FindBy(xpath="//div[@class='selected-flag']")
 	WebElement CompanySetupFlagIcon_Button;	
 	
-	public static final WebElement CompleteProfileSelectCountry(String keyword){
+	public static final WebElement CompanySetupSelectCountry(String keyword){
 		WebElement SelectedtCountry = driver.findElement(By.xpath("//span[@class='country-name'][text()='"+keyword+"']"));
 		return SelectedtCountry;
 	}
@@ -70,12 +71,12 @@ public class SEO01_Home extends Helper{
 	WebElement CompanySetupCompanyProfile_Selector;	
 	
 	
-	public static final WebElement CompleteProfileCompanyProfileByKeyword(String keyword){
+	public static final WebElement CompanySetupCompanyProfileByKeyword(String keyword){
 		WebElement SelectedCompanyProfile = driver.findElement(By.xpath("//ul[@class='select2-results']/li/div[contains(.,'"+keyword+"')]"));
 		return SelectedCompanyProfile;
 	}
 	
-	public static final WebElement CompleteProfileCompanyProfileByIndex(int index){
+	public static final WebElement CompanySetupCompanyProfileByIndex(int index){
 		WebElement SelectedCompanyProfile = driver.findElement(By.xpath("//ul[@class='select2-results']/li["+index+"]"));
 		return SelectedCompanyProfile;
 	}	
@@ -83,12 +84,12 @@ public class SEO01_Home extends Helper{
 	@FindBy(xpath="//div[@id='s2id_autogen51']//span[@class='select2-arrow']")
 	WebElement CompanySetupExistingClient_Selector;	
 	
-	public static final WebElement CompleteProfileExistingClientByKeyword(String keyword){
+	public static final WebElement CompanySetupExistingClientByKeyword(String keyword){
 		WebElement SelectedExistingClient = driver.findElement(By.xpath("//ul[@class='select2-results']/li/div[contains(.,'"+keyword+"')]"));
 		return SelectedExistingClient;
 	}
 	
-	public static final WebElement CompleteProfileExistingClientByIndex(int index){
+	public static final WebElement CompanySetupExistingClientByIndex(int index){
 		WebElement SelectedExistingClient = driver.findElement(By.xpath("//ul[@class='select2-results']/li["+index+"]"));
 		return SelectedExistingClient;
 	}	
@@ -122,6 +123,20 @@ public class SEO01_Home extends Helper{
 	
 	@FindBy(xpath="//button[@data-step-action='finish']")
 	WebElement CompanySetupUFinishSetup_Button;
+	
+	@FindBy(xpath="//p[text()='Congratulations! You have successfully verified your email address.']")
+	WebElement SuccessAccountVerifyMessage_text;
+	
+	@FindBy(xpath="(//div[@class='custom-input-group-addon']/i)[6]")
+	WebElement CompanySetupCompanyWebsite_icon;
+	
+	@FindBy(xpath="//div[@class='selected-flag']")
+	WebElement CompanySetupSelectedFlag_icon;
+	
+	@FindBy(xpath="//h3/p")
+	WebElement CompanySetupVerbiage_text;	
+	
+	
 	
 	public SEO01_Home() {
 		
@@ -163,8 +178,84 @@ public class SEO01_Home extends Helper{
 	    //CodeHere
 	}
 	
+	@Then("^Ill see the SEO01_SuccessAccountVerifyMessage message$")
+	public void i_see_the_SSEO01_SuccessAccountVerifyMessage_message() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, SuccessAccountVerifyMessage_text.isDisplayed());
+	}
+	
+	@Then("^Ill see the SEO01_CompanySetup popup$")
+	public void i_see_the_SEO01_CompanySetup_popup() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, CompanySetupCompleteProfile_Button.isDisplayed());
+	}
+	
+	@Then("^Ill see SEO01_CompanyProfile verbiage$")
+	public void i_see_the_SEO01_CompanyProfile_verbiage() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, CompanySetupVerbiage_text.isDisplayed());
+	}
+	
+	@Then("^Ill see that the SEO01_UploadLogo button is removed$")
+	public void ill_not_see_the_SEO01_UploadLogo_button() throws Throwable, UnhandledAlertException {
+		//Code
+	}
+	
+	@Then("^Ill see the SEO01_CompanyWebsite globe$")
+	public void ill_see_the_SEO01_CompanyWebsite_globe() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, CompanySetupCompanyWebsite_icon.isDisplayed());
+	}
+	
+	@Then("^Ill see that the SEO01_PhoneCountry icon is based on ([^\"]*)$")
+	public void ill_see_the_SEO01_PhoneCountry_icon(String country) throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, CompanySetupSelectedFlag_icon.getAttribute("title").contains(country));
+	}
+	
+	@When("^I click SEO01_CompleteProfile button$")
+	public void i_click_SEO01_CompleteProfile_button() throws Throwable, UnhandledAlertException {
+	    CompanySetupCompleteProfile_Button.click();
+	}
+	
+	@Then("^I populate SEO01_CompanyName textfield with ([^\"]*)$")
+	public void i_populate_SEO01_CompanyName_value(String companyName) throws Throwable, UnhandledAlertException {
+	    //Code
+	}
+	
+	@Then("^I select ([^\"]*) in SEO01_CompanyProfile dropdown$")
+	public void i_select_SEO01_CompleteProfile_dropdown(String companyProfile) throws Throwable, UnhandledAlertException {
+		CompanySetupCompanyProfileByKeyword(companyProfile).click();
+	}
+	
+	@Then("^I select ([^\"]*) in SEO01_ExistingClient dropdown$")
+	public void i_select_SEO01_ExistingClient_dropdown(String existingClient) throws Throwable, UnhandledAlertException {
+		CompanySetupExistingClientByKeyword(existingClient).click();
+	}
+	 
+	@Then("^I populate SEO01_CompanyWebsite textfield with ([^\"]*)$")
+	public void i_populate_SEO01_CompanyWebsite_textfield(String companyWebsite) throws Throwable, UnhandledAlertException {
+		CompanySetupCompanyWebsite_Textfield.sendKeys(companyWebsite);
+	}	
+	
+	@Then("^I populate SEO01_BusinessPhone textfield with ([^\"]*)$")
+	public void i_populate_SEO01_BusinessPhone_textfield(String businessPhone) throws Throwable, UnhandledAlertException {
+		//Code	
+	}		
 
-
-
+	@Then("^I populate SEO01_Address textfield with ([^\"]*) returned by Google$")
+	public void i_populate_SEO01_Address_textfield(String address) throws Throwable, UnhandledAlertException {
+		//Code	
+	}
+	
+	@Then("^Ill see that SEO01_City, SEO01_State, SEO01_ZIPCode and SEO01_Country fields are auto-populated$")
+	public void ill_see_the_autopopulate_fields_in_companysetup() throws Throwable, UnhandledAlertException {
+		//Code	
+	}
+	
+	@Then("^I click SEO01_FinishSetup Button$")
+	public void i_click_finish_setup_button(String address) throws Throwable, UnhandledAlertException {
+		//Code	
+	}
+	
+	@Then("^Ill not see the SEO01_CompanySetup popup$")
+	public void Ill_not_see_SEO01_CompanySetup_popup() throws Throwable, UnhandledAlertException {
+		//Code	
+	}
 
 }

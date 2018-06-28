@@ -123,4 +123,9 @@ public class SEO06_Login extends Helper{
 		SignUp_Link.click();
 	}
 	
+	
+	@Then("^Ill see that Im redirected to SEO06_DashboardHome Page$")
+	public void ill_see_the_dashboard_home_page() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, LoginToYourDashBoard_Button.isDisplayed());
+	}
 }

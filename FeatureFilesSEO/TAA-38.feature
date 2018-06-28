@@ -46,6 +46,32 @@ Feature: [TAA-38] [SEOReseller]: Registration
 		And Ill see the Email_GoToDashboard button
 		And Ill see the Email_RegistrationConfirm link
 		
+		When I click the Email_Redirect <MailRedirect>
+		Then Ill see that Im redirected to SEO06_DashboardHome Page
+		And Ill see the SEO01_SuccessAccountVerifyMessage message
+		
+		When I click the User Avatar
+		And I click the Logout
+		And I enter <Email> in the Email Address Field
+		And I enter <Password> in the Password Field
+		And I click the Log in to your Dashboard button
+		Then Ill see the SEO01_CompanySetup popup
+		And Ill see SEO01_CompanyProfile verbiage
+		And Ill see that the SEO01_UploadLogo button is removed
+		And Ill see the SEO01_CompanyWebsite globe
+		And Ill see that the SEO01_PhoneCountry icon is based on <Country>
+		
+		When I click SEO01_CompleteProfile button
+		And I populate SEO01_CompanyName textfield with <CompanyName>
+		And I select <CompanyProfile> in SEO01_CompanyProfile dropdown
+		And I select <ExistingClients> in SEO01_ExistingClient dropdown
+		And I populate SEO01_CompanyWebsite textfield with <CompanyWebsite>
+		And I populate SEO01_BusinessPhone textfield with <BusinessPhone>
+		And I populate SEO01_Address textfield with <Address> returned by Google
+		And Ill see that SEO01_City, SEO01_State, SEO01_ZIPCode and SEO01_Country fields are auto-populated
+		And I click SEO01_FinishSetup Button
+		Then Ill not see the SEO01_CompanySetup popup	
+		
     Examples: 
       | FirstName  | LastName     | Email                           | Password  | Domain  | MailRedirect               | Country      | CompanyName    | CompanyProfile                  |   ExistingClients    | CompanyWebsites  | BusinessPhone  | Address  |   Subject                             |
       | RND        | Automation   | RNDAutomationTest12@gmail.com   | happy123$ | google  | Go to my dashboard button  | Philippines  | This is a test | I have more than 30 employees   |   Exceeds 20 Clients | www.test.com     | 9171111111     | Makati   |   Please Confirm Your Email Address   |

@@ -223,4 +223,10 @@ public class Email extends Helper{
 		}
 	}
 	
+	
+	@When("^I click the Email_Redirect ([^\"]*)$")
+	public void i_click_the_email_redirect_value(String redirect) throws Throwable, UnhandledAlertException {
+		// Code
+	}
+	
 }
