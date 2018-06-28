@@ -84,7 +84,7 @@ Feature: [TAA-38] [SEOReseller]: Registration
   #Then I see the Dashboard
   
   @SRSSMOKETEST @Registration @Registration_TS03 @TAA-104
-  Scenario Outline: TAA-1044
+  Scenario Outline: TAA-104
     Given Im a new Partner
 		And I check if <Email> should not exist as pre condition 
 		When I navigate to "SEOSTG_Login"
