@@ -86,30 +86,32 @@ Feature: [TAA-38] [SEOReseller]: Registration
   @SRSSMOKETEST @Registration @Registration_TS03 @TAA-104
   Scenario Outline: TAA-104
     Given Im a new Partner
+		And I check if <Email> should not exist as pre condition 
+		When I navigate to "SEOSTG_Login"
     When I navigate to the SRS Dashboard
     Then I see the SEO01_SeoReseller banner
     
-    When I click the SEO01_SignUp link
+    When I click SEO06_SignUp link
     Then I see the SEO10_SignUp page
     And I see "2 minute setup to get started with SEOReseller right away. Grow your agency by outsourcing your SEO, Web Design, Social Media, Link Building and more!"
     
-    #We'll wait for Lorraine Gherkins and StepDef
-    #=============================================================
-    #When I populate the SEO10_FirstName textfield with <FirstName>
-    #And I populate the SEO10_LastName textfield with <LastName>
-    #And I populate the SEO10_Email textfield with <Email>
-    #And I populate the SEO10_Password textfield with <Password>
-    #And I click SEO10_CREATEACCOUNT button
-    #Then I be redirected to Welcome page
-    #And I see the message "Welcome! Congratulations, You are just one step away to access all features of your free account. Please verify your account by clicking on the confirmation link sent to your email."
+    When I populate the SEO10_FirstName textfield with <FirstName>
+    And I populate the SEO10_LastName textfield with <LastName>
+    And I populate the SEO10_Email textfield with <Email>
+    And I populate the SEO10_Password textfield with <Password>
+    And I click SEO10_CREATEACCOUNT button
+    Then I be redirected to Welcome page
+    And I see the message "Welcome! Congratulations, You are just one step away to access all features of your free account. Please verify your account by clicking on the confirmation link sent to your email."
     
-    #We'll wait for Lorraine Gherkins and StepDef
-    #=============================================================
-  	#When I click the SEO011_GoToMailbox button
-  	#And I login using my <Email> and <Password> for my <Domain> Mailbox
-    #Then I see the Verification Email
-    #And I see that all text left-aligned; Logo and CTA center-aligned
-    #And I see the "Thank you for registering at seoreseller.com There's just one more step to get you started" message was displayed
+    When I click the SEO011_GoToMailbox button
+		And I login using my <Email> and <Password> for my <Domain> Mailbox
+		And Ill see the email with Subject <Subject> for my <Domain> Mailbox
+		
+		When I select email with Subject <Subject> for my <Domain> Mailbox
+		Then Ill see the Email_SeoReseller logo
+		And Ill see the Email_ThankYouForRegistering message
+		And Ill see the Email_GoToDashboard button
+		And Ill see the Email_RegistrationConfirm link
     
     When I navigate back to SRS Welcome page
     And I click the SEO11_resend link
