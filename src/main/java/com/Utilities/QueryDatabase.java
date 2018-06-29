@@ -48,6 +48,8 @@ public class QueryDatabase {
 			
 			  	}
 			  prepStatement.close();
+			  connection.close();
+
 			
 		} else {
 			System.out.println("Failed to make connection!");
@@ -61,6 +63,8 @@ public class QueryDatabase {
 		
 		statement = connection.createStatement();
 		statement.executeUpdate(Query);
+		statement.close();
+		connection.close();
 		
 	}
 }

@@ -183,7 +183,8 @@ public class Email extends Helper{
 	
 	@Then("^Ill see the Email_SeoReseller logo$")
 	public void ill_see_email_seoreseller_logo () throws Throwable, UnhandledAlertException {
-		SeoReseller_image.click();
+		 Thread.sleep(5000);
+	     Assert.assertEquals(true, SeoReseller_image.isDisplayed());
 
 	}
 	
@@ -195,13 +196,13 @@ public class Email extends Helper{
 	
 	@Then("^Ill see the Email_GoToDashboard button$")
 	public void ill_see_email_goto_dashboard_button() throws Throwable, UnhandledAlertException {
-		GoToDashBoard_button.click();
-
+	     Assert.assertEquals(true, GoToDashBoard_button.isDisplayed());
 	}
 
 	@Then("^Ill see the Email_RegistrationConfirm link$")
 	public void ill_see_email_registration_link() throws Throwable, UnhandledAlertException {
-		RegistratrionConfirm_link.click();
+	     Assert.assertEquals(true, RegistratrionConfirm_link.isDisplayed());
+
 	}
 
 	@When("^I select email with Subject ([^\"]*) for my ([^\"]*) Mailbox$")
@@ -227,7 +228,10 @@ public class Email extends Helper{
 	@When("^I click the Email_Redirect ([^\"]*)$")
 	public void i_click_the_email_redirect_value(String redirect) throws Throwable, UnhandledAlertException {
 		if(redirect.equals("Go to my dashboard button")){
+			System.out.println("Mail Redirect is " +redirect);
 			GoToDashBoard_button.click();
+			Thread.sleep(5000);
+			ReUsablesKeyword.switchWindowTab(2);
 		}else{
 			RegistratrionConfirm_link.click();
 		}

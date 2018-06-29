@@ -57,24 +57,24 @@ Feature: [TAA-38] [SEOReseller]: Registration
 		And I click the Log in to your Dashboard button
 		Then Ill see the SEO01_CompanySetup popup
 		And Ill see SEO01_CompanyProfile verbiage
-		And Ill see that the SEO01_UploadLogo button is removed
-		And Ill see the SEO01_CompanyWebsite globe
 		And Ill see that the SEO01_PhoneCountry icon is based on <Country>
 		
 		When I click SEO01_CompleteProfile button
+		And Ill see that the SEO01_UploadLogo button is removed
+		And Ill see the SEO01_CompanyWebsite globe
 		And I populate SEO01_CompanyName textfield with <CompanyName>
 		And I select <CompanyProfile> in SEO01_CompanyProfile dropdown
 		And I select <ExistingClients> in SEO01_ExistingClient dropdown
 		And I populate SEO01_CompanyWebsite textfield with <CompanyWebsite>
 		And I populate SEO01_BusinessPhone textfield with <BusinessPhone>
 		And I populate SEO01_Address textfield with <Address> returned by Google
-		And Ill see that SEO01_City, SEO01_State, SEO01_ZIPCode and SEO01_Country fields are auto-populated
+		And Ill see that SEO01_State and SEO01_Country fields are auto-populated
 		And I click SEO01_FinishSetup Button
 		Then Ill not see the SEO01_CompanySetup popup	
 		
     Examples: 
-      | FirstName  | LastName     | Email                           | Password  | Domain  | MailRedirect               | Country      | CompanyName    | CompanyProfile                  |   ExistingClients    | CompanyWebsites  | BusinessPhone  | Address  |   Subject                             |
-      | RND        | Automation   | RNDAutomationTest12@gmail.com   | happy123$ | google  | Go to my dashboard button  | Philippines  | This is a test | I have more than 30 employees   |   Exceeds 20 Clients | www.test.com     | 9171111111     | Makati   |   Please Confirm Your Email Address   |
+      | FirstName  | LastName     | Email                           | Password  | Domain  | MailRedirect               | Country      | CompanyName    | CompanyProfile                  |   ExistingClients    | CompanyWebsite   | BusinessPhone  | Address  |   Subject                             |
+      | RND        | Automation   | RNDAutomationTest12@gmail.com   | happy123$ | google  | Go to my dashboard button  | Philippines  | This is a test | I have more than 30 employees   |   Exceeds 20 clients | www.test.com     | 9171111111     | Makati   |   Please Confirm Your Email Address   |
 
   #Covered Ticket : SRS-2544,SRS-2690,SRS-3160,SRS-2545,SRS-2546,SRS-4157
   #Scenario Description:

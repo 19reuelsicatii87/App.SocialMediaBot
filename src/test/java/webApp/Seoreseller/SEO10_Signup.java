@@ -10,7 +10,7 @@ import cucumber.Framework.Helper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SEO010_Signup extends Helper{
+public class SEO10_Signup extends Helper{
 	
 	@FindBy(xpath="//div[@id='signup-box-title-container']/h3/strong[text()='Create Your Account']")
 	WebElement CreateYourAccount_Text;
@@ -54,7 +54,7 @@ public class SEO010_Signup extends Helper{
 	
 	
 	
-	public SEO010_Signup() {
+	public SEO10_Signup() {
 		PageFactory.initElements(driver, this);
 		
 	}
