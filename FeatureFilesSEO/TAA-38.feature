@@ -143,7 +143,7 @@ Feature: [TAA-38] [SEOReseller]: Registration
   #And I resend the verification link
   #Then I see the Dashboard
   
-  @SRSSMOKETEST @Registrations @Registration_TS03 @TAA-104
+  @Registrations @Registration_TS03 @TAA-104
   Scenario Outline: TAA-104
     Given Im a new Partner
 		And I check if <Email> should not exist as pre condition 
