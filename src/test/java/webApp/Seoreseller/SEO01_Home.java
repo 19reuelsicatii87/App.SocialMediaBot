@@ -199,7 +199,7 @@ public class SEO01_Home extends Helper{
 		if(isPresent==true){
 			Assert.assertEquals(true, isPresent);
 		}else{
-			fail("Upload Logo was displayed Lorraine Lorraine");
+			fail("Upload Logo was displayed");
 		}
 	}
 	
@@ -210,7 +210,6 @@ public class SEO01_Home extends Helper{
 	
 	@Then("^Ill see that the SEO01_PhoneCountry icon is based on ([^\"]*)$")
 	public void ill_see_the_SEO01_PhoneCountry_icon(String country) throws Throwable, UnhandledAlertException {
-		CompanySetupSelectedFlag_icon.getAttribute("title");
 		Assert.assertEquals(true, CompanySetupSelectedFlag_icon.getAttribute("title").contains(country));
 	}
 	
