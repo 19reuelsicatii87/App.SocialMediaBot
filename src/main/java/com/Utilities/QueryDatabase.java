@@ -48,14 +48,14 @@ public class QueryDatabase {
 			
 			  	}
 			  prepStatement.close();
+			  connection.close();
+
 			
 		} else {
 			System.out.println("Failed to make connection!");
 		}
 		
-		System.out.println("finalResult " + finalResult);
 		return finalResult;
-		
 	}
 	
 	public static void DeleteSpecificData (String Query) throws SQLException{
@@ -63,6 +63,8 @@ public class QueryDatabase {
 		
 		statement = connection.createStatement();
 		statement.executeUpdate(Query);
+		statement.close();
+		connection.close();
 		
 	}
 }
