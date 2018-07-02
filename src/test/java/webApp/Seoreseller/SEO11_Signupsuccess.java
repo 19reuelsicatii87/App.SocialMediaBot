@@ -68,11 +68,15 @@ public class SEO11_Signupsuccess extends Helper{
 	    //CodeHere
 	}
 	
-	@When("^I click the SEO011_GoToMailbox button$")
-	public void i_click_go_to_mail_button() throws Throwable, UnhandledAlertException {
-		GoToMailbox_button.click();
-		Thread.sleep(3000);
-	    ReUsablesKeyword.switchWindowTab(1);
-	    Thread.sleep(3000);
+	@When("^I click the SEO011_GoToMailbox button for my ([^\"]*) Account$")
+	public void i_click_go_to_mail_button(String domain) throws Throwable, UnhandledAlertException {
+		if(domain.equals("google")){
+			GoToMailbox_button.click();
+			Thread.sleep(3000);
+			ReUsablesKeyword.switchWindowTab(1);
+			Thread.sleep(3000);
+		}else if(domain.equals("zoho")){
+			driver.get("https://accounts.zoho.com/signin?servicename=VirtualOffice&signupurl=https://workplace.zoho.com/orgsignup.do");
+		}
 	}
 }

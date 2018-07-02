@@ -511,10 +511,17 @@ public class ReUsablesKeywords extends Helper {
 		 driver.switchTo().window(winHandleBefore);
 	 }
 	 
-	 public void switchWindowTab(int tabNumber) throws InterruptedException
-	 {
+	 public void switchWindowTab(int tabNumber) throws InterruptedException {
 		 ArrayList<String> tab = new ArrayList<String> (driver.getWindowHandles());
 		 driver.switchTo().window(tab.get(tabNumber));
+		 Thread.sleep(3000);
+	 }
+	 
+	 public void switchToLatestTab() throws InterruptedException {
+		 ArrayList<String> tab = new ArrayList<String> (driver.getWindowHandles());
+		 int tabSize = tab.size();
+		 int switchTo = tabSize - 1;
+		 driver.switchTo().window(tab.get(switchTo));
 		 Thread.sleep(3000);
 	 }
 }

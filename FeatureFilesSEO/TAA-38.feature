@@ -12,7 +12,7 @@ Feature: [TAA-38] [SEOReseller]: Registration
   #And Finish the Company Profile Set up
   #Then I'll see the Home Page of the Dashboard
   @SRSSMOKETEST @Registration @Registration_TS01 @TAA-88
-  Scenario Outline: TAA-40
+  Scenario Outline: TAA-88
 		Given Im a new Partner
 		And I check if <Email> should not exist as pre condition 
 		When I navigate to "SEOSTG_Login"
@@ -36,7 +36,7 @@ Feature: [TAA-38] [SEOReseller]: Registration
 		And I populate the SEO010_Password textfield with <Password>
 		And I click SEO010_CreateAccount button
 		
-		When I click the SEO011_GoToMailbox button
+		When I click the SEO011_GoToMailbox button for my <Domain> Account
 		And I login using my <Email> and <Password> for my <Domain> Mailbox
 		And Ill see the email with Subject <Subject> for my <Domain> Mailbox
 		
@@ -73,8 +73,11 @@ Feature: [TAA-38] [SEOReseller]: Registration
 		Then Ill not see the SEO01_CompanySetup popup	
 		
     Examples: 
-      | FirstName  | LastName     | Email                           | Password  | Domain  | MailRedirect               | Country      | CompanyName    | CompanyProfile                  |   ExistingClients    | CompanyWebsite   | BusinessPhone  | Address  |   Subject                             |
-      | RND        | Automation   | RNDAutomationTest12@gmail.com   | happy123$ | google  | Go to my dashboard button  | Philippines  | This is a test | I have more than 30 employees   |   Exceeds 20 clients | www.test.com     | 9171111111     | Makati   |   Please Confirm Your Email Address   |
+      | FirstName  | LastName     | Email                          | Password  | Domain   | MailRedirect                 | Country      | CompanyName    | CompanyProfile                  |   ExistingClients    | CompanyWebsite   | BusinessPhone  | Address  |   Subject                           |
+      | RND        | Automation   | RNDAutomationTest12@gmail.com  | happy123$ | google   | Go to my dashboard button    | Philippines  | This is a test | I have more than 30 employees   |   Exceeds 20 clients | www.test.com     | 9171111111     | Makati   |   Please Confirm Your Email Address |
+      | RND        | Automation   | RNDAutomationTest12@gmail.com  | happy123$ | google   | Dashboard Confirmation Link  | Philippines  | This is a test | I have more than 30 employees   |   Exceeds 20 clients | www.test.com     | 9171111111     | Makati   |   Please Confirm Your Email Address |
+      | RND        | Automation   | RNDAutomationTest12@zoho.com   | happy123$ | zoho     | Go to my dashboard button    | Philippines  | This is a test | I have more than 30 employees   |   Exceeds 20 clients | www.test.com     | 9171111111     | Makati   |   Please Confirm Your Email Address |
+      | RND        | Automation   | RNDAutomationTest12@zoho.com   | happy123$ | zoho     | Dashboard Confirmation Link  | Philippines  | This is a test | I have more than 30 employees   |   Exceeds 20 clients | www.test.com     | 9171111111     | Makati   |   Please Confirm Your Email Address |
 
   #Covered Ticket : SRS-2544,SRS-2690,SRS-3160,SRS-2545,SRS-2546,SRS-4157
   #Scenario Description:
