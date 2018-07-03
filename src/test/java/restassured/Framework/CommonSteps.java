@@ -21,6 +21,12 @@ public class CommonSteps extends APIHelper{
 
 	}
 	
+	@Given("^Im a new Partner$")
+	public void im_a_new_Partner() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+
+	}
+	
 	@When("^I draft RequestSpecBuilder$")
 	public void i_draft_RequestSpecBuilder() throws Throwable {
 	

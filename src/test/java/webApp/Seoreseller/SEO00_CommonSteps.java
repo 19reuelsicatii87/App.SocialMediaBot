@@ -6,12 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.Utilities.QueryDatabase;
+
 import cucumber.Framework.Helper;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SEO07_CommonSteps extends Helper{
+public class SEO00_CommonSteps extends Helper{
 	@FindBy(xpath="//nav[@id='main-menu']//li/a[text()='Home']")
 	WebElement SrsHome_Link;
 	
@@ -36,13 +38,18 @@ public class SEO07_CommonSteps extends Helper{
 	@FindBy(xpath="//div[@class='ii gt']//div/a[contains(text(),'account')]")
 	WebElement ResetYourPassword_Link;
 	
-	public SEO07_CommonSteps() {
+	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
 		
 	}
 	
 	@Given("^Im an existing Partner$")
 	public void im_an_existing_Partner() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	}
+	
+	@Given("^Im a new Partner$")
+	public void im_a_new_Partner() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	}
 	
@@ -93,5 +100,22 @@ public class SEO07_CommonSteps extends Helper{
 	@Then("^Ill see the \'Hello,This message is to confirm that you changed your password.\' Message")
 	public void ill_see_the_confirm_password_change_message() throws Throwable, UnhandledAlertException {
 			Assert.assertEquals(true, ConfirmPasswordIsChange_Text.isDisplayed());
+	}
+	
+	@Then("^I check if ([^\"]*) should not exist as pre condition$")
+	public void ii_check_email_value_not_existing(String email) throws Throwable, UnhandledAlertException {
+		String idNumber = QueryDatabase.ReturnSpecificData("SELECT * FROM tbl_user WHERE email='"+email+"'", "id");
+		try{
+			if(idNumber.equals(null)){
+				
+			}else{
+				QueryDatabase.DeleteSpecificData("DELETE FROM tbl_user WHERE id="+idNumber+" AND site_id=1");
+				QueryDatabase.DeleteSpecificData("DELETE FROM tbl_userinfo WHERE use_id="+idNumber+"");
+				System.out.println("DATABASE : "+email +" with ID " + idNumber +" is now removed");
+			}
+			
+		}catch(Exception e){
+			System.out.println("DATABASE : Email is available and not yet registered");
+		}			
 	}
 }

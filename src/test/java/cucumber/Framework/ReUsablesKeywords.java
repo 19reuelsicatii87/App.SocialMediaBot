@@ -4,31 +4,24 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
-import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.IOException;
-import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 
 import com.github.genium_framework.appium.support.server.AppiumServer;
 import com.github.genium_framework.server.ServerArguments;
@@ -518,4 +511,17 @@ public class ReUsablesKeywords extends Helper {
 		 driver.switchTo().window(winHandleBefore);
 	 }
 	 
+	 public void switchWindowTab(int tabNumber) throws InterruptedException {
+		 ArrayList<String> tab = new ArrayList<String> (driver.getWindowHandles());
+		 driver.switchTo().window(tab.get(tabNumber));
+		 Thread.sleep(3000);
+	 }
+	 
+	 public void switchToLatestTab() throws InterruptedException {
+		 ArrayList<String> tab = new ArrayList<String> (driver.getWindowHandles());
+		 int tabSize = tab.size();
+		 int switchTo = tabSize - 1;
+		 driver.switchTo().window(tab.get(switchTo));
+		 Thread.sleep(3000);
+	 }
 }
