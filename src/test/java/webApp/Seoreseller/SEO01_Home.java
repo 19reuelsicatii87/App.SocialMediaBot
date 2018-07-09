@@ -141,7 +141,8 @@ public class SEO01_Home extends Helper{
 	@FindBy(xpath="//h3/p")
 	WebElement CompanySetupVerbiage_text;	
 	
-	
+	@FindBy(xpath="//a[text()='Email Settings']")
+	WebElement EmailSettings_link;
 	
 	public SEO01_Home() {
 		
@@ -274,5 +275,11 @@ public class SEO01_Home extends Helper{
 	@Then("^Ill see that Im redirected to SEO06_DashboardHome Page$")
 	public void ill_see_the_dashboard_home_page() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, UserAvatar_image.isDisplayed());
+	}
+	
+	@Then("^I click the SEO01_EmailSettings$")
+	public void i_click_the_SEO01_EmailSettings_link() throws Throwable, UnhandledAlertException {
+		Thread.sleep(3000);
+		EmailSettings_link.click();
 	}
 }
