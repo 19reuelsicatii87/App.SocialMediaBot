@@ -59,6 +59,24 @@ public class Email extends Helper{
 	@FindBy(xpath="//a[contains(.,'account.seoreseller')]")
 	WebElement RegistratrionConfirm_link;
 	
+	@FindBy(xpath="(//input[@class='unauthinputText'])[1]")
+	WebElement ZohoEmail_textfield;
+
+	@FindBy(xpath="(//input[@class='unauthinputText'])[2]")
+	WebElement ZohoPassword_textfield;
+	
+	@FindBy(xpath="//div[text()='Sign In']")
+	WebElement ZohoSignIn_button;
+	
+	@FindBy(xpath="//span[@title='Notification']")
+	WebElement ZohoNotfication_button;
+	
+	@FindBy(xpath="//span[text()='Inbox']")
+	WebElement ZohoInbox_button;
+	
+	@FindBy(xpath="//a[text()='Display now']")
+	WebElement ZohoDisplayNow_link;
+	
 	public Email() {
 		PageFactory.initElements(driver, this);
 		
@@ -159,6 +177,11 @@ public class Email extends Helper{
 				WD.until(ExpectedConditions.elementToBeClickable(GooglePassword_TextField));
 				GooglePassword_TextField.sendKeys(password);
 				GoogleNext_Button.click();
+			}else if(domain.equals("zoho")){
+				Thread.sleep(3000);
+				ZohoEmail_textfield.sendKeys(email);
+				ZohoPassword_textfield.sendKeys(password);
+				ZohoSignIn_button.click();
 			}
 	}
 	
@@ -170,7 +193,7 @@ public class Email extends Helper{
 					Google_Hyperlink.click();
 					Thread.sleep(10000);
 					if(SearchEmail(subject).isDisplayed()){
-						SearchEmail(subject).click();
+						Assert.assertEquals(true, SearchEmail(subject).isDisplayed());
 						break loop;
 					}else{
 						if(i==2){
@@ -178,12 +201,29 @@ public class Email extends Helper{
 						}
 					}
 				}
+		}else if(domain.equals("zoho")){
+			loop:
+				for(int i=0;i<3; i++){
+					WD.until(ExpectedConditions.elementToBeClickable(ZohoNotfication_button));
+					Thread.sleep(5000);
+					ZohoNotfication_button.click();
+					if(SearchEmail(subject).isDisplayed()){
+						Assert.assertEquals(true, SearchEmail(subject).isDisplayed());
+						break loop;
+					}else{
+						if(i==2){
+							fail("Expected to receive the email with subject: "+subject );
+						}
+					}
+					ZohoInbox_button.click();
+				}
 		}
 	}
 	
 	@Then("^Ill see the Email_SeoReseller logo$")
 	public void ill_see_email_seoreseller_logo () throws Throwable, UnhandledAlertException {
-		SeoReseller_image.click();
+		 Thread.sleep(5000);
+	     Assert.assertEquals(true, SeoReseller_image.isDisplayed());
 
 	}
 	
@@ -195,13 +235,13 @@ public class Email extends Helper{
 	
 	@Then("^Ill see the Email_GoToDashboard button$")
 	public void ill_see_email_goto_dashboard_button() throws Throwable, UnhandledAlertException {
-		GoToDashBoard_button.click();
-
+	     Assert.assertEquals(true, GoToDashBoard_button.isDisplayed());
 	}
 
 	@Then("^Ill see the Email_RegistrationConfirm link$")
 	public void ill_see_email_registration_link() throws Throwable, UnhandledAlertException {
-		RegistratrionConfirm_link.click();
+	     Assert.assertEquals(true, RegistratrionConfirm_link.isDisplayed());
+
 	}
 
 	@When("^I select email with Subject ([^\"]*) for my ([^\"]*) Mailbox$")
@@ -220,6 +260,24 @@ public class Email extends Helper{
 						}
 					}
 				}
+		}else if(domain.equals("zoho")){
+			loop:
+				for(int i=0;i<3; i++){
+					WD.until(ExpectedConditions.elementToBeClickable(ZohoNotfication_button));
+					ZohoNotfication_button.click();
+					Thread.sleep(10000);
+					if(SearchEmail(subject).isDisplayed()){
+						SearchEmail(subject).click();
+						Thread.sleep(2000);
+						ZohoDisplayNow_link.click();
+						break loop;
+					}else{
+						if(i==2){
+							fail("Expected to receive the email with subject: "+subject );
+						}
+					}
+					ZohoInbox_button.click();
+				}
 		}
 	}
 	
@@ -227,10 +285,14 @@ public class Email extends Helper{
 	@When("^I click the Email_Redirect ([^\"]*)$")
 	public void i_click_the_email_redirect_value(String redirect) throws Throwable, UnhandledAlertException {
 		if(redirect.equals("Go to my dashboard button")){
+			System.out.println("Mail Redirect is " +redirect);
 			GoToDashBoard_button.click();
+			Thread.sleep(5000);
+			ReUsablesKeyword.switchToLatestTab();
 		}else{
 			RegistratrionConfirm_link.click();
+			Thread.sleep(5000);
+			ReUsablesKeyword.switchToLatestTab();
 		}
 	}
-	
 }

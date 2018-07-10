@@ -141,4 +141,10 @@ public class SEO10_Signup extends Helper{
         
 	}
 	
+	@When("^I click the SEO010_SignInWithGoogle button$")
+	public void i_click_the_signin_with_google_message() throws Throwable, UnhandledAlertException {
+	    SignInWithGoogle_Button.click();
+	    Thread.sleep(3000);
+	}
+	
 }
