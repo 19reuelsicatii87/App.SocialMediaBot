@@ -41,3 +41,43 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP
       | TAA159imap@gmail.com  | happy123$   | TAA159@live.com    | 
       | TAA159imap@gmail.com  | happy123$   | TAA159@msn.com     | 
       | TAA159imap@gmail.com  | happy123$   | TAA159@outlook.com | 
+    
+  #Covered Ticket : SRS-3468
+	#Scenario Description:
+  #Given I am an existing Partner
+  #And I have not yet setup my Email Settings Wizard
+  #And I have a Yahoo/Microsoft Account
+  #When I click an email trigger in the Dashboard 
+  #Then I'll see the 'Oops. We currently don't support Yahoo and Microsot emails. 'Message
+  @SRSSMOKETEST @SafeEmail @SafeEmail_TS02 @TAA-163
+  Scenario Outline: TAA-163
+    Given Im an existing Partner
+		When I navigate to "SEOSTG_Login"
+		And I enter <Email> in the Email Address Field
+		And I enter <Password> in the Password Field
+		And I click the Log in to your Dashboard button
+		Then Ill see the Dashboard Page
+		
+		When I redirect to <DashBoardPage>
+		And I click the  Email Trigger of <SendEmailTrigger>
+		Then Ill see the Email Setup Wizard Modal
+		
+		When I enter <SafeEmail> in the SEO12_EmailAddress textfield
+		And I click SEO12_Next button
+		Then Ill see the "We currently dont support Yahoo and Microsoft emails." Message
+		And Ill see the SEO12_Retry button	
+		
+    Examples: 
+    | Email  								| Password    | SafeEmail          | DashBoardPage       |  SendEmailTrigger   |
+    | TAA163imap@gmail.com  | happy123$   | TAA163@yahoo.com   | Web Audit Page      |  Web Audit          |
+    | TAA163imap@gmail.com  | happy123$   | TAA163@yahoo.com   | Proposal Page       |  Proposal           |  
+    | TAA163imap@gmail.com  | happy123$   | TAA163@yahoo.com   | Lead Generator Page |  Lead Gen           |  
+    | TAA163imap@gmail.com  | happy123$   | TAA163@yahoo.com   | Lead Generator Page |  Lead Gen Sequence  |
+    | TAA163imap@gmail.com  | happy123$   | TAA163@yahoo.com   | CRM Page            |  CRM                |
+    | TAA163imap@gmail.com  | happy123$   | TAA163@yahoo.com   | CRM Page            |  CRM Sequence       |  
+    | TAA163imap@gmail.com  | happy123$   | TAA163@msn.com     | Web Audit Page      |  Web Audit          |
+    | TAA163imap@gmail.com  | happy123$   | TAA163@msn.com     | Proposal Page       |  Proposal           |  
+    | TAA163imap@gmail.com  | happy123$   | TAA163@msn.com     | Lead Generator Page |  Lead Gen           |  
+    | TAA163imap@gmail.com  | happy123$   | TAA163@msn.com     | Lead Generator Page |  Lead Gen Sequence  |
+    | TAA163imap@gmail.com  | happy123$   | TAA163@msn.com     | CRM Page            |  CRM                |
+    | TAA163imap@gmail.com  | happy123$   | TAA163@msn.com     | CRM Page            |  CRM Sequence       | 
