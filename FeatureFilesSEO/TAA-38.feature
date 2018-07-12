@@ -157,9 +157,9 @@ Feature: [TAA-38] [SEOReseller]: Registration
     When I navigate back to "SEOSTG_Welcome"
     Then Ill be redirected to Welcome page
     And I click the SEO11_resend link
-    And I click the SEO011_GoToMailbox button for my <Domain> Account
-    And Ill see the email with Subject <Subject> for my <Domain> Mailbox
-    And I select email with Subject <Subject> for my <Domain> Mailbox
+    When I click the SEO011_GoToMailbox button for my <Domain> Account
+    Then Ill see the email with Subject <Subject> for my <Domain> Mailbox
+    When I select email with Subject <Subject> for my <Domain> Mailbox
     Then Ill see the Email_SeoReseller logo
     And Ill see the Email_ThankYouForRegistering message
     And Ill see the Email_GoToDashboard button
