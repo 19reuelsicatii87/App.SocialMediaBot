@@ -524,4 +524,10 @@ public class ReUsablesKeywords extends Helper {
 		 driver.switchTo().window(tab.get(switchTo));
 		 Thread.sleep(3000);
 	 }
+	 
+	 public void elementMouseHover(WebElement element) throws InterruptedException {
+		 Actions builder = new Actions(driver);
+		 builder.moveToElement(element).perform();
+		 Thread.sleep(3000);
+	 }
 }

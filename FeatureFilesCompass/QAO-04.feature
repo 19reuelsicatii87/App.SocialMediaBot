@@ -85,7 +85,7 @@ Feature: [QAO-04] Compass Smoke Test Suite v0.1
     And I click COM02_Campaigns tab
     And I click "www.seleniumhq.org/projects/" link
     And I click COM06_Products tab
-    And I click the <Product> link
+    And I click the COM07_<Product> link
     And I click the COM07_Edit button
     And I select "Active" over COM07_ProductStatus dropdown
     And I click COM07_Save button

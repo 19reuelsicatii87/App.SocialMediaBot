@@ -105,7 +105,7 @@ public class COM07_ClientsBucket118839ProjectProduct extends Helper{
         
 	}
 	
-	@When("^I click the ([^\"]*) link$")
+	@When("^I click the COM07_([^\"]*) link$")
 	public void i_click_the_Product_link_variable(String arg1) throws Throwable {
 		driver.findElement(By.xpath(".//a[text()='" + arg1 + "']")).click();
 	}
