@@ -300,6 +300,7 @@ public class SEO01_Home extends Helper{
 	
 	@When("^I redirect to SEO1_([^\"]*)$")
 	public void i_redirect_to_value_page(String page) throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(WebAuditIcon_link));
 		if(page.equals("Web Audit Page")){
 			WebAuditIcon_link.click();
 			Thread.sleep(3000);
