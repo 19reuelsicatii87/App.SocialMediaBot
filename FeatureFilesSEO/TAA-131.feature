@@ -58,7 +58,7 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP
 		And I click the Log in to your Dashboard button
 		Then Ill see the Dashboard Page
 		
-		When I redirect to <DashBoardPage>
+		When I redirect to SEO1_<DashBoardPage>
 		And I click the  Email Trigger of <SendEmailTrigger>
 		Then Ill see the Email Setup Wizard Modal
 		
