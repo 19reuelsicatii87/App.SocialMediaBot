@@ -153,10 +153,10 @@ public class SEO01_Home extends Helper{
 	@FindBy(xpath="//span[@class='menu-icon proposal-icon']")
 	WebElement ProposalIcon_link;
 
-	@FindBy(xpath="//span[@class='menu-icon mockup-creator-icon]")
+	@FindBy(xpath="//span[@class='menu-icon mockup-creator-icon']")
 	WebElement MockUpCreatorIcon_link;
 	
-	@FindBy(xpath="//span[@class='menu-icon affiliates-icon]")
+	@FindBy(xpath="//span[@class='menu-icon affiliates-icon']")
 	WebElement LeadGeneratorIcon_link;
 	
 	public SEO01_Home() {
