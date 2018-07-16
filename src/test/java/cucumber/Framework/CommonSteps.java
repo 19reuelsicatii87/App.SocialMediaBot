@@ -19,7 +19,7 @@ public class CommonSteps extends Helper {
 	
 	
 	@When("^I navigate to \"([^\"]*)\"$")
-	public void user_Navigate_to_the_URL_variable(String arg1) throws Throwable {
+	public void i_navigate_to_URL_variable(String arg1) throws Throwable {
 		
 			
 		switch (arg1)
@@ -89,6 +89,31 @@ public class CommonSteps extends Helper {
 				Url=GetPropertValue("Data/TestProperties.xml","PaypercontentDEVURL_Home");
 				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
 	        break;
+	        
+			default: 
+				Url=arg1;
+				System.out.println("Please enter valid URL name");
+				log.warn("Please enter valid URL name");		        
+			break;
+		
+		}
+		
+		Thread.sleep(5000);
+		driver.get(Url);
+	  
+	}
+	
+	@When("^I navigate back to \"([^\"]*)\"$")
+	public void i_navigate_back_to_URL_variable(String arg1) throws Throwable {
+		
+			
+		switch (arg1)
+		{
+		        
+			case "SEOSTG_Welcome": 
+				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerSTGURL_Welcome");
+				log.info("User Navigate to the SeoresellerSTGURL_Welcome "+ arg1.toUpperCase());
+	        break;
 			
 			default: 
 				Url=arg1;
@@ -103,79 +128,6 @@ public class CommonSteps extends Helper {
 	  
 	}
 	
-	@When("^I navigate to ([^\"]*)$")
-	public void user_Navigate_to_the_URL_value(String arg1) throws Throwable {
-		
-			
-		switch (arg1)
-		{
-		
-			case "INTROVIO": 
-				Url=GetPropertValue("Data/TestProperties.xml","IntrovioDEVURL");
-				log.info("User Navigate to the IntrovioDEVURL "+ arg1.toUpperCase());			 
-	        break;
-			
-			case "COMDEV_Login": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Login");
-				log.info("User Navigate to the CompassDEVURL_Login "+ arg1.toUpperCase());
-			break;
-			
-			case "COMDEV_Logout": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Logout");
-				log.info("User Navigate to the CompassDEVURL_Login "+ arg1.toUpperCase());
-			break;
-			
-			case "COMDEV_Client": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Client");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-			
-			case "COMDEV_Deployment": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Deployment");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "COMDEV_Queue": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Queue");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "COMDEV_Invoices": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Invoices");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "COMDEV_Task": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Task");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "SEODEV_Store": 
-				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerDEVURL_Store");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "PPCDEV_Login": 
-				Url=GetPropertValue("Data/TestProperties.xml","PaypercontentDEVURL_Login");
-				log.info("User Navigate to the CompassDEVURL_Login "+ arg1.toUpperCase());
-			break;
-			
-			case "PPCDEV_Home": 
-				Url=GetPropertValue("Data/TestProperties.xml","PaypercontentDEVURL_Home");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-			
-			default: 
-				Url=arg1;
-				System.out.println("Please enter valid URL name");
-				log.warn("Please enter valid URL name");		        
-			break;
-		
-		}
-		
-		driver.get(Url);
-	  
-	}
 	
 	@When("^User click the \"([^\"]*)\"$")
 	public void user_click_the_Object(String arg1) throws Throwable {

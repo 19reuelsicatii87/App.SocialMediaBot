@@ -44,6 +44,11 @@ public class Email extends Helper{
 		return EmailSubject;
 	}
 	
+	public static final WebElement SearchEmailAge(String keyword){
+		WebElement SearchEmailAge = driver.findElement(By.xpath("//span[contains(.,'"+keyword+"')]"));
+		return SearchEmailAge;
+	}
+	
 	@FindBy(xpath="//a[text()='GO TO MY DASHBOARD']")
 	WebElement GoToDashBoard_button;	
 
@@ -193,7 +198,7 @@ public class Email extends Helper{
 					Google_Hyperlink.click();
 					Thread.sleep(10000);
 					if(SearchEmail(subject).isDisplayed()){
-						Assert.assertEquals(true, SearchEmail(subject).isDisplayed());
+						Assert.assertEquals(true, SearchEmail(subject).isDisplayed());	
 						break loop;
 					}else{
 						if(i==2){
@@ -253,6 +258,8 @@ public class Email extends Helper{
 					Thread.sleep(10000);
 					if(SearchEmail(subject).isDisplayed()){
 						SearchEmail(subject).click();
+						Thread.sleep(10000);
+						Assert.assertEquals(true, SearchEmailAge("minute").isDisplayed());
 						break loop;
 					}else{
 						if(i==2){

@@ -5,6 +5,7 @@ import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.Utilities.QueryDatabase;
 
@@ -37,6 +38,60 @@ public class SEO00_CommonSteps extends Helper{
 	
 	@FindBy(xpath="//div[@class='ii gt']//div/a[contains(text(),'account')]")
 	WebElement ResetYourPassword_Link;
+	
+	@FindBy(xpath="//a[text()='Agency Tools']")
+	WebElement AgencyTools_link;
+	
+	@FindBy(xpath="//a[text()='CRM']")
+	WebElement CRM_link;
+	
+	@FindBy(xpath="//a[text()='Web Audit']")
+	WebElement WebAudit_link;
+	
+	@FindBy(xpath="//a[text()='Proposal Builder']")
+	WebElement ProposalBuilder_link;
+	
+	@FindBy(xpath="//a[text()='Affiliates']")
+	WebElement Affiliates_link;
+	
+	@FindBy(xpath="//a[text()='Reputation Management']")
+	WebElement ReputationManagement_link;
+	
+	@FindBy(xpath="//a[text()='Lead Generator']")
+	WebElement LeadGenerator_link;
+	
+	@FindBy(xpath="//a[text()='Marketing Automation']")
+	WebElement MarketingAutomation_link;
+	
+	@FindBy(xpath="//a[text()='Landing Pages']")
+	WebElement LandingPage_link;
+	
+	@FindBy(xpath="(//i[@class='fa fa-paper-plane-o btn-send-email'])[1]")
+	WebElement WebAuditPaperPlane_button;
+	
+	@FindBy(xpath="//i[@class='fa fa-paper-plane-o']")
+	WebElement ProposalPaperPlane_button;
+	
+	@FindBy(xpath="(//button[contains(.,'View Leads')])[1]")
+	WebElement ViewLeads_button;
+	
+	@FindBy(xpath="(//button[@data-content='Send Email'])[1]")
+	WebElement LeadGenEmail_button;
+	
+	@FindBy(xpath="(//button[@data-content='Run Automation'])[1]")
+	WebElement LeadGenRunAutomation_button;
+	
+	@FindBy(xpath="(//i[@class='fa fa-paper-plane-o'])[1]")
+	WebElement CRMPaperPlane_button;
+	
+	@FindBy(xpath="//button[@title='Activate Sequence']")
+	WebElement CRMActivateEmailSequence_button;
+	
+	@FindBy(xpath="(//div[@class='company']//h5)[1]")
+	WebElement CRMContact_button;
+	
+	
+	
 	
 	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
@@ -117,5 +172,29 @@ public class SEO00_CommonSteps extends Helper{
 		}catch(Exception e){
 			System.out.println("DATABASE : Email is available and not yet registered");
 		}			
+	}
+	
+	@Then("^I click the  Email Trigger of ([^\"]*)$")
+	public void i_click_the_email_trigger_of_value(String emailTrigger) throws Throwable, UnhandledAlertException {
+		if(emailTrigger.equals("Web Audit")){
+			WebAuditPaperPlane_button.click();
+		}else if(emailTrigger.equals("Proposal")){
+			ProposalPaperPlane_button.click();
+		}else if(emailTrigger.equals("Lead Gen")){
+			ViewLeads_button.click();
+			LeadGenEmail_button.click();
+		}else if(emailTrigger.equals("Lead Gen Sequence")){
+			ViewLeads_button.click();
+			LeadGenRunAutomation_button.click();
+		}else if(emailTrigger.equals("CRM")){
+			WD.until(ExpectedConditions.elementToBeClickable(CRMPaperPlane_button));
+			CRMPaperPlane_button.click();
+		}else if(emailTrigger.equals("CRM Sequence")){
+			WD.until(ExpectedConditions.elementToBeClickable(CRMPaperPlane_button));
+			CRMContact_button.click();
+			ReUsablesKeyword.switchToLatestTab();
+			WD.until(ExpectedConditions.elementToBeClickable(CRMActivateEmailSequence_button));
+			CRMActivateEmailSequence_button.click();
+		}
 	}
 }

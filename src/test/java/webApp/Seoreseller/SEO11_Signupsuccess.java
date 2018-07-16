@@ -1,5 +1,6 @@
 package webApp.Seoreseller;
 
+import org.junit.Assert;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -48,24 +49,23 @@ public class SEO11_Signupsuccess extends Helper{
 		
 	}
 	
-	@Then("^I be redirected to Welcome page$")
-	public void i_be_redirected_to_Welcome_page() throws Throwable, UnhandledAlertException {
-	    //CodeHere
+	@Then("^Ill be redirected to Welcome page$")
+	public void ill_be_redirected_to_Welcome_page() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, SrsBanner_image.isDisplayed());
+		Assert.assertEquals(true, Welcome_heading.isDisplayed());
+		Assert.assertEquals("http://staging.account.seoreseller.com/signup-success", driver.getCurrentUrl());
 	}
 	
 	@Then("^I see the message \"([^\"]*)\"$")
 	public void i_see_the_message_value(String arg1) throws Throwable, UnhandledAlertException {
-	    //CodeHere
+		Assert.assertEquals(true, Congratulations_text.isDisplayed());
 	}
 	
-	@When("^I navigate back to SRS Welcome page$")
-	public void i_navigate_back_to_SRS_Welcome_page() throws Throwable, UnhandledAlertException {
-	    //CodeHere
-	}
+	
 	
 	@When("^I click the SEO11_resend link$")
 	public void i_click_the_SEO11_resend_link() throws Throwable, UnhandledAlertException {
-	    //CodeHere
+		Here_link.click();
 	}
 	
 	@When("^I click the SEO011_GoToMailbox button for my ([^\"]*) Account$")
