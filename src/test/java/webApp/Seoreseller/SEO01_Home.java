@@ -147,6 +147,21 @@ public class SEO01_Home extends Helper{
 	@FindBy(xpath="//a[text()='Email Settings']")
 	WebElement EmailSettings_link;
 	
+	@FindBy(xpath="//span[@class='menu-icon partner-crm-icon']")
+	WebElement CRMIcon_link;
+	
+	@FindBy(xpath="//span[@class='menu-icon website-audit-icon']")
+	WebElement WebAuditIcon_link;
+	
+	@FindBy(xpath="//span[@class='menu-icon proposal-icon']")
+	WebElement ProposalIcon_link;
+
+	@FindBy(xpath="//span[@class='menu-icon mockup-creator-icon']")
+	WebElement MockUpCreatorIcon_link;
+	
+	@FindBy(xpath="//span[@class='menu-icon affiliates-icon']")
+	WebElement LeadGeneratorIcon_link;
+	
 	public SEO01_Home() {
 		
 		PageFactory.initElements(driver, this);
@@ -290,6 +305,24 @@ public class SEO01_Home extends Helper{
 	public void i_click_the_SEO01_EmailSetting_Link() throws Throwable, UnhandledAlertException {
 	//CodeHere
 		
+	}
+	
+	@When("^I redirect to SEO1_([^\"]*)$")
+	public void i_redirect_to_value_page(String page) throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(WebAuditIcon_link));
+		if(page.equals("Web Audit Page")){
+			WebAuditIcon_link.click();
+			Thread.sleep(3000);
+		}else if(page.equals("Proposal Page")){
+			ProposalIcon_link.click();
+			Thread.sleep(3000);
+		}else if(page.equals("Lead Generator Page")){
+			LeadGeneratorIcon_link.click();
+			Thread.sleep(3000);
+		}else if(page.equals("CRM Page")){
+			CRMIcon_link.click();
+			Thread.sleep(3000);
+		}
 	}
 	
 

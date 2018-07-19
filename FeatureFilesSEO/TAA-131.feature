@@ -48,18 +48,20 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP
   @SRSSMOKETEST @SafeEmail @SafeEmail_TS02 @TAA-163
   Scenario Outline: TAA-163
     Given Im an existing Partner
-    When I navigate to "SEOSTG_Login"
-    And I enter <Email> in the Email Address Field
-    And I enter <Password> in the Password Field
-    And I click the Log in to your Dashboard button
-    Then Ill see the Dashboard Page
-    When I redirect to <DashBoardPage>
-    And I click the  Email Trigger of <SendEmailTrigger>
-    Then Ill see the Email Setup Wizard Modal
-    When I enter <SafeEmail> in the SEO12_EmailAddress textfield
-    And I click SEO12_Next button
-    Then Ill see the "We currently dont support Yahoo and Microsoft emails." Message
-    And Ill see the SEO12_Retry button
+	When I navigate to "SEOSTG_Login"
+	And I enter <Email> in the Email Address Field
+	And I enter <Password> in the Password Field
+	And I click the Log in to your Dashboard button
+	Then Ill see the Dashboard Page
+		
+	When I redirect to SEO1_<DashBoardPage>
+	And I click the  Email Trigger of <SendEmailTrigger>
+	Then Ill see the Email Setup Wizard Modal
+		
+	When I enter <SafeEmail> in the SEO12_EmailAddress textfield
+	And I click SEO12_Next button
+	Then Ill see the "We currently dont support Yahoo and Microsoft emails." Message
+	And Ill see the SEO12_Retry button	
 
     Examples: 
       | Email                | Password  | SafeEmail        | DashBoardPage       | SendEmailTrigger  |
