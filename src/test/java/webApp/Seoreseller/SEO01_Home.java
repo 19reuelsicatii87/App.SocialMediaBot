@@ -62,7 +62,10 @@ public class SEO01_Home extends Helper{
 	WebElement CompanySetupCompanyProfile_Textfield;	
 	
 	@FindBy(xpath="//div[@class='selected-flag']")
-	WebElement CompanySetupFlagIcon_Button;	
+	WebElement CompanySetupFlagIcon_Button;
+	
+	@FindBy(xpath="//a[text() = 'Email Settings']")
+	WebElement EmailSetting_List;	
 	
 	public static final WebElement CompanySetupSelectCountry(String keyword){
 		WebElement SelectedtCountry = driver.findElement(By.xpath("//span[@class='country-name'][text()='"+keyword+"']"));
@@ -298,6 +301,12 @@ public class SEO01_Home extends Helper{
 		EmailSettings_link.click();
 	}
 	
+	@When("^I click the SEO01_Email Settings List$")
+	public void i_click_the_SEO01_EmailSetting_Link() throws Throwable, UnhandledAlertException {
+	//CodeHere
+		
+	}
+	
 	@When("^I redirect to SEO1_([^\"]*)$")
 	public void i_redirect_to_value_page(String page) throws Throwable, UnhandledAlertException {
 		WD.until(ExpectedConditions.elementToBeClickable(WebAuditIcon_link));
@@ -315,4 +324,14 @@ public class SEO01_Home extends Helper{
 			Thread.sleep(3000);
 		}
 	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
 }

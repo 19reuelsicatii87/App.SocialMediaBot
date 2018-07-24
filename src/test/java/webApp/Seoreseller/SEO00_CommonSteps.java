@@ -66,6 +66,7 @@ public class SEO00_CommonSteps extends Helper{
 	@FindBy(xpath="//a[text()='Landing Pages']")
 	WebElement LandingPage_link;
 	
+	
 	@FindBy(xpath="(//i[@class='fa fa-paper-plane-o btn-send-email'])[1]")
 	WebElement WebAuditPaperPlane_button;
 	
@@ -89,9 +90,6 @@ public class SEO00_CommonSteps extends Helper{
 	
 	@FindBy(xpath="(//div[@class='company']//h5)[1]")
 	WebElement CRMContact_button;
-	
-	
-	
 	
 	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
@@ -174,8 +172,28 @@ public class SEO00_CommonSteps extends Helper{
 		}			
 	}
 	
+	
+	@When("^I redirect to ([^\"]*)$")
+	public void i_redirect_to_value_page(String page) throws Throwable, UnhandledAlertException {
+		ReUsablesKeyword.elementMouseHover(AgencyTools_link);
+		if(page.equals("Web Audit Page")){
+			WebAudit_link.click();
+			Thread.sleep(3000);
+		}else if(page.equals("Proposal Page")){
+			ProposalBuilder_link.click();
+			Thread.sleep(3000);
+		}else if(page.equals("Lead Generator Page")){
+			LeadGenerator_link.click();
+			Thread.sleep(3000);
+		}else if(page.equals("CRM Page")){
+			CRM_link.click();
+			Thread.sleep(3000);
+		}
+	}
+	
 	@Then("^I click the  Email Trigger of ([^\"]*)$")
 	public void i_click_the_email_trigger_of_value(String emailTrigger) throws Throwable, UnhandledAlertException {
+		ReUsablesKeyword.elementMouseHover(AgencyTools_link);
 		if(emailTrigger.equals("Web Audit")){
 			WebAuditPaperPlane_button.click();
 		}else if(emailTrigger.equals("Proposal")){
