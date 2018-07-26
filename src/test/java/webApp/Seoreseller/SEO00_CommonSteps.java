@@ -128,12 +128,12 @@ public class SEO00_CommonSteps extends Helper{
 		Assert.assertEquals(true, LinkValidFor2Hrs_Text.isDisplayed());
 	}
 	
-	@Then("^Ill see the Reset Your Password button")
+	@Then("^Ill see the SEO00_ResetYourPassword button")
 	public void ill_see_the_reset_password_button() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, ResetYourPassword_Button.isDisplayed());
 	}
 	
-	@When("^I click the Reset ([^\"]*)$")
+	@When("^I click the SEO00_Reset ([^\"]*)$")
 	public void i_click_the_reset_password_button(String resetRedirect) throws Throwable, UnhandledAlertException {
 				Thread.sleep(3000);
 				if(resetRedirect.equals("Reset Your Password")){

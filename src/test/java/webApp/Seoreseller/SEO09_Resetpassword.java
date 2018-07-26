@@ -58,13 +58,13 @@ public class SEO09_Resetpassword extends Helper{
 		Assert.assertEquals(true, BackToLogin_Link.isDisplayed());
 	}
 	
-	@When("^I enter ([^\"]*) in the Password Field of Reset Password Page$")
+	@When("^I enter ([^\"]*) in the SEO09_Password textfield$")
 	public void i_enter_new_valid_password_value_in_password_field(String arg1) throws Throwable, UnhandledAlertException {
 		Password_Textfield.sendKeys(arg1);
         Thread.sleep(10000);
 	}
 	
-	@When("^I click the Submit button of Reset Password Page$")
+	@When("^I click the SEO09_Submit button$")
 	public void i_click_submit_button_of_reset_pass_page() throws Throwable, UnhandledAlertException {
 		Submit_Button.click();
 	}

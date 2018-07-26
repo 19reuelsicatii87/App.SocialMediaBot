@@ -21,14 +21,14 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     When I open my <Domain> mailbox using my <Email> and <Password>
     And I click the email with Subject <Subject>
     Then Ill see the 'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:' Message
-    And Ill see the Reset Your Password button
-    When I click the Reset <Condition>
+    And Ill see the SEO00_ResetYourPassword button
+    When I click the SEO00_Reset <Condition>
     Then Ill see the Reset Password Page
     And Ill see the Verbiage 'Should be at least 8 characters'
     And Ill see the toggle for visibility
     And Ill see the Back to Login page Link
-    When I enter <NewPassword> in the Password Field of Reset Password Page
-    And I click the Submit button of Reset Password Page
+    When I enter <NewPassword> in the SEO09_Password textfield
+    And I click the SEO09_Submit button
     Then Ill see the Dashboard Page
     When I navigate back to my mailbox
     And I click the email with Subject <PasswordUpdated>
@@ -54,23 +54,23 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   Scenario Outline: TAA-44
     Given Im an existing Partner
     When I navigate to "SEOSTG_Login"
-    And I click the Forgot Password Link
-    Then Ill see the Forgot Password Page
-    And Ill see the SRS Banner
-    When I enter <Email> in the Enter Email Field of Forgot Password
-    And I click the Submit button
+    And I click the SEO06_ForgotPassword link
+    Then Ill see the SEO08_ForgotPassword page
+    And Ill see the SEO08_SRS banner
+    When I enter <Email> in the SEO08_EnterEmail textfield
+    And I click the SEO08_Submit button
     Then Ill see the 'You are almost in your account' Message
     When I open my <Domain> mailbox using my <Email> and <Password>
     And I click the email with Subject <Subject>
     Then Ill see the 'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:' Message
-    And Ill see the Reset Your Password button
-    When I click the Reset <Condition>
+    And Ill see the SEO00_ResetYourPassword button
+    When I click the SEO00_Reset <Condition>
     Then Ill see the Reset Password Page
     And Ill see the Verbiage 'Should be at least 8 characters'
     And Ill see the toggle for visibility
     And Ill see the Back to Login page Link
-    When I enter <NewPassword> in the Password Field of Reset Password Page
-    And I click the Submit button of Reset Password Page
+    When I enter <NewPassword> in the SEO09_Password textfield
+    And I click the SEO09_Submit button
     Then Ill see the 'The Password field must be at least 8 characters in length.' Message
     And Ill not be redirected to the Dashboard
     When I navigate back to my mailbox
@@ -91,17 +91,17 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   Scenario Outline: TAA-45
     Given Im an existing Partner
     When I navigate to "SEOSTG_Login"
-    And I click the Forgot Password Link
-    Then Ill see the Forgot Password Page
-    And Ill see the SRS Banner
-    When I enter <Email> in the Enter Email Field of Forgot Password
-    And I click the Submit button
+		And I click the SEO06_ForgotPassword link
+    Then Ill see the SEO08_ForgotPassword page
+    And Ill see the SEO08_SRS banner
+    When I enter <Email> in the SEO08_EnterEmail textfield
+    And I click the SEO08_Submit button
     Then Ill see the 'You are almost in your account' Message
     When I open my <Domain> mailbox using my <Email> and <Password>
     And I click the email with Subject <Subject>
     Then Ill see the 'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:' Message
-    And Ill see the Reset Your Password button
-    When I click the Reset <Condition>
+    And Ill see the SEO00_ResetYourPassword button
+    When I click the SEO00_Reset <Condition>
     Then Ill see the Reset Password Page
     And Ill see the Verbiage 'Should be at least 8 characters'
     And Ill see the toggle for visibility
