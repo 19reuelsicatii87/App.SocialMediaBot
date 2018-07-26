@@ -103,7 +103,7 @@ public class SEO06_Login extends Helper{
 		SignInWithGoogle_Button.click();
 	}
 	
-	@When("^I click the Forgot Password Link$")
+	@When("^I click the SEO06_ForgotPassword link$")
 	public void i_click_the_forgot_password_link() throws Throwable, UnhandledAlertException {
 		ForgotYourPassword_Link.click();
 	}

@@ -1,21 +1,5 @@
-#Author: lorraine@truelogic.com.ph
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
+#Author: reuel@truelogic.com.ph, lorraine@truelogic.com.ph
+#Version 1.0 06.27 2018 - Initial creation of file
 Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
 
   #Scenario Description:
@@ -24,15 +8,15 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   #When I Click Forgot Password
   #And Successfully Changed the Password
   #Then I'll see the Dashboard Page
-  @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS01 @TAA-43 
+  @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS01 @TAA-43
   Scenario Outline: TAA-43
     Given Im an existing Partner
     When I navigate to "SEOSTG_Login"
-    And I click the Forgot Password Link
-    Then Ill see the Forgot Password Page
-    And Ill see the SRS Banner
-    When I enter <Email> in the Enter Email Field of Forgot Password
-    And I click the Submit button
+    And I click the SEO06_ForgotPassword link
+    Then Ill see the SEO08_ForgotPassword page
+    And Ill see the SEO08_SRS banner
+    When I enter <Email> in the SEO08_EnterEmail textfield
+    And I click the SEO08_Submit button
     Then Ill see the 'You are almost in your account' Message
     When I open my <Domain> mailbox using my <Email> and <Password>
     And I click the email with Subject <Subject>
@@ -66,7 +50,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   #When I Click Forgot Password
   #And Unsuccessfully Changed the Password
   #Then I'll not see the Dashboard Page
-  @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS02 @TAA-44 
+  @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS02 @TAA-44
   Scenario Outline: TAA-44
     Given Im an existing Partner
     When I navigate to "SEOSTG_Login"
@@ -103,7 +87,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   #When I Click Forgot Password
   #And did not change the Password
   #Then I'll see the Dashboard Page
-  @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS03 @TAA-45 
+  @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS03 @TAA-45
   Scenario Outline: TAA-45
     Given Im an existing Partner
     When I navigate to "SEOSTG_Login"

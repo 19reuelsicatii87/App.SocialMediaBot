@@ -33,24 +33,24 @@ public class SEO08_Forgotpassword extends Helper{
 		
 	}
 	
-	@Then("^Ill see the Forgot Password Page$")
+	@Then("^Ill see the SEO08_ForgotPassword page$")
 	public void ill_see_forgot_password_page() throws Throwable, UnhandledAlertException {
 		WD.until(ExpectedConditions.elementToBeClickable(Submit_Button));
 		Assert.assertEquals(true, EmailAddress_Textfield.isDisplayed());
 	}
 	
-	@Then("^Ill see the SRS Banner$")
+	@Then("^Ill see the SEO08_SRS banner$")
 	public void ill_see_the_srs__banner() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, SrsBanner_Image.isDisplayed());
 	}
 	
-	@When("^I enter ([^\"]*) in the Enter Email Field of Forgot Password$")
+	@When("^I enter ([^\"]*) in the SEO08_EnterEmail textfield$")
 	public void i_enter_password_value_in_password_field_forgot_password_page(String arg1) throws Throwable, UnhandledAlertException {
 		EmailAddress_Textfield.sendKeys(arg1);
         Thread.sleep(3000);
 	}
 	
-	@When("^I click the Submit button$")
+	@When("^I click the SEO08_Submit button$")
 	public void i_click_submit_button() throws Throwable, UnhandledAlertException {
 		Submit_Button.click();
 	}
