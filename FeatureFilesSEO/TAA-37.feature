@@ -108,9 +108,9 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     And Ill see the Back to Login page Link
     When I click the Back to Login page Link
     Then Ill see the Log In Page
-    When I enter <Email> in the Email Address Field
-    And I enter <Password> in the Password Field
-    And I click the Log in to your Dashboard button
+    When I enter <Email> in the SEO06_EmailAddress textfield
+    And I enter <Password> in the SEO06_Password textfield
+    And I click the SEO06_LoginToYourDashBoard button
     Then Ill see the Dashboard Page
     When I navigate back to my mailbox
     And Ill delete all the email in <Domain> for post condition

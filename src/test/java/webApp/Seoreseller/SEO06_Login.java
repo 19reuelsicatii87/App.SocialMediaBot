@@ -71,19 +71,19 @@ public class SEO06_Login extends Helper{
 		Assert.assertEquals(true, SignInWithGoogle_Button.isDisplayed());
 	}
 	
-	@When("^I enter ([^\"]*) in the Email Address Field$")
+	@When("^I enter ([^\"]*) in the SEO06_EmailAddress textfield$")
 	public void i_enter_email_value_in_emailaddress_field(String arg1) throws Throwable, UnhandledAlertException {
 		EmailAddress_Textfield.sendKeys(arg1);
 			
 	}
 	
-	@When("^I enter ([^\"]*) in the Password Field$")
+	@When("^I enter ([^\"]*) in the SEO06_Password textfield$")
 	public void i_enter_password_value_in_password_field(String arg1) throws Throwable, UnhandledAlertException {
 		Password_Textfield.sendKeys(arg1);
         Thread.sleep(3000);
 	}
 	
-	@When("^I click the Log in to your Dashboard button$")
+	@When("^I click the SEO06_LoginToYourDashBoard button$")
 	public void i_click_the_login_to_your_dashboard_button() throws Throwable, UnhandledAlertException {
 		LoginToYourDashBoard_Button.click();
 	}
