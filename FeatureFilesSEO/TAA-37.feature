@@ -24,7 +24,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   #When I Click Forgot Password
   #And Successfully Changed the Password
   #Then I'll see the Dashboard Page
-  @TAA-43 @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS01
+  @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS01 @TAA-43 
   Scenario Outline: TAA-43
     Given Im an existing Partner
     When I navigate to "SEOSTG_Login"
@@ -66,7 +66,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   #When I Click Forgot Password
   #And Unsuccessfully Changed the Password
   #Then I'll not see the Dashboard Page
-  @TAA-44 @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS02
+  @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS02 @TAA-44 
   Scenario Outline: TAA-44
     Given Im an existing Partner
     When I navigate to "SEOSTG_Login"
@@ -103,7 +103,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   #When I Click Forgot Password
   #And did not change the Password
   #Then I'll see the Dashboard Page
-  @TAA-45 @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS03
+  @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS03 @TAA-45 
   Scenario Outline: TAA-45
     Given Im an existing Partner
     When I navigate to "SEOSTG_Login"
