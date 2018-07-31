@@ -17,7 +17,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     And Ill see the SEO08_SRS banner
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
-    Then Ill see the 'You are almost in your account' Message
+    Then Ill see the SEO08_Message div with 'You are almost in your account'
     When I open my <Domain> mailbox using my <Email> and <Password>
     And I click the email with Subject <Subject>
     Then Ill see the 'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:' Message
@@ -59,7 +59,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     And Ill see the SEO08_SRS banner
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
-    Then Ill see the 'You are almost in your account' Message
+    Then Ill see the SEO08_Message div with 'You are almost in your account'
     When I open my <Domain> mailbox using my <Email> and <Password>
     And I click the email with Subject <Subject>
     Then Ill see the 'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:' Message
@@ -91,17 +91,31 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   Scenario Outline: TAA-45
     Given Im an existing Partner
     When I navigate to "SEOSTG_Login"
-		And I click the SEO06_ForgotPassword link
+    And I click the SEO06_ForgotPassword link
     Then Ill see the SEO08_ForgotPassword page
     And Ill see the SEO08_SRS banner
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
-    Then Ill see the 'You are almost in your account' Message
+    Then Ill see the SEO08_Message div with 'You are almost in your account'
+    #==================================
+    #This needs to be re-written to follow standadization
     When I open my <Domain> mailbox using my <Email> and <Password>
     And I click the email with Subject <Subject>
     Then Ill see the 'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:' Message
     And Ill see the SEO00_ResetYourPassword button
     When I click the SEO00_Reset <Condition>
+    #===================================
+    When I navigate to GMAIL
+    And I click the GMAIL01_GoogleHomeSignIn link
+    And I populate the GMAIL01_GoogleEmail textField with <Email>
+    And I click the GMAIL01_GoogleNext button
+    And I populate the GMAIL01_GooglePassword textField with <Password>
+    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_EmailSubject with <Subject>
+    Then Ill see the GMAIL01_Message div with "Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:"
+    And Ill see the GMAIL01_ResetYourPassword <ElementName>
+    When I click the GMAIL01_ResetYourPassword <ElementName>
+    #===================================
     Then Ill see the Reset Password Page
     And Ill see the Verbiage 'Should be at least 8 characters'
     And Ill see the toggle for visibility
@@ -116,6 +130,6 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     And Ill delete all the email in <Domain> for post condition
 
     Examples: 
-      | Email                         | Password  | Domain | Condition           | Subject                        |
-      | RNDAutomationTest10@gmail.com | happy123$ | google | Reset Your Password | Reset Account Password Request |
-      | RNDAutomationTest10@gmail.com | happy123$ | google | Reset Password Link | Reset Account Password Request |
+      | Email                         | Password  | Domain | ElementName | Subject                        |
+      | RNDAutomationTest10@gmail.com | happy123$ | google | button      | Reset Account Password Request |
+      | RNDAutomationTest10@gmail.com | happy123$ | google | link        | Reset Account Password Request |
