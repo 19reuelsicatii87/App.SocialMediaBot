@@ -116,7 +116,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     And Ill see the GMAIL01_ResetYourPassword <ElementName>
     When I click the GMAIL01_ResetYourPassword <ElementName>
     #===================================
-    Then Ill see the Reset Password Page
+    Then Ill see the SEO09_ResetPassword page
     And Ill see the Verbiage 'Should be at least 8 characters'
     And Ill see the toggle for visibility
     And Ill see the Back to Login page Link

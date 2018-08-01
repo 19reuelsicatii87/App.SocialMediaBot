@@ -37,10 +37,11 @@ public class SEO09_Resetpassword extends Helper{
 		
 	}
 	
-	@Then("^Ill see the Reset Password Page$")
+	@Then("^Ill see the SEO09_ResetPassword page$")
 	public void ill_see_the_you_are_almost_in_your_account() throws Throwable, UnhandledAlertException {
 		WD.until(ExpectedConditions.elementToBeClickable(Password_Textfield));
 		Assert.assertEquals(true, Password_Textfield.isDisplayed());
+		Assert.assertEquals(true, driver.getCurrentUrl().contains("/reset-password"));
 	}
 	
 	@Then("^Ill see the Verbiage \'Should be at least 8 characters\'$")

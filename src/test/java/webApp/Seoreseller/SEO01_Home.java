@@ -303,7 +303,7 @@ public class SEO01_Home extends Helper{
 	
 	@When("^I click the SEO01_Email Settings List$")
 	public void i_click_the_SEO01_EmailSetting_Link() throws Throwable, UnhandledAlertException {
-	//CodeHere
+		//CodeHere
 		
 	}
 	
@@ -323,15 +323,7 @@ public class SEO01_Home extends Helper{
 			CRMIcon_link.click();
 			Thread.sleep(3000);
 		}
-	}
-	
-
-	
-	
-	
-	
-	
-	
+	}	
 	
 	
 }

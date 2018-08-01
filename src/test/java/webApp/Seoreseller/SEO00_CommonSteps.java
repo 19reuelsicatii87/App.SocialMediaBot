@@ -24,20 +24,14 @@ public class SEO00_CommonSteps extends Helper{
 	@FindBy(xpath="//button[@class='login_button btn btn-primary text-uppercase']")
 	WebElement LoginToYourDashBoard_Button;
 	
-	@FindBy(xpath="//div[contains(.,'Link will only be valid for 24 hours')]")
-	WebElement LinkValidFor2Hrs_Text;
-	
-	@FindBy(xpath="//div//a[text()='Reset your Password']")
-	WebElement ResetYourPassword_Button;
-	
+
 	@FindBy(xpath="//span[text()='Ignore, I trust this message']")
 	WebElement GoogleIgnoreMessage_Alert;
 	
 	@FindBy(xpath="//div[text()='This message is to confirm that you changed your password. Please see details:']")
 	WebElement ConfirmPasswordIsChange_Text;
 	
-	@FindBy(xpath="//div[@class='ii gt']//div/a[contains(text(),'account')]")
-	WebElement ResetYourPassword_Link;
+
 	
 	@FindBy(xpath="//a[text()='Agency Tools']")
 	WebElement AgencyTools_link;
@@ -121,29 +115,8 @@ public class SEO00_CommonSteps extends Helper{
 	public void ill_see_the_login_page() throws Throwable, UnhandledAlertException {
         Thread.sleep(3000);
 		Assert.assertEquals(true, LoginToYourDashBoard_Button.isDisplayed());
-	}
-	
-	@Then("^Ill see the \'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:\' Message")
-	public void ill_see_the_link_valid_for_24_hours_message() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, LinkValidFor2Hrs_Text.isDisplayed());
-	}
-	
-	@Then("^Ill see the SEO00_ResetYourPassword button")
-	public void ill_see_the_reset_password_button() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, ResetYourPassword_Button.isDisplayed());
-	}
-	
-	@When("^I click the SEO00_Reset ([^\"]*)$")
-	public void i_click_the_reset_password_button(String resetRedirect) throws Throwable, UnhandledAlertException {
-				Thread.sleep(3000);
-				if(resetRedirect.equals("Reset Your Password")){
-					ResetYourPassword_Button.click();
-				}else if(resetRedirect.equals("Reset Password Link")){
-					ResetYourPassword_Link.click();
-				}
-				Thread.sleep(3000);
-				ReUsablesKeyword.switchtochildwindow();
-	}
+	}	
+
 	
 	@When("^I navigate back to my mailbox$")
 	public void i_navigate_back_to_my_mailbox() throws Throwable, UnhandledAlertException {
