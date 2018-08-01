@@ -100,7 +100,7 @@ public class SEO00_CommonSteps extends Helper{
 	    // Write code here that turns the phrase above into concrete actions
 	}
 	
-	@Then("^Ill see the Dashboard Page$")
+	@Then("^Ill see the SEO00_Dashboard page$")
 	public void ill_see_the_dashboard_page() throws Throwable {
         Thread.sleep(3000);
 		Assert.assertEquals(true, SrsHome_Link.isDisplayed());
@@ -111,14 +111,14 @@ public class SEO00_CommonSteps extends Helper{
 		Assert.assertEquals(true, SrsBanner_Image.isDisplayed());
 	}
 	
-	@Then("^Ill see the Log In Page")
+	@Then("^Ill see the SEO00_LogIn page")
 	public void ill_see_the_login_page() throws Throwable, UnhandledAlertException {
         Thread.sleep(3000);
 		Assert.assertEquals(true, LoginToYourDashBoard_Button.isDisplayed());
 	}	
 
 	
-	@When("^I navigate back to my mailbox$")
+	@When("^I navigate to ParentWindow$")
 	public void i_navigate_back_to_my_mailbox() throws Throwable, UnhandledAlertException {
 		ReUsablesKeyword.switchtoparentwindow();
 	}

@@ -58,6 +58,6 @@ public class SEO08_Forgotpassword extends Helper{
 	@Then("^Ill see the SEO08_Message div with \'(You are almost in your account)\'$")
 	public void ill_see_the_you_are_almost_in_your_account(String Message) throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, YouAreAlmostInYourAccount_Alert.isDisplayed());
-		Assert.assertEquals(YouAreAlmostInYourAccount_Alert.getText(), Message);
+		Assert.assertEquals(Message, YouAreAlmostInYourAccount_Alert.getText());
 	}
 }

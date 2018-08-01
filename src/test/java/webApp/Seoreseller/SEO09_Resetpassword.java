@@ -17,16 +17,16 @@ public class SEO09_Resetpassword extends Helper{
 	WebElement SrsBanner_Image;
 	
 	@FindBy(xpath="//div[@class='form-group']/input[@id='password']")
-	WebElement Password_Textfield;
+	WebElement Password_textfield;
 	
 	@FindBy(xpath="//input[@type='submit']")
-	WebElement Submit_Button;
+	WebElement Submit_button;
 	
 	@FindBy(xpath="//p/a[text()='Back to Login page']")
-	WebElement BackToLogin_Link;
+	WebElement BackToLoginpage_link;
 	
 	@FindBy(xpath="//i[@class='fa fa-eye toggle-password-visibility']")
-	WebElement TogglePasswordVisibility_I;	
+	WebElement TogglePasswordVisibility_button;	
 	
 	@FindBy(xpath="//p[text()='The Password field must be at least 8 characters in length.']")
 	WebElement PasswordAtleast8Characters_Paragraph;	
@@ -39,44 +39,45 @@ public class SEO09_Resetpassword extends Helper{
 	
 	@Then("^Ill see the SEO09_ResetPassword page$")
 	public void ill_see_the_you_are_almost_in_your_account() throws Throwable, UnhandledAlertException {
-		WD.until(ExpectedConditions.elementToBeClickable(Password_Textfield));
-		Assert.assertEquals(true, Password_Textfield.isDisplayed());
+		WD.until(ExpectedConditions.elementToBeClickable(Password_textfield));
+		Assert.assertEquals(true, Password_textfield.isDisplayed());
 		Assert.assertEquals(true, driver.getCurrentUrl().contains("/reset-password"));
 	}
 	
-	@Then("^Ill see the Verbiage \'Should be at least 8 characters\'$")
-	public void ill_see_the_password_verbiage() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, Password_Textfield.getAttribute("placeholder").contains("Should be at least 8 characters"));
+	@Then("^Ill see the SEO09_Message input with \"(Should be at least 8 characters)\"$")
+	public void ill_see_the_password_verbiage(String Message) throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, Password_textfield.getAttribute("placeholder").contains(Message));
 	}
 	
-	@Then("^Ill see the toggle for visibility$")
+	@Then("^Ill see the SEO09_Toggle input$")
 	public void ill_see_the_toggle_for_visibility() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, TogglePasswordVisibility_I.isDisplayed());
+		Assert.assertEquals(true, TogglePasswordVisibility_button.isDisplayed());
 	}
 	
-	@Then("^Ill see the Back to Login page Link$")
+	@Then("^Ill see the SEO09_BacktoLoginpage link$")
 	public void ill_see_the_back_to_login() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, BackToLogin_Link.isDisplayed());
+		Assert.assertEquals(true, BackToLoginpage_link.isDisplayed());
 	}
 	
-	@When("^I enter ([^\"]*) in the SEO09_Password textfield$")
-	public void i_enter_new_valid_password_value_in_password_field(String arg1) throws Throwable, UnhandledAlertException {
-		Password_Textfield.sendKeys(arg1);
+	@When("^I populate SEO09_Password textfield with ([^\"]*)$")
+	public void i_enter_new_valid_password_value_in_password_field(String NewPassword) throws Throwable, UnhandledAlertException {
+		Password_textfield.sendKeys(NewPassword);
         Thread.sleep(10000);
 	}
 	
 	@When("^I click the SEO09_Submit button$")
-	public void i_click_submit_button_of_reset_pass_page() throws Throwable, UnhandledAlertException {
-		Submit_Button.click();
+	public void i_click_Submit_button_of_reset_pass_page() throws Throwable, UnhandledAlertException {
+		Submit_button.click();
 	}
 	
-	@Then("^Ill see the \'The Password field must be at least 8 characters in length.\' Message$")
-	public void ill_see_the_atleast_eight_characters_message() throws Throwable, UnhandledAlertException {
+	@Then("^Ill see the SEO09_Message div with \"(The Password field must be at least 8 characters in length.)\"$")
+	public void ill_see_the_atleast_eight_characters_message(String Message) throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, PasswordAtleast8Characters_Paragraph.isDisplayed());
+		Assert.assertEquals(Message, PasswordAtleast8Characters_Paragraph.getText());
 	}
 	
-	@When("^I click the Back to Login page Link$")
+	@When("^I click the SEO09_BacktoLoginpage link$")
 	public void i_click_the_back_to_login_link() throws Throwable, UnhandledAlertException {
-		BackToLogin_Link.click();
+		BackToLoginpage_link.click();
 	}
 }

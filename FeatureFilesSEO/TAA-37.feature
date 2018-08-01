@@ -18,22 +18,27 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
     Then Ill see the SEO08_Message div with 'You are almost in your account'
-    When I open my <Domain> mailbox using my <Email> and <Password>
-    And I click the email with Subject <Subject>
-    Then Ill see the 'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:' Message
-    And Ill see the SEO00_ResetYourPassword button
-    When I click the SEO00_Reset <Condition>
-    Then Ill see the Reset Password Page
-    And Ill see the Verbiage 'Should be at least 8 characters'
-    And Ill see the toggle for visibility
-    And Ill see the Back to Login page Link
-    When I enter <NewPassword> in the SEO09_Password textfield
+    When I navigate to GMAIL
+    And I click the GMAIL01_GoogleHomeSignIn link
+    And I populate the GMAIL01_GoogleEmail textField with <Email>
+    And I click the GMAIL01_GoogleNext button
+    And I populate the GMAIL01_GooglePassword textField with <Password>
+    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_EmailSubject with <Subject>
+    Then Ill see the GMAIL01_Message div with "Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:"
+    And Ill see the GMAIL01_ResetYourPassword <ElementName>
+    When I click the GMAIL01_ResetYourPassword <ElementName>
+    Then Ill see the SEO09_ResetPassword page
+		And Ill see the SEO09_Message input with "Should be at least 8 characters"
+    And Ill see the SEO09_Toggle button
+    And Ill see the SEO09_BacktoLoginpage link
+    When I populate SEO09_Password textfield with <NewPassword>
     And I click the SEO09_Submit button
-    Then Ill see the Dashboard Page
-    When I navigate back to my mailbox
-    And I click the email with Subject <PasswordUpdated>
-    Then Ill see the 'Hello,This message is to confirm that you changed your password.' Message
-    And Ill delete all the email in <Domain> for post condition
+    Then Ill see the SEO00_Dashboard page    
+    When I navigate to ParentWindow
+    And I click the GMAIL01_EmailSubject with <Subject>
+    Then Ill see the GMAIL01_Message div with "Hello,This message is to confirm that you changed your password."
+    
 
     Examples: 
       | Email                        | Password  | Domain | Subject                        | Condition           | NewPassword | PasswordUpdated                       |
@@ -60,21 +65,25 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
     Then Ill see the SEO08_Message div with 'You are almost in your account'
-    When I open my <Domain> mailbox using my <Email> and <Password>
-    And I click the email with Subject <Subject>
-    Then Ill see the 'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:' Message
-    And Ill see the SEO00_ResetYourPassword button
-    When I click the SEO00_Reset <Condition>
-    Then Ill see the Reset Password Page
-    And Ill see the Verbiage 'Should be at least 8 characters'
-    And Ill see the toggle for visibility
-    And Ill see the Back to Login page Link
-    When I enter <NewPassword> in the SEO09_Password textfield
+    When I navigate to GMAIL
+    And I click the GMAIL01_GoogleHomeSignIn link
+    And I populate the GMAIL01_GoogleEmail textField with <Email>
+    And I click the GMAIL01_GoogleNext button
+    And I populate the GMAIL01_GooglePassword textField with <Password>
+    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_EmailSubject with <Subject>
+    Then Ill see the GMAIL01_Message div with "Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:"
+    And Ill see the GMAIL01_ResetYourPassword <ElementName>
+    When I click the GMAIL01_ResetYourPassword <ElementName>
+    Then Ill see the SEO09_ResetPassword page
+    And Ill see the SEO09_Message input with "Should be at least 8 characters"
+    And Ill see the SEO09_Toggle button
+    And Ill see the SEO09_BacktoLoginpage link
+    When I populate SEO09_Password textfield with <NewPassword>
     And I click the SEO09_Submit button
-    Then Ill see the 'The Password field must be at least 8 characters in length.' Message
-    And Ill not be redirected to the Dashboard
-    When I navigate back to my mailbox
-    And Ill delete all the email in <Domain> for post condition
+    Then Ill see the SEO09_Message div with "The Password field must be at least 8 characters in length."
+    And Ill see the SEO09_ResetPassword page
+    
 
     Examples: 
       | Email                        | Password  | NewPassword | Subject                        | Domain | Condition           |
@@ -97,13 +106,6 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
     Then Ill see the SEO08_Message div with 'You are almost in your account'
-    #==================================
-    #This needs to be re-written to follow standadization
-    When I open my <Domain> mailbox using my <Email> and <Password>
-    And I click the email with Subject <Subject>
-    Then Ill see the 'Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:' Message
-    And Ill see the SEO00_ResetYourPassword button
-    When I click the SEO00_Reset <Condition>
     #===================================
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
@@ -117,17 +119,18 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     When I click the GMAIL01_ResetYourPassword <ElementName>
     #===================================
     Then Ill see the SEO09_ResetPassword page
-    And Ill see the Verbiage 'Should be at least 8 characters'
-    And Ill see the toggle for visibility
-    And Ill see the Back to Login page Link
-    When I click the Back to Login page Link
-    Then Ill see the Log In Page
+    And Ill see the SEO09_Message input with "Should be at least 8 characters"
+    And Ill see the SEO09_Toggle button
+    And Ill see the SEO09_BacktoLoginpage link
+    When I click the SEO09_BacktoLoginpage link
+    Then Ill see the SEO00_LogIn page
     When I enter <Email> in the SEO06_EmailAddress textfield
     And I enter <Password> in the SEO06_Password textfield
     And I click the SEO06_LoginToYourDashBoard button
-    Then Ill see the Dashboard Page
-    When I navigate back to my mailbox
-    And Ill delete all the email in <Domain> for post condition
+    Then Ill see the SEO00_Dashboard page
+    
+
+    
 
     Examples: 
       | Email                         | Password  | Domain | ElementName | Subject                        |
