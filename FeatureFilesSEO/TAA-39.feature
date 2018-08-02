@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: [TAA-39] SRS Login/Logout Smoke Test Suite v0.1
+Feature: [TAA-39] [SEOReseller] Login/Logout
 
   #Scenario Description:
   #Covered Ticket : SRS-4968
@@ -27,7 +27,7 @@ Feature: [TAA-39] SRS Login/Logout Smoke Test Suite v0.1
   @SRSSMOKETEST @LoginLogout @LoginLogout_TS01 @TAA-40
   Scenario Outline: TAA-40
 		Given Im an existing Partner
-		When I navigate to "SEOSTG_Login"
+		When I navigate to "Login"
 		Then Ill see the Email Address Field
 		And Ill see the Password Field
 		And Ill see the Log In to you Dashboard button
@@ -55,7 +55,7 @@ Feature: [TAA-39] SRS Login/Logout Smoke Test Suite v0.1
   @SRSSMOKETEST @LoginLogout @LoginLogout_TS02 @TAA-41 
   Scenario Outline: TAA-41
 		Given Im an existing Partner
-		When I navigate to "SEOSTG_Login"
+		When I navigate to "Login"
 		Then Ill see the Email Address Field
 		And Ill see the Password Field
 		And Ill see the Log In to you Dashboard button
@@ -83,7 +83,7 @@ Feature: [TAA-39] SRS Login/Logout Smoke Test Suite v0.1
   @SRSSMOKETEST @LoginLogout @LoginLogout_TS03 @TAA-42 
     Scenario Outline: TAA-42
 		Given Im an existing Partner
-		When I navigate to "SEOSTG_Login"
+		When I navigate to "Login"
 		Then Ill see the Email Address Field
 		And Ill see the Password Field
 		And Ill see the Log In to you Dashboard button

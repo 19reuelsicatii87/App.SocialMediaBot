@@ -13,119 +13,33 @@ import cucumber.api.java.en.When;
 
 
 
+
 public class CommonSteps extends Helper {
 
-	String Url = null;	
-	
 	
 	@When("^I navigate to \"([^\"]*)\"$")
-	public void i_navigate_to_URL_variable(String arg1) throws Throwable {
-		
-			
-		switch (arg1)
-		{
-		
-			case "INTROVIO": 
-				Url=GetPropertValue("Data/TestProperties.xml","IntrovioDEVURL");
-				log.info("User Navigate to the IntrovioDEVURL "+ arg1.toUpperCase());			 
-	        break;
-			
-			case "COMDEV_Login": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Login");
-				log.info("User Navigate to the CompassDEVURL_Login "+ arg1.toUpperCase());
-			break;
-			
-			case "COMDEV_Logout": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Logout");
-				log.info("User Navigate to the CompassDEVURL_Login "+ arg1.toUpperCase());
-			break;
-			
-			case "COMDEV_Client": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Client");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-			
-			case "COMDEV_Deployment": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Deployment");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "COMDEV_Queue": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Queue");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "COMDEV_Invoices": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Invoices");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "COMDEV_Task": 
-				Url=GetPropertValue("Data/TestProperties.xml","CompassDEVURL_Task");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "SEODEV_Store": 
-				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerDEVURL_Store");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			case "SEODEV_Login": 
-				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerDEVURL_Login");
-				log.info("User Navigate to the SeoresellerDEVURL_Login "+ arg1.toUpperCase());
-	        break;
-	        
-			case "SEOSTG_Login": 
-				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerSTGURL_Login");
-				log.info("User Navigate to the SeoresellerSTGURL_Login "+ arg1.toUpperCase());
-	        break;
-	        
-			case "PPCDEV_Login": 
-				Url=GetPropertValue("Data/TestProperties.xml","PaypercontentDEVURL_Login");
-				log.info("User Navigate to the CompassDEVURL_Login "+ arg1.toUpperCase());
-			break;
-			
-			case "PPCDEV_Home": 
-				Url=GetPropertValue("Data/TestProperties.xml","PaypercontentDEVURL_Home");
-				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
-	        break;
-	        
-			default: 
-				Url=arg1;
-				System.out.println("Please enter valid URL name");
-				log.warn("Please enter valid URL name");		        
-			break;
-		
-		}
-		
+	public void i_navigate_to_URL_variable(String Path) throws Throwable {
+				
 		Thread.sleep(5000);
-		driver.get(Url);
-	  
+		log.info("User Navigate to :" + GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
+		driver.get(GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
+			  
 	}
 	
 	@When("^I navigate back to \"([^\"]*)\"$")
-	public void i_navigate_back_to_URL_variable(String arg1) throws Throwable {
-		
-			
-		switch (arg1)
-		{
-		        
-			case "SEOSTG_Welcome": 
-				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerSTGURL_Welcome");
-				log.info("User Navigate to the SeoresellerSTGURL_Welcome "+ arg1.toUpperCase());
-	        break;
-			
-			default: 
-				Url=arg1;
-				System.out.println("Please enter valid URL name");
-				log.warn("Please enter valid URL name");		        
-			break;
-		
-		}
+	public void i_navigate_back_to_URL_variable(String Path) throws Throwable {
 		
 		Thread.sleep(5000);
-		driver.get(Url);
+		log.info("User Navigate to :" + GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
+		driver.get(GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
 	  
+	}
+	
+	@Given("^User navigate to the application exact ([^\"]*)$")
+	public void user_navigate_to_the_application_exact_URL(String URL) throws Throwable {
+		driver.get(URL);
+		log.info("User navigate to the application exact URL " + URL);
+
 	}
 	
 	
@@ -191,11 +105,6 @@ public class CommonSteps extends Helper {
 		
 	}
 	
-	@Given("^User navigate to the application exact ([^\"]*)$")
-	public void user_navigate_to_the_application_exact_URL(String URL) throws Throwable {
-		driver.get(URL);
-		log.info("User navigate to the application exact URL " + URL);
 
-	}
 	
 }

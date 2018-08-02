@@ -12,7 +12,7 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP
   @SRSSMOKETEST @SafeEmail @SafeEmail_TS01 @TAA-159
   Scenario Outline: TAA-159
     Given Im an existing Partner
-    When I navigate to "SEOSTG_Login"
+    When I navigate to "Login"
     And I enter <Email> in the Email Address Field
     And I enter <Password> in the Password Field
     And I click the Log in to your Dashboard button
@@ -48,7 +48,7 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP
   @SRSSMOKETEST @SafeEmail @SafeEmail_TS02 @TAA-163
   Scenario Outline: TAA-163
     Given Im an existing Partner
-	When I navigate to "SEOSTG_Login"
+	When I navigate to "Login"
 	And I enter <Email> in the Email Address Field
 	And I enter <Password> in the Password Field
 	And I click the Log in to your Dashboard button
@@ -88,7 +88,7 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP
   @SRSSMOKETEST @SafeEmail @SafeEmail_TS02 @TAA-174
   Scenario Outline: TAA-174
     Given Im an existing Partner
-    When I navigate to "SEOSTG_Login"
+    When I navigate to "Login"
     And I enter <Email> in the Email Address Field
     And I enter <Password> in the Password Field
     And I click the Log in to your Dashboard button

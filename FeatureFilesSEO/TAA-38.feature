@@ -14,7 +14,7 @@ Feature: [TAA-38] [SEOReseller]: Registration
   Scenario Outline: TAA-88
     Given Im a new Partner
     And I check if <Email> should not exist as pre condition
-    When I navigate to "SEOSTG_Login"
+    When I navigate to "Login"
     Then Ill see the SEO06_SeoReseller Banner
     When I click SEO06_SignUp link
     Then Ill see the SEO010_SignUp Page
@@ -80,7 +80,7 @@ Feature: [TAA-38] [SEOReseller]: Registration
   Scenario Outline: TAA-96
     Given Im a new Partner
     And I check if <Email> should not exist as pre condition
-    When I navigate to "SEOSTG_Login"
+    When I navigate to "Login"
     Then Ill see the SEO06_SeoReseller Banner
     When I click SEO06_SignUp link
     Then Ill see the SEO010_SignUp Page
@@ -134,7 +134,7 @@ Feature: [TAA-38] [SEOReseller]: Registration
   Scenario Outline: TAA-104
     Given Im a new Partner
     And I check if <Email> should not exist as pre condition
-    When I navigate to "SEOSTG_Login"
+    When I navigate to "Login"
     Then Ill see the SEO06_SeoReseller Banner
     When I click SEO06_SignUp link
     Then Ill see the SEO010_SignUp Page

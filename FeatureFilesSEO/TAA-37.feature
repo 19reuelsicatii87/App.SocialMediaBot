@@ -1,6 +1,6 @@
 #Author: reuel@truelogic.com.ph, lorraine@truelogic.com.ph
 #Version 1.0 06.27 2018 - Initial creation of file
-Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
+Feature: [TAA-37] [SEOReseller]: Forgot Password
 
   #Scenario Description:
   #Covered Tickets : SRS-2493, SRS-3106
@@ -11,7 +11,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS01 @TAA-43
   Scenario Outline: TAA-43
     Given Im an existing Partner
-    When I navigate to "SEOSTG_Login"
+    When I navigate to "Login"
     And I click the SEO06_ForgotPassword link
     Then Ill see the SEO08_ForgotPassword page
     And Ill see the SEO08_SRS banner
@@ -58,7 +58,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS02 @TAA-44
   Scenario Outline: TAA-44
     Given Im an existing Partner
-    When I navigate to "SEOSTG_Login"
+    When I navigate to "Login"
     And I click the SEO06_ForgotPassword link
     Then Ill see the SEO08_ForgotPassword page
     And Ill see the SEO08_SRS banner
@@ -99,7 +99,7 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
   @SRSSMOKETEST @ForgotPassword @ForgotPassword_TS03 @TAA-45
   Scenario Outline: TAA-45
     Given Im an existing Partner
-    When I navigate to "SEOSTG_Login"
+    When I navigate to "Login"
     And I click the SEO06_ForgotPassword link
     Then Ill see the SEO08_ForgotPassword page
     And Ill see the SEO08_SRS banner

@@ -106,7 +106,7 @@ public class Helper{
 	public static void GetDriverObject() 
 	{
 		
-		System.out.println("Helper - ScnearioName: " + SetUp.ScenarioName);		
+		System.out.println("Helper - Scenario Name: " + SetUp.ScenarioName);		
 		switch (SetUp.ScenarioName)
 		{		
 			case "COMSMOKETEST_TS06": 
@@ -239,6 +239,28 @@ public class Helper{
 			}		
 		
 		
+	}
+	
+	
+	public static String GetApplication() throws IOException, InterruptedException
+	{
+		String App = null;
+		if (SetUp.getScenarioID().contains("seoreseller")) {
+			App = "Seoreseller";
+		}
+		else if (SetUp.getScenarioID().contains("compass")) {
+			App = "Compass";
+		}
+		
+		return App;
+	}
+	
+	public static String GetTestEnv() throws IOException, InterruptedException
+	{
+		String TestEnv = null;
+		TestEnv = GetPropertValue("Data/TestProperties.xml","TestEnv");		
+		
+		return TestEnv;
 	}
 	
 	

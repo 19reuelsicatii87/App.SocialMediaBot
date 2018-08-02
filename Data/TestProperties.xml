@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<!-- Use URL for BrowserStack capability information https://www.browserstack.com/automate/java -->
+<!-- Use  for BrowserStack capability information https://www.browserstack.com/automate/java -->
 
 <properties>
 
 <!-- Use below configuration -->
 	<entry key = "BrowserType">CHROME</entry>
-	<entry key = "Environment">Windows</entry>
+	<entry key = "OS">Windows</entry>
+	<entry key = "TestEnv">DEV</entry>
 
 	
 <!-- Use below configuration for Intrivio Web Application -->
-	<entry key = "IntrovioDEVURL">http://dev.intrv.io/</entry>
-	<entry key = "IntrovioSTAURL"></entry>
-	<entry key = "IntrovioPRODURL"></entry>
-	<entry key = "IntrovioUsername">clayton@truelogic.com.ph</entry>
-	<entry key = "IntrovioPassword">happy123</entry>
+	<entry key = "IntrovioDEV">http://dev.intrv.io/</entry>
+	<entry key = "IntrovioSTA"></entry>
+	<entry key = "IntrovioPRD"></entry>
+
 	
 <!-- Use below configuration for Compass Web Application -->
-	<entry key = "CompassDEVURL">http://dev.app.compass/</entry>
-	<entry key = "CompassDEVURL_Login">http://dev.app.compass/login</entry>
-	<entry key = "CompassDEVURL_Client">http://dev.app.compass/clients/bucket/1/18839</entry>
-	<entry key = "CompassDEVURL_Deployment">http://dev.app.compass/tasks/deployments</entry>
-	<entry key = "CompassDEVURL_Queue">http://dev.app.compass/project-management/queue</entry>
-	<entry key = "CompassDEVURL_Invoices">http://dev.app.compass/clients/bucket/1/18839/invoices</entry>
-	<entry key = "CompassDEVURL_Task">http://dev.app.compass/tasks</entry>
-	<entry key = "CompassDEVURL_Logout">http://dev.app.compass/logout</entry>
+	<entry key = "CompassDEV">http://dev.app.compass/</entry>
+	<entry key = "CompassDEV_Login">http://dev.app.compass/login</entry>
+	<entry key = "CompassDEV_Client">http://dev.app.compass/clients/bucket/1/18839</entry>
+	<entry key = "CompassDEV_Deployment">http://dev.app.compass/tasks/deployments</entry>
+	<entry key = "CompassDEV_Queue">http://dev.app.compass/project-management/queue</entry>
+	<entry key = "CompassDEV_Invoices">http://dev.app.compass/clients/bucket/1/18839/invoices</entry>
+	<entry key = "CompassDEV_Task">http://dev.app.compass/tasks</entry>
+	<entry key = "CompassDEV_Logout">http://dev.app.compass/logout</entry>
 	
 <!-- Use below configuration for Seoreseller Web Application -->
-	<entry key = "SeoresellerDEVURL_Store">http://dev.account.seoreseller.com/store</entry>
-	<entry key = "SeoresellerDEVURL_Login">http://dev.account.seoreseller.com/login</entry>
-	<entry key = "SeoresellerSTGURL_Login">http://staging.account.seoreseller.com/login</entry>
-	<entry key = "SeoresellerSTGURL_Welcome">http://staging.account.seoreseller.com/signup-success</entry>
+	<entry key = "SeoresellerDEV_Login">http://dev.account.seoreseller.com/login</entry>
+	<entry key = "SeoresellerDEV_Store">http://dev.account.seoreseller.com/store</entry>	
+	<entry key = "SeoresellerSTG_Login">http://staging.account.seoreseller.com/login</entry>
+	<entry key = "SeoresellerSTG_Store">http://staging.account.seoreseller.com/store</entry>
+	<entry key = "SeoresellerSTG_Welcome">http://staging.account.seoreseller.com/signup-success</entry>
 	
 <!-- Use below configuration for Compass Web Application -->
-	<entry key = "WriterDEVURL_Login">http://dev.writers.paypercontent.net/login</entry>
-	<entry key = "WriterDEVURL_Task">http://dev.writers.paypercontent.net/tasks</entry>
+	<entry key = "WriterDEV_Login">http://dev.writers.paypercontent.net/login</entry>
+	<entry key = "WriterDEV_Task">http://dev.writers.paypercontent.net/tasks</entry>
 	
 	
 <!-- Use below configuration for Compass Web Application -->
-	<entry key = "PaypercontentDEVURL_Login">http://dev.beta.paypercontent.net/login</entry>
-	<entry key = "PaypercontentDEVURL_Home">http://dev.beta.paypercontent.net/</entry>
+	<entry key = "PaypercontentDEV_Login">http://dev.beta.paypercontent.net/login</entry>
+	<entry key = "PaypercontentDEV_Home">http://dev.beta.paypercontent.net/</entry>
 
 
 <!-- Use below configuration for Lumen API Application -->
-	<entry key = "LumenDEVURL">http://192.168.10.5/api</entry>
-	<entry key = "KratosDEVURL">http://192.168.10.33:8888/api/v1</entry>
-	<entry key = "LumenSTGURL">http://10.10.2.83/api</entry>
-	<entry key = "KratosSTGURL">http://10.10.2.69/api/v1</entry>
+	<entry key = "LumenDEV">http://192.168.10.5/api</entry>
+	<entry key = "LumenSTG">http://10.10.2.83/api</entry>
+
+	
+<!-- Use below configuration for Kratos API Application -->
+	<entry key = "KratosDEV">http://192.168.10.33:8888/api/v1</entry>
+	<entry key = "KratosSTG">http://10.10.2.69/api/v1</entry>
 	
 	
 </properties>
