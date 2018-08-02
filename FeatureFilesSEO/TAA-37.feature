@@ -106,7 +106,6 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
     Then Ill see the SEO08_Message div with 'You are almost in your account'
-    #===================================
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
@@ -117,7 +116,6 @@ Feature: [TAA-37] SRS Forgot Password Smoke Test Suite v0.1
     Then Ill see the GMAIL01_Message div with "Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:"
     And Ill see the GMAIL01_ResetYourPassword <ElementName>
     When I click the GMAIL01_ResetYourPassword <ElementName>
-    #===================================
     Then Ill see the SEO09_ResetPassword page
     And Ill see the SEO09_Message input with "Should be at least 8 characters"
     And Ill see the SEO09_Toggle button
