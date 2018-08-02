@@ -106,8 +106,7 @@ public class Helper{
 	public static void GetDriverObject() 
 	{
 		
-		System.out.println("Helper - ScnearioName: " + SetUp.ScenarioName);
-		
+		System.out.println("Helper - ScnearioName: " + SetUp.ScenarioName);		
 		switch (SetUp.ScenarioName)
 		{		
 			case "COMSMOKETEST_TS06": 
@@ -130,12 +129,7 @@ public class Helper{
 				BrowserType = GetPropertValue("Data/TestProperties.xml","BrowserType");		        
 			break;
 		
-		}
-		
-		
-		
-
-		
+		}	
 		
 		log.info("Execution will be begin on Browser name " + BrowserType );
 		String Environment = GetPropertValue("Data/TestProperties.xml","Environment");
