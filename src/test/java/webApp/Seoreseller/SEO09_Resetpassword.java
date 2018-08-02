@@ -49,7 +49,7 @@ public class SEO09_Resetpassword extends Helper{
 		Assert.assertEquals(true, Password_textfield.getAttribute("placeholder").contains(Message));
 	}
 	
-	@Then("^Ill see the SEO09_Toggle input$")
+	@Then("^Ill see the SEO09_Toggle button$")
 	public void ill_see_the_toggle_for_visibility() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, TogglePasswordVisibility_button.isDisplayed());
 	}

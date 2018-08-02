@@ -24,14 +24,11 @@ public class SEO00_CommonSteps extends Helper{
 	@FindBy(xpath="//button[@class='login_button btn btn-primary text-uppercase']")
 	WebElement LoginToYourDashBoard_Button;
 	
-
 	@FindBy(xpath="//span[text()='Ignore, I trust this message']")
 	WebElement GoogleIgnoreMessage_Alert;
 	
 	@FindBy(xpath="//div[text()='This message is to confirm that you changed your password. Please see details:']")
 	WebElement ConfirmPasswordIsChange_Text;
-	
-
 	
 	@FindBy(xpath="//a[text()='Agency Tools']")
 	WebElement AgencyTools_link;

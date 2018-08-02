@@ -108,8 +108,13 @@ public class GMAIL01_MailInbox extends Helper{
 	@Then("^Ill see the GMAIL01_Message div with \"(Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:)\"$")
 	public void ill_see_the_GMAIL__Message_div_with_Hi_Partner_To_reset_your_password_please_click_on_the_button_below_Link_will_only_be_valid_for_hours(String Message) throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, LinkValidFor2Hrs_text.isDisplayed());
-		Assert.assertEquals(LinkValidFor2Hrs_text.getText(), Message);
-				
+		Assert.assertEquals(Message, LinkValidFor2Hrs_text.getText());				
+	}
+	
+	@Then("^Ill see the GMAIL01_Message div with \"(Hello,This message is to confirm that you changed your password.)\"$")
+	public void ill_see_the_GMAIL__Message_div_with_Hello_This_message_is_to_confirm_that_you_changed_your_password(String Message) throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, LinkValidFor2Hrs_text.isDisplayed());
+		Assert.assertEquals(Message, LinkValidFor2Hrs_text.getText());				
 	}
 
 	@Then("^Ill see the GMAIL01_ResetYourPassword ([^\"]*)$")
