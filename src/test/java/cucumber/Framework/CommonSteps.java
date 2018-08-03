@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import cucumber.api.java.en.Given;
@@ -33,6 +34,16 @@ public class CommonSteps extends Helper {
 		log.info("User Navigate to :" + GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
 		driver.get(GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
 	  
+	}
+	
+	@When("^I navigate to ParentWindow$")
+	public void i_navigate_to_ParentWindow() throws Throwable, UnhandledAlertException {
+		ReUsablesKeyword.switchtoparentwindow();
+	}
+	
+	@When("^I navigate to ChildWindow$")
+	public void i_navigate__to_ChildWindow() throws Throwable, UnhandledAlertException {
+		ReUsablesKeyword.switchtochildwindow();
 	}
 	
 	@Given("^User navigate to the application exact ([^\"]*)$")

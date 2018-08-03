@@ -28,6 +28,7 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
     And Ill see the GMAIL01_ResetYourPassword <ElementName>
     When I click the GMAIL01_ResetYourPassword <ElementName>
+		And I navigate to ChildWindow
     Then Ill see the SEO09_ResetPassword page
     And Ill see the SEO09_Message input with "Should be at least 8 characters"
     And Ill see the SEO09_Toggle button
@@ -83,13 +84,12 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     And I click the SEO09_Submit button
     Then Ill see the SEO09_Message div with "The Password field must be at least 8 characters in length."
     And Ill see the SEO09_ResetPassword page
-    
 
     Examples: 
-      | Email                        | Password  | NewPassword | Subject                        | Domain | Condition           |
-      | RNDAutomationTest9@gmail.com | happy123$ |         123 | Reset Account Password Request | google | Reset Your Password |
-      | RNDAutomationTest9@gmail.com | happy123$ |         123 | Reset Account Password Request | google | Reset Password Link |
+      | Email | Password | NewPassword | Subject | Domain | Condition |
 
+  #| RNDAutomationTest9@gmail.com | happy123$ |         123 | Reset Account Password Request | google | Reset Your Password |
+  #| RNDAutomationTest9@gmail.com | happy123$ |         123 | Reset Account Password Request | google | Reset Password Link |
   #Scenario Description:
   #Covered Tickets : SRS-2493, SRS-3106z
   #Given I'm a existing Partner
@@ -126,11 +126,8 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     And I enter <Password> in the SEO06_Password textfield
     And I click the SEO06_LoginToYourDashBoard button
     Then Ill see the SEO00_Dashboard page
-    
-
-    
 
     Examples: 
-      | Email                         | Password  | Domain | ElementName | Subject                        |
-      | RNDAutomationTest10@gmail.com | happy123$ | google | button      | Reset Account Password Request |
-      | RNDAutomationTest10@gmail.com | happy123$ | google | link        | Reset Account Password Request |
+      | Email | Password | Domain | ElementName | Subject |
+      #| RNDAutomationTest10@gmail.com | happy123$ | google | button      | Reset Account Password Request |
+      #| RNDAutomationTest10@gmail.com | happy123$ | google | link        | Reset Account Password Request |

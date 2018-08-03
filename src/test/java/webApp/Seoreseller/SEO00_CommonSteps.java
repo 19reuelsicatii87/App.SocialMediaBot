@@ -114,11 +114,7 @@ public class SEO00_CommonSteps extends Helper{
 		Assert.assertEquals(true, LoginToYourDashBoard_Button.isDisplayed());
 	}	
 
-	
-	@When("^I navigate to ParentWindow$")
-	public void i_navigate_back_to_my_mailbox() throws Throwable, UnhandledAlertException {
-		ReUsablesKeyword.switchtoparentwindow();
-	}
+
 	
 	@Then("^Ill see the \'Hello,This message is to confirm that you changed your password.\' Message")
 	public void ill_see_the_confirm_password_change_message() throws Throwable, UnhandledAlertException {
