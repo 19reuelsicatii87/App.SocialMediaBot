@@ -17,38 +17,38 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     And Ill see the SEO08_SRS banner
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
-    Then Ill see the SEO08_Message div with 'You are almost in your account'
+    Then Ill see the SEO08_Message div with "You are almost in your account! Please check your email to reset your password"
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
     And I click the GMAIL01_GoogleNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
     And I click the GMAIL01_GoogleNext button
-    And I click the GMAIL01_EmailSubject with <Subject>
-    Then Ill see the GMAIL01_Message div with "Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:"
+    And I click the GMAIL01_EmailSubject with "Reset Account Password Request"
+    Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
     And Ill see the GMAIL01_ResetYourPassword <ElementName>
     When I click the GMAIL01_ResetYourPassword <ElementName>
     Then Ill see the SEO09_ResetPassword page
-		And Ill see the SEO09_Message input with "Should be at least 8 characters"
+    And Ill see the SEO09_Message input with "Should be at least 8 characters"
     And Ill see the SEO09_Toggle button
     And Ill see the SEO09_BacktoLoginpage link
     When I populate SEO09_Password textfield with <NewPassword>
     And I click the SEO09_Submit button
-    Then Ill see the SEO00_Dashboard page    
+    Then Ill see the SEO00_Dashboard page
     When I navigate to ParentWindow
-    And I click the GMAIL01_EmailSubject with <Subject>
-    Then Ill see the GMAIL01_Message div with "Hello,This message is to confirm that you changed your password."
-    
+    And I click the GMAIL01_EmailSubject with "Reset Account Password Request"
+    Then Ill see the GMAIL01_Message div with "This message is to confirm that you changed your password."
 
     Examples: 
-      | Email                        | Password  | Domain | Subject                        | Condition           | NewPassword | PasswordUpdated                       |
-      | RNDAutomationTest8@gmail.com | happy123$ | google | Reset Account Password Request | Reset Your Password | happy123    | Account Password successfully updated |
-      | RNDAutomationTest8@gmail.com | happy123$ | google | Reset Account Password Request | Reset Your Password | happyabc    | Account Password successfully updated |
-      | RNDAutomationTest8@gmail.com | happy123$ | google | Reset Account Password Request | Reset Your Password |    12345678 | Account Password successfully updated |
-      | RNDAutomationTest8@gmail.com | happy123$ | google | Reset Account Password Request | Reset Password Link | happy123    | Account Password successfully updated |
-      | RNDAutomationTest8@gmail.com | happy123$ | google | Reset Account Password Request | Reset Password Link | happyabc    | Account Password successfully updated |
-      | RNDAutomationTest8@gmail.com | happy123$ | google | Reset Account Password Request | Reset Password Link |    12345678 | Account Password successfully updated |
+      | Email                        | Password  | NewPassword | ElementName |
+      | RNDAutomationTest8@gmail.com | happy123$ | happy123    | link        |
 
+  #| RNDAutomationTest8@gmail.com | happy123$ | happy123    | button |
+  #| RNDAutomationTest8@gmail.com | happy123$  | happyabc    | link |
+  #| RNDAutomationTest8@gmail.com | happy123$  |    12345678 | button |
+  #| RNDAutomationTest8@gmail.com | happy123$  | happy123    | link |
+  #| RNDAutomationTest8@gmail.com | happy123$  | happyabc    | button |
+  #| RNDAutomationTest8@gmail.com | happy123$  |    12345678 | link |
   #Scenario Description:
   #Covered Tickets : SRS-2493, SRS-3106
   #Given I'm a existing Partner
@@ -64,7 +64,7 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     And Ill see the SEO08_SRS banner
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
-    Then Ill see the SEO08_Message div with 'You are almost in your account'
+    Then Ill see the SEO08_Message div with "You are almost in your account! Please check your email to reset your password"
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
@@ -105,7 +105,7 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     And Ill see the SEO08_SRS banner
     When I enter <Email> in the SEO08_EnterEmail textfield
     And I click the SEO08_Submit button
-    Then Ill see the SEO08_Message div with 'You are almost in your account'
+    Then Ill see the SEO08_Message div with "You are almost in your account! Please check your email to reset your password"
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>

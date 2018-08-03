@@ -2,6 +2,8 @@ package webApp.Mailbox;
 
 import static org.junit.Assert.fail;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.UnhandledAlertException;
@@ -37,16 +39,18 @@ public class GMAIL01_MailInbox extends Helper{
 	WebElement Google_AllCheckbox;
 	
 	@FindBy(xpath="//div[@class='ar9 T-I-J3 J-J5-Ji']")
-	WebElement Google_Delete;	
-	
-	@FindBy(xpath="//div[contains(.,'Link will only be valid for 24 hours')]")
-	WebElement LinkValidFor2Hrs_text;
+	WebElement Google_Delete;
 	
 	@FindBy(xpath="//div//a[text()='Reset your Password']")
 	WebElement ResetYourPassword_button;
 	
 	@FindBy(xpath="//div[@class='ii gt']//div/a[contains(text(),'account')]")
 	WebElement ResetYourPassword_link;
+	
+	public static final List<WebElement> getdivList(String keyword){
+		List<WebElement> divList = driver.findElements(By.xpath("//div[contains(text(),'" + keyword + "')]"));
+		return divList;
+	}
 	
 	public static final WebElement SearchEmail(String keyword){
 		WebElement EmailSubject = driver.findElement(By.xpath("//span[contains(.,'"+keyword+"')]"));
@@ -69,26 +73,30 @@ public class GMAIL01_MailInbox extends Helper{
 	}
 
 	@When("^I click the GMAIL01_GoogleHomeSignIn link$")
-	public void i_click_the_GMAIL__GoogleHomeSignIn_link(int arg1) throws Throwable, UnhandledAlertException {
+	public void i_click_the_GMAIL__GoogleHomeSignIn_link() throws Throwable, UnhandledAlertException {
 		GoogleHomeSignIn_link.click();
 	}
 
 	@When("^I populate the GMAIL01_GoogleEmail textField with ([^\"]*)$")
 	public void i_populate_the_GMAIL__GoogleEmail_textField_with_Email(String Email) throws Throwable, UnhandledAlertException {
+		Thread.sleep(3000);
 		GoogleEmail_textField.sendKeys(Email);
 	}
 
 	@When("^I click the GMAIL01_GoogleNext button$")
-	public void i_click_the_GMAIL__GoogleNext_button(int arg1) throws Throwable, UnhandledAlertException {
+	public void i_click_the_GMAIL__GoogleNext_button() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(GoogleNext_button));
+		Thread.sleep(3000);
 		GoogleNext_button.click();
 	}
 
 	@When("^I populate the GMAIL01_GooglePassword textField with ([^\"]*)$")
 	public void i_populate_the_GMAIL__GooglePassword_textField_with_Password(String Password) throws Throwable, UnhandledAlertException {
-		GoogleEmail_textField.sendKeys(Password);
+		Thread.sleep(3000);
+		GooglePassword_textField.sendKeys(Password);
 	}
 
-	@When("^I click the GMAIL01_EmailSubject with ([^\"]*)$")
+	@When("^I click the GMAIL01_EmailSubject with \"([^\"]*)\"$")
 	public void i_click_the_GMAIL__EmailSubject_with_Subject(String subject) throws Throwable, UnhandledAlertException {
 		loop:
 		for(int i=0;i<3; i++){
@@ -105,16 +113,26 @@ public class GMAIL01_MailInbox extends Helper{
 		}
 	}
 
-	@Then("^Ill see the GMAIL01_Message div with \"(Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:)\"$")
+	@Then("^Ill see the GMAIL01_Message div with \"(To reset your password please click on the button below. Link will only be valid for 24 hours:)\"$")
 	public void ill_see_the_GMAIL__Message_div_with_Hi_Partner_To_reset_your_password_please_click_on_the_button_below_Link_will_only_be_valid_for_hours(String Message) throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, LinkValidFor2Hrs_text.isDisplayed());
-		Assert.assertEquals(Message, LinkValidFor2Hrs_text.getText());				
+			
+		for (WebElement div : getdivList(Message)) {			
+			if (div.isDisplayed()) {
+				Assert.assertEquals(Message, div.getText());
+				break;
+			}			
+		}		
 	}
 	
-	@Then("^Ill see the GMAIL01_Message div with \"(Hello,This message is to confirm that you changed your password.)\"$")
+	@Then("^Ill see the GMAIL01_Message div with \"(This message is to confirm that you changed your password.)\"$")
 	public void ill_see_the_GMAIL__Message_div_with_Hello_This_message_is_to_confirm_that_you_changed_your_password(String Message) throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, LinkValidFor2Hrs_text.isDisplayed());
-		Assert.assertEquals(Message, LinkValidFor2Hrs_text.getText());				
+		
+		for (WebElement div : getdivList(Message)) {			
+			if (div.isDisplayed()) {
+				Assert.assertEquals(Message, div.getText());
+				break;
+			}			
+		}		
 	}
 
 	@Then("^Ill see the GMAIL01_ResetYourPassword ([^\"]*)$")
