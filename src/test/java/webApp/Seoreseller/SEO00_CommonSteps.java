@@ -103,9 +103,11 @@ public class SEO00_CommonSteps extends Helper{
 		Assert.assertEquals(true, SrsHome_Link.isDisplayed());
 	}
 	
-	@When("^Ill not be redirected to the Dashboard")
+	@When("^Ill not see the SEO00_Dashboard page")
 	public void ill_not_be_redirected_to_dashboard() throws Throwable, UnhandledAlertException {
+		Thread.sleep(3000);
 		Assert.assertEquals(true, SrsBanner_Image.isDisplayed());
+		Assert.assertEquals(false, SrsHome_Link.isDisplayed());
 	}
 	
 	@Then("^Ill see the SEO00_LogIn page")

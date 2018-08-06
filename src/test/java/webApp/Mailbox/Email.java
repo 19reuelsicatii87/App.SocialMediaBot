@@ -85,37 +85,7 @@ public class Email extends Helper{
 	public Email() {
 		PageFactory.initElements(driver, this);
 		
-	}
-	
-	@Then("^Ill see the Google Pop up")
-	public void ill_see_the_google_signin_page() throws Throwable, UnhandledAlertException {
-		ReUsablesKeyword.switchtochildwindow();	
-		WD.until(ExpectedConditions.elementToBeClickable(GoogleNext_Button));
-		Assert.assertEquals(true, GoogleNext_Button.isDisplayed());
-	}
-	
-	@When("^I populate google email field with ([^\"]*)$")
-	public void i_enter_email__value_in_google_emailaddress_field(String arg1) throws Throwable, UnhandledAlertException {
-		GoogleEmail_TextField.sendKeys(arg1);
-	}
-	
-	@When("^I populate google password field with ([^\"]*)$")
-	public void i_enter_password_value_in_google_password_field(String arg1) throws Throwable, UnhandledAlertException {
-		WD.until(ExpectedConditions.elementToBeClickable(GooglePassword_TextField));
-		GooglePassword_TextField.sendKeys(arg1);
-	}
-	
-	@When("^I click google next button$")
-	public void i_click_google_next_button() throws Throwable, UnhandledAlertException {
-		WD.until(ExpectedConditions.elementToBeClickable(GoogleNext_Button));
-		GoogleNext_Button.click();
-	}
-	
-	@Then("^Google sign in window will close$")
-	public void google_signin_window_will_close() throws Throwable, UnhandledAlertException {
-		Thread.sleep(10000);
-		ReUsablesKeyword.switchtoparentwindow();
-	}
+	}	
 	
 	@When("^I open my ([^\"]*) mailbox using my ([^\"]*) and ([^\"]*)$")
 	public void i_open_my_value_mailbox(String domain, String email, String password) throws Throwable, UnhandledAlertException {

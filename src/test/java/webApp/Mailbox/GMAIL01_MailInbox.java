@@ -162,7 +162,17 @@ public class GMAIL01_MailInbox extends Helper{
 		
 	}
 	
+	@Then("^Ill see the GMAIL01_GooglePopUp window")
+	public void ill_see_the_google_signin_page() throws Throwable, UnhandledAlertException {
+		ReUsablesKeyword.switchtochildwindow();	
+		WD.until(ExpectedConditions.elementToBeClickable(GoogleNext_button));
+		Assert.assertEquals(true, GoogleNext_button.isDisplayed());
+	}
 	
-	
+	@Then("^Ill not see the GMAIL01_GooglePopUp window$")
+	public void google_signin_window_will_close() throws Throwable, UnhandledAlertException {
+		Thread.sleep(10000);
+		Assert.assertEquals(false, GoogleNext_button.isDisplayed());
+	}
 	
 }

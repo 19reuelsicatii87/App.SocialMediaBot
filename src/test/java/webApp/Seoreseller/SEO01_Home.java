@@ -35,7 +35,7 @@ public class SEO01_Home extends Helper{
 	WebElement UserAvatar_image;
 	
 	@FindBy(xpath="//div[@id='user-account-container']//li/a[@href='/logout']")
-	WebElement Logout;
+	WebElement Logout_list;
 		
 	@FindBy(xpath="//div[@id='profile-setup-box-image-action-holder']")
 	WebElement CompanySetupUploadPhoto_Button;
@@ -181,14 +181,14 @@ public class SEO01_Home extends Helper{
 		DomainUrl_textfield.sendKeys(arg1);
 	}
 
-	@When("^I click the User Avatar$")
+	@When("^I click the SEO01_UserAvatar button$")
 	public void i_click_user_avatar() throws Throwable, UnhandledAlertException {
 		UserAvatar_image.click();
 	}
 	
-	@When("^I click the Logout$")
+	@When("^I click the SEO01_Logout list$")
 	public void i_click_the_logout() throws Throwable, UnhandledAlertException {
-		Logout.click();
+		Logout_list.click();
 	}
 	
 	

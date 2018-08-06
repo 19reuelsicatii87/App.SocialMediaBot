@@ -1,21 +1,5 @@
-#Author: lorraine@truelogic.com.ph
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
+#Author: reuel@truelogic.com.ph, lorraine@truelogic.com.ph
+#Version 1.0 06.27 2018 - Initial creation of file
 Feature: [TAA-39] [SEOReseller] Login/Logout
 
   #Scenario Description:
@@ -26,85 +10,83 @@ Feature: [TAA-39] [SEOReseller] Login/Logout
   #Then I'll see the Log in Page
   @SRSSMOKETEST @LoginLogout @LoginLogout_TS01 @TAA-40
   Scenario Outline: TAA-40
-		Given Im an existing Partner
-		When I navigate to "Login"
-		Then Ill see the Email Address Field
-		And Ill see the Password Field
-		And Ill see the Log In to you Dashboard button
-		And Ill see the Sign in with Google button
-		And Ill see the Terms of Use and Privacy Policy Verbiage
-		
-		When I enter <Email> in the Email Address Field
-		And I enter <Password> in the Password Field
-		And I click the Log in to your Dashboard button
-		Then Ill see the Dashboard Page
-		
-		When I click the User Avatar
-		And I click the Logout
-		Then Ill see the Log In Page
-		
+    Given Im an existing Partner
+    When I navigate to "Login"
+    Then Ill see the SEO06_EmailAddress textfield
+    And Ill see the SEO06_Password textfield
+    And Ill see the SEO06_LogIntoyouDashboard button
+    And Ill see the SEO06_SigninwithGoogle button
+    And Ill see the SEO06_TermsofUseandPrivacyPolicy div with message "By logging in, you agree to SEOReseller's Terms of Use and Privacy Policy"
+    When I populate the SEOE6_EmailAddress textfield with <Email>
+    And I populate the SEOE6_Password textfield with <Password>
+    And I click the SEO06_LoginToYourDashBoard button
+    Then Ill see the SEO00_Dashboard page
+    When I click the SEO01_UserAvatar button
+    And I click the SEO01_Logout list
+    Then Ill see the SEO06_LogIn page
+    And Ill see the SEO06_Password textfield
+    And Ill see the SEO06_LogIntoyouDashboard button
+    And Ill see the SEO06_SigninwithGoogle button
+    And Ill see the SEO06_TermsofUseandPrivacyPolicy div with message "By logging in, you agree to SEOReseller's Terms of Use and Privacy Policy"
+
     Examples: 
-      | Email                         | Password       |
-      | rndautomationtest5@gmail.com  | happy123$      |
-      
+      | Email                        | Password  |
+      | rndautomationtest5@gmail.com | happy123$ |
+
   #Scenario Description:
   #Covered Ticket : SRS-4968
   #Given I'm a  Partner
   #When I Manual log in unsuccessfully
   #Then I'll not be redirected to the Dashboard
-  @SRSSMOKETEST @LoginLogout @LoginLogout_TS02 @TAA-41 
+  @SRSSMOKETEST @LoginLogout @LoginLogout_TS02 @TAA-41
   Scenario Outline: TAA-41
-		Given Im an existing Partner
-		When I navigate to "Login"
-		Then Ill see the Email Address Field
-		And Ill see the Password Field
-		And Ill see the Log In to you Dashboard button
-		And Ill see the Sign in with Google button
-		And Ill see the Terms of Use and Privacy Policy Verbiage
-				
-		When I enter <Email> in the Email Address Field
-		And I enter <Password> in the Password Field
-		And I click the Log in to your Dashboard button
-		Then Ill see the Error <Message>
-		And Ill not be redirected to the Dashboard
-		
+    Given Im an existing Partner
+    When I navigate to "Login"
+    Then Ill see the SEO06_EmailAddress textfield
+    And Ill see the SEO06_Password textfield
+    And Ill see the SEO06_LogIntoyouDashboard button
+    And Ill see the SEO06_SigninwithGoogle button
+    And Ill see the SEO06_TermsofUseandPrivacyPolicy div with message "By logging in, you agree to SEOReseller's Terms of Use and Privacy Policy"
+    When I populate the SEOE6_EmailAddress textfield with <Email>
+    And I populate the SEOE6_Password textfield with <Password>
+    And I click the SEO06_LoginToYourDashBoard button
+    Then Ill see the SEO06_Error div with <Message>
+    And Ill not see the SEO00_Dashboard page
+
     Examples: 
-      | Email                        | Password     |  Message   | 
-      | rndautomationtest6@gmail.com |              | Incorrect  |
-      |                              |  happy123$   | Blank      | 
-      |                              |              | Blank      | 
-      
+      | Email                        | Password  | Message   |
+      | rndautomationtest6@gmail.com |           | Incorrect |
+      |                              | happy123$ | Blank     |
+      |                              |           | Blank     |
+
   #Scenario Description:
   #Covered Ticket : SRS-4968
   #Given I'm a  Partner
   #When I Google log in Successfully
   #And Click Log Out
   #Then I'll see the Log in Page
-  @SRSSMOKETEST @LoginLogout @LoginLogout_TS03 @TAA-42 
-    Scenario Outline: TAA-42
-		Given Im an existing Partner
-		When I navigate to "Login"
-		Then Ill see the Email Address Field
-		And Ill see the Password Field
-		And Ill see the Log In to you Dashboard button
-		And Ill see the Sign in with Google button
-		And Ill see the Terms of Use and Privacy Policy Verbiage
-		
-		When I click the Sign in with Google button
-    Then Ill see the Google Pop up
-		
-		When I populate google email field with <Email> 
-		And I click google next button
-		And I populate google password field with <Password> 
-		And I click google next button
-		Then Google sign in window will close
-		And Ill see the Dashboard Page
-		
-		When I click the User Avatar
-		And I click the Logout
-		Then Ill see the Log In Page
-		
-	  Examples:
-      | Email                        | Password     |
-      | RNDAutomationTest7@gmail.com | happy123$    |
-		
+  @SRSSMOKETEST @LoginLogout @LoginLogout_TS03 @TAA-42
+  Scenario Outline: TAA-42
+    Given Im an existing Partner
+    When I navigate to "Login"
+    Then Ill see the SEO06_EmailAddress textfield
+    And Ill see the SEO06_Password textfield
+    And Ill see the SEO06_LogIntoyouDashboard button
+    And Ill see the SEO06_SigninwithGoogle button
+    And Ill see the SEO06_TermsofUseandPrivacyPolicy div with message "By logging in, you agree to SEOReseller's Terms of Use and Privacy Policy"
+    When I click the SEO06_SigninwithGoogle button
+    Then Ill see the GMAIL01_GooglePopUp window
+    When I populate the GMAIL01_GoogleEmail textField with <Email>
+    And I click the GMAIL01_GoogleNext button
+    And I populate the GMAIL01_GooglePassword textField with <Password>
+    And I click the GMAIL01_GoogleNext button
+    Then Ill not see the GMAIL01_GooglePopUp window
+    When I navigate to ParentWindow
+    And Ill see the SEO00_Dashboard page
+		And I click the SEO01_UserAvatar button
+    And I click the SEO01_Logout list
+    Then Ill see the SEO06_LogIn page
+
+    Examples: 
+      | Email                        | Password  |
+      | RNDAutomationTest7@gmail.com | happy123$ |
