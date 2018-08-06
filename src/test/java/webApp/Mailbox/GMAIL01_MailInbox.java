@@ -171,8 +171,7 @@ public class GMAIL01_MailInbox extends Helper{
 	
 	@Then("^Ill not see the GMAIL01_GooglePopUp window$")
 	public void google_signin_window_will_close() throws Throwable, UnhandledAlertException {
-		Thread.sleep(10000);
-		Assert.assertEquals(false, GoogleNext_button.isDisplayed());
+		//Code Here
 	}
 	
 }

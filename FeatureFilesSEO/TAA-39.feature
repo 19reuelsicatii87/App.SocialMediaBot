@@ -80,10 +80,9 @@ Feature: [TAA-39] [SEOReseller] Login/Logout
     And I click the GMAIL01_GoogleNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
     And I click the GMAIL01_GoogleNext button
-    Then Ill not see the GMAIL01_GooglePopUp window
-    When I navigate to ParentWindow
-    And Ill see the SEO00_Dashboard page
-		And I click the SEO01_UserAvatar button
+    And I navigate to ParentWindow
+    Then Ill see the SEO00_Dashboard page
+		When I click the SEO01_UserAvatar button
     And I click the SEO01_Logout list
     Then Ill see the SEO06_LogIn page
 
