@@ -28,7 +28,7 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
     And Ill see the GMAIL01_ResetYourPassword <ElementName>
     When I click the GMAIL01_ResetYourPassword <ElementName>
-		And I navigate to ChildWindow
+    And I navigate to ChildWindow
     Then Ill see the SEO09_ResetPassword page
     And Ill see the SEO09_Message input with "Should be at least 8 characters"
     And Ill see the SEO09_Toggle button
@@ -43,13 +43,12 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     Examples: 
       | Email                        | Password  | NewPassword | ElementName |
       | RNDAutomationTest8@gmail.com | happy123$ | happy123    | link        |
+      | RNDAutomationTest8@gmail.com | happy123$ | happy123    | button      |
+      | RNDAutomationTest8@gmail.com | happy123$ |    12345678 | link        |
+      | RNDAutomationTest8@gmail.com | happy123$ |    12345678 | button      |
+      | RNDAutomationTest8@gmail.com | happy123$ | happyabc    | link        |
+      | RNDAutomationTest8@gmail.com | happy123$ | happyabc    | button      |
 
-  #| RNDAutomationTest8@gmail.com | happy123$ | happy123    | button |
-  #| RNDAutomationTest8@gmail.com | happy123$  | happyabc    | link |
-  #| RNDAutomationTest8@gmail.com | happy123$  |    12345678 | button |
-  #| RNDAutomationTest8@gmail.com | happy123$  | happy123    | link |
-  #| RNDAutomationTest8@gmail.com | happy123$  | happyabc    | button |
-  #| RNDAutomationTest8@gmail.com | happy123$  |    12345678 | link |
   #Scenario Description:
   #Covered Tickets : SRS-2493, SRS-3106
   #Given I'm a existing Partner
@@ -72,10 +71,11 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     And I click the GMAIL01_GoogleNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
     And I click the GMAIL01_GoogleNext button
-    And I click the GMAIL01_EmailSubject with <Subject>
-    Then Ill see the GMAIL01_Message div with "Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:"
+    And I click the GMAIL01_EmailSubject with "Reset Account Password Request"
+    Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
     And Ill see the GMAIL01_ResetYourPassword <ElementName>
     When I click the GMAIL01_ResetYourPassword <ElementName>
+    And I navigate to ChildWindow
     Then Ill see the SEO09_ResetPassword page
     And Ill see the SEO09_Message input with "Should be at least 8 characters"
     And Ill see the SEO09_Toggle button
@@ -86,10 +86,10 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     And Ill see the SEO09_ResetPassword page
 
     Examples: 
-      | Email | Password | NewPassword | Subject | Domain | Condition |
+      | Email                        | Password  | NewPassword | ElementName |
+      | RNDAutomationTest9@gmail.com | happy123$ |         123 | link        |
+      | RNDAutomationTest9@gmail.com | happy123$ |         123 | button      |
 
-  #| RNDAutomationTest9@gmail.com | happy123$ |         123 | Reset Account Password Request | google | Reset Your Password |
-  #| RNDAutomationTest9@gmail.com | happy123$ |         123 | Reset Account Password Request | google | Reset Password Link |
   #Scenario Description:
   #Covered Tickets : SRS-2493, SRS-3106z
   #Given I'm a existing Partner
@@ -112,10 +112,11 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     And I click the GMAIL01_GoogleNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
     And I click the GMAIL01_GoogleNext button
-    And I click the GMAIL01_EmailSubject with <Subject>
-    Then Ill see the GMAIL01_Message div with "Hi Partner, To reset your password please click on the button below. Link will only be valid for 24 hours:"
+    And I click the GMAIL01_EmailSubject with "Reset Account Password Request"
+    Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
     And Ill see the GMAIL01_ResetYourPassword <ElementName>
     When I click the GMAIL01_ResetYourPassword <ElementName>
+    And I navigate to ChildWindow
     Then Ill see the SEO09_ResetPassword page
     And Ill see the SEO09_Message input with "Should be at least 8 characters"
     And Ill see the SEO09_Toggle button
@@ -128,6 +129,6 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     Then Ill see the SEO00_Dashboard page
 
     Examples: 
-      | Email | Password | Domain | ElementName | Subject |
-      #| RNDAutomationTest10@gmail.com | happy123$ | google | button      | Reset Account Password Request |
-      #| RNDAutomationTest10@gmail.com | happy123$ | google | link        | Reset Account Password Request |
+      | Email                         | Password  | ElementName |
+      | RNDAutomationTest10@gmail.com | happy123$ | button      |
+      | RNDAutomationTest10@gmail.com | happy123$ | link        |
