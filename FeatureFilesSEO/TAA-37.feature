@@ -123,8 +123,8 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password
     And Ill see the SEO09_BacktoLoginpage link
     When I click the SEO09_BacktoLoginpage link
     Then Ill see the SEO00_LogIn page
-    When I enter <Email> in the SEO06_EmailAddress textfield
-    And I enter <Password> in the SEO06_Password textfield
+    When I populate the SEOE6_EmailAddress textfield with <Email>
+    And I populate the SEOE6_Password textfield with <Password>
     And I click the SEO06_LoginToYourDashBoard button
     Then Ill see the SEO00_Dashboard page
 

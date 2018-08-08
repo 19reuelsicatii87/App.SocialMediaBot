@@ -1,4 +1,5 @@
 package com.Utilities;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,14 +8,17 @@ import java.sql.SQLException;
 
 import java.sql.Statement;
 
-public class QueryDatabase {
+import cucumber.Framework.Helper;
+import cucumber.Framework.SetUp;
+
+public class QueryDatabase extends Helper{
 	
 	static Connection connection = null;
 	static PreparedStatement prepStatement = null;
 	static Statement statement = null;
 
 	
-	public static void ConnectionBuildUp() throws SQLException{
+	public static void ConnectionBuildUp() throws Throwable {
 		System.out.println("-------- DB Connection Build Up will now start ------------");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -25,8 +29,31 @@ public class QueryDatabase {
 		}
 		
 		try {
-			connection = DriverManager
-			.getConnection("jdbc:mysql://10.10.3.196:3306/staging_central","weng", "weng12345");
+			
+			switch (GetTestEnv())
+			{		
+				case "DEV": 
+					connection = DriverManager
+					.getConnection("jdbc:mysql://10.10.3.32:3306/development_central","dev", "Qaz123123!"); 
+		        break;
+				
+				case "STG":  
+				connection = DriverManager
+				.getConnection("jdbc:mysql://10.10.3.196:3306/staging_central","weng", "weng12345");
+				break;
+				
+				case "PRD": 
+					//Credentials below is not allowed to DELETE
+					connection = DriverManager
+					.getConnection("jdbc:mysql://10.10.2.219:3306/prod_central","weng", "weng12345");
+		        break;
+				
+				default: 
+					System.out.println("TestEnv not recognize:" + GetTestEnv());
+					log.info("TestEnv not recognize:" + GetTestEnv());
+				break;
+			
+			}
 			
 
 		} catch (SQLException e) {
@@ -37,7 +64,7 @@ public class QueryDatabase {
 		
 	}
 	
-	public static String ReturnSpecificData (String Query, String identifier) throws SQLException{
+	public static String ReturnSpecificData (String Query, String identifier) throws Throwable{
 		ConnectionBuildUp();
 		String finalResult = null;
 		if (connection != null) {
@@ -58,7 +85,7 @@ public class QueryDatabase {
 		return finalResult;
 	}
 	
-	public static void DeleteSpecificData (String Query) throws SQLException{
+	public static void DeleteSpecificData (String Query) throws Throwable{
 		ConnectionBuildUp();
 		
 		statement = connection.createStatement();

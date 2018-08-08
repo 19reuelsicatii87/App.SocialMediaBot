@@ -13,25 +13,27 @@ Feature: [TAA-38] [SEOReseller]: Registration
   @SRSSMOKETEST @Registration @Registration_TS01 @TAA-88
   Scenario Outline: TAA-88
     Given Im a new Partner
-    And I check if <Email> should not exist as pre condition
+    And I ensure that <Email> does not exist
     When I navigate to "Login"
     Then Ill see the SEO06_SeoReseller Banner
     When I click SEO06_SignUp link
     Then Ill see the SEO010_SignUp Page
-    And Ill see "2 minute setup to get started with SEOReseller right away. Grow your agency by outsourcing your SEO, Web Design, Social Media, Link Building and more!"
+    And Ill see the SEO010_TwoMinutesSetupToGetStarted_div with "2 minute setup to get started with SEOReseller right away. Grow your agency by outsourcing your SEO, Web Design, Social Media, Link Building and more!"
     And Ill see the SEO010_SignInWithGoogle button
     And Ill see the SEO010_FirstName textfield
     And Ill see the SEO010_LastName textfield
     And Ill see the SEO010_EmailAddress textfield
     And Ill see the SEO010Password textfield
-    And Ill see the SEO010_TermsAndPrivacy text
-    And Ill see "Already have an account"
-    And Ill see the Create Account button
+    And Ill see the SEO010_TermsOfUseAndPrivacyPolicyVerbiage_div with "By signing up, you agree to SEOReseller's Terms of Use and Privacy Policy"
+    And Ill see the SEO010_AlreadyhaveAnAccount_div with "Already have an account"
+    And Ill see the SEO010_CreateAccount button
     When I populate the SEO010_FirstName textfield with <FirstName>
     And I populate the SEO010_LastName textfield with <LastName>
     And I populate the SEO010_Email textfield with <Email>
     And I populate the SEO010_Password textfield with <Password>
     And I click SEO010_CreateAccount button
+    
+    #=====================================================================
     When I click the SEO011_GoToMailbox button for my <Domain> Account
     And I login using my <Email> and <Password> for my <Domain> Mailbox
     And Ill see the email with Subject <Subject> for my <Domain> Mailbox
@@ -41,6 +43,24 @@ Feature: [TAA-38] [SEOReseller]: Registration
     And Ill see the Email_GoToDashboard button
     And Ill see the Email_RegistrationConfirm link
     When I click the Email_Redirect <MailRedirect>
+    #=====================================================================
+    When I navigate to GMAIL
+    And I click the GMAIL01_GoogleHomeSignIn link
+    And I populate the GMAIL01_GoogleEmail textField with <Email>
+    And I click the GMAIL01_GoogleNext button
+    And I populate the GMAIL01_GooglePassword textField with <Password>
+    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_EmailSubject with "Reset Account Password Request"
+    Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
+    And Ill see the GMAIL01_ResetYourPassword <ElementName>
+    When I click the GMAIL01_ResetYourPassword <ElementName>
+    And I navigate to ChildWindow
+    Then Ill see the SEO09_ResetPassword page
+    
+    
+    #=====================================================================
+    
+    
     Then Ill see that Im redirected to SEO06_DashboardHome Page
     And Ill see the SEO01_SuccessAccountVerifyMessage message
     When I click the User Avatar

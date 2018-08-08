@@ -4,24 +4,14 @@ package cucumber.Framework;
 
 import java.io.File;
 import java.io.FileInputStream;
-
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import org.apache.log4j.Logger;
-
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
-
 import org.apache.commons.logging.LogFactory;
-import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Proxy;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.Proxy.ProxyType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -33,22 +23,12 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.Utilities.CustomLogger;
-import com.Utilities.ReadBrowserStack;
-import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.github.genium_framework.appium.support.server.AppiumServer;
-import com.github.genium_framework.server.ServerArguments;
-
-import cucumber.api.Scenario;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
