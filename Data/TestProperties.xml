@@ -8,7 +8,7 @@
 <!-- Use below configuration -->
 	<entry key = "BrowserType">CHROME</entry>
 	<entry key = "OS">Windows</entry>
-	<entry key = "TestEnv">DEV</entry>
+	<entry key = "TestEnv">PRD</entry>
 
 	
 <!-- Use below configuration for Intrivio Web Application -->
@@ -29,10 +29,14 @@
 	
 <!-- Use below configuration for Seoreseller Web Application -->
 	<entry key = "SeoresellerDEV_Login">http://dev.account.seoreseller.com/login</entry>
-	<entry key = "SeoresellerDEV_Store">http://dev.account.seoreseller.com/store</entry>	
+	<entry key = "SeoresellerDEV_Store">http://dev.account.seoreseller.com/store</entry>
+	<entry key = "SeoresellerDEV_Signupsuccess">http://dev.account.seoreseller.com/signup-success</entry>	
 	<entry key = "SeoresellerSTG_Login">http://staging.account.seoreseller.com/login</entry>
 	<entry key = "SeoresellerSTG_Store">http://staging.account.seoreseller.com/store</entry>
-	<entry key = "SeoresellerSTG_Welcome">http://staging.account.seoreseller.com/signup-success</entry>
+	<entry key = "SeoresellerSTG_Signupsuccess">http://staging.account.seoreseller.com/signup-success</entry>
+	<entry key = "SeoresellerPRD_Login">http://account.seoreseller.com/login</entry>
+	<entry key = "SeoresellerPRD_Store">http://account.seoreseller.com/store</entry>
+	<entry key = "SeoresellerPRD_Signupsuccess">http://account.seoreseller.com/signup-success</entry>
 	
 <!-- Use below configuration for Compass Web Application -->
 	<entry key = "WriterDEV_Login">http://dev.writers.paypercontent.net/login</entry>
@@ -52,6 +56,11 @@
 <!-- Use below configuration for Kratos API Application -->
 	<entry key = "KratosDEV">http://192.168.10.33:8888/api/v1</entry>
 	<entry key = "KratosSTG">http://10.10.2.69/api/v1</entry>
+	
+	<!-- Use below configuration for Database Application -->
+	<entry key = "CDBDEV">http://192.168.10.33:8888/api/v1</entry>
+	<entry key = "CDBSTG">http://10.10.2.69/api/v1</entry>
+	<entry key = "CDBPRD">http://10.10.2.69/api/v1</entry>
 	
 	
 </properties>
