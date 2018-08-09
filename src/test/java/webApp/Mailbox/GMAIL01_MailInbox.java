@@ -47,6 +47,15 @@ public class GMAIL01_MailInbox extends Helper{
 	@FindBy(xpath="//div[@class='ii gt']//div/a[contains(text(),'account')]")
 	WebElement ResetYourPassword_link;
 	
+	@FindBy(xpath="//p[contains(text(),'Thank you for registering at SEOReseller.com ')]")
+	WebElement ThankYouForRegistering_div;	
+	
+	@FindBy(xpath="//a[text()='GO TO MY DASHBOARD']")
+	WebElement GoToDashBoard_button;	
+	
+	@FindBy(xpath="//a[contains(.,'account.seoreseller')]")
+	WebElement GoToDashBoard_link;
+	
 	public static final List<WebElement> getdivList(String keyword){
 		List<WebElement> divList = driver.findElements(By.xpath("//div[contains(text(),'" + keyword + "')]"));
 		return divList;
@@ -179,6 +188,40 @@ public class GMAIL01_MailInbox extends Helper{
 	@Then("^Ill not see the GMAIL01_GooglePopUp window$")
 	public void google_signin_window_will_close() throws Throwable, UnhandledAlertException {
 		Thread.sleep(3000);
+	}
+	
+	@Then("^Ill see the GMAIL01_ThankYouForRegistering div with \"(Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below.)\"$")
+	public void ill_see_email_thankyou_for_registering_text(String Message) throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, ThankYouForRegistering_div.isDisplayed());
+		Assert.assertEquals(Message, ThankYouForRegistering_div.getText());
+
+	}
+	
+	@Then("^Ill see the GMAIL01_GotoMyDashboard ([^\"]*)$")
+	public void ill_see_the_GMAIL01_GoToDashboard_ElementName(String ElementName) throws Throwable, UnhandledAlertException {
+	
+		switch(ElementName) {
+		    case "button":
+		    	Assert.assertEquals(true, GoToDashBoard_button.isDisplayed());
+		        break;
+		    case "link":
+		    	Assert.assertEquals(true, GoToDashBoard_link.isDisplayed());
+		        break;
+			}
+	}
+
+	@When("^I click the GMAIL01_GotoMyDashboard ([^\"]*)$")
+	public void i_click_the_GMAIL01_GoToDashboard_ElementName(String ElementName) throws Throwable, UnhandledAlertException {
+
+		switch(ElementName) {
+	    case "button":
+	    	ResetYourPassword_button.click();
+	        break;
+	    case "link":
+	    	ResetYourPassword_link.click();
+	        break;
+		}
+		
 	}
 	
 }

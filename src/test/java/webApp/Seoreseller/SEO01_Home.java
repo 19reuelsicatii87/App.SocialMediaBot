@@ -133,7 +133,7 @@ public class SEO01_Home extends Helper{
 	WebElement CompanySetupFinishSetup_button;
 	
 	@FindBy(xpath="//p[text()='Congratulations! You have successfully verified your email address.']")
-	WebElement SuccessAccountVerifyMessage_text;
+	WebElement SuccessAccountVerifyMessage_div;
 	
 	@FindBy(xpath="(//div[@class='custom-input-group-addon']/i)[6]")
 	WebElement CompanySetupCompanyWebsite_icon;
@@ -142,7 +142,7 @@ public class SEO01_Home extends Helper{
 	WebElement CompanySetupSelectedFlag_icon;
 	
 	@FindBy(xpath="//h3/p")
-	WebElement CompanySetupVerbiage_text;	
+	WebElement CompanySetupVerbiage_div;	
 	
 	@FindBy(xpath="//a[text()='Email Settings']")
 	WebElement EmailSettings_link;
@@ -197,9 +197,10 @@ public class SEO01_Home extends Helper{
 	    //CodeHere
 	}
 	
-	@Then("^Ill see the SEO01_SuccessAccountVerifyMessage message$")
-	public void i_see_the_SSEO01_SuccessAccountVerifyMessage_message() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, SuccessAccountVerifyMessage_text.isDisplayed());
+	@Then("^Ill see the SEO01_SuccessAccountVerifyMessage div with \"(Congratulations! You have successfully verified your email address.)\"$")
+	public void i_see_the_SSEO01_SuccessAccountVerifyMessage_message(String Message) throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, SuccessAccountVerifyMessage_div.isDisplayed());
+		Assert.assertEquals(Message, SuccessAccountVerifyMessage_div.getText());
 	}
 	
 	@Then("^Ill see the SEO01_CompanySetup popup$")
@@ -207,12 +208,13 @@ public class SEO01_Home extends Helper{
 		WD.until(ExpectedConditions.elementToBeClickable(CompanySetupCompleteProfile_Button));
 	}
 	
-	@Then("^Ill see SEO01_CompanyProfile verbiage$")
-	public void i_see_the_SEO01_CompanyProfile_verbiage() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, CompanySetupVerbiage_text.isDisplayed());
+	@Then("^Ill see SEO01_CompanyProfile div with \"(Customize your account by completing your profile information.)\"$")
+	public void i_see_the_SEO01_CompanyProfile_verbiage(String Message) throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, CompanySetupVerbiage_div.isDisplayed());
+		Assert.assertEquals(Message, CompanySetupVerbiage_div.getText());
 	}
 	
-	@Then("^Ill see that the SEO01_UploadLogo button is removed$")
+	@Then("^Ill see the SEO01_UploadLogo button is removed$")
 	public void ill_not_see_the_SEO01_UploadLogo_button() throws Throwable, UnhandledAlertException {
 		Boolean isPresent = driver.findElements(By.xpath("//button[contains(.,'UPLOAD LOGO')]")).size() < 1;
 		if(isPresent==true){
@@ -227,7 +229,7 @@ public class SEO01_Home extends Helper{
 		Assert.assertEquals(true, CompanySetupCompanyWebsite_icon.isDisplayed());
 	}
 	
-	@Then("^Ill see that the SEO01_PhoneCountry icon is based on ([^\"]*)$")
+	@Then("^Ill see the SEO01_PhoneCountry icon is ([^\"]*)$")
 	public void ill_see_the_SEO01_PhoneCountry_icon(String country) throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, CompanySetupSelectedFlag_icon.getAttribute("title").contains(country));
 	}
@@ -243,43 +245,43 @@ public class SEO01_Home extends Helper{
 		Thread.sleep(2000);
 	}
 	
-	@Then("^I select ([^\"]*) in SEO01_CompanyProfile dropdown$")
+	@Then("^I click the SEO01_CompanyProfile dropdown to choose ([^\"]*)$")
 	public void i_select_SEO01_CompleteProfile_dropdown(String companyProfile) throws Throwable, UnhandledAlertException {
 		CompanySetupCompanyProfile_Selector.click();
 		CompanySetupCompanyProfileByKeyword(companyProfile).click();
 	}
 	
-	@Then("^I select ([^\"]*) in SEO01_ExistingClient dropdown$")
+	@Then("^I click the SEO01_ExistingClient dropdown to choose ([^\"]*)$")
 	public void i_select_SEO01_ExistingClient_dropdown(String existingClient) throws Throwable, UnhandledAlertException {
 		CompanySetupExistingClient_Selector.click();
 		CompanySetupExistingClientByKeyword(existingClient).click();
 	}
 	 
-	@Then("^I populate SEO01_CompanyWebsite textfield with ([^\"]*)$")
+	@Then("^I populate the SEO01_CompanyWebsite textfield with ([^\"]*)$")
 	public void i_populate_SEO01_CompanyWebsite_textfield(String companyWebsite) throws Throwable, UnhandledAlertException {
 		CompanySetupCompanyWebsite_Textfield.sendKeys(companyWebsite);
 
 	}	
 	
-	@Then("^I populate SEO01_BusinessPhone textfield with ([^\"]*)$")
+	@Then("^I populate the SEO01_BusinessPhone textfield with ([^\"]*)$")
 	public void i_populate_SEO01_BusinessPhone_textfield(String businessPhone) throws Throwable, UnhandledAlertException {
 		CompanySetupBusinessPhone_Textfield.sendKeys(businessPhone);
 	}		
 
-	@Then("^I populate SEO01_Address textfield with ([^\"]*) returned by Google$")
+	@Then("^I populate the SEO01_Address textfield with ([^\"]*) returned by Google$")
 	public void i_populate_SEO01_Address_textfield(String address) throws Throwable, UnhandledAlertException {
 		CompanySetupAddress_Textfield.sendKeys(address);
 		CompanySetupAddressFirstAutofill_span.click();
 		Thread.sleep(2000);
 	}
 	
-	@Then("^Ill see that SEO01_State and SEO01_Country fields are auto-populated$")
+	@Then("^Ill see the SEO01_State and SEO01_Country fields are auto-populated$")
 	public void ill_see_the_autopopulate_fields_in_companysetup() throws Throwable, UnhandledAlertException {
 	     Assert.assertEquals(false, CompanySetupState_span.getText().isEmpty());
 	     Assert.assertEquals(false, CompanySetupCountry_span.getText().isEmpty());
 	}
 	
-	@Then("^I click SEO01_FinishSetup Button$")
+	@Then("^I click the SEO01_FinishSetup button$")
 	public void i_click_finish_setup_button() throws Throwable, UnhandledAlertException {
 		CompanySetupFinishSetup_button.click();
 	}
@@ -290,11 +292,6 @@ public class SEO01_Home extends Helper{
 		Assert.assertEquals(true, UserAvatar_image.isDisplayed());
 	}
 
-	@Then("^Ill see that Im redirected to SEO06_DashboardHome Page$")
-	public void ill_see_the_dashboard_home_page() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, UserAvatar_image.isDisplayed());
-	}
-	
 	@Then("^I click the SEO01_EmailSettings$")
 	public void i_click_the_SEO01_EmailSettings_link() throws Throwable, UnhandledAlertException {
 		Thread.sleep(3000);

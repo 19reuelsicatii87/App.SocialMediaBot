@@ -48,21 +48,14 @@ public class Email extends Helper{
 		WebElement SearchEmailAge = driver.findElement(By.xpath("//span[contains(.,'"+keyword+"')]"));
 		return SearchEmailAge;
 	}
-	
-	@FindBy(xpath="//a[text()='GO TO MY DASHBOARD']")
-	WebElement GoToDashBoard_button;	
-
-	@FindBy(xpath="//p[contains(.,'Thank you for registering at SEOReseller.com ')]")
-	WebElement ThankYouForRegistering_text;	
-	
+		
 	@FindBy(xpath="//a[contains(.,'account.seoreseller')]")
 	WebElement RegistratrionConfirmation_text;
 	
 	@FindBy(xpath="//p/strong/../..//div[2]/img")
 	WebElement SeoReseller_image;
 	
-	@FindBy(xpath="//a[contains(.,'account.seoreseller')]")
-	WebElement RegistratrionConfirm_link;
+
 	
 	@FindBy(xpath="(//input[@class='unauthinputText'])[1]")
 	WebElement ZohoEmail_textfield;
@@ -202,22 +195,6 @@ public class Email extends Helper{
 
 	}
 	
-	@Then("^Ill see the Email_ThankYouForRegistering message$")
-	public void ill_see_email_thankyou_for_registering_text() throws Throwable, UnhandledAlertException {
-		ThankYouForRegistering_text.click();
-
-	}
-	
-	@Then("^Ill see the Email_GoToDashboard button$")
-	public void ill_see_email_goto_dashboard_button() throws Throwable, UnhandledAlertException {
-	     Assert.assertEquals(true, GoToDashBoard_button.isDisplayed());
-	}
-
-	@Then("^Ill see the Email_RegistrationConfirm link$")
-	public void ill_see_email_registration_link() throws Throwable, UnhandledAlertException {
-	     Assert.assertEquals(true, RegistratrionConfirm_link.isDisplayed());
-
-	}
 
 	@When("^I select email with Subject ([^\"]*) for my ([^\"]*) Mailbox$")
 	public void i_click_the_email_specific_domain(String subject, String domain) throws Throwable, UnhandledAlertException {
@@ -259,17 +236,5 @@ public class Email extends Helper{
 	}
 	
 	
-	@When("^I click the Email_Redirect ([^\"]*)$")
-	public void i_click_the_email_redirect_value(String redirect) throws Throwable, UnhandledAlertException {
-		if(redirect.equals("Go to my dashboard button")){
-			System.out.println("Mail Redirect is " +redirect);
-			GoToDashBoard_button.click();
-			Thread.sleep(5000);
-			ReUsablesKeyword.switchToLatestTab();
-		}else{
-			RegistratrionConfirm_link.click();
-			Thread.sleep(5000);
-			ReUsablesKeyword.switchToLatestTab();
-		}
-	}
+
 }
