@@ -95,13 +95,20 @@ public class GMAIL01_MailInbox extends Helper{
 		Thread.sleep(3000);
 		GooglePassword_textField.sendKeys(Password);
 	}
+	
+	@Then("^I see the GMAIL01_EmailSubject div with \"([^\"]*)\"$")
+	public void i_see_the_GMAIL_EmailSubject_with_Subject(String subject) throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(true, SearchEmail(subject).isDisplayed());
+		Assert.assertEquals(subject, SearchEmail(subject).getText());
+	}
 
-	@When("^I click the GMAIL01_EmailSubject with \"([^\"]*)\"$")
-	public void i_click_the_GMAIL__EmailSubject_with_Subject(String subject) throws Throwable, UnhandledAlertException {
+	@When("^I click the GMAIL01_EmailSubject div with \"([^\"]*)\"$")
+	public void i_click_the_GMAIL_EmailSubject_with_Subject(String subject) throws Throwable, UnhandledAlertException {
 		loop:
 		for(int i=0;i<3; i++){
 			Google_hyperlink.click();
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 			if(SearchEmail(subject).isDisplayed()){
 				SearchEmail(subject).click();
 				break loop;
