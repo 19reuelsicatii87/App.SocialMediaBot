@@ -1,6 +1,6 @@
 #Author: lorraine@truelogic.com.ph
 #Version 1.0 06.27 2018 - Initial creation of file
-Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP
+Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP Smoke/Regression TestSuite
 
   #Covered Ticket : SRS-3468
   #Scenario Description:

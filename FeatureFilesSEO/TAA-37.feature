@@ -1,6 +1,6 @@
 #Author: reuel@truelogic.com.ph, lorraine@truelogic.com.ph
 #Version 1.0 06.27 2018 - Initial creation of file
-Feature: [TAA-37] [SEOReseller]: Forgot Password
+Feature: [TAA-37] [SEOReseller]: Forgot Password Smoke/Regression TestSuite
 
   #Scenario Description:
   #Covered Tickets : SRS-2493, SRS-3106

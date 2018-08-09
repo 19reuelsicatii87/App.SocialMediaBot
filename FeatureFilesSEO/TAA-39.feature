@@ -1,6 +1,6 @@
 #Author: reuel@truelogic.com.ph, lorraine@truelogic.com.ph
 #Version 1.0 06.27 2018 - Initial creation of file
-Feature: [TAA-39] [SEOReseller] Login/Logout
+Feature: [TAA-39] [SEOReseller] Login/Logout Smoke/Regression TestSuite
 
   #Scenario Description:
   #Covered Ticket : SRS-4968

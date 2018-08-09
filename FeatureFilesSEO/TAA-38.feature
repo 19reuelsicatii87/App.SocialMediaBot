@@ -1,6 +1,6 @@
 #Author: reuel@truelogic.com.ph, lorraine@truelogic.com.ph
 #Version 1.0 06.27 2018 - Initial creation of file
-Feature: [TAA-38] [SEOReseller]: Registration
+Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
 
   #Covered Ticket : SRS-2544, SRS-2690, SRS-3160, SRS-2545, SRS-2546, SRS-4157
   #Scenario Description:
@@ -33,32 +33,19 @@ Feature: [TAA-38] [SEOReseller]: Registration
     And I populate the SEO010_Password textfield with <Password>
     And I click SEO010_CreateAccount button
     
-    #=====================================================================
-    When I click the SEO011_GoToMailbox button for my <Domain> Account
-    And I login using my <Email> and <Password> for my <Domain> Mailbox
-    And Ill see the email with Subject <Subject> for my <Domain> Mailbox
-    When I select email with Subject <Subject> for my <Domain> Mailbox
-    Then Ill see the Email_SeoReseller logo
-    And Ill see the Email_ThankYouForRegistering message
-    And Ill see the Email_GoToDashboard button
-    And Ill see the Email_RegistrationConfirm link
-    When I click the Email_Redirect <MailRedirect>
-    #=====================================================================
-    When I navigate to GMAIL
+		When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
     And I click the GMAIL01_GoogleNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
     And I click the GMAIL01_GoogleNext button
-    And I click the GMAIL01_EmailSubject with "Reset Account Password Request"
-    Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
-    And Ill see the GMAIL01_ResetYourPassword <ElementName>
-    When I click the GMAIL01_ResetYourPassword <ElementName>
-    And I navigate to ChildWindow
-    Then Ill see the SEO09_ResetPassword page
-    
-    
-    #=====================================================================
+    Then I see the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
+    When I click the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
+	  Then Ill see the Email_ThankYouForRegistering message
+    And Ill see the Email_GoToDashboard button
+    And Ill see the Email_RegistrationConfirm link
+    When I click the Email_Redirect <MailRedirect>
+
     
     
     Then Ill see that Im redirected to SEO06_DashboardHome Page
