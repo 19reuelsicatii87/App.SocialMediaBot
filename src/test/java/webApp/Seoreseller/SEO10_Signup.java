@@ -89,7 +89,7 @@ public class SEO10_Signup extends Helper{
 			Assert.assertEquals(true, EmailAddress_textfield.isDisplayed());
 	}
 	
-	@Then("^Ill see the SEO010Password textfield$")
+	@Then("^Ill see the SEO010_Password textfield$")
 	public void ill_see_the_Password_textfield() throws Throwable, UnhandledAlertException {
 			Assert.assertEquals(true, Password_textfield.isDisplayed());
 	}
@@ -103,7 +103,7 @@ public class SEO10_Signup extends Helper{
 	@Then("^Ill see the SEO010_AlreadyhaveAnAccount_div with \"(Already have an account)\"$")
 	public void ill_see_the_already_have_an_account_text(String Message) throws Throwable, UnhandledAlertException {
 			Assert.assertEquals(true, AlreadyhaveAnAccount_div.isDisplayed());
-			Assert.assertEquals(Message, AlreadyhaveAnAccount_div.getText());
+			Assert.assertEquals(true, AlreadyhaveAnAccount_div.getText().contains(Message));
 	}
 	
 	@Then("^Ill see the SEO010_CreateAccount button$")

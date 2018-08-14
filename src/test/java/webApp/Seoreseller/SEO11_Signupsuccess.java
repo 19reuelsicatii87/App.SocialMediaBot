@@ -56,9 +56,10 @@ public class SEO11_Signupsuccess extends Helper{
 		Assert.assertEquals("http://staging.account.seoreseller.com/signup-success", driver.getCurrentUrl());
 	}
 	
-	@Then("^I see the message \"([^\"]*)\"$")
-	public void i_see_the_message_value(String arg1) throws Throwable, UnhandledAlertException {
+	@Then("^I see the message \"(Welcome! Congratulations, You are just one step away to access all features of your free account. Please verify your account by clicking on the confirmation link sent to your email.)\"$")
+	public void i_see_the_message_value(String Message) throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, Congratulations_text.isDisplayed());
+		Assert.assertEquals(Message, Congratulations_text.getText());
 	}
 	
 	

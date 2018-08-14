@@ -105,14 +105,14 @@ public class GMAIL01_MailInbox extends Helper{
 		GooglePassword_textField.sendKeys(Password);
 	}
 	
-	@Then("^I see the GMAIL01_EmailSubject div with \"([^\"]*)\"$")
+	@Then("^I see the GMAIL01_EmailSubject div with \"(Please Confirm Your Email Address)\"$")
 	public void i_see_the_GMAIL_EmailSubject_with_Subject(String subject) throws Throwable, UnhandledAlertException {
 		Thread.sleep(5000);
 		Assert.assertEquals(true, SearchEmail(subject).isDisplayed());
 		Assert.assertEquals(subject, SearchEmail(subject).getText());
 	}
 
-	@When("^I click the GMAIL01_EmailSubject div with \"([^\"]*)\"$")
+	@When("^I click the GMAIL01_EmailSubject div with \"(Please Confirm Your Email Address)\"$")
 	public void i_click_the_GMAIL_EmailSubject_with_Subject(String subject) throws Throwable, UnhandledAlertException {
 		loop:
 		for(int i=0;i<3; i++){

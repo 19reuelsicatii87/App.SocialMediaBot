@@ -17,6 +17,8 @@ public class SetUp extends Helper {
 		ScenarioName = scenario.getName();
 		ScenarioID = scenario.getId();	
 		
+		
+		//Move this as a PRE-CONDITION of QAO-04 Scenarios
 		switch (scenario.getName())
 		{		
 			case "COMSMOKETEST_TS01": 

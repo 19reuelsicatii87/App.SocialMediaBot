@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: [QAO-04] Compass Smoke Test Suite v0.1
+Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
 
   #Scenario Description:
   #Given I'm an Account Manager

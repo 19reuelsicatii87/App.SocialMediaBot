@@ -45,7 +45,7 @@ public class QueryDatabase extends Helper{
 				case "PRD": 
 					//Credentials below is not allowed to DELETE
 					connection = DriverManager
-					.getConnection("jdbc:mysql://10.10.2.219:3306/prod_central","weng", "weng12345");
+					.getConnection("jdbc:mysql://10.10.2.219:3306/prod_central","reuel", "reuel123");
 		        break;
 				
 				default: 
