@@ -25,7 +25,7 @@ public class SEO11_Signupsuccess extends Helper{
 	WebElement Mailbox_image;
 
 	@FindBy(xpath="//p[text()='Congratulations! You are just one step away to access all features of your free account.']")
-	WebElement Congratulations_text;
+	WebElement Congratulations_div;
 	
 	@FindBy(xpath="//p[text()='Please verify your account by clicking on the confirmation link sent to your email.']")
 	WebElement PleaseVerifyAccount_text;
@@ -49,17 +49,17 @@ public class SEO11_Signupsuccess extends Helper{
 		
 	}
 	
-	@Then("^Ill be redirected to Welcome page$")
+	@Then("^Ill be redirected to SEO11_Welcome page$")
 	public void ill_be_redirected_to_Welcome_page() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, SrsBanner_image.isDisplayed());
 		Assert.assertEquals(true, Welcome_heading.isDisplayed());
 		Assert.assertEquals("http://staging.account.seoreseller.com/signup-success", driver.getCurrentUrl());
 	}
 	
-	@Then("^I see the message \"(Welcome! Congratulations, You are just one step away to access all features of your free account. Please verify your account by clicking on the confirmation link sent to your email.)\"$")
+	@Then("^I see the SEO11_Congratulations div with \"(Congratulations! You are just one step away to access all features of your free account.)\"$")
 	public void i_see_the_message_value(String Message) throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, Congratulations_text.isDisplayed());
-		Assert.assertEquals(Message, Congratulations_text.getText());
+		Assert.assertEquals(true, Congratulations_div.isDisplayed());
+		Assert.assertEquals(Message, Congratulations_div.getText());
 	}
 	
 	

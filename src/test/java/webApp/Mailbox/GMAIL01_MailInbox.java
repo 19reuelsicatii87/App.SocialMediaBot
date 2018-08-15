@@ -215,10 +215,10 @@ public class GMAIL01_MailInbox extends Helper{
 
 		switch(ElementName) {
 	    case "button":
-	    	ResetYourPassword_button.click();
+	    	GoToDashBoard_button.click();
 	        break;
 	    case "link":
-	    	ResetYourPassword_link.click();
+	    	GoToDashBoard_link.click();
 	        break;
 		}
 		

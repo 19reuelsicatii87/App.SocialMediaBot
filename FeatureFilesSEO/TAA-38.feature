@@ -32,8 +32,8 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I populate the SEO010_Email textfield with <Email>
     And I populate the SEO010_Password textfield with <Password>
     And I click SEO010_CreateAccount button
-    Then Ill be redirected to Welcome page
-    And I see the message "Welcome! Congratulations, You are just one step away to access all features of your free account. Please verify your account by clicking on the confirmation link sent to your email."
+    Then Ill be redirected to SEO11_Welcome page
+    And I see the SEO11_Congratulations div with "Congratulations! You are just one step away to access all features of your free account."
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
@@ -70,9 +70,9 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
-      | FirstName | LastName   | Email                         | Password  | Domain | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | Subject                           |
-      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | google | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
-      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | google | Link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
+      | FirstName | LastName   | Email                         | Password  | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | Subject                           |
+      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
+      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | Link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
 
   #Covered Ticket : SRS-2544, SRS-2690, SRS-3160, SRS-2545, SRS-2546, SRS-4157
   #Scenario Description:
@@ -104,8 +104,8 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I populate the SEO010_Email textfield with <Email>
     And I populate the SEO010_Password textfield with <Password>
     And I click SEO010_CreateAccount button
-    Then Ill be redirected to Welcome page
-    And I see the message "Welcome! Congratulations, You are just one step away to access all features of your free account. Please verify your account by clicking on the confirmation link sent to your email."
+    Then Ill be redirected to SEO11_Welcome page
+    And I see the SEO11_Congratulations div with "Congratulations! You are just one step away to access all features of your free account."
     When I navigate to ZOHO
     And I click the ZOHO01_Login link
     And I populate the ZOHO01_Email textField with <Email>
@@ -223,8 +223,8 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And Ill see the SEO010_TermsOfUseAndPrivacyPolicyVerbiage_div with "By signing up, you agree to SEOReseller's Terms of Use and Privacy Policy"
     And Ill see the SEO010_AlreadyhaveAnAccount_div with "Already have an account"
     And I click SEO010_CreateAccount button
-    Then Ill be redirected to Welcome page
-    And I see the message "Welcome! Congratulations, You are just one step away to access all features of your free account. Please verify your account by clicking on the confirmation link sent to your email."
+    Then Ill be redirected to SEO11_Welcome page
+    And I see the SEO11_Congratulations div with "Congratulations! You are just one step away to access all features of your free account."
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
@@ -236,7 +236,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill see the GMAIL01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
     And Ill see the GMAIL01_GotoMyDashboard <ElementName>
     When I navigate back to "Welcome"
-    Then Ill be redirected to Welcome page
+    Then Ill be redirected to SEO11_Welcome page
     And I click the SEO11_resend link
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
