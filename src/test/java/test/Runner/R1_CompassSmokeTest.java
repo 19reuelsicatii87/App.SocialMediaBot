@@ -10,7 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.jetty.html.Break;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -33,7 +33,7 @@ import com.cucumber.listener.*;
 )
 
 
-public class R1_CompassSmokeTest extends Helper{
+public class R1_CompassSmokeTest extends WEBHelper{
 	
 	@BeforeClass
 	public static void BeforeClass() throws Exception

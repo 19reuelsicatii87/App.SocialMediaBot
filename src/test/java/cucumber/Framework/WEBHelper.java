@@ -34,7 +34,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
 
-public class Helper{
+public class WEBHelper{
 	
 
 	public static WebDriver driver=null;
@@ -44,7 +44,7 @@ public class Helper{
 	public static JavascriptExecutor JS=null;
 	public static ReUsablesKeywords ReUsablesKeyword=new ReUsablesKeywords();
 	public static CommonSteps CommonStep= new CommonSteps();	
-	public static Logger log = CustomLogger.log(Helper.class);
+	public static Logger log = CustomLogger.log(WEBHelper.class);
 	public static AppiumServer appiumServer=null;
 	public static Process process;
 	public static Properties properties;

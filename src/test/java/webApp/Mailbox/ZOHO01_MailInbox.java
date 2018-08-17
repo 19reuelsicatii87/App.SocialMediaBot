@@ -12,11 +12,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class ZOHO01_MailInbox extends Helper{
+public class ZOHO01_MailInbox extends WEBHelper{
 	@FindBy(xpath=".//input[@id='lid']")
 	WebElement ZohoEmail_textfield;
 

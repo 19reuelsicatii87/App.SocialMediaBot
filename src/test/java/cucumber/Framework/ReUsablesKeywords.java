@@ -27,7 +27,7 @@ import com.github.genium_framework.appium.support.server.AppiumServer;
 import com.github.genium_framework.server.ServerArguments;
 import com.google.common.base.Predicate;
 
-public class ReUsablesKeywords extends Helper {
+public class ReUsablesKeywords extends WEBHelper {
 	
 	Robot robot;
 	
@@ -353,12 +353,12 @@ public class ReUsablesKeywords extends Helper {
 		 String value = System.getenv("ANDROID_PATH");
 		 
 		 String emulatorPath = value +  File.separator + "emulator";
-			Helper.log.info("Starting emulator for 'GQA' ...");
+			WEBHelper.log.info("Starting emulator for 'GQA' ...");
 				 String[] aCommand = new String[] { emulatorPath, "-avd", "GQA" };
 				 try {
-					 Helper.process= new ProcessBuilder(aCommand).start();
-					 Helper.process.waitFor(180, TimeUnit.SECONDS);
-				  Helper.log.info("Emulator launched successfully!");
+					 WEBHelper.process= new ProcessBuilder(aCommand).start();
+					 WEBHelper.process.waitFor(180, TimeUnit.SECONDS);
+				  WEBHelper.log.info("Emulator launched successfully!");
 				 }
 				 catch (Exception e) {
 					  e.printStackTrace();
@@ -380,9 +380,9 @@ public class ReUsablesKeywords extends Helper {
 				serverArguments.setArgument("--no-reset", true);
 				serverArguments.setArgument("--local-timezone", true);
 
-				Helper.appiumServer= new AppiumServer(serverArguments);
+				WEBHelper.appiumServer= new AppiumServer(serverArguments);
 
-				Helper.appiumServer.startServer();
+				WEBHelper.appiumServer.startServer();
 				
 			 } catch (Exception e) {
 			 // e.printStackTrace();
@@ -411,13 +411,13 @@ public class ReUsablesKeywords extends Helper {
 	 
 	 public void StopAppium()
 	 {
-		 Helper.process.destroy();
-			Helper.process=null;
+		 WEBHelper.process.destroy();
+			WEBHelper.process=null;
 			
-			if(Helper.appiumServer.isServerRunning())
+			if(WEBHelper.appiumServer.isServerRunning())
 			{
-				Helper.appiumServer.stopServer();
-				Helper.appiumServer=null;
+				WEBHelper.appiumServer.stopServer();
+				WEBHelper.appiumServer=null;
 			}
 			
 			try {

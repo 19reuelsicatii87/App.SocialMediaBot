@@ -12,11 +12,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM11_ProjectmanagementQueue extends Helper{
+public class COM11_ProjectmanagementQueue extends WEBHelper{
 	
 	@FindBy(xpath=".//input[@value='Campaign']")
 	 WebElement Campaign_txtfield;

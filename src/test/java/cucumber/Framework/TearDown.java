@@ -13,7 +13,7 @@ import cucumber.api.java.After;
 
 
 
-public class TearDown extends Helper {
+public class TearDown extends WEBHelper {
 	
 	
 	//public static Scenario scenario;

@@ -10,7 +10,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -28,7 +28,7 @@ import com.Utilities.*;
 )
 
 
-public class R2_CompassSmokeTest extends Helper{
+public class R2_CompassSmokeTest extends WEBHelper{
 	
 	@BeforeClass
 	public static void SecondBeforeClass() throws Exception 

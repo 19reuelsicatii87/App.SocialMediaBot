@@ -10,11 +10,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class IN_Dashboard extends Helper{
+public class IN_Dashboard extends WEBHelper{
 	
 	@FindBy(xpath=".//*[@id='side-menu']/li[3]/a/span")
 	 WebElement Campaign_link;

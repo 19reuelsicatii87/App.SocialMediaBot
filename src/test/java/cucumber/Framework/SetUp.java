@@ -4,7 +4,7 @@ import java.io.IOException;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 
-public class SetUp extends Helper {
+public class SetUp extends WEBHelper {
 	
 	static String ScenarioName;
 	static String ScenarioID;

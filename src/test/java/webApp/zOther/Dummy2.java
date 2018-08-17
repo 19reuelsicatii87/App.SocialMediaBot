@@ -2,7 +2,7 @@ package webApp.zOther;
 
 
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;;
 
 
 
-public class Dummy2 extends Helper{
+public class Dummy2 extends WEBHelper{
 
 	
 	@Test

@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 import com.Utilities.Mail;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
@@ -28,7 +28,7 @@ import cucumber.api.junit.Cucumber;
 )
 
 
-public class R1_LumenSmokeTest extends Helper {
+public class R1_LumenSmokeTest extends WEBHelper {
 	
 	@BeforeClass
 	public static void BeforeClass() throws Exception

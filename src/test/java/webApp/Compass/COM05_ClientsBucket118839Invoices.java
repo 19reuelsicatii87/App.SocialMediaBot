@@ -16,12 +16,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import webApp.Seoreseller.*;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM05_ClientsBucket118839Invoices extends Helper{
+public class COM05_ClientsBucket118839Invoices extends WEBHelper{
 	
 	@FindBy(xpath=".//a[@href='#inv-payments']")
 	WebElement Payments_tab;

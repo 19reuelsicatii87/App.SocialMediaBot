@@ -21,12 +21,12 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.jayway.jsonpath.JsonPath;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM13_Tasks extends Helper{
+public class COM13_Tasks extends WEBHelper{
 	
 
 	@FindBy(xpath=".//select[@id='filter-status']")

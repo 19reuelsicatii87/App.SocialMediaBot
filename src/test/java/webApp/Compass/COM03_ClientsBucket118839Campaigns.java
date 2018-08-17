@@ -11,12 +11,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import webApp.Seoreseller.SEO05_Invoices;
 
-public class COM03_ClientsBucket118839Campaigns extends Helper{
+public class COM03_ClientsBucket118839Campaigns extends WEBHelper{
 	
 	@FindBy(xpath=".//*[@id='create_project_btn']")
 	WebElement COM_CreateCampaign_button;

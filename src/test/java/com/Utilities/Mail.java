@@ -26,11 +26,11 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 
 
 
-public class Mail extends Helper
+public class Mail extends WEBHelper
 {
   
 	public static void SendReport(String ReportName, String URLKey, String Subject) throws Exception
@@ -261,7 +261,7 @@ public class Mail extends Helper
             //Send the complete message parts
             message.setContent(multipart,"text/html");            
             Transport.send(message);  
-            Helper.log.info("message sent successfully....");
+            WEBHelper.log.info("message sent successfully....");
             System.out.println("message sent successfully....");  
      
          }catch (MessagingException mex) {mex.printStackTrace();}  

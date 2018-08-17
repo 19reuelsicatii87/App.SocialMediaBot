@@ -13,11 +13,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SEO05_Invoices extends Helper{
+public class SEO05_Invoices extends WEBHelper{
 	
 	public static String InvoiceNumber;
 	

@@ -20,7 +20,7 @@ import java.util.UUID;
 
 
 
-public class CommonSteps extends Helper {
+public class CommonSteps extends WEBHelper {
 
 	
 	@When("^I navigate to \"([^\"]*)\"$")

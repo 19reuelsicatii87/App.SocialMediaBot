@@ -18,13 +18,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.jayway.jsonpath.JsonPath;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 import cucumber.api.Scenario;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM10_TaskDeploymentDeploy extends Helper{
+public class COM10_TaskDeploymentDeploy extends WEBHelper{
 	
 	@FindBy(xpath=".//input[@value='Campaign']")
 	 WebElement Campaign_txtfield;

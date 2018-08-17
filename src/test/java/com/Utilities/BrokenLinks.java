@@ -29,13 +29,13 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 
 
 
 
  
-public class BrokenLinks extends Helper{
+public class BrokenLinks extends WEBHelper{
   
 String pageUrl;
 String logger;

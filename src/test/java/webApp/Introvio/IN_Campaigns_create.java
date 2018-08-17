@@ -9,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class IN_Campaigns_create extends Helper{
+public class IN_Campaigns_create extends WEBHelper{
 	
 	@FindBy(xpath=".//div[@class='input-group m-b']/input")
 	 WebElement DomainURL_txtfield;

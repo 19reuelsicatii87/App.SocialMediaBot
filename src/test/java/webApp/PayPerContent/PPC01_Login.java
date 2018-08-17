@@ -10,12 +10,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class PPC01_Login extends Helper{
+public class PPC01_Login extends WEBHelper{
 	
 	@FindBy(xpath=".//input[@id='identity']")
 	 WebElement Username_txtfield;

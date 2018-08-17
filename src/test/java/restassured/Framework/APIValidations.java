@@ -1,4 +1,4 @@
-package com.Utilities;
+package restassured.Framework;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -8,10 +8,10 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import com.squareup.okhttp.*;
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 
 
-public class APIValidations extends Helper {
+public class APIValidations extends WEBHelper {
 	Date date = new Date();
 	SimpleDateFormat sdf =new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
 	String timeStamp = sdf.format(date);

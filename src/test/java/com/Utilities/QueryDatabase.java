@@ -8,10 +8,10 @@ import java.sql.SQLException;
 
 import java.sql.Statement;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 
-public class QueryDatabase extends Helper{
+public class QueryDatabase extends WEBHelper{
 	
 	static Connection connection = null;
 	static PreparedStatement prepStatement = null;

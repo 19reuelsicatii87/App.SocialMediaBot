@@ -25,7 +25,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import cucumber.Framework.*;
 
-public class GTMscripts extends Helper{
+public class GTMscripts extends WEBHelper{
 	String pageUrl;
 	String logger;
 	public ExtentReports extent;

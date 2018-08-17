@@ -17,12 +17,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.jayway.jsonpath.JsonPath;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class PPC03_Task extends Helper{
+public class PPC03_Task extends WEBHelper{
 	
 	@FindBy(xpath=".//*[@id='identity']")
 	 WebElement Username_txtfield;

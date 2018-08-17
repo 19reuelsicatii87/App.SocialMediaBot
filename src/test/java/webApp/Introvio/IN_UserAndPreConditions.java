@@ -8,13 +8,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class IN_UserAndPreConditions extends Helper{
+public class IN_UserAndPreConditions extends WEBHelper{
 	
 	@FindBy(xpath=".//my-libs-login-form/form/div[1]/input")
 	 WebElement Username;

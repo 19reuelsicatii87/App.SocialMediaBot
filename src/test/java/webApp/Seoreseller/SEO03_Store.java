@@ -13,11 +13,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SEO03_Store extends Helper{
+public class SEO03_Store extends WEBHelper{
 	
 	@FindBy(xpath=".//select[@class='form-control select2-me select2-offscreen']")
 	WebElement SelectCampaign_dropbox;

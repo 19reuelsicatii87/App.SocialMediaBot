@@ -13,11 +13,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM08_ClientsBucket118839ProjectSubproject extends Helper{
+public class COM08_ClientsBucket118839ProjectSubproject extends WEBHelper{
 	
 	@FindBy(xpath=".//button[@id='subproject-add-button']")
 	WebElement AddAProject_Button;

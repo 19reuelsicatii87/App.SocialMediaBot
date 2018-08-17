@@ -17,11 +17,11 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM07_ClientsBucket118839ProjectProduct extends Helper{
+public class COM07_ClientsBucket118839ProjectProduct extends WEBHelper{
 	
 	@FindBy(xpath=".//button[@id='order-product-button']")
 	WebElement OrderAProduct_button;

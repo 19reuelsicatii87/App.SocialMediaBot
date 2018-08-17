@@ -6,12 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SEO00_CommonSteps extends Helper{
+public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//nav[@id='main-menu']//li/a[text()='Home']")
 	WebElement SrsHome_Link;
 	

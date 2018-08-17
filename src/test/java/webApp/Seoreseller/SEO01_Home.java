@@ -10,11 +10,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SEO01_Home extends Helper{
+public class SEO01_Home extends WEBHelper{
 	
 	@FindBy(xpath=".//a[@href='/new-campaign/wizard']")
 	WebElement AddCampaign_button;
