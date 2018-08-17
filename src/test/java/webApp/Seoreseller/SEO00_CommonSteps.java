@@ -13,7 +13,7 @@ import cucumber.api.java.en.When;
 
 public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//nav[@id='main-menu']//li/a[text()='Home']")
-	WebElement SrsHome_Link;
+	WebElement SrsHome_link;
 	
 	@FindBy(xpath="//div//img")
 	WebElement SrsBanner_Image;
@@ -97,7 +97,7 @@ public class SEO00_CommonSteps extends WEBHelper{
 	@Then("^Ill see the SEO00_Dashboard page$")
 	public void ill_see_the_dashboard_page() throws Throwable {
         Thread.sleep(3000);
-		Assert.assertEquals(true, SrsHome_Link.isDisplayed());
+		Assert.assertEquals(true, SrsHome_link.isDisplayed());
 	}
 	
 	@When("^Ill not see the SEO00_Dashboard page")

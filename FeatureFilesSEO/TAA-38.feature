@@ -45,6 +45,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill see the GMAIL01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
     And Ill see the GMAIL01_GotoMyDashboard <ElementName>
     When I click the GMAIL01_GotoMyDashboard <ElementName>
+    And I navigate to ChildWindow
     Then Ill see the SEO00_Dashboard page
     And Ill see the SEO01_SuccessAccountVerifyMessage div with "Congratulations! You have successfully verified your email address."
     When I click the SEO01_UserAvatar button
@@ -55,11 +56,11 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I click the SEO06_LoginToYourDashBoard button
     Then Ill see the SEO01_CompanySetup popup
     And Ill see SEO01_CompanyProfile div with "Customize your account by completing your profile information."
-    And Ill see the SEO01_PhoneCountry icon is <Country>
     When I click SEO01_CompleteProfile button
-    And Ill see the SEO01_UploadLogo button is removed
+    Then Ill see the SEO01_UploadLogo button is removed
     And Ill see the SEO01_CompanyWebsite globe
-    And I populate SEO01_CompanyName textfield with <CompanyName>
+		And Ill see the SEO01_PhoneCountry icon is <Country>
+    When I populate SEO01_CompanyName textfield with <CompanyName>
     And I click the SEO01_CompanyProfile dropdown to choose <CompanyProfile>
     And I click the SEO01_ExistingClient dropdown to choose <ExistingClients>
     And I populate the SEO01_CompanyWebsite textfield with <CompanyWebsite>
@@ -72,7 +73,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Examples: 
       | FirstName | LastName   | Email                         | Password  | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | Subject                           |
       | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
-      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | Link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
+      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
 
   #Covered Ticket : SRS-2544, SRS-2690, SRS-3160, SRS-2545, SRS-2546, SRS-4157
   #Scenario Description:
@@ -117,6 +118,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill see the ZOHO01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
     And Ill see the ZOHO01_GotoMyDashboard <ElementName>
     When I click the ZOHO01_GotoMyDashboard <ElementName>
+    And I navigate to ChildWindow
     Then Ill see the SEO00_Dashboard page
     And Ill see the SEO01_SuccessAccountVerifyMessage div with "Congratulations! You have successfully verified your email address."
     When I click the SEO01_UserAvatar button
@@ -127,11 +129,11 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I click the SEO06_LoginToYourDashBoard button
     Then Ill see the SEO01_CompanySetup popup
     And Ill see SEO01_CompanyProfile div with "Customize your account by completing your profile information."
-    And Ill see the SEO01_PhoneCountry icon is <Country>
     When I click SEO01_CompleteProfile button
+		Then Ill see the SEO01_PhoneCountry icon is <Country>
     And Ill see the SEO01_UploadLogo button is removed
     And Ill see the SEO01_CompanyWebsite globe
-    And I populate SEO01_CompanyName textfield with <CompanyName>
+    When I populate SEO01_CompanyName textfield with <CompanyName>
     And I click the SEO01_CompanyProfile dropdown to choose <CompanyProfile>
     And I click the SEO01_ExistingClient dropdown to choose <ExistingClients>
     And I populate the SEO01_CompanyWebsite textfield with <CompanyWebsite>
