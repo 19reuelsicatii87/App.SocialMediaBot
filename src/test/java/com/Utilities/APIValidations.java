@@ -3,18 +3,12 @@ package com.Utilities;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.junit.Test;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import com.squareup.okhttp.*;
 import cucumber.Framework.Helper;
-
-
-
-
 
 
 public class APIValidations extends Helper {
