@@ -14,8 +14,8 @@ import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import test.Utilities.Mail;
 
-import com.Utilities.Mail;
 import com.cucumber.listener.*;
 
 

@@ -1,4 +1,4 @@
-package com.Utilities;
+package test.Utilities;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.*;;

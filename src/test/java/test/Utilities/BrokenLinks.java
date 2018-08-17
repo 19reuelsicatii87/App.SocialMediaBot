@@ -1,34 +1,19 @@
-package com.Utilities;
+package test.Utilities;
 
-import static org.junit.Assert.*;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-
 import javax.net.ssl.SSLException;
-
-import org.apache.commons.logging.LogFactory;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
-import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
 import cucumber.Framework.WEBHelper;
 
 

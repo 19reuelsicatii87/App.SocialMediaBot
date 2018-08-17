@@ -14,7 +14,7 @@ import cucumber.Framework.WEBHelper;
 import cucumber.Framework.SetUp;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-import com.Utilities.*;
+import test.Utilities.*;
 
 @RunWith(Cucumber.class)
 

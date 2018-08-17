@@ -6,11 +6,10 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
-import com.Utilities.Mail;
-
 import cucumber.Framework.WEBHelper;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import test.Utilities.Mail;
 
 
 

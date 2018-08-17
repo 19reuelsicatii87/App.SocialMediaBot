@@ -24,9 +24,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.Utilities.CustomLogger;
+
 import com.github.genium_framework.appium.support.server.AppiumServer;
 import io.appium.java_client.android.AndroidDriver;
+import test.Utilities.CustomLogger;
+
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.squareup.okhttp.OkHttpClient;
