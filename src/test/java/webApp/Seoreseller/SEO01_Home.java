@@ -250,18 +250,12 @@ public class SEO01_Home extends WEBHelper{
 	public void i_select_SEO01_CompleteProfile_dropdown(String companyProfile) throws Throwable, UnhandledAlertException {
 		CompanySetupCompanyProfile_Selector.click();
 		CompanySetupCompanyProfileByKeyword(companyProfile).click();
-		
-		Select S = new Select(CompanySetupCompanyProfile_Selector);
-		S.selectByVisibleText(companyProfile); 
 	}
 	
 	@Then("^I click the SEO01_ExistingClient dropdown to choose ([^\"]*)$")
 	public void i_select_SEO01_ExistingClient_dropdown(String existingClient) throws Throwable, UnhandledAlertException {
 		CompanySetupExistingClient_Selector.click();
 		CompanySetupExistingClientByKeyword(existingClient).click();
-		
-		Select S = new Select(CompanySetupExistingClient_Selector);
-		S.selectByVisibleText(existingClient); 
 	}
 	 
 	@Then("^I populate the SEO01_CompanyWebsite textfield with ([^\"]*)$")
