@@ -59,7 +59,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     When I click SEO01_CompleteProfile button
     Then Ill see the SEO01_UploadLogo button is removed
     And Ill see the SEO01_CompanyWebsite globe
-		And Ill see the SEO01_PhoneCountry icon is <Country>
+    And Ill see the SEO01_PhoneCountry icon is <Country>
     When I populate SEO01_CompanyName textfield with <CompanyName>
     And I click the SEO01_CompanyProfile dropdown to choose <CompanyProfile>
     And I click the SEO01_ExistingClient dropdown to choose <ExistingClients>
@@ -73,7 +73,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Examples: 
       | FirstName | LastName   | Email                         | Password  | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address |
       | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  |
-      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
+      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  |
 
   #Covered Ticket : SRS-2544, SRS-2690, SRS-3160, SRS-2545, SRS-2546, SRS-4157
   #Scenario Description:
@@ -130,7 +130,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill see the SEO01_CompanySetup popup
     And Ill see SEO01_CompanyProfile div with "Customize your account by completing your profile information."
     When I click SEO01_CompleteProfile button
-		Then Ill see the SEO01_PhoneCountry icon is <Country>
+    Then Ill see the SEO01_PhoneCountry icon is <Country>
     And Ill see the SEO01_UploadLogo button is removed
     And Ill see the SEO01_CompanyWebsite globe
     When I populate SEO01_CompanyName textfield with <CompanyName>
@@ -144,9 +144,9 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
-      | FirstName | LastName   | Email                        | Password  | Domain | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | 
-      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | zoho   | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
-      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | zoho   | link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
+      | FirstName | LastName   | Email                        | Password  | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address |
+      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  |
+      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  |
 
   #Covered Ticket : SRS-2544, SRS-2690, SRS-3160, SRS-2545, SRS-2546, SRS-4157
   #Scenario Description:
@@ -200,8 +200,8 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
-      | FirstName | LastName   | Email                         | Password  | Domain | MailRedirect              | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | 
-      | RND       | Automation | RNDAutomationTest14@gmail.com | happy123$ | google | Go to my dashboard button | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
+      | FirstName | LastName   | Email                         | Password  | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address |
+      | RND       | Automation | RNDAutomationTest14@gmail.com | happy123$ | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  |
 
   #Covered Ticket : SRS-2544,SRS-2690,SRS-3160,SRS-2545,SRS-2546,SRS-4157
   #Scenario Description:
@@ -275,5 +275,5 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
-      | FirstName | LastName   | Email                         | Password  | Domain | MailRedirect              | IP | CompanyName    | CompanyProfile                | ExistingCLients    | CompanyWebsites | BusinessPhone | Address | 
-      | RND       | Automation | RNDAutomationTest15@gmail.com | happy123$ | google | Go to my dashboard button | PH | This is a Test | I have more than 30 employees | Exceeds 20 Clients | www.test.com    |    9171111111 | Makati  | 
+      | FirstName | LastName   | Email                         | Password  | Country     | CompanyName    | CompanyProfile                | ExistingCLients    | CompanyWebsites | BusinessPhone | Address |
+      | RND       | Automation | RNDAutomationTest15@gmail.com | happy123$ | Philippines | This is a Test | I have more than 30 employees | Exceeds 20 Clients | www.test.com    |    9171111111 | Makati  |
