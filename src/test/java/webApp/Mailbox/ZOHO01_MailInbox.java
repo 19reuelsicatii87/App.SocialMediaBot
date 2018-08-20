@@ -30,7 +30,7 @@ public class ZOHO01_MailInbox extends WEBHelper{
 	WebElement Login_link;
 	
 	@FindBy(xpath="//span[text()='Spam']")
-	WebElement ZohoUnread_button;
+	WebElement ZohoSpam_button;
 	
 	@FindBy(xpath="//div//a[text()='Reset your Password']")
 	WebElement ResetYourPassword_button;
@@ -96,9 +96,8 @@ public class ZOHO01_MailInbox extends WEBHelper{
 	
 	@When("^I click the ZOHO01_Spam button$")
 	public void i_click_the_ZOHO_Inbox_button() throws Throwable, UnhandledAlertException {
-		
 		Thread.sleep(10000);
-		ZohoUnread_button.click();
+		ZohoSpam_button.click();
 	}
 	
 	@Then("^I see the ZOHO01_EmailSubject div with \"(Please Confirm Your Email Address)\"$")

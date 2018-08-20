@@ -146,7 +146,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Examples: 
       | FirstName | LastName   | Email                        | Password  | Domain | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | 
       | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | zoho   | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
-      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | zoho   | Link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
+      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | zoho   | link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
 
   #Covered Ticket : SRS-2544, SRS-2690, SRS-3160, SRS-2545, SRS-2546, SRS-4157
   #Scenario Description:
