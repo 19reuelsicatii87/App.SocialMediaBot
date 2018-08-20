@@ -96,7 +96,8 @@ public class ZOHO01_MailInbox extends WEBHelper{
 	
 	@When("^I click the ZOHO01_Unread button$")
 	public void i_click_the_ZOHO_Inbox_button() throws Throwable, UnhandledAlertException {
-		Thread.sleep(3000);
+		
+		Thread.sleep(10000);
 		ZohoUnread_button.click();
 	}
 	
@@ -204,10 +205,10 @@ public class ZOHO01_MailInbox extends WEBHelper{
 
 		switch(ElementName) {
 	    case "button":
-	    	ResetYourPassword_button.click();
+	    	GoToDashBoard_button.click();
 	        break;
 	    case "link":
-	    	ResetYourPassword_link.click();
+	    	GoToDashBoard_link.click();
 	        break;
 		}
 		
