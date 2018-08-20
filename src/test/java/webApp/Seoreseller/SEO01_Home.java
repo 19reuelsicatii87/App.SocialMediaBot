@@ -53,8 +53,8 @@ public class SEO01_Home extends WEBHelper{
 	@FindBy(xpath="//div/input[@id='profile-setup-box-input-phone']")
 	WebElement CompanySetupPhone_Textfield;
 	
-	@FindBy(xpath="//div[@class='custom-stepper-actions text-right']/button")
-	WebElement CompanySetupCompleteProfile_Button;
+	@FindBy(xpath="//*[@id='profile-setup-box-input-container']//button[contains(.,'COMPLETE PROFILE')]")
+	WebElement CompanySetupCompleteProfile_button;
 	
 	@FindBy(xpath="//input[@id='profile-setup-box-input-company-name']")
 	WebElement CompanySetupCompanyName_Textfield;	
@@ -130,7 +130,7 @@ public class SEO01_Home extends WEBHelper{
 	@FindBy(xpath="//div//a[text()='BACK']")
 	WebElement CompanySetupBack_Input;
 	
-	@FindBy(xpath="//button[@data-step-action='finish']")
+	@FindBy(xpath="//*[@id='profile-setup-box-input-container']//button[contains(.,'FINISH SETUP')]")
 	WebElement CompanySetupFinishSetup_button;
 	
 	@FindBy(xpath="//p[text()='Congratulations! You have successfully verified your email address.']")
@@ -206,7 +206,7 @@ public class SEO01_Home extends WEBHelper{
 	
 	@Then("^Ill see the SEO01_CompanySetup popup$")
 	public void i_see_the_SEO01_CompanySetup_popup() throws Throwable, UnhandledAlertException {
-		WD.until(ExpectedConditions.elementToBeClickable(CompanySetupCompleteProfile_Button));
+		WD.until(ExpectedConditions.elementToBeClickable(CompanySetupCompleteProfile_button));
 	}
 	
 	@Then("^Ill see SEO01_CompanyProfile div with \"(Customize your account by completing your profile information.)\"$")
@@ -237,7 +237,7 @@ public class SEO01_Home extends WEBHelper{
 	
 	@When("^I click SEO01_CompleteProfile button$")
 	public void i_click_SEO01_CompleteProfile_button() throws Throwable, UnhandledAlertException {
-	    CompanySetupCompleteProfile_Button.click();
+	    CompanySetupCompleteProfile_button.click();
 	}
 	
 	@Then("^I populate SEO01_CompanyName textfield with ([^\"]*)$")
