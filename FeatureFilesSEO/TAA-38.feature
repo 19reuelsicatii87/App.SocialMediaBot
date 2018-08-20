@@ -112,7 +112,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I populate the ZOHO01_Email textField with <Email>
     And I populate the ZOHO01_Password textField with <Password>
     And I click the ZOHO01_SignIn button
-    And I click the ZOHO01_Unread button
+    And I click the ZOHO01_Spam button
     Then I see the ZOHO01_EmailSubject div with "Please Confirm Your Email Address"
     When I click the ZOHO01_EmailSubject div with "Please Confirm Your Email Address"
     Then Ill see the ZOHO01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
