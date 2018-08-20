@@ -71,9 +71,9 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
-      | FirstName | LastName   | Email                         | Password  | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | Subject                           |
-      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
-      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
+      | FirstName | LastName   | Email                         | Password  | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address |
+      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  |
+      | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
 
   #Covered Ticket : SRS-2544, SRS-2690, SRS-3160, SRS-2545, SRS-2546, SRS-4157
   #Scenario Description:
@@ -144,9 +144,9 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
-      | FirstName | LastName   | Email                        | Password  | Domain | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | Subject                           |
-      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | zoho   | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
-      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | zoho   | Link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
+      | FirstName | LastName   | Email                        | Password  | Domain | ElementName | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | 
+      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | zoho   | button      | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
+      | RND       | Automation | RNDAutomationTest12@zoho.com | happy123$ | zoho   | Link        | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
 
   #Covered Ticket : SRS-2544, SRS-2690, SRS-3160, SRS-2545, SRS-2546, SRS-4157
   #Scenario Description:
@@ -200,8 +200,8 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
-      | FirstName | LastName   | Email                         | Password  | Domain | MailRedirect              | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | Subject                           |
-      | RND       | Automation | RNDAutomationTest14@gmail.com | happy123$ | google | Go to my dashboard button | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | Please Confirm Your Email Address |
+      | FirstName | LastName   | Email                         | Password  | Domain | MailRedirect              | Country     | CompanyName    | CompanyProfile                | ExistingClients    | CompanyWebsite | BusinessPhone | Address | 
+      | RND       | Automation | RNDAutomationTest14@gmail.com | happy123$ | google | Go to my dashboard button | Philippines | This is a test | I have more than 30 employees | Exceeds 20 clients | www.test.com   |    9171111111 | Makati  | 
 
   #Covered Ticket : SRS-2544,SRS-2690,SRS-3160,SRS-2545,SRS-2546,SRS-4157
   #Scenario Description:
@@ -275,5 +275,5 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
-      | FirstName | LastName   | Email                         | Password  | Domain | MailRedirect              | IP | CompanyName    | CompanyProfile                | ExistingCLients    | CompanyWebsites | BusinessPhone | Address | Subject                           |
-      | RND       | Automation | RNDAutomationTest15@gmail.com | happy123$ | google | Go to my dashboard button | PH | This is a Test | I have more than 30 employees | Exceeds 20 Clients | www.test.com    |    9171111111 | Makati  | Please Confirm Your Email Address |
+      | FirstName | LastName   | Email                         | Password  | Domain | MailRedirect              | IP | CompanyName    | CompanyProfile                | ExistingCLients    | CompanyWebsites | BusinessPhone | Address | 
+      | RND       | Automation | RNDAutomationTest15@gmail.com | happy123$ | google | Go to my dashboard button | PH | This is a Test | I have more than 30 employees | Exceeds 20 Clients | www.test.com    |    9171111111 | Makati  | 
