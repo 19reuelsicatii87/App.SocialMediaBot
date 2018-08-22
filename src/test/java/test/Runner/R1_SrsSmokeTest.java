@@ -6,9 +6,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
-import com.Utilities.Mail;
+import test.Utilities.Mail;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
@@ -26,7 +26,7 @@ import cucumber.api.junit.Cucumber;
 )
 
 
-public class R1_SrsSmokeTest extends Helper{
+public class R1_SrsSmokeTest extends WEBHelper{
 	
 	@BeforeClass
 	public static void BeforeClass() throws Exception
