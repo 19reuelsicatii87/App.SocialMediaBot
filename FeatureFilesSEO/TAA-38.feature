@@ -37,9 +37,9 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GoogleEmailNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GooglePasswordNext button
     Then I see the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
     When I click the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
     Then Ill see the GMAIL01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
@@ -112,7 +112,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I populate the ZOHO01_Email textField with <Email>
     And I populate the ZOHO01_Password textField with <Password>
     And I click the ZOHO01_SignIn button
-    And I click the ZOHO01_Spam button
+    And I click the ZOHO01_SEOReseller button
     Then I see the ZOHO01_EmailSubject div with "Please Confirm Your Email Address"
     When I click the ZOHO01_EmailSubject div with "Please Confirm Your Email Address"
     Then Ill see the ZOHO01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
@@ -171,10 +171,11 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And Ill see the SEO010_AlreadyhaveAnAccount_div with "Already have an account"
     And Ill see the SEO010_CreateAccount button
     When I click the SEO010_SignInWithGoogle button
+    And I navigate to ChildWindow
     And I populate the GMAIL01_GoogleEmail textField with <Email>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GoogleEmailNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GooglePasswordNext button
     Then Ill see the SEO00_Dashboard page
     And Ill see the SEO01_SuccessAccountVerifyMessage div with "Congratulations! You have successfully verified your email address."
     When I click the SEO01_UserAvatar button
@@ -230,9 +231,9 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GoogleEmailNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GooglePasswordNext button
     Then I see the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
     When I click the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
     Then Ill see the GMAIL01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
@@ -243,9 +244,9 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GoogleEmailNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GooglePasswordNext button
     Then I see the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
     When I click the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
     Then Ill see the GMAIL01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."

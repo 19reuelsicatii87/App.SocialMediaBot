@@ -23,8 +23,11 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	@FindBy(xpath="//input[@type='password']")
 	WebElement GooglePassword_textField;
 	
-	@FindBy(xpath="//content/span[text()='Next']")
-	WebElement GoogleNext_button;
+	@FindBy(xpath="//div[@id='identifierNext']//span[1]")
+	WebElement GoogleEmailNext_button;
+	
+	@FindBy(xpath="//div[@id='passwordNext']//span[1]")
+	WebElement GooglePasswordNext_button;
 	
 	@FindBy(xpath="//a[@data-g-label='Sign in']")
 	WebElement GoogleHomeSignIn_link;
@@ -92,11 +95,16 @@ public class GMAIL01_MailInbox extends WEBHelper{
 		GoogleEmail_textField.sendKeys(Email);
 	}
 
-	@When("^I click the GMAIL01_GoogleNext button$")
-	public void i_click_the_GMAIL__GoogleNext_button() throws Throwable, UnhandledAlertException {
-		WD.until(ExpectedConditions.elementToBeClickable(GoogleNext_button));
+	@When("^I click the GMAIL01_GoogleEmailNext button$")
+	public void i_click_the_GMAIL__GoogleEmailNext_button() throws Throwable, UnhandledAlertException {
 		Thread.sleep(3000);
-		GoogleNext_button.click();
+		GoogleEmailNext_button.click();
+	}
+
+	@When("^I click the GMAIL01_GooglePasswordNext button$")
+	public void i_click_the_GMAIL__GooglePasswordNext_button() throws Throwable, UnhandledAlertException {
+		Thread.sleep(3000);
+		GooglePasswordNext_button.click();
 	}
 
 	@When("^I populate the GMAIL01_GooglePassword textField with ([^\"]*)$")
@@ -194,13 +202,7 @@ public class GMAIL01_MailInbox extends WEBHelper{
 		}
 		
 	}
-	
-	@Then("^Ill see the GMAIL01_GooglePopUp window")
-	public void ill_see_the_google_signin_page() throws Throwable, UnhandledAlertException {
-		ReUsablesKeyword.switchtochildwindow();	
-		WD.until(ExpectedConditions.elementToBeClickable(GoogleNext_button));
-		Assert.assertEquals(true, GoogleNext_button.isDisplayed());
-	}
+
 	
 	@Then("^Ill not see the GMAIL01_GooglePopUp window$")
 	public void google_signin_window_will_close() throws Throwable, UnhandledAlertException {

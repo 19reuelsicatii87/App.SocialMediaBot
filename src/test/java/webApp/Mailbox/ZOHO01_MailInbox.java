@@ -29,8 +29,8 @@ public class ZOHO01_MailInbox extends WEBHelper{
 	@FindBy(xpath="(.//a[@class='signin'])[1]")
 	WebElement Login_link;
 	
-	@FindBy(xpath="//span[text()='Spam']")
-	WebElement ZohoSpam_button;
+	@FindBy(xpath="//span[text()='SEOReseller']")
+	WebElement ZohoSEOReseller_button;
 	
 	@FindBy(xpath="//div//a[text()='Reset your Password']")
 	WebElement ResetYourPassword_button;
@@ -94,10 +94,10 @@ public class ZOHO01_MailInbox extends WEBHelper{
 		ZohoSignIn_button.click();
 	}
 	
-	@When("^I click the ZOHO01_Spam button$")
+	@When("^I click the ZOHO01_SEOReseller button$")
 	public void i_click_the_ZOHO_Inbox_button() throws Throwable, UnhandledAlertException {
 		Thread.sleep(10000);
-		ZohoSpam_button.click();
+		ZohoSEOReseller_button.click();
 	}
 	
 	@Then("^I see the ZOHO01_EmailSubject div with \"(Please Confirm Your Email Address)\"$")
