@@ -113,7 +113,24 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	}
 
 	@When("^I click the GMAIL01_EmailSubject div with \"(Please Confirm Your Email Address)\"$")
-	public void i_click_the_GMAIL_EmailSubject_with_Subject(String subject) throws Throwable, UnhandledAlertException {
+	public void i_click_the_GMAIL_EmailSubject_with_Subject_Please_Confirm_Your_Email_Address(String subject) throws Throwable, UnhandledAlertException {
+		loop:
+		for(int i=0;i<3; i++){
+			Google_hyperlink.click();
+			Thread.sleep(5000);
+			if(SearchEmail(subject).isDisplayed()){
+				SearchEmail(subject).click();
+				break loop;
+			}else{
+				if(i==2){
+					fail("Expected to receive the email with subject: "+subject );
+				}
+			}
+		}
+	}
+	
+	@When("^I click the GMAIL01_EmailSubject div with \"(Reset Account Password Request)\"$")
+	public void i_click_the_GMAIL_EmailSubject_with_Subject_Reset_Account_Password_Request(String subject) throws Throwable, UnhandledAlertException {
 		loop:
 		for(int i=0;i<3; i++){
 			Google_hyperlink.click();
