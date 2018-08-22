@@ -75,11 +75,12 @@ Feature: [TAA-39] [SEOReseller] Login/Logout Smoke/Regression TestSuite
     And Ill see the SEO06_SigninwithGoogle button
     And Ill see the SEO06_TermsofUseandPrivacyPolicy div with message "By logging in, you agree to SEOReseller's Terms of Use and Privacy Policy"
     When I click the SEO06_SigninwithGoogle button
+    And I navigate to ChildWindow
     Then Ill see the GMAIL01_GooglePopUp window
     When I populate the GMAIL01_GoogleEmail textField with <Email>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GoogleEmailNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GooglePasswordNext button
     Then Ill not see the GMAIL01_GooglePopUp window
     When I navigate to ParentWindow
     Then Ill see the SEO00_Dashboard page

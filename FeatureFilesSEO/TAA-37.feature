@@ -21,9 +21,9 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password Smoke/Regression TestSuite
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GoogleEmailNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GooglePasswordNext button
     And I click the GMAIL01_EmailSubject div with "Reset Account Password Request"
     Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
     And Ill see the GMAIL01_ResetYourPassword <ElementName>
@@ -68,9 +68,9 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password Smoke/Regression TestSuite
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GoogleEmailNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GooglePasswordNext button
     And I click the GMAIL01_EmailSubject div with "Reset Account Password Request"
     Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
     And Ill see the GMAIL01_ResetYourPassword <ElementName>
@@ -109,9 +109,9 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password Smoke/Regression TestSuite
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GoogleEmailNext button
     And I populate the GMAIL01_GooglePassword textField with <Password>
-    And I click the GMAIL01_GoogleNext button
+    And I click the GMAIL01_GooglePasswordNext button
     And I click the GMAIL01_EmailSubject div with "Reset Account Password Request"
     Then Ill see the GMAIL01_Message div with "To reset your password please click on the button below. Link will only be valid for 24 hours:"
     And Ill see the GMAIL01_ResetYourPassword <ElementName>

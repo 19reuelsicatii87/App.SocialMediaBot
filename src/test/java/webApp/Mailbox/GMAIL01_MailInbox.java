@@ -213,25 +213,22 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	public void ill_see_email_thankyou_for_registering_text(String Message) throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, ThankYouForRegistering_div.isDisplayed());
 		Assert.assertEquals(Message, ThankYouForRegistering_div.getText());
-
 	}
 	
 	@Then("^Ill see the GMAIL01_GotoMyDashboard ([^\"]*)$")
 	public void ill_see_the_GMAIL01_GoToDashboard_ElementName(String ElementName) throws Throwable, UnhandledAlertException {
-	
 		switch(ElementName) {
-		    case "button":
-		    	Assert.assertEquals(true, GoToDashBoard_button.isDisplayed());
-		        break;
-		    case "link":
-		    	Assert.assertEquals(true, GoToDashBoard_link.isDisplayed());
-		        break;
-			}
+	    case "button":
+	    	Assert.assertEquals(true, GoToDashBoard_button.isDisplayed());
+	        break;
+	    case "link":
+	    	Assert.assertEquals(true, GoToDashBoard_link.isDisplayed());
+	        break;
+		}
 	}
 
 	@When("^I click the GMAIL01_GotoMyDashboard ([^\"]*)$")
 	public void i_click_the_GMAIL01_GoToDashboard_ElementName(String ElementName) throws Throwable, UnhandledAlertException {
-
 		switch(ElementName) {
 	    case "button":
 	    	GoToDashBoard_button.click();
@@ -239,8 +236,12 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	    case "link":
 	    	GoToDashBoard_link.click();
 	        break;
-		}
-		
+		}		
+	}
+	@Then("^Ill see the GMAIL01_GooglePopUp window")
+	public void ill_see_the_google_signin_page() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(GoogleEmailNext_button));
+		Assert.assertEquals(true, GoogleEmailNext_button.isDisplayed());
 	}
 	
 }
