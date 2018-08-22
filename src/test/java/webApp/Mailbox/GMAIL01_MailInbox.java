@@ -64,6 +64,11 @@ public class GMAIL01_MailInbox extends WEBHelper{
 		return divList;
 	}
 	
+	public static final List<WebElement> getspanList(String keyword){
+		List<WebElement> divList = driver.findElements(By.xpath("//span[contains(text(),'" + keyword + "')]"));
+		return divList;
+	}
+	
 	public static final WebElement SearchEmail(String keyword){
 		WebElement EmailSubject = driver.findElement(By.xpath("//span[contains(.,'"+keyword+"')]"));
 		return EmailSubject;
@@ -116,25 +121,24 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	@Then("^I see the GMAIL01_EmailSubject div with \"(Please Confirm Your Email Address)\"$")
 	public void i_see_the_GMAIL_EmailSubject_with_Subject(String subject) throws Throwable, UnhandledAlertException {
 		Thread.sleep(5000);
-		Assert.assertEquals(true, SearchEmail(subject).isDisplayed());
-		Assert.assertEquals(subject, SearchEmail(subject).getText());
+		for (WebElement span : getspanList(subject)) {			
+			if (span.isDisplayed()) {
+				Assert.assertEquals(subject, span.getText());
+				break;
+			}			
+		}	
+		
 	}
 
 	@When("^I click the GMAIL01_EmailSubject div with \"(Please Confirm Your Email Address)\"$")
 	public void i_click_the_GMAIL_EmailSubject_with_Subject_Please_Confirm_Your_Email_Address(String subject) throws Throwable, UnhandledAlertException {
-		loop:
-		for(int i=0;i<3; i++){
-			Google_hyperlink.click();
-			Thread.sleep(5000);
-			if(SearchEmail(subject).isDisplayed()){
-				SearchEmail(subject).click();
-				break loop;
-			}else{
-				if(i==2){
-					fail("Expected to receive the email with subject: "+subject );
-				}
-			}
-		}
+		Thread.sleep(2000);
+		for (WebElement span : getspanList(subject)) {			
+			if (span.isDisplayed()) {
+				span.click();
+				break;
+			}			
+		}	
 	}
 	
 	@When("^I click the GMAIL01_EmailSubject div with \"(Reset Account Password Request)\"$")
@@ -156,7 +160,6 @@ public class GMAIL01_MailInbox extends WEBHelper{
 
 	@Then("^Ill see the GMAIL01_Message div with \"(To reset your password please click on the button below. Link will only be valid for 24 hours:)\"$")
 	public void ill_see_the_GMAIL__Message_div_with_Hi_Partner_To_reset_your_password_please_click_on_the_button_below_Link_will_only_be_valid_for_hours(String Message) throws Throwable, UnhandledAlertException {
-			
 		for (WebElement div : getdivList(Message)) {			
 			if (div.isDisplayed()) {
 				Assert.assertEquals(Message, div.getText());
