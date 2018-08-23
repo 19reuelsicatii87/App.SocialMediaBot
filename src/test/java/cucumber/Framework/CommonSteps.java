@@ -51,6 +51,20 @@ public class CommonSteps extends WEBHelper {
 		ReUsablesKeyword.switchtochildwindow();
 	}
 	
+	@When("^I wait for (\\d+) millisecond$")
+	public void i_wait_for_digit_millisecond(int millisecond) throws Throwable, UnhandledAlertException {
+		Thread.sleep(millisecond);
+	}
+	
+	@When("^I wait for page to load$")
+	public void i_wait_for_page_to_load() throws Throwable, UnhandledAlertException {
+		while (!JS.executeScript("return document.readyState").toString().equals("complete"))
+		{
+			Thread.sleep(1500);
+			System.out.println(JS.executeScript("return document.readyState").toString() + "... Waiting for the page to load...");			
+		}		
+	}
+	
 	@Given("^User navigate to the application exact ([^\"]*)$")
 	public void user_navigate_to_the_application_exact_URL(String URL) throws Throwable {
 		driver.get(URL);

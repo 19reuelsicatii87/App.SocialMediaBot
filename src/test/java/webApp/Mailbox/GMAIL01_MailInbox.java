@@ -65,8 +65,8 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	}
 	
 	public static final List<WebElement> getspanList(String keyword){
-		List<WebElement> divList = driver.findElements(By.xpath("//span[contains(text(),'" + keyword + "')]"));
-		return divList;
+		List<WebElement> spanList = driver.findElements(By.xpath("//span/b[contains(text(),'" + keyword + "')]"));
+		return spanList;
 	}
 	
 	public static final WebElement SearchEmail(String keyword){

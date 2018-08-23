@@ -57,7 +57,7 @@ public class SEO01_Home extends WEBHelper{
 	WebElement CompanySetupCompleteProfile_button;
 	
 	@FindBy(xpath="//input[@id='profile-setup-box-input-company-name']")
-	WebElement CompanySetupCompanyName_Textfield;	
+	WebElement CompanySetupCompanyName_textfield;	
 
 	@FindBy(xpath="//input[@id='profile-setup-box-input-company-name']")
 	WebElement CompanySetupCompanyProfile_Textfield;	
@@ -73,7 +73,7 @@ public class SEO01_Home extends WEBHelper{
 		return SelectedtCountry;
 	}
 	
-	@FindBy(xpath="//div[@id='s2id_autogen49']//span[@class='select2-arrow']")
+	@FindBy(xpath="//select[@name='partnerAgencyEmployeeCount']")
 	WebElement CompanySetupCompanyProfile_Selector;	
 	
 	
@@ -87,7 +87,7 @@ public class SEO01_Home extends WEBHelper{
 		return SelectedCompanyProfile;
 	}	
 	
-	@FindBy(xpath="//div[@id='s2id_autogen51']//span[@class='select2-arrow']")
+	@FindBy(xpath="//select[@name='partnerAgencyClientCount']")
 	WebElement CompanySetupExistingClient_Selector;	
 	
 	public static final WebElement CompanySetupExistingClientByKeyword(String keyword){
@@ -242,20 +242,20 @@ public class SEO01_Home extends WEBHelper{
 	
 	@Then("^I populate SEO01_CompanyName textfield with ([^\"]*)$")
 	public void i_populate_SEO01_CompanyName_value(String companyName) throws Throwable, UnhandledAlertException {
-		CompanySetupCompanyName_Textfield.sendKeys(companyName);
+		CompanySetupCompanyName_textfield.sendKeys(companyName);
 		Thread.sleep(2000);
 	}
 	
 	@Then("^I click the SEO01_CompanyProfile dropdown to choose ([^\"]*)$")
 	public void i_select_SEO01_CompleteProfile_dropdown(String companyProfile) throws Throwable, UnhandledAlertException {
-		CompanySetupCompanyProfile_Selector.click();
-		CompanySetupCompanyProfileByKeyword(companyProfile).click();
+		Select S = new Select(CompanySetupCompanyProfile_Selector);
+		S.selectByVisibleText(companyProfile);
 	}
 	
 	@Then("^I click the SEO01_ExistingClient dropdown to choose ([^\"]*)$")
 	public void i_select_SEO01_ExistingClient_dropdown(String existingClient) throws Throwable, UnhandledAlertException {
-		CompanySetupExistingClient_Selector.click();
-		CompanySetupExistingClientByKeyword(existingClient).click();
+		Select S = new Select(CompanySetupExistingClient_Selector);
+		S.selectByVisibleText(existingClient);
 	}
 	 
 	@Then("^I populate the SEO01_CompanyWebsite textfield with ([^\"]*)$")
