@@ -21,7 +21,7 @@ import webApp.Seoreseller.*;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM05_ClientsBucket118839Invoices extends Helper{
+public class COM05_ClientsBucketSiteidUseridInvoices extends Helper{
 	
 	@FindBy(xpath=".//a[@href='#inv-payments']")
 	WebElement Payments_tab;
@@ -41,9 +41,18 @@ public class COM05_ClientsBucket118839Invoices extends Helper{
 	@FindBy(xpath=".//button[text()='Submit']")
 	WebElement Submit_button;
 	
-
-		
-	public COM05_ClientsBucket118839Invoices() {
+	@FindBy(xpath="//button[text()='Mark As Paid']")
+	WebElement MarkAsPaid_button;
+	
+	@FindBy(xpath="//button[text()='Mark As Paid']")
+	WebElement Invoice;
+	
+	public static final WebElement InvoiceStatus (String status){
+		WebElement invoiceStatus_text = driver.findElement(By.xpath("//td/strong[text()='"+status+"']"));
+		return invoiceStatus_text;
+	}
+	
+	public COM05_ClientsBucketSiteidUseridInvoices() {
 		
 		PageFactory.initElements(driver, this);
 		
@@ -156,8 +165,16 @@ public class COM05_ClientsBucket118839Invoices extends Helper{
 
 	}
 
+	@When("^I click COM05_MarkAsPaid button$")
+	public void i_click_COM05_MarkAsPaid_button() throws Throwable, UnhandledAlertException {		
+		MarkAsPaid_button.click();
+	}
 	
 	
+	@When("^Ill see that the invoice status is ([^\"]*)$")
+	public void ill_see_invoice_status(String status) throws Throwable, UnhandledAlertException {		
+		Assert.assertEquals(true, InvoiceStatus(status).isDisplayed());
 
-
+	}
+	
 }

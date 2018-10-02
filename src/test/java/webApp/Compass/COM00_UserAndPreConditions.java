@@ -1,18 +1,11 @@
 package webApp.Compass;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import cucumber.Framework.Helper;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class COM00_UserAndPreConditions extends Helper{
 	
@@ -36,10 +29,19 @@ public class COM00_UserAndPreConditions extends Helper{
 	public void im_an_Account_Manager() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    // throw new PendingException();
+		Thread.sleep(3000);
+	}
+	
+	@Given("^Im a Workforce Specialist$")
+	public void im_a_Workforce_Specialist() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	}
+
+	
+	@Given("^I am an SEO Specialist$")
+	public void im_a_SEO_Specialist() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
 	}
 	
 	
-	
-
-
 }

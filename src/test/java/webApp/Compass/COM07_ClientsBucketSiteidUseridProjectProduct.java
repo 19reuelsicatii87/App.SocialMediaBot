@@ -1,19 +1,11 @@
 package webApp.Compass;
 
-import static org.junit.Assert.assertEquals;
-
-import javax.xml.xpath.XPath;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByXPath;
-import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -21,7 +13,7 @@ import cucumber.Framework.Helper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM07_ClientsBucket118839ProjectProduct extends Helper{
+public class COM07_ClientsBucketSiteidUseridProjectProduct extends Helper{
 	
 	@FindBy(xpath=".//button[@id='order-product-button']")
 	WebElement OrderAProduct_button;
@@ -39,9 +31,11 @@ public class COM07_ClientsBucket118839ProjectProduct extends Helper{
 	@FindBy(xpath=".//select[@name='campaign_status']")
 	WebElement ProductStatus_dropdown;
 	
-
+	@FindBy(xpath="//ol[@class='breadcrumb']//a[text()='Products']")
+	WebElement ProductBreadcrumb_link;
+	
 		
-	public COM07_ClientsBucket118839ProjectProduct() {
+	public COM07_ClientsBucketSiteidUseridProjectProduct() {
 		
 		PageFactory.initElements(driver, this);
 		
@@ -57,12 +51,15 @@ public class COM07_ClientsBucket118839ProjectProduct extends Helper{
 
 	@When("^I select ([^\"]*) over COM07_SelectACategory list$")
 	public void i_select_Category_over_SelectACategory_list(String arg1) throws Throwable {
-		
+		String dateIdentifier;
+		String finalCat; 
+		dateIdentifier = readTextfile("TAA248_Date.txt");
+		finalCat = arg1+"_"+dateIdentifier;
 		
 		Thread.sleep(2000);
 		
 		WebElement ScrollBar = driver.findElement(By.xpath(".//div[@class='slider']"));
-		WebElement Category = driver.findElement(By.xpath(".//*[@id='categories_wrapper']//li[contains(.,'"+ arg1 + "')]"));
+		WebElement Category = driver.findElement(By.xpath(".//*[@id='categories_wrapper']//li[contains(.,'"+ finalCat + "')]"));
 		Action dragAndClick = action
 		.moveToElement(ScrollBar)
 		.clickAndHold(ScrollBar)
@@ -77,8 +74,12 @@ public class COM07_ClientsBucket118839ProjectProduct extends Helper{
 
 	@When("^I click ([^\"]*) name$")
 	public void i_click_Product_name(String arg1) throws Throwable {
+		String dateIdentifier;
+		String finalProduct; 
+		dateIdentifier = readTextfile("TAA248_Date.txt");
+		finalProduct = arg1+"_"+dateIdentifier;
 		
-		WebElement Product = driver.findElement(By.xpath(".//*[@id='products_wrapper']//li[@data-product-name='" + arg1 + "']"));
+		WebElement Product = driver.findElement(By.xpath(".//*[@id='products_wrapper']//li[@data-product-name='" + finalProduct+"']"));
 		WD.until(ExpectedConditions.elementToBeClickable(Product));
 		Product.click();		
 		
@@ -91,8 +92,6 @@ public class COM07_ClientsBucket118839ProjectProduct extends Helper{
 
 	@Then("^Ill see ([^\"]*) successfully added$")
 	public void ill_see_Product_successfully_added(String arg1) throws Throwable {
-		
-		
 		Thread.sleep(5000);	
 		try {
 			
@@ -147,6 +146,10 @@ public class COM07_ClientsBucket118839ProjectProduct extends Helper{
 	}
 	
 	
-
-
+	
+	@Then("^Ill see the Products Page$")
+	public void ill_see_Product_page() throws Throwable {
+		Assert.assertEquals(true, ProductBreadcrumb_link.isDisplayed());
+	}
+	
 }

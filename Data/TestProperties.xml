@@ -27,6 +27,9 @@
 	<entry key = "CompassDEVURL_Task">http://dev.app.compass/tasks</entry>
 	<entry key = "CompassDEVURL_Logout">http://dev.app.compass/logout</entry>
 	
+	<entry key = "CompassSTGURL">http://staging.app.compass</entry>
+	<entry key = "CompassSTGURL_Login">http://staging.app.compass/login</entry>
+	
 <!-- Use below configuration for Seoreseller Web Application -->
 	<entry key = "SeoresellerDEVURL_Store">http://dev.account.seoreseller.com/store</entry>
 	<entry key = "SeoresellerDEVURL_Login">http://dev.account.seoreseller.com/login</entry>

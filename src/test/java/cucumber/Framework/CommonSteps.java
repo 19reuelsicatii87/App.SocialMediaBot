@@ -65,6 +65,11 @@ public class CommonSteps extends Helper {
 				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());
 	        break;
 	        
+			case "COMSTG_Login": 
+				Url=GetPropertValue("Data/TestProperties.xml","CompassSTGURL_Login");
+				log.info("User Navigate to the CompassSTGURL_Login "+ arg1.toUpperCase());
+			break;
+	        
 			case "SEODEV_Store": 
 				Url=GetPropertValue("Data/TestProperties.xml","SeoresellerDEVURL_Store");
 				log.info("User Navigate to the CompassDEVURL_Client "+ arg1.toUpperCase());

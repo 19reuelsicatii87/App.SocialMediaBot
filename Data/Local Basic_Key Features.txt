@@ -1,0 +1,29 @@
+<h2 style="margin-top: 20px; padding-top: 20px; padding-bottom: 8px; font-family: OpenSans-Semibold; color: rgb(85, 85, 85); border-bottom: 1px solid rgb(11, 126, 176); text-transform: uppercase; letter-spacing: 2px; line-height: 1.5em !important; font-size: 16px !important;">KEY SELLING POINTS</h2>
+<br><ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">93% of searches for local businesses Display The Google 3 Pack</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">71% of online users confirm the location of a business before visiting</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">46% of searches on Google are for local businesses</li>
+</ul>
+<br><p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;"><a href="https://account.seoreseller.com/resource-center-download?c=12&amp;i=107" style="font-weight: bold;">Download Your White Label Local SEO Pitch Deck Here</a></p>
+<h2 style="margin-top: 20px; padding-top: 20px; padding-bottom: 8px; font-family: OpenSans-Semibold; color: rgb(85, 85, 85); border-bottom: 1px solid rgb(11, 126, 176); text-transform: uppercase; letter-spacing: 2px; line-height: 1.5em !important; font-size: 16px !important;">THE PROCESS</h2>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">SITE ASSESSMENT AND INTAKE</h3>
+<p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;">We audit your client's online presence, gather information about your client's goals.</p>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">KEYWORD RESEARCH &amp; ROADMAP CREATION</h3>
+<p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;">We research the best keywords for your clients to bring the fastest and most effective results. You approve our keyword recommendations that target your client's audience and drive revenue</p>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">CONTENT OPTIMISATION</h3>
+<p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;">From our assessment and keyword research, we implement high-quality content optimization to your site to engage visitors.</p>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">LOCAL OPTIMISATION</h3>
+<p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;">Once the content optimization is in place, we focus on building your business appearance</p>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">MONTHLY LINK BUILDING</h3>
+<p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;">Rank for competitive keywords with an authoritative backlink portfolio.</p>
+<h2 style="margin-top: 20px; padding-top: 20px; padding-bottom: 8px; font-family: OpenSans-Semibold; color: rgb(85, 85, 85); border-bottom: 1px solid rgb(11, 126, 176); text-transform: uppercase; letter-spacing: 2px; line-height: 1.5em !important; font-size: 16px !important;">REQUIREMENTS</h2>
+<p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;">Below are the key access requirements we need to effectively start the campaign. We strongly recommend at the end of the pitch to the client, to request for access while preparing the contract. Here are the access requirements:</p>
+<br><ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Access to Analytics account if already existing</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Access to Website admin</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Access to Google My Business account if already existing</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Access to Search Console if already existing</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Access to Google Tag Manager if already existing</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Access to directories where the client already published listings</li>
+</ul>
+<br><p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;"><a href="http://app.compass/store-management/category/2/product/686/edit#page2" aria-controls="#page2" role="tab" data-toggle="tab" style="font-weight: bold;">View the roadmap prepared for each month-to-month campaign here</a></p>

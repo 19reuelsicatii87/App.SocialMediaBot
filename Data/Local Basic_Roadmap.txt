@@ -1,0 +1,81 @@
+<h2 style="margin-top: 20px; padding-top: 20px; padding-bottom: 8px; font-family: OpenSans-Semibold; color: rgb(85, 85, 85); border-bottom: 1px solid rgb(11, 126, 176); text-transform: uppercase; letter-spacing: 2px; line-height: 1.5em !important; font-size: 16px !important;"><span style="font-weight: bold; font-size: 18px !important;">MONTH 1:</span><br>CAMPAIGN SETUP AND OPTIMIZATION</h2>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">ACCOUNT RESEARCH AND PREP</h3>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Website Audit</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Web Page Optimization (5 pages)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Keyword Research</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Keyword Grouping</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Keyword Mapping</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Local Business Setup</li>
+</ul>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">GOOGLE MY BUSINESS CREATION</h3>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Yelp Listing Creation</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Bing Local Creation</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Yellow Pages Creation</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">5 Additional Business Listings</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">On-Page Optimization</li>
+</ul>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">SEO ROAD MAP</h3>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Blog Creation</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Webpage Copywriting (1 page, 350 words/page)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Title Tag Optimization (5 titles)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Meta Description Optimization (5 meta descriptions)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Meta Keyword Optimization (5 meta keywords)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Domain Redirect Optimization</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">.xml Sitemap Optimization</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Robots.txt Check</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">URL Rewrites (5 URL rewrites)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Broken Link Report</li>
+</ul>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">RICH SNIPPET RECOMMENDATIONS</h3>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Breadcrumbs</li>
+</ul>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">LOCAL SCHEMA IMPLEMENTATION</h3>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Local Business Information Schema (Phone, Address, Business Name, Opening Hours)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Map Schema</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Product Information Schemas</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Images and Logo Schemas</li>
+</ul>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">INITIAL OFF-PAGE SEO</h3>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Magazine/News Placement (1 article)</li>
+</ul>
+<h2 style="margin-top: 20px; padding-top: 20px; padding-bottom: 8px; font-family: OpenSans-Semibold; color: rgb(85, 85, 85); border-bottom: 1px solid rgb(11, 126, 176); text-transform: uppercase; letter-spacing: 2px; line-height: 1.5em !important; font-size: 16px !important;"><span style="font-weight: bold; font-size: 18px !important;">MONTH 2:</span><br>GOOGLE TOOLS INTEGRATION</h2>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">ON-PAGE OPTIMIZATION (GOOGLE TOOLS INTEGRATION AND &nbsp;TESTING)</h3>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Google Analytics (GA) Account Creation</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Google Search Console (GSC) Account Creation</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Google Tag Manager (GTM) Website Installation (after GA and GSC integration to GTM)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Google Analytics Firing Test (up to 10 pages)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Sitewide Tags Definition and Testing (1-2 sitewide tags and testing)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Page Tags Definition and Testing (1 page tag per 2 events)</li>
+</ul>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">OTHER ON-PAGE OPTIMIZATION STRATEGIES</h3>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Schema Element Installation, including website, phone, sameAs, and KML</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Markups (up to 10 pages)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Data Highlighter Application (homepage, product page, and 1 other page type such as articles, book reviews, events, local businesses, movies, restaurants, software applications, and TV episodes)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Google Analytics Filtering (including referral filters and IP filters)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">301 Page Redirection (up to 25 pages)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">404 Error Correction (up to 25 pages)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Internal Linking (5 links per 10 pages)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Google Tools Integration Report</li>
+</ul>
+<h3 style="padding-top: 20px; font-family: OpenSans-Semibold; font-weight: bold; color: rgb(85, 85, 85); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">OFF-PAGE SEO</h3>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Magazine/News Placement (1 article)</li>
+</ul>
+<h2 style="margin-top: 20px; padding-top: 20px; padding-bottom: 8px; font-family: OpenSans-Semibold; color: rgb(85, 85, 85); border-bottom: 1px solid rgb(11, 126, 176); text-transform: uppercase; letter-spacing: 2px; line-height: 1.5em !important; font-size: 16px !important;"><span style="font-weight: bold; font-size: 18px !important;">MONTHLY (MONTH 3 ONWARDS):</span><br>OFF-PAGE SEO, CITATION BUILDING, AND RANK BUILDING</h2>
+<p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;">We provide guaranteed blog outreach and magazine placement through our partner magazine sites and blog networks. Each article placement and outreach is ensured to be contextually related to the client's site to provide the most ranking boost.</p>
+<p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;">For Local Packages, we also build month-on-month additional local citations to increase business information consistency and local search relevancy.</p>
+<ul>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Blog Post Outreach (1 article)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">Magazine/News Placement (1 article)</li>
+<li style="line-height: 1.5em; font-family: OpenSans-Regular, Arial; font-size: 16px;">2 Additional Local Citations</li>
+</ul>
+<br><p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;">Through our proposal builder, you'll be able to generate a more direct roadmap for your client's needs.</p>
+<br><p style="margin-bottom: 0px; font-size: 16px; line-height: 1.5em; font-family: OpenSans-Regular, Arial;"><a href="https://account.seoreseller.com/proposals">Get Started With The Proposal Builder Here</a></p>
