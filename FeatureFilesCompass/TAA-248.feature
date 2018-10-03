@@ -31,7 +31,7 @@ Feature: [TAA-248] Compass WIGS Test Suite v0.1
   @CPSSMOKETEST @LocalSEO @LocalSEO_TS01 @TAA-266
   Scenario Outline: LocalSEO_TS01
     Given Im an Account Manager
-    When I navigate to "COMDEV_Login"
+    When I navigate to "CompassDEV_Login"
     And I populate COM01_Username with "lorraine@truelogic.com.ph"
     And I populate COM01_Password with "123456789"
     And I click COM01_LogIn button
@@ -127,7 +127,7 @@ Feature: [TAA-248] Compass WIGS Test Suite v0.1
   @CPSSMOKETEST @LocalSEO @LocalSEO_TS02 @TAA-254
   Scenario Outline: LocalSEO_TS02
     Given Im an Account Manager
-    When I navigate to "COMDEV_Login"
+    When I navigate to "CompassDEV_Login"
     And I populate COM01_Username with "lorraine@truelogic.com.ph"
     And I populate COM01_Password with "123456789"
     And I click COM01_LogIn button
@@ -198,7 +198,7 @@ Feature: [TAA-248] Compass WIGS Test Suite v0.1
   @CPSSMOKETEST @LocalSEO @LocalSEO_TS03 @TAA-255
   Scenario Outline: LocalSEO_TS03
 	  Given Im a Workforce Specialist
-	  When I navigate to "COMDEV_Login"
+	  When I navigate to "CompassDEV_Login"
 	  And I populate COM01_Username with "lorraine@truelogic.com.ph"
 	  And I populate COM01_Password with "123456789"
 	  And I click COM01_LogIn button
@@ -238,7 +238,7 @@ Feature: [TAA-248] Compass WIGS Test Suite v0.1
   @CPSSMOKETEST @LocalSEO @LocalSEO_TS04 @TAA-263
   Scenario Outline: LocalSEO_TS04
   Given I am an SEO Specialist
-  When I navigate to "COMDEV_Login"
+  When I navigate to "CompassDEV_Login"
   And I populate COM01_Username with "wigsseospecialist@gmail.com"
   And I populate COM01_Password with "123456789"
   And I click COM01_LogIn button

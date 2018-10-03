@@ -24,10 +24,10 @@ Feature: [TAA-191] SRS Web Audit Smoke Test Suite v0.1
 	#And I click "Run New Audit(Beta)" Button
 	#Then my report will generated using the web audit tool 
 	#And I can view the report
-  @TAA-277 @SRSSMOKETEST @WebAuditDashboardPage @WebAuditDashboardPage_TS01
+  @SRSSMOKETEST @SRS-3568 @SRS-3568_TS01 @TAA-277 
   Scenario Outline: TAA-277
     Given Im an existing Partner
-		When I navigate to "SEOSTG_Login"
+		When I navigate to "SeoresellerSTG_Login"
 		And I populate the SEOE6_EmailAddress textfield with <email>
 		And I populate the SEOE6_Password textfield with <password>
 		And I click the SEO06_LoginToYourDashBoard button
@@ -54,10 +54,10 @@ Feature: [TAA-191] SRS Web Audit Smoke Test Suite v0.1
 	#Then a report will generated using the web audit tool 
 	#And I will be notified "<website> is now ready!"
 	#And see the results
-  @TAA-278 @SRSSMOKETEST @WebAuditDashboardPage @WebAuditDashboardPage_TS02
+  @SRSSMOKETEST @SRS-3568 @SRS-3568_TS02 @TAA-278 
   Scenario Outline: TAA-278
     Given Im an existing Partner
-		When I navigate to "SEOSTG_Login"
+		When I navigate to "SeoresellerSTG_Login"
 		And I populate the SEOE6_EmailAddress textfield with <email>
 		And I populate the SEOE6_Password textfield with <password>
 		And I click the SEO06_LoginToYourDashBoard button
@@ -91,4 +91,36 @@ Feature: [TAA-191] SRS Web Audit Smoke Test Suite v0.1
 		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  blank                  |   blank            | https://www.google.com/ | www.google.com  |  https://www.yugatech.com/ |  www.yugatech.com |
 		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  https://www.yondu.com/ |   www.yondu.com    | blank                   | blank           |  blank                     |  blank            |
 		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  blank                  |   blank            | https://www.google.com/ | www.google.com  |  blank                     |  blank            |
-		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  blank                  |   blank            | blank                   | blank           |  https://www.yugatech.com/ |  www.yugatech.com |        
+		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  blank                  |   blank            | blank                   | blank           |  https://www.yugatech.com/ |  www.yugatech.com |
+		  
+		  
+	#Scenario Description:
+	#	Given I'm a User
+	#And I click add competitors link
+	#When I Run Audit a valid website
+	#Then a report will generated using the web audit tool 
+	#And I will be notified "<website> is now ready!"
+	#And see the results
+  @SRSSMOKETEST @SRS-3568 @SRS-3568_TS03 @TAA-279
+  Scenario Outline: TAA-279
+    Given Im an existing Partner
+		When I navigate to "SeoresellerSTG_Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page        
+		
+		When I click SE01_AddCompetitors link
+		Then Ill see SE01_CompetitorOne textfield
+    And Ill see SE01_CompetitorTwo textfield
+    And Ill see SE01_CompetitorThree textfield
+    
+    When I click SE01_RemoveCompetitors link
+		Then Ill not see SE01_CompetitorOne textfield
+    And Ill not see SE01_CompetitorTwo textfield
+    And Ill not see SE01_CompetitorThree textfield
+    
+    Examples: 
+      | email                | password  |
+      | tlosrnd321@gmail.com | happy123  |
+ 
