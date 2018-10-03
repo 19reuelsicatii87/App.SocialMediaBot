@@ -9,11 +9,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.pss.console.utils.JsonDataGettersSetters;
-import com.pss.console.utils.JsonUtil;
-
 import cucumber.Framework.Helper;
 import cucumber.api.java.en.When;
+import test.Utilities.JsonDataGettersSetters;
+import test.Utilities.JsonUtil;
 
 public class COM19_TaskTemplate extends Helper{
 

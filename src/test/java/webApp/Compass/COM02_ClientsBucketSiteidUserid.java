@@ -6,11 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM02_ClientsBucketSiteidUserid extends Helper{
+public class COM02_ClientsBucketSiteidUserid extends WEBHelper{
 	
 	@FindBy(xpath=".//*[@id='projects_button']")
 	 WebElement Campaigns_tab;

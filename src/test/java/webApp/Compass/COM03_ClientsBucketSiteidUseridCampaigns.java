@@ -7,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM03_ClientsBucketSiteidUseridCampaigns extends Helper{
+public class COM03_ClientsBucketSiteidUseridCampaigns extends WEBHelper{
 	
 	@FindBy(xpath=".//*[@id='create_project_btn']")
 	WebElement COM_CreateCampaign_button;
