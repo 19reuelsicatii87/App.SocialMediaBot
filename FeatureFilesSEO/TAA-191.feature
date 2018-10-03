@@ -27,7 +27,7 @@ Feature: [TAA-191] SRS Web Audit Smoke Test Suite v0.1
   @SRSSMOKETEST @SRS-3568 @SRS-3568_TS01 @TAA-277 
   Scenario Outline: TAA-277
     Given Im an existing Partner
-		When I navigate to "SeoresellerSTG_Login"
+		When I navigate to "Login"
 		And I populate the SEOE6_EmailAddress textfield with <email>
 		And I populate the SEOE6_Password textfield with <password>
 		And I click the SEO06_LoginToYourDashBoard button
@@ -57,7 +57,7 @@ Feature: [TAA-191] SRS Web Audit Smoke Test Suite v0.1
   @SRSSMOKETEST @SRS-3568 @SRS-3568_TS02 @TAA-278 
   Scenario Outline: TAA-278
     Given Im an existing Partner
-		When I navigate to "SeoresellerSTG_Login"
+		When I navigate to "Login"
 		And I populate the SEOE6_EmailAddress textfield with <email>
 		And I populate the SEOE6_Password textfield with <password>
 		And I click the SEO06_LoginToYourDashBoard button
@@ -104,7 +104,7 @@ Feature: [TAA-191] SRS Web Audit Smoke Test Suite v0.1
   @SRSSMOKETEST @SRS-3568 @SRS-3568_TS03 @TAA-279
   Scenario Outline: TAA-279
     Given Im an existing Partner
-		When I navigate to "SeoresellerSTG_Login"
+		When I navigate to "Login"
 		And I populate the SEOE6_EmailAddress textfield with <email>
 		And I populate the SEOE6_Password textfield with <password>
 		And I click the SEO06_LoginToYourDashBoard button

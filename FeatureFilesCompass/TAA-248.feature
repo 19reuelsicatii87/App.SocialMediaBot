@@ -31,7 +31,7 @@ Feature: [TAA-248] Compass WIGS Test Suite v0.1
   @CPSSMOKETEST @LocalSEO @LocalSEO_TS01 @TAA-266
   Scenario Outline: LocalSEO_TS01
     Given Im an Account Manager
-    When I navigate to "CompassDEV_Login"
+    When I navigate to "Login"
     And I populate COM01_Username with "lorraine@truelogic.com.ph"
     And I populate COM01_Password with "123456789"
     And I click COM01_LogIn button
@@ -127,7 +127,7 @@ Feature: [TAA-248] Compass WIGS Test Suite v0.1
   @CPSSMOKETEST @LocalSEO @LocalSEO_TS02 @TAA-254
   Scenario Outline: LocalSEO_TS02
     Given Im an Account Manager
-    When I navigate to "CompassDEV_Login"
+    When I navigate to "Login"
     And I populate COM01_Username with "lorraine@truelogic.com.ph"
     And I populate COM01_Password with "123456789"
     And I click COM01_LogIn button
@@ -198,7 +198,7 @@ Feature: [TAA-248] Compass WIGS Test Suite v0.1
   @CPSSMOKETEST @LocalSEO @LocalSEO_TS03 @TAA-255
   Scenario Outline: LocalSEO_TS03
 	  Given Im a Workforce Specialist
-	  When I navigate to "CompassDEV_Login"
+	  When I navigate to "Login"
 	  And I populate COM01_Username with "lorraine@truelogic.com.ph"
 	  And I populate COM01_Password with "123456789"
 	  And I click COM01_LogIn button
@@ -235,69 +235,69 @@ Feature: [TAA-248] Compass WIGS Test Suite v0.1
 	#When Im now an SEO Contributor
 	#And I click the 'Click to Complete' button
 	#Then Ill see that the Task Status is set to Completed
-  @CPSSMOKETEST @LocalSEO @LocalSEO_TS04 @TAA-263
-  Scenario Outline: LocalSEO_TS04
-  Given I am an SEO Specialist
-  When I navigate to "CompassDEV_Login"
-  And I populate COM01_Username with "wigsseospecialist@gmail.com"
-  And I populate COM01_Password with "123456789"
-  And I click COM01_LogIn button
-  Then Ill see that Ive login successfully
-  
-  When I search <client> in the COM14_GlobalSearch textfield
-	And I select <client> in the Clients section
-	Then Ill see the Client Overview
-		
-	When I click COM02_Campaigns tab
-	Then Ill see the Campaign Page
-	
-	When I search the "Little Miss BBQ " in the COM03_ProjectNameSearch textfield
-	And I click "Little Miss BBQ " in the COM03_CampaignList table
-	And Ill see the COM08_ProjectManagement tab
-	
-	When I hover to COM08_SEO tab
-	And I select COM08_Keywords link
-	And I click the COM21_AddKeyword button
-	And I enter "Search Engine Optimzation" in the COM21_Keywords textarea
-	And I select "Targeted" in the COM21_DefaultTagging dropdown
-	And I click the COM21_Save button
-  Then Ill see the COM21_SuccessKeywordModal
-  
-  When I click COM21_KeywordOkModal
-  And I hover to COM08_SEO tab
-  And I select COM08_URLmap link
-  And I DragDrop "Search Engine Optimzation" from COM22_AvailableKeywords section to COM22_TargetKeywords section	
-  And I click COM22_SaveTargetKeywords button
-  
-	
-	  
-  When I click COM13_ForDelegation button over COM13_MyTask
-	And I populate COM13_MytaskSearch textfield with latest <campaignName> 
-	And I click the collapse button of the <contributor>
-	And I DragDrop latest <taskName> from COM13_MyTask to COM13_<contributor>
-	Then Ill see the successful popup message over Compass
-
-	  
-	And I have a keyword created in the Campaign 
-	And I have Mapped the Keyword in the URL mapping page
-	And I have assigned the "Update Campaign Roadmap" task to an SEO Analyst  
-	When I click on the "Update Campaign Roadmap" Task 
-	And I click on the "Click to Start" button 
-	Then I will be able to see the "Roadmap" Tab 
-	And I will be able to see the "Campaign Roadmap" Tab 
-	
-	When I click on the "Gear" icon for a submission task 
-	And I click on the "Save" button 
-	Then I will be able to save the URL for the edited submission task 
-	
-	When I click on the "Save Roadmap" button 
-	Then I will be able to save the "Campaign Roadmap" 
-	And I will be able to see the details in the "Roadmap" tab under the "Update Campaign Roadmap" Task
-	
-	When I click on the "Click to Complete" button 
-	Then I will be able to "Complete" the task 
-	And I will be able to see that predesscor task will be tagged as "Open"
-	
-	Examples: 
-    | client                   | category     |  product      |        categProduct          |  productStatus    |       taskName           |
-    | lorraine@truelogic.com.ph| Local SEO    |  Local Basic  |   Local SEO - Local Basic    |      Active       | Update Campaign Roadmap  |
+  #@CPSSMOKETEST @LocalSEO @LocalSEO_TS04 @TAA-263
+  #Scenario Outline: LocalSEO_TS04
+  #Given I am an SEO Specialist
+  #When I navigate to "Login"
+  #And I populate COM01_Username with "wigsseospecialist@gmail.com"
+  #And I populate COM01_Password with "123456789"
+  #And I click COM01_LogIn button
+  #Then Ill see that Ive login successfully
+  #
+  #When I search <client> in the COM14_GlobalSearch textfield
+#	And I select <client> in the Clients section
+#	Then Ill see the Client Overview
+#		
+#	When I click COM02_Campaigns tab
+#	Then Ill see the Campaign Page
+#	
+#	When I search the "Little Miss BBQ " in the COM03_ProjectNameSearch textfield
+#	And I click "Little Miss BBQ " in the COM03_CampaignList table
+#	And Ill see the COM08_ProjectManagement tab
+#	
+#	When I hover to COM08_SEO tab
+#	And I select COM08_Keywords link
+#	And I click the COM21_AddKeyword button
+#	And I enter "Search Engine Optimzation" in the COM21_Keywords textarea
+#	And I select "Targeted" in the COM21_DefaultTagging dropdown
+#	And I click the COM21_Save button
+  #Then Ill see the COM21_SuccessKeywordModal
+  #
+  #When I click COM21_KeywordOkModal
+  #And I hover to COM08_SEO tab
+  #And I select COM08_URLmap link
+  #And I DragDrop "Search Engine Optimzation" from COM22_AvailableKeywords section to COM22_TargetKeywords section	
+  #And I click COM22_SaveTargetKeywords button
+  #
+#	
+#	  
+  #When I click COM13_ForDelegation button over COM13_MyTask
+#	And I populate COM13_MytaskSearch textfield with latest <campaignName> 
+#	And I click the collapse button of the <contributor>
+#	And I DragDrop latest <taskName> from COM13_MyTask to COM13_<contributor>
+#	Then Ill see the successful popup message over Compass
+#
+#	  
+#	And I have a keyword created in the Campaign 
+#	And I have Mapped the Keyword in the URL mapping page
+#	And I have assigned the "Update Campaign Roadmap" task to an SEO Analyst  
+#	When I click on the "Update Campaign Roadmap" Task 
+#	And I click on the "Click to Start" button 
+#	Then I will be able to see the "Roadmap" Tab 
+#	And I will be able to see the "Campaign Roadmap" Tab 
+#	
+#	When I click on the "Gear" icon for a submission task 
+#	And I click on the "Save" button 
+#	Then I will be able to save the URL for the edited submission task 
+#	
+#	When I click on the "Save Roadmap" button 
+#	Then I will be able to save the "Campaign Roadmap" 
+#	And I will be able to see the details in the "Roadmap" tab under the "Update Campaign Roadmap" Task
+#	
+#	When I click on the "Click to Complete" button 
+#	Then I will be able to "Complete" the task 
+#	And I will be able to see that predesscor task will be tagged as "Open"
+#	
+#	Examples: 
+    #| client                   | category     |  product      |        categProduct          |  productStatus    |       taskName           |
+    #| lorraine@truelogic.com.ph| Local SEO    |  Local Basic  |   Local SEO - Local Basic    |      Active       | Update Campaign Roadmap  |
