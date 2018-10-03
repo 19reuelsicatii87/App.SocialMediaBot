@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 
-public class COM23_ClientsBucketSiteidUseridProjectSubprojectMilestoneid extends Helper{
+public class COM23_ClientsBucketSiteidUseridProjectSubprojectMilestoneid extends WEBHelper{
 	
 	@FindBy(xpath="//input[@data-type='search']")
 	WebElement Search_textfield;

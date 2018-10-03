@@ -9,12 +9,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.When;
 import test.Utilities.JsonDataGettersSetters;
 import test.Utilities.JsonUtil;
 
-public class COM19_TaskTemplate extends Helper{
+public class COM19_TaskTemplate extends WEBHelper{
 
 	@FindBy(xpath="//div[@class='tlos-content']//button[@id='tasklist-create-button']")
 	WebElement TaskListCreateButton_button;

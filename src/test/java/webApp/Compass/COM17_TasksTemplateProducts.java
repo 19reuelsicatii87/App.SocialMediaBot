@@ -6,12 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 
-public class COM17_TasksTemplateProducts extends Helper{
+public class COM17_TasksTemplateProducts extends WEBHelper{
 
 	@FindBy(xpath="//button/i[@class='fa fa-plus']")
 	WebElement AddProductTemplate_button;

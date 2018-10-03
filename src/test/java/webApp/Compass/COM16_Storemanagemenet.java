@@ -12,13 +12,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import test.Utilities.JsonDataGettersSetters;
 import test.Utilities.JsonUtil;
 
-public class COM16_Storemanagemenet extends Helper{
+public class COM16_Storemanagemenet extends WEBHelper{
 	
 
 	@FindBy(xpath="//button[@id='add_category_button']")

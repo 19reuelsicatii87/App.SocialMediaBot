@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 
-public class COM24_TaskProjectView extends Helper{
+public class COM24_TaskProjectView extends WEBHelper{
 
 	@FindBy(xpath="//button[text()='Click to Start']")
 	WebElement ClickToStart_button;

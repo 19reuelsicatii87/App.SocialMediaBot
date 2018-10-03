@@ -7,10 +7,10 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.When;
 
-public class COM20_TaskTemplateNumberBuild extends Helper{
+public class COM20_TaskTemplateNumberBuild extends WEBHelper{
 
 	public static final WebElement SelectTaskTemplate(String taskTemplate){
 		WebElement selectTaskTemplate_link = driver.findElement(By.xpath("//div[@id='tasklists']//a[contains(.,'"+taskTemplate+"')]"));

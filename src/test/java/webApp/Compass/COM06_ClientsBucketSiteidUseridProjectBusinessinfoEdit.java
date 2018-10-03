@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 
-public class COM06_ClientsBucketSiteidUseridProjectBusinessinfoEdit extends Helper{
+public class COM06_ClientsBucketSiteidUseridProjectBusinessinfoEdit extends WEBHelper{
 	
 	@FindBy(xpath=".//a[@id='products_button']")
 	WebElement Product_tab;

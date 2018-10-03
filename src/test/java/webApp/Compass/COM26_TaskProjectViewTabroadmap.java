@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 
-public class COM26_TaskProjectViewTabroadmap extends Helper{
+public class COM26_TaskProjectViewTabroadmap extends WEBHelper{
 
 		@FindBy(xpath="//a[@class='cke_button cke_button__save_article  cke_button_off']")
 	WebElement SaveArticle_button;

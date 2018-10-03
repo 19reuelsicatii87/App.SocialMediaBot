@@ -9,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM06_ClientsBucketSiteidUseridProject extends Helper{
+public class COM06_ClientsBucketSiteidUseridProject extends WEBHelper{
 	
 	@FindBy(xpath=".//a[@id='products_button']")
 	WebElement Product_tab;

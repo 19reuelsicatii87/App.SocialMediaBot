@@ -1,18 +1,30 @@
 package cucumber.Framework;
 
 
-import java.util.Date;
+
+
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
-import org.apache.log4j.Logger;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
+
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
@@ -23,19 +35,18 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.github.genium_framework.appium.support.server.AppiumServer;
-import io.appium.java_client.android.AndroidDriver;
 import test.Utilities.CustomLogger;
-import java.text.SimpleDateFormat;
-
+import com.github.genium_framework.appium.support.server.AppiumServer;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
+import io.appium.java_client.android.AndroidDriver;
 
 public class WEBHelper{
 	
@@ -251,5 +262,91 @@ public class WEBHelper{
 		return TestEnv;
 	}
 	
+	public static void MouseHover(WebElement we){
+		Actions action = new Actions(driver);
+		action.moveToElement(we).build().perform();
+	}
+	
+	public static String GetCurrentDateWithTime(){
+		String currentDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+		
+		return currentDate;
+	}
+	
+	public static String GetCurrentDateWithoutTime (){
+		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
+		
+		return currentDate;
+	}
+	
+	public static String DateAddition (int numberOfDays) throws ParseException{
+		SimpleDateFormat  dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		c.add(Calendar.DATE, numberOfDays);
+		String currentDate = dateFormat.format(c.getTime()); 
+		
+		return currentDate;
+	}
+	
+	
+	public static void WindowScrollAndClick(WebElement we){
+		driver.manage().window().maximize();
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click()", we);
+	}
+	
+	public static String GetCurrentDateMonthYear (){
+		Date date = new Date();
+		String currentDate = new SimpleDateFormat("MMM yyyy").format(date);
+		
+		return currentDate;
+	}
+	
+	public static String ReadContentFromTextFile(String fileName) throws IOException{
+		String filePath = System.getProperty("user.dir")+"\\Data\\"+fileName;
+		
+		String content = "";
+		content = new String(Files.readAllBytes(Paths.get(filePath)));
+		return content;
+	}
+	
+	 public void actionSendKeys(WebElement WE, String input)
+	 {
+			Actions actions = new Actions(driver);
+			actions.moveToElement(WE);
+	        actions.click();
+	        actions.sendKeys(input);
+	        actions.build().perform();
+	 }
+	 
+	 public static void SelectByVisibleText(WebElement we, String text){
+		 Select select  = new Select(we);
+		 select.selectByVisibleText(text);
+	}
+	 
+	 public static void clearWriteTextfile(String file, String content) throws IOException{
+		 	String filePath = System.getProperty("user.dir") + "\\Data\\"+file+"";
+			
+			FileWriter fwOb = new FileWriter(filePath, false); 
+	        PrintWriter pwOb = new PrintWriter(fwOb, false);
+	        pwOb.print(content);
+	        pwOb.flush();
+	        pwOb.close();
+	        fwOb.close();
+	}
+	 
+	 String content;
+
+    
+	 
+     public static String readTextfile(String file) throws IOException{
+		 	String filePath = System.getProperty("user.dir") + "\\Data\\"+file+"";
+		 	String content;
+		 	content = new String(Files.readAllBytes(Paths.get(filePath)));
+		 	
+		 	return content;
+	}
 	
 	}

@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 
-public class COM15_TaskMonitoringUsers extends Helper{
+public class COM15_TaskMonitoringUsers extends WEBHelper{
 	
 	
 	public static final WebElement UserInfoCircle_link(String keyword){

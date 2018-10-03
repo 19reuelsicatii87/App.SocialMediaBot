@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 
-public class COM25_TaskProjectViewTabarticle extends Helper{
+public class COM25_TaskProjectViewTabarticle extends WEBHelper{
 
 	@FindBy(xpath="//input[@placeholder='Title...']")
 	WebElement Title_textfield;

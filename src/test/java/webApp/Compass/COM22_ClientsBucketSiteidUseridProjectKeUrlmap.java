@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 
-public class COM22_ClientsBucketSiteidUseridProjectKeUrlmap extends Helper{
+public class COM22_ClientsBucketSiteidUseridProjectKeUrlmap extends WEBHelper{
 	
 	@FindBy(xpath="//button[@id='save-target-keywords-btn']")
 	WebElement SaveTargetKeywowords_button;

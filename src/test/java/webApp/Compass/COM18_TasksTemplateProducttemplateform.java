@@ -6,11 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class COM18_TasksTemplateProducttemplateform extends Helper{
+public class COM18_TasksTemplateProducttemplateform extends WEBHelper{
 
 	@FindBy(xpath="//select[@name='category']")
 	WebElement ProductCategory_dropdown;

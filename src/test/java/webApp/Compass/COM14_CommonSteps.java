@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.When;
 
-public class COM14_CommonSteps extends Helper{
+public class COM14_CommonSteps extends WEBHelper{
 	
 	@FindBy(xpath="//a[@class='dropdown-toggle'][text()='Tasks ']")
 	WebElement TasksMenu_link;
