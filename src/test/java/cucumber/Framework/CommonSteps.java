@@ -158,6 +158,11 @@ public class CommonSteps extends WEBHelper {
 		
 	}
 	
+	@Given("^User navigate to the application exact ([^\"]*)$")
+	public void user_navigate_to_the_application_exact_URL(String URL) throws Throwable {
+		driver.get(URL);
+		log.info("User navigate to the application exact URL " + URL);
 
+	}
 	
 }

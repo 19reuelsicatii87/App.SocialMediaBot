@@ -47,8 +47,13 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP Smoke/Regression TestSuite
   #Then I'll see the 'Oops. We currently don't support Yahoo and Microsot emails. 'Message
   @SRSSMOKETEST @SafeEmail @SafeEmail_TS02 @TAA-163
   Scenario Outline: TAA-163
+<<<<<<< HEAD
     Given Im an existing Partner
 	When I navigate to "Login"
+=======
+  Given Im an existing Partner
+	When I navigate to "SEOSTG_Login"
+>>>>>>> refs/heads/dev
 	And I enter <Email> in the Email Address Field
 	And I enter <Password> in the Password Field
 	And I click the Log in to your Dashboard button
