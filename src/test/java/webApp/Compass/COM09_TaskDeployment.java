@@ -1,16 +1,12 @@
 package webApp.Compass;
 
-import static org.junit.Assert.assertEquals;
+import java.util.List;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.UnhandledAlertException;
-import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
@@ -30,7 +26,17 @@ public class COM09_TaskDeployment extends WEBHelper{
 	@FindBy(xpath=".//button[text()='Deploy!']")
 	WebElement Deploy_button;
 	
-
+	@FindBy(xpath="//h4[text()='Task Deployments ']")
+	WebElement TaskDeployment_header;
+	
+	@FindBy(xpath="//input[@value='Campaign']")
+	WebElement CampaignSearch_textfield;
+	
+	@FindBy(xpath="//input[@value='Last Deployment']")
+	WebElement LastDeployment_textfield;
+	
+	@FindBy(xpath="//td[3][text()='-']//ancestor::tr//a[@class='btn btn-xs']")
+	List<WebElement> DeployLatest_button;
 		
 	public COM09_TaskDeployment() {
 		
@@ -51,7 +57,30 @@ public class COM09_TaskDeployment extends WEBHelper{
 	}
 	
 	
+	@Then("^I will see the COM09_TaskDeployments Header")
+	public void ill_see_task_deployment_header() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, TaskDeployment_header.isDisplayed());
+	}
+	
 
-	
-	
+	 @When("^I search the \"([^\"]*)\" in the COM09_CampaignSearch textfield$")
+		public void i_search_campaign_in_campaign_search_bar(String campaignName) throws Throwable, UnhandledAlertException {
+			String dateIdentifier;
+			dateIdentifier = readTextfile("TAA248_Date.txt");
+		 	CampaignSearch_textfield.sendKeys(campaignName+"_"+dateIdentifier);
+			Thread.sleep(3000);
+	}
+	 
+	 @When("^I search the \"([^\"]*)\" in the COM09_LastDeployment textfield$")
+		public void i_search_campaign_in_last_deployment_search_bar(String lastDeployment) throws Throwable, UnhandledAlertException {
+		 LastDeployment_textfield.sendKeys(lastDeployment);
+			Thread.sleep(3000);
+	}
+	 
+	 @When("^I click the COM09_Deploy button of latest campaign without Deploy Info$")
+		public void i_click_deploy_latest_campaign() throws Throwable, UnhandledAlertException {
+		 int latest = (DeployLatest_button.size()) - 1;
+		 DeployLatest_button.get(latest).click();
+	}
+	 
 }

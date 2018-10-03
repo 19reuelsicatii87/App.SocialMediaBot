@@ -163,6 +163,45 @@ public class SEO01_Home extends WEBHelper{
 	@FindBy(xpath="//span[@class='menu-icon affiliates-icon']")
 	WebElement LeadGeneratorIcon_link;
 	
+	@FindBy(xpath="//input[@id='audit-url']")
+	WebElement AuditUrl_textfield;
+	
+	@FindBy(xpath="//button[text()='Run new audit (beta)']")
+	WebElement RunAuditBeta_button;
+	
+	@FindBy(xpath="//button[text()='Run audit']")
+	WebElement RunAudit_button;
+	
+	@FindBy(xpath="//a[@id='audit-competitor-btn']")
+	WebElement AddRemoveCompetitors_link;
+	
+	@FindBy(xpath="//input[@placeholder='http://www.competitor-1.com']")
+	WebElement FirstCompetitor_textfield;
+	
+	@FindBy(xpath="//input[@placeholder='http://www.competitor-2.com']")
+	WebElement SecondCompetitor_textfield;
+	
+	@FindBy(xpath="//input[@placeholder='http://www.competitor-3.com']")
+	WebElement ThirdCompetitor_textfield;
+	
+	public static final WebElement WebAuditClickHere_link(String url){
+		WebElement webAuditClickHere_link = driver.findElement(By.xpath("//b[contains(.,'"+url+"')]/ancestor::div[@class='item-notification-msg-inner-id']/a[text()='Click Here']"));
+		return webAuditClickHere_link;
+	}
+	
+	public static final WebElement WebAuditSuccessful_text(String url){
+		WebElement webAuditSuccessful_text = driver.findElement(By.xpath("//div[@class='item-notification-msg-inner-id']/b[contains(.,'"+url+"')]"));
+		return webAuditSuccessful_text;
+	}
+	
+	public static final WebElement WebAuditNotifClose_icon(String url){
+		WebElement webAuditNotifClose_icon = driver.findElement(By.xpath("//b[contains(.,'"+url+"')]/ancestor::div[@class='alert ui-pnotify-container alert-success ui-pnotify-shadow']//span[@title='Close']"));
+		return webAuditNotifClose_icon;
+	}
+	
+	@FindBy(xpath="//button[text()=' Running...']")
+	WebElement WebAuditRunning_button;
+	
 	public SEO01_Home() {
 		
 		PageFactory.initElements(driver, this);
@@ -305,7 +344,7 @@ public class SEO01_Home extends WEBHelper{
 		
 	}
 	
-	@When("^I redirect to SEO1_([^\"]*)$")
+	@When("^I redirect to SEO01_([^\"]*)$")
 	public void i_redirect_to_value_page(String page) throws Throwable, UnhandledAlertException {
 		WD.until(ExpectedConditions.elementToBeClickable(WebAuditIcon_link));
 		if(page.equals("Web Audit Page")){
@@ -322,6 +361,107 @@ public class SEO01_Home extends WEBHelper{
 			Thread.sleep(3000);
 		}
 	}	
+	}
 	
+ 	
+	@When("^I populate SEO01_website textfield with ([^\"]*)$")
+	public void i_populate_SEO1_website_with_value(String url) throws Throwable, UnhandledAlertException {
+		AuditUrl_textfield.sendKeys(url);
+		
+	}
+	
+	@When("^I click SEO01_RunNewAuditBeta button$")
+	public void i_click_SE01_RunNewAuditBeta_button() throws Throwable, UnhandledAlertException {
+		RunAuditBeta_button.click();
+	}
+	
+	@Then("^I will be notified ([^\"]*) is now ready!$")
+	public void i_will_be_notified_audit_ready(String url) throws Throwable, UnhandledAlertException {
+		for (int i = 0 ; i <10 ; i++){
+			if(WebAuditRunning_button.isDisplayed()){
+				System.out.println("Web Audit is In Progress");
+				Thread.sleep(10000);
+			}else{
+				Thread.sleep(5000);
+				Assert.assertEquals(true, WebAuditSuccessful_text(url).isDisplayed());
+				break;
+			}
+		}
+
+	}
+	
+	@Then("^Ill see the SEO01_click here link of ([^\"]*)$")
+	public void i_see_click_here_of_url_value(String url) throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, WebAuditClickHere_link(url).isDisplayed());
+
+	}
+	
+	
+	@When("^I click SEO01_ClickHere link of ([^\"]*)$")
+	public void i_click_SEO01_ClickHere_link(String url) throws Throwable, UnhandledAlertException {
+		WebAuditClickHere_link(url).click();
+	}
+	
+	@Then("^Ill be redirected to Web Audit Report Preview$")
+	public void i_redirect_to_web_audit_report() throws Throwable, UnhandledAlertException {
+		ReUsablesKeyword.switchToLatestTab();
+		Thread.sleep(3000);
+		String currentUrl = driver.getCurrentUrl();
+		Assert.assertEquals(true, currentUrl.contains("webaudits"));
+		Assert.assertEquals(true, currentUrl.contains("preview"));
+		
+	}
+	
+	@When("^I click SE01_AddCompetitors link$")
+	public void i_click_SEO01_AddCompetitors_link() throws Throwable, UnhandledAlertException {
+		AddRemoveCompetitors_link.click();
+		Thread.sleep(3000);
+	}
+	
+	@Then("^Ill see SE01_CompetitorOne textfield$")
+	public void i_see_SE01_CompetitorOne_textfield() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, FirstCompetitor_textfield.isDisplayed());
+		
+	}
+	
+	@Then("^Ill see SE01_CompetitorTwo textfield$")
+	public void i_see_SE01_CompetitorTwo_textfield() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, SecondCompetitor_textfield.isDisplayed());
+		
+	}
+	
+	@Then("^Ill see SE01_CompetitorThree textfield$")
+	public void i_see_SE01_CompetitorThree_textfield() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, ThirdCompetitor_textfield.isDisplayed());
+		
+	}
+	
+	@When("^I populate SE01_CompetitorOne textfield with ([^\"]*)$")
+	public void i_populate_SE01_CompetitorOne_textfield(String url) throws Throwable, UnhandledAlertException {
+		if(url.equals("blank")){
+		}else{
+			FirstCompetitor_textfield.clear();
+			FirstCompetitor_textfield.sendKeys(url);
+		}
+	}
+	
+		
+	@When("^I populate SE01_CompetitorTwo textfield with ([^\"]*)$")
+	public void i_populate_SE01_CompetitorTwo_textfield(String url) throws Throwable, UnhandledAlertException {
+		if(url.equals("blank")){
+		}else{
+			SecondCompetitor_textfield.clear();
+			SecondCompetitor_textfield.sendKeys(url);
+		}
+	}
+	
+	@When("^I populate SE01_CompetitorThree textfield with ([^\"]*)$")
+	public void i_populate_SE01_CompetitorThree_textfield(String url) throws Throwable, UnhandledAlertException {
+		if(url.equals("blank")){
+		}else{
+			ThirdCompetitor_textfield.clear();
+			ThirdCompetitor_textfield.sendKeys(url);
+		}
+	}
 	
 }

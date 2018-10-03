@@ -41,7 +41,20 @@ public class COM10_TaskDeploymentDeploy extends WEBHelper{
 	@FindBy(xpath=".//button[contains(.,'Yes')]")
 	WebElement Yes_button;
 	
-
+	@FindBy(xpath="//legend[text()='Deployment Information']")
+	WebElement DeployInformationPage_text;
+	
+	@FindBy(xpath="//input[@name='cycle']")
+	WebElement Cycle_textfield;
+	
+	@FindBy(xpath="//input[@name='launch_date']")
+	WebElement LaunchDate_textfield;
+	
+	@FindBy(xpath="//input[@name='launch_date']")
+	WebElement SuccessfullyDeployed_text;
+	
+	@FindBy(xpath="//div[@class='modal-footer']//button[text()='OK']")
+	WebElement ModalOk_buton;
 	
 
 		
@@ -143,7 +156,32 @@ public class COM10_TaskDeploymentDeploy extends WEBHelper{
 	     
 	    
 	}
-
+	
+	@Then("^Ill see the COM10_DeploymentInformation Section$")
+	public void ill_see_deployment_information_section() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, DeployInformationPage_text.isDisplayed());
+	}
 	
 	
+	@When("^Ill see that a date is visible in the Cycle Month Calendar$")
+	public void ill_see_date_visible_Cycle_Year() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, Cycle_textfield.getAttribute("value").contains(GetCurrentDateMonthYear()));
+	}
+	
+	@When("^I see that a launch date is already seleted by default$")
+	public void i_see_launch_date_with_default_value() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, LaunchDate_textfield.getAttribute("value").contains(GetCurrentDateWithoutTime()));
+	}
+	
+	@When("^Ill see the 'tasks were deployed successfully' modal$")
+	public void ill_see_tasks_deployed_successfully() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(ModalOk_buton));
+		Assert.assertEquals(true, SuccessfullyDeployed_text.isDisplayed());
+		
+	}
+	
+	@When("^I click COM10_ModalOk button$")
+	public void i_click_ok_modal_button() throws Throwable, UnhandledAlertException {
+		ModalOk_buton.click();
+	}
 }

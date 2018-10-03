@@ -3,20 +3,14 @@ package webApp.Compass;
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
-import java.time.Duration;
 import java.util.List;
-import java.lang.Object;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.UnhandledAlertException;
-import org.openqa.selenium.By.ByXPath;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.*;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.jayway.jsonpath.JsonPath;
@@ -59,7 +53,28 @@ public class COM13_Tasks extends WEBHelper{
 	@FindBy(xpath=".//button[@id='task-pool']")
 	WebElement TaskPool_button;
 	
-
+	public static final WebElement DraggableTask_tr(String keyword){
+		WebElement draggableTask_tr = driver.findElement(By.xpath("//a[contains(.,'"+keyword+"')]/ancestor::tr"));
+		return draggableTask_tr;
+	}
+	
+	@FindBy(xpath="//div[@class='org-tasks ui-droppable']")
+	WebElement DroppablePool_div;
+	
+	public static final WebElement ExamForReviewApprove_button(String keyword){
+		WebElement examForReviewApprove_button = driver.findElement(By.xpath("//strong[contains(.,'"+keyword+"')]/ancestor::tr//a[@title='Approve']"));
+		return examForReviewApprove_button;
+	}
+	
+	public static final WebElement ExamForReviewReject_button(String keyword){
+		WebElement examForReviewReject_button = driver.findElement(By.xpath("//strong[contains(.,'"+keyword+"')]/ancestor::tr//a[@title='Reject']"));
+		return examForReviewReject_button;
+	}
+	
+	public static final WebElement ExamForReviewView_button(String keyword){
+		WebElement examForReviewView_button = driver.findElement(By.xpath("//strong[contains(.,'"+keyword+"')]/ancestor::tr//a[@title='View']"));
+		return examForReviewView_button;
+	}
 		
 	public COM13_Tasks() {
 		
@@ -195,7 +210,9 @@ public class COM13_Tasks extends WEBHelper{
 				//System.out.println("$." + y + ".Milestone." + Milestone + "[" + i + "]");
 				//System.out.println(TL.getText());
 				//System.out.println(JsonPath.read(jsonfile, "$." + y + ".Milestone." + Milestone + "[" + i + "]").toString());
-				assertEquals(JsonPath.read(jsonfile, "$." + y + ".Milestone." + Milestone + "[" + i + "]").toString(), TL.getText());			
+				assertEquals(
+						JsonPath.read(jsonfile, "$." + y + ".Milestone." + Milestone + "[" + i + "]").toString()
+						, TL.getText());			
 				i++;
 		}
 		
@@ -351,6 +368,7 @@ public class COM13_Tasks extends WEBHelper{
 		.release(To)
         .build();		
 		dragAndDrop.perform(); 		
+		
 
 		
 	}
@@ -405,8 +423,28 @@ public class COM13_Tasks extends WEBHelper{
 		//To be CODED
 		
 	}
-	
 
+	@When("^I populate COM13_MytaskSearch textfield with latest ([^\"]*)$")
+	public void i_populate_COM13_MytaskSearch_with_latest_value(String campaignName) throws Throwable {
+		Search_textfield.sendKeys(campaignName+" "+ dateNoSpace);
+	}
 	
-	
+	@When("^I DragDrop latest ([^\"]*) from COM13_MyTask to COM13_([^\"]*)$")
+	public void i_dragdrop_latest_taskValue_from_COM13_MyTask_to_COM13_ContributorValue(String taskName, String contributorName) throws Throwable, UnhandledAlertException {
+		
+		
+		Thread.sleep(5000);		
+		
+		WebElement From = driver.findElement(By.xpath(".//table[@id='tasks-table']/tbody/tr[2]//a"));		 
+		WebElement To = driver.findElement(By.xpath(".//div[@id='acc-contrib']//a[contains(.,'" + contributorName + "')]"));
+		
+		Action dragAndDrop = action
+		.clickAndHold(From)
+		.moveToElement(To)
+		.release(To)
+        .build();		
+		dragAndDrop.perform(); 		
+
+		
+	}
 }
