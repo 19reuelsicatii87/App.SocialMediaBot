@@ -361,7 +361,7 @@ public class SEO01_Home extends WEBHelper{
 			Thread.sleep(3000);
 		}
 	}	
-	}
+	
 	
  	
 	@When("^I populate SEO01_website textfield with ([^\"]*)$")

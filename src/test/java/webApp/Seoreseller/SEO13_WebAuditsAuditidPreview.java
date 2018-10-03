@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.Framework.Helper;
+import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 
-public class SEO13_WebAuditsAuditidPreview extends Helper{
+public class SEO13_WebAuditsAuditidPreview extends WEBHelper{
 	
 	@FindBy(xpath="//h2[text()='Technical Audit']")
 	WebElement TechnicalAudit_header;
