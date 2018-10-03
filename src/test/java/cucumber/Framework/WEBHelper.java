@@ -54,6 +54,10 @@ public class WEBHelper{
 	public static ExtentTest logger;
 	public static Actions action=null;
 	public static Alert alert;
+	public static String yearMonthDayFormat = new SimpleDateFormat("yyyy-MM-dd").format(date);
+	public static String yearMonthDayTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+	public static String dateNoSpace = new SimpleDateFormat("yyyyMMddHHmmss").format(date);
+	public static String monthYearFormat = new SimpleDateFormat("MMM yyyy").format(date);
 
 
 		 
