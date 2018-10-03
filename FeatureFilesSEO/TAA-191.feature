@@ -28,10 +28,10 @@ Feature: [TAA-191] SRS Web Audit Smoke Test Suite v0.1
   Scenario Outline: TAA-277
     Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
-		And I enter <email> in the Email Address Field
-		And I enter <password> in the Password Field
-		And I click the Log in to your Dashboard button
-		Then Ill see the Dashboard Page
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
 		
 		When I populate SEO01_website textfield with <website>
 		And I click SEO01_RunNewAuditBeta button
@@ -58,10 +58,10 @@ Feature: [TAA-191] SRS Web Audit Smoke Test Suite v0.1
   Scenario Outline: TAA-278
     Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
-		And I enter <email> in the Email Address Field
-		And I enter <password> in the Password Field
-		And I click the Log in to your Dashboard button
-		Then Ill see the Dashboard Page
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
 		
 		When I populate SEO01_website textfield with <website>
 		And I click SE01_AddCompetitors link

@@ -16,10 +16,10 @@ Feature: [TAA-128] [SEOReseller]: SafeEmail_OAuth (Default)
   Scenario Outline: TAA-133
     Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
-		And I enter <Email> in the Email Address Field
-		And I enter <Password> in the Password Field
-		And I click the Log in to your Dashboard button
-		Then Ill see the Dashboard Page
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
 		
 	  When I redirect to SEO1_<DashBoardPage>
 		And I click the  Email Trigger of <SendEmailTrigger>

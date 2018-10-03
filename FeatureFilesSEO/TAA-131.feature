@@ -13,11 +13,11 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP Smoke/Regression TestSuite
   Scenario Outline: TAA-159
     Given Im an existing Partner
     When I navigate to "Login"
-    And I enter <Email> in the Email Address Field
-    And I enter <Password> in the Password Field
-    And I click the Log in to your Dashboard button
-    Then Ill see the Dashboard Page
-    When I click the User Avatar
+    And I populate the SEOE6_EmailAddress textfield with <email>
+    And I populate the SEOE6_Password textfield with <password>
+    And I click the SEO06_LoginToYourDashBoard button
+    Then Ill see the SEO06_LogIn page
+    When I click the SEO01_UserAvatar button
     And I click the SEO01_EmailSettings
     Then Ill see the Email Settings Page
     When I click SEO12_Update button
@@ -47,17 +47,12 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP Smoke/Regression TestSuite
   #Then I'll see the 'Oops. We currently don't support Yahoo and Microsot emails. 'Message
   @SRSSMOKETEST @SafeEmail @SafeEmail_TS02 @TAA-163
   Scenario Outline: TAA-163
-<<<<<<< HEAD
-    Given Im an existing Partner
-	When I navigate to "Login"
-=======
   Given Im an existing Partner
 	When I navigate to "SEOSTG_Login"
->>>>>>> refs/heads/dev
-	And I enter <Email> in the Email Address Field
-	And I enter <Password> in the Password Field
-	And I click the Log in to your Dashboard button
-	Then Ill see the Dashboard Page
+	And I populate the SEOE6_EmailAddress textfield with <email>
+	And I populate the SEOE6_Password textfield with <password>
+	And I click the SEO06_LoginToYourDashBoard button
+	Then Ill see the SEO06_LogIn page
 		
 	When I redirect to SEO1_<DashBoardPage>
 	And I click the  Email Trigger of <SendEmailTrigger>
@@ -94,11 +89,11 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP Smoke/Regression TestSuite
   Scenario Outline: TAA-174
     Given Im an existing Partner
     When I navigate to "Login"
-    And I enter <Email> in the Email Address Field
-    And I enter <Password> in the Password Field
-    And I click the Log in to your Dashboard button
-    Then Ill see the Dashboard Page
-    When I click the User Avatar
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+    When I click the SEO01_UserAvatar button
     And I click the SEO01_Email Settings List
     Then Ill see the Email Settings Page
     And Ill see the "This is an auto-generated signature for your convenience." text

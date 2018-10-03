@@ -202,6 +202,9 @@ public class SEO01_Home extends WEBHelper{
 	@FindBy(xpath="//button[text()=' Running...']")
 	WebElement WebAuditRunning_button;
 	
+	@FindBy(xpath="//div[@class='page-menu-container']//a[text()='Home']")
+	WebElement HomeMenu_link;
+	
 	public SEO01_Home() {
 		
 		PageFactory.initElements(driver, this);
@@ -235,6 +238,12 @@ public class SEO01_Home extends WEBHelper{
 	@Then("^I see the SEO01_SeoReseller banner$")
 	public void i_see_the_SEO01_SeoReseller_banner() throws Throwable, UnhandledAlertException {
 	    //CodeHere
+	}
+	
+	@Then("^I see the SEO01_Home Page$")
+	public void i_see_the_SEO01_Home_page() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, HomeMenu_link.isDisplayed());
+		
 	}
 	
 	@Then("^Ill see the SEO01_SuccessAccountVerifyMessage div with \"(Congratulations! You have successfully verified your email address.)\"$")
