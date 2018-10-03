@@ -1,7 +1,7 @@
 package cucumber.Framework;
 
 
-
+import java.util.Date;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,6 +28,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.github.genium_framework.appium.support.server.AppiumServer;
 import io.appium.java_client.android.AndroidDriver;
 import test.Utilities.CustomLogger;
+import java.text.SimpleDateFormat;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -54,6 +55,7 @@ public class WEBHelper{
 	public static ExtentTest logger;
 	public static Actions action=null;
 	public static Alert alert;
+	public static Date date = new Date();
 	public static String yearMonthDayFormat = new SimpleDateFormat("yyyy-MM-dd").format(date);
 	public static String yearMonthDayTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
 	public static String dateNoSpace = new SimpleDateFormat("yyyyMMddHHmmss").format(date);
