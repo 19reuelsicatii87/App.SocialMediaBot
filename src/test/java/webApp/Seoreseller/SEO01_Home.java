@@ -205,6 +205,12 @@ public class SEO01_Home extends WEBHelper{
 	@FindBy(xpath="//div[@class='page-menu-container']//a[text()='Home']")
 	WebElement HomeMenu_link;
 	
+	@FindBy(xpath="//div[text()='Please enter a valid website URL (ending in .com, .net, .us, .biz, .food, etc.)']")
+	WebElement WebAuditInvalidURLNotif_text;
+	
+	@FindBy(xpath="//p[text()='The website you are trying to audit cannot be reached right now. Please try again later..']")
+	WebElement WebAuditCannotBeReachedNotif_text;
+	
 	public SEO01_Home() {
 		
 		PageFactory.initElements(driver, this);
@@ -374,13 +380,13 @@ public class SEO01_Home extends WEBHelper{
 	
  	
 	@When("^I populate SEO01_website textfield with ([^\"]*)$")
-	public void i_populate_SEO1_website_with_value(String url) throws Throwable, UnhandledAlertException {
+	public void i_populate_SEO01_website_with_value(String url) throws Throwable, UnhandledAlertException {
 		AuditUrl_textfield.sendKeys(url);
 		
 	}
 	
 	@When("^I click SEO01_RunNewAuditBeta button$")
-	public void i_click_SE01_RunNewAuditBeta_button() throws Throwable, UnhandledAlertException {
+	public void i_click_SEO01_RunNewAuditBeta_button() throws Throwable, UnhandledAlertException {
 		RunAuditBeta_button.click();
 	}
 	
@@ -421,32 +427,38 @@ public class SEO01_Home extends WEBHelper{
 		
 	}
 	
-	@When("^I click SE01_AddCompetitors link$")
+	@When("^I click SEO01_AddCompetitors link$")
 	public void i_click_SEO01_AddCompetitors_link() throws Throwable, UnhandledAlertException {
 		AddRemoveCompetitors_link.click();
 		Thread.sleep(3000);
 	}
 	
-	@Then("^Ill see SE01_CompetitorOne textfield$")
-	public void i_see_SE01_CompetitorOne_textfield() throws Throwable, UnhandledAlertException {
+	@When("^I click SEO01_RemoveCompetitors link$")
+	public void i_click_SEO01_RemoveCompetitors_link() throws Throwable, UnhandledAlertException {
+		AddRemoveCompetitors_link.click();
+		Thread.sleep(3000);
+	}
+	
+	@Then("^Ill see SEO01_CompetitorOne textfield$")
+	public void i_see_SEO01_CompetitorOne_textfield() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, FirstCompetitor_textfield.isDisplayed());
 		
 	}
 	
-	@Then("^Ill see SE01_CompetitorTwo textfield$")
-	public void i_see_SE01_CompetitorTwo_textfield() throws Throwable, UnhandledAlertException {
+	@Then("^Ill see SEO01_CompetitorTwo textfield$")
+	public void i_see_SEO01_CompetitorTwo_textfield() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, SecondCompetitor_textfield.isDisplayed());
 		
 	}
 	
-	@Then("^Ill see SE01_CompetitorThree textfield$")
-	public void i_see_SE01_CompetitorThree_textfield() throws Throwable, UnhandledAlertException {
+	@Then("^Ill see SEO01_CompetitorThree textfield$")
+	public void i_see_SEO01_CompetitorThree_textfield() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, ThirdCompetitor_textfield.isDisplayed());
 		
 	}
 	
-	@When("^I populate SE01_CompetitorOne textfield with ([^\"]*)$")
-	public void i_populate_SE01_CompetitorOne_textfield(String url) throws Throwable, UnhandledAlertException {
+	@When("^I populate SEO01_CompetitorOne textfield with ([^\"]*)$")
+	public void i_populate_SEO01_CompetitorOne_textfield(String url) throws Throwable, UnhandledAlertException {
 		if(url.equals("blank")){
 		}else{
 			FirstCompetitor_textfield.clear();
@@ -455,8 +467,8 @@ public class SEO01_Home extends WEBHelper{
 	}
 	
 		
-	@When("^I populate SE01_CompetitorTwo textfield with ([^\"]*)$")
-	public void i_populate_SE01_CompetitorTwo_textfield(String url) throws Throwable, UnhandledAlertException {
+	@When("^I populate SEO01_CompetitorTwo textfield with ([^\"]*)$")
+	public void i_populate_SEO01_CompetitorTwo_textfield(String url) throws Throwable, UnhandledAlertException {
 		if(url.equals("blank")){
 		}else{
 			SecondCompetitor_textfield.clear();
@@ -464,8 +476,8 @@ public class SEO01_Home extends WEBHelper{
 		}
 	}
 	
-	@When("^I populate SE01_CompetitorThree textfield with ([^\"]*)$")
-	public void i_populate_SE01_CompetitorThree_textfield(String url) throws Throwable, UnhandledAlertException {
+	@When("^I populate SEO01_CompetitorThree textfield with ([^\"]*)$")
+	public void i_populate_SEO01_CompetitorThree_textfield(String url) throws Throwable, UnhandledAlertException {
 		if(url.equals("blank")){
 		}else{
 			ThirdCompetitor_textfield.clear();
@@ -473,4 +485,52 @@ public class SEO01_Home extends WEBHelper{
 		}
 	}
 	
+	@Then("^Ill not see SEO01_CompetitorOne textfield$")
+	public void ill_not_see_SEO01_CompetitorOne_textfield() throws Throwable, UnhandledAlertException {
+		Thread.sleep(2000);
+		Assert.assertEquals(false, FirstCompetitor_textfield.isDisplayed());
+		
+	}
+	
+	@Then("^Ill not see SEO01_CompetitorTwo textfield$")
+	public void ill_not_see_SEO01_CompetitorTwo_textfield() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(false, SecondCompetitor_textfield.isDisplayed());
+		
+	}
+	
+	@Then("^Ill not see SEO01_CompetitorThree textfield$")
+	public void ill_not_see_SEO01_CompetitorThree_textfield() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(false, ThirdCompetitor_textfield.isDisplayed());
+		
+	}
+	
+	@Then("^Ill see a SEO01_WebAuditInvalid notification$")
+	public void ill_see_SEO01_WebAuditInvalid() throws Throwable {
+		for (int i = 0 ; i <10 ; i++){
+			if(WebAuditRunning_button.isDisplayed()){
+				System.out.println("Web Audit is In Progress");
+				Thread.sleep(3000);
+			}else{
+				Thread.sleep(2000);
+				Assert.assertEquals(true, WebAuditInvalidURLNotif_text.isDisplayed());
+				break;
+			}
+		}
+		
+	}
+	
+	@Then("^Ill see a SEO01_WebAuditCannotBeReached notification$")
+	public void ill_see_SEO01_WebAuditCannotBeReached() throws Throwable {
+		for (int i = 0 ; i <10 ; i++){
+			if(WebAuditRunning_button.isDisplayed()){
+				System.out.println("Web Audit is In Progress");
+				Thread.sleep(3000);
+			}else{
+				Thread.sleep(2000);
+				Assert.assertEquals(true, WebAuditCannotBeReachedNotif_text.isDisplayed());
+				break;
+			}
+		}
+		
+	}
 }

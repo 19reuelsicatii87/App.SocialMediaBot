@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: [TAA-248] Compass WIGS Test Suite v0.1
+Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	# Scenario Description:
 	#	Given Im an App User from QA department
 	#	And I received requirements from Sales Team
