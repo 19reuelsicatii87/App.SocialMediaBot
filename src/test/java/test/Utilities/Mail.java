@@ -38,7 +38,7 @@ public class Mail extends WEBHelper
    	
     	
     	String BrowserType=GetPropertValue("Data/TestProperties.xml","BrowserType");
-    	String URL=GetPropertValue("Data/TestProperties.xml",URLKey);
+    	String URL=URLKey;
     	String filename="target/" + ReportName;		
 		
 		Date date = new Date();
