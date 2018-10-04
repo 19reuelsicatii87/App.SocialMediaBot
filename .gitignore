@@ -1,3 +1,5 @@
 target/**
 log/**
 src/test/java/webApp/zOther/**
+src/test/java/test/Runner/**
+/target/
