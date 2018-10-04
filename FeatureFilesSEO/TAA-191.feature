@@ -24,7 +24,7 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
 	#And I click "Run New Audit(Beta)" Button
 	#Then my report will generated using the web audit tool 
 	#And I can view the report
-  @SRSSMOKETEST @SRS-3568 @SRS-3568_TS01 @TAA-277 
+  @SRSSMOKETEST @WebAudit @SRS-3568_TS01 @TAA-277 
   Scenario Outline: TAA-277
     Given Im an existing Partner
 		When I navigate to "Login"
@@ -53,7 +53,7 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
 	#Then a report will generated using the web audit tool 
 	#And I will be notified "<website> is now ready!"
 	#And see the results
-  @SRSSMOKETEST @SRS-3568 @SRS-3568_TS02 @TAA-278 
+  @SRSSMOKETEST @WebAudit @SRS-3568_TS02 @TAA-278 
   Scenario Outline: TAA-278
     Given Im an existing Partner
 		When I navigate to "Login"
@@ -98,7 +98,7 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
 	#And I click "Add Competitors New Audit (Beta) Only" link 
 	#When I click "Remove Competitors New Audit (Beta) Only" link
 	#Then I will not see Competitor1 text field, Competitor2 text field, Competitor3 text field
-  @SRSSMOKETEST @SRS-3568 @SRS-3568_TS03 @TAA-279
+  @SRSSMOKETEST @WebAudit @SRS-3568_TS03 @TAA-279
   Scenario Outline: TAA-279
     Given Im an existing Partner
 		When I navigate to "Login"
@@ -131,7 +131,7 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
 	#Then a report will generated using the web audit tool 
 	#And I will be notified "<website> is now ready!"
 	#And I will see the results
-  @SRSSMOKETEST @SRS-3568 @SRS-3568_TS04 @TAA-280
+  @SRSSMOKETEST @WebAudit @SRS-3568_TS04 @TAA-280
   Scenario Outline: TAA-280
     Given Im an existing Partner
 		When I navigate to "Login"
@@ -170,7 +170,7 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
 	#Given I'm a User   
 	#When I enter invalid website URL
 	#Then I'll see a notification "Please enter a valid website URL (ending in .com, .net, .us, .biz, .food, etc.)"
-  @SRSSMOKETEST @SRS-3568 @SRS-3568_TS05 @TAA-281
+  @SRSSMOKETEST @WebAudit @SRS-3568_TS05 @TAA-281
   Scenario Outline: TAA-281
     Given Im an existing Partner
 		When I navigate to "Login"
@@ -202,7 +202,7 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
 	#Given I'm a User
 	#When I populate Website text field with invalid website url
 	#Then I'll see an error message "The website you are trying to audit cannot be reached right now. Please try again later.."
-  @SRSSMOKETEST @SRS-3568 @SRS-3568_TS06 @TAA-319
+  @SRSSMOKETEST @WebAudit @SRS-3568_TS06 @TAA-319
   Scenario Outline: TAA-319
     Given Im an existing Partner
 		When I navigate to "Login"
@@ -225,7 +225,7 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
 	#When I enter a website
 	#And I click "RUN AUDIT" button
 	#Then I'll see the generated report in a new tab
-  @SRSSMOKETEST @SRS-3569 @SRS-3569_TS01 @TAA-320
+  @SRSSMOKETEST @WebAudit @SRS-3569_TS01 @TAA-320
   Scenario Outline: TAA-320
     Given Im an existing Partner
 		When I navigate to "Login"
@@ -253,7 +253,7 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
 	#When I enter a website and three competitor websites
 	#And I click "RUN NEW AUDIT (BETA)" button
 	#Then I'll see the generated report
-  @SRSSMOKETEST @SRS-3569 @SRS-3569_TS02 @TAA-321
+  @SRSSMOKETEST @WebAudit @SRS-3569_TS02 @TAA-321
   Scenario Outline: TAA-321
     Given Im an existing Partner
 		When I navigate to "Login"
