@@ -21,7 +21,7 @@ import cucumber.api.junit.Cucumber;
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardReport.html","rerun:target/SrsRerun.txt"},
-        tags = {"@LoginLogout, @ForgotPassword, @WebAudit"}
+        tags = {"@LoginLogout"}
    
 )
 
@@ -37,7 +37,7 @@ public class R1_SrsSmokeTest extends WEBHelper{
 	@AfterClass
 	public static void AfterClass() throws IOException, Throwable
 	{	
-		Mail.SendReport("SRSDashboardReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: SRS - ");
+		Mail.SendReport("SRSDashboardReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }
