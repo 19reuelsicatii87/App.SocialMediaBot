@@ -8,7 +8,7 @@
 <!-- Use below configuration -->
 	<entry key = "BrowserType">CHROME</entry>
 	<entry key = "OS">Windows</entry>
-	<entry key = "TestEnv">STG</entry>
+	<entry key = "TestEnv">PRD</entry>
 
 	
 <!-- Use below configuration for Intrivio Web Application -->
