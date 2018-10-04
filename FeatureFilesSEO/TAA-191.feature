@@ -46,7 +46,6 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
       | email                | password  |           website             |      websiteText       |
       | tlosrnd321@gmail.com | happy123  | https://www.jollibee.com.ph/  |       jollibee         |
       
- 
   #Scenario Description:
 	#	Given I'm a User
 	#And I click add competitors link
@@ -219,3 +218,78 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
     Examples: 
       | email                | password  |             website                  |
       | tlosrnd321@gmail.com | happy123  |     http://www.brittleririri.com/    |
+      
+       
+  #Scenario Description:
+	#Given I'm an AppUser
+	#When I enter a website
+	#And I click "RUN AUDIT" button
+	#Then I'll see the generated report in a new tab
+  @SRSSMOKETEST @SRS-3569 @SRS-3569_TS01 @TAA-320
+  Scenario Outline: TAA-320
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_AuditQuickAccess icon
+		And I populate SEO14_website textfield with <website>
+		And I click SEO14_RunAuditbutton
+		Then I will be notified <websiteText> is now ready!
+		And Ill see the SEO01_click here link of <websiteText>
+		
+		When I click SEO01_ClickHere link of <websiteText>
+		Then Ill be redirected to SEO13_OldWebAuditReport Preview
+		And Ill see the Old SEO13_Audit report
+
+    Examples: 
+      | email                | password  |         website                  |  websiteText     |
+      | tlosrnd321@gmail.com | happy123  | http://www.singaporeflyer.com/   |  singaporeflyer  |
+      
+  #Scenario Description:
+	#Given I'm an AppUser
+	#When I enter a website and three competitor websites
+	#And I click "RUN NEW AUDIT (BETA)" button
+	#Then I'll see the generated report
+  @SRSSMOKETEST @SRS-3569 @SRS-3569_TS02 @TAA-321
+  Scenario Outline: TAA-321
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_AuditQuickAccess icon
+		And I click SEO14_AddCompetitors link
+		Then Ill see SEO14_CompetitorOne textfield
+    And Ill see SEO14_CompetitorTwo textfield
+    And Ill see SEO14_CompetitorThree textfield
+    
+    When I populate SEO14_website textfield with <website>
+		And I populate SEO14_CompetitorOne textfield with <compWebOne>
+		And I populate SEO14_CompetitorTwo textfield with <compWebTwo>
+		And I populate SEO14_CompetitorThree textfield with <compWebThree>
+		And I click SEO14_RunNewAuditBeta button
+		Then I will be notified <websiteText> is now ready!
+		And Ill see the SEO01_click here link of <websiteText>
+		
+		When I click SEO01_ClickHere link of <websiteText>
+		Then Ill be redirected to Web Audit Report Preview
+		And Ill see the SEO13_Audit report
+		And Ill see Competitor <compWebOneText>
+		And Ill see Competitor <compWebTwoText>
+		And Ill see Competitor <compWebThreeText>
+
+    Examples: 
+      | email                | password  |           website             |      websiteText      |  compWebOne             |  compWebOneText    | compWebTwo              | compWebTwoText  |  compWebThree              |  compWebThreeText |
+      | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  https://www.yondu.com/ |   www.yondu.com    | https://www.google.com/ | www.google.com  |  https://www.yugatech.com/ |  www.yugatech.com |
+      | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  https://www.yondu.com/ |   www.yondu.com    | https://www.google.com/ | www.google.com  |  blank                     |  blank            |
+			| tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  https://www.yondu.com/ |   www.yondu.com    | blank                   | blank           |  https://www.yugatech.com/ |  www.yugatech.com |
+		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  blank                  |   blank            | https://www.google.com/ | www.google.com  |  https://www.yugatech.com/ |  www.yugatech.com |
+		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  https://www.yondu.com/ |   www.yondu.com    | blank                   | blank           |  blank                     |  blank            |
+		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  blank                  |   blank            | https://www.google.com/ | www.google.com  |  blank                     |  blank            |
+		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  blank                  |   blank            | blank                   | blank           |  https://www.yugatech.com/ |  www.yugatech.com |
+	

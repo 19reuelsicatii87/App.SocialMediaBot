@@ -417,16 +417,6 @@ public class SEO01_Home extends WEBHelper{
 		WebAuditClickHere_link(url).click();
 	}
 	
-	@Then("^Ill be redirected to Web Audit Report Preview$")
-	public void i_redirect_to_web_audit_report() throws Throwable, UnhandledAlertException {
-		ReUsablesKeyword.switchToLatestTab();
-		Thread.sleep(3000);
-		String currentUrl = driver.getCurrentUrl();
-		Assert.assertEquals(true, currentUrl.contains("webaudits"));
-		Assert.assertEquals(true, currentUrl.contains("preview"));
-		
-	}
-	
 	@When("^I click SEO01_AddCompetitors link$")
 	public void i_click_SEO01_AddCompetitors_link() throws Throwable, UnhandledAlertException {
 		AddRemoveCompetitors_link.click();
@@ -533,4 +523,11 @@ public class SEO01_Home extends WEBHelper{
 		}
 		
 	}
+	
+	@When("^I click the SEO01_AuditQuickAccess icon$")
+	public void i_click_SEO01_AuditQuickAccess_icon() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(WebAuditIcon_link));
+		WebAuditIcon_link.click();
+		Thread.sleep(5000);
+	}	
 }
