@@ -27,7 +27,7 @@ Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
   #And I activate the <Product>
   #And I deploy the  <Product>  through Deploy
   #Then I'll be able to see that the tasks of the <Product> are correctly deployed
-  @COMSMOKETEST @COMSMOKETEST_TS01
+  @CPSSMOKETEST @TaskDeployment @TaskDeployment_TS01 @TAA-9
   Scenario Outline: COMSMOKETEST_TS01
     Given Im an Account Manager
     When I navigate to "COMDEV_Login"
@@ -115,7 +115,7 @@ Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
   #And I activate the <Product>
   #And I deploy the  <Product>  through Deploy from Queue
   #Then I'll be able to see that the tasks of the <Product> are correctly deployed
-  @COMSMOKETEST @COMSMOKETEST_TS02
+  @CPSSMOKETEST @TaskDeployment @TaskDeployment_TS02 @TAA-9
   Scenario Outline: COMSMOKETEST_TS02
     Given Im an Account Manager
     When I navigate to "COMDEV_Login"
@@ -205,7 +205,7 @@ Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
   #And I activate the <Product>
   #And I deploy the  <Product>  through Deploy from Queue
   #Then I'll be able to see that the tasks of the <Product> are correctly deployed
-  @COMSMOKETEST @COMSMOKETEST_TS03
+  @CPSSMOKETEST @TaskDeployment @TaskDeployment_TS03 @TAA-9
   Scenario Outline: COMSMOKETEST_TS03
     Given Im an Account Manager
     When I navigate to "COMDEV_Login"
@@ -290,7 +290,7 @@ Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
   #Then I'll see all assigned  <Milestone Status> for a given  <Period> &  <Task Status>
   #When I'll search for <Keyword> for a given <Period>, <Task Status> & <Milestone Status>
   #Then I'll see all assigned <Keyword> for a given <Period>, <Task Status> & <Milestone Status>
-  @COMSMOKETEST @COMSMOKETEST_TS04
+  @CPSSMOKETEST @TaskDeployment @TaskDeployment_TS04 @TAA-9
   Scenario Outline: COMSMOKETEST_TS04
     Given Im an Account Manager
     When I navigate to "COMDEV_Login"
@@ -335,7 +335,7 @@ Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
   #When I look into Exam For Review
   #And I <Action 2> the Exam
   #Then I'll see a pop-up that I've <Action 2> the Exam
-  @COMSMOKETEST @COMSMOKETEST_TS05
+  @CPSSMOKETEST @TaskDeployment @TaskDeployment_TS05 @TAA-9
   Scenario Outline: COMSMOKETEST_TS05
     Given Im an Account Manager
     When I navigate to "COMDEV_Login"
@@ -363,7 +363,7 @@ Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
   #When I look into For Delegation
   #And I delegate a "TaskName" to "Truelogic"
   #Then I'll see that "TaskName"  is delegated to my Team's Task Pool over Compass
-  @COMSMOKETEST @COMSMOKETEST_TS06
+  @CPSSMOKETEST @TaskDeployment @TaskDeployment_TS06 @TAA-9
   Scenario Outline: COMSMOKETEST_TS06
     Given Im an Account Manager
     When I navigate to "COMDEV_Login"
@@ -400,7 +400,7 @@ Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
   #When I navigate to "PPCDEV_Login"
   #Then I'll see that "TaskName"is delegate to my Team's Task Pool over Paypercontent
   #And Ill see that only <Task Level> are listed on Team's Task Pool Paypercontent
-  @COMSMOKETEST @COMSMOKETEST_TS07
+  @CPSSMOKETEST @TaskDeployment @TaskDeployment_TS07 @TAA-9
   Scenario Outline: COMSMOKETEST_TS07
     Given Im an Account Manager
     When I navigate to "COMDEV_Login"
@@ -443,7 +443,7 @@ Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
   #Then Ill see the successful popup message over Compass
   #When I navigate to "COMDEV_Task" as <Contributor>
   #Then I'll see that "TaskName" is delegated to <Contributor> MyTask over Paypercontent
-  @COMSMOKETEST @COMSMOKETEST_TS08
+  @CPSSMOKETEST @TaskDeployment @TaskDeployment_TS08 @TAA-9
   Scenario Outline: COMSMOKETEST_TS08
     Given Im an Account Manager
     When I navigate to "COMDEV_Login"
@@ -489,7 +489,7 @@ Feature: [QAO-04] [Compass]: Workforce Smoke/Regression TestSuite
   #Then Ill see the successful popup message over Compass
   #When I navigate to "PPCDEV_Login" as <Contributor>
   #Then I'll see that "TaskName" is delegated to <Contributor> MyTask over PayPerContent
-  @COMSMOKETEST @COMSMOKETEST_TS09
+  @CPSSMOKETEST @TaskDeployment @TaskDeployment_TS10 @TAA-9
   Scenario Outline: COMSMOKETEST_TS09
     Given Im an Account Manager
     When I navigate to "COMDEV_Login"

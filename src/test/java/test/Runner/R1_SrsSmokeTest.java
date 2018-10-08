@@ -21,7 +21,7 @@ import cucumber.api.junit.Cucumber;
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardReport.html","rerun:target/SrsRerun.txt"},
-        tags = {"@LoginLogout"}
+        tags = {"@SRSSMOKETEST"}
    
 )
 
