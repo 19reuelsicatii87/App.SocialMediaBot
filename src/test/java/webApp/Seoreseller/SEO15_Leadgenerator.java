@@ -171,7 +171,7 @@ public class SEO15_Leadgenerator extends WEBHelper{
 					break;
 				}else{
 					System.out.println("Lead Gen Loader is Ongoing");
-					Thread.sleep(5000);
+					Thread.sleep(10000);
 				}
 			}
 	}
@@ -192,7 +192,7 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		int tableTotalCount = driver.findElements(By.xpath("//table[@id='lead-generator-table']//tbody//tr")).size();
 		
 		for (int i =1; i<= tableTotalCount; i++){
-			System.out.println("Companny Name " + CompanyByIndex_text(i).getText());
+			System.out.println("Companny Name[" +i+ "]" + CompanyByIndex_text(i).getAttribute("title"));
 		    Assert.assertEquals(false, CompanyByIndex_text(i).getText().isEmpty());
 			
 		}
