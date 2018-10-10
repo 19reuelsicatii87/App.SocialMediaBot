@@ -530,4 +530,12 @@ public class SEO01_Home extends WEBHelper{
 		WebAuditIcon_link.click();
 		Thread.sleep(5000);
 	}	
+	
+	@When("^I click the SEO01_LeadGenQuickAccess icon$")
+	public void i_click_SEO01_LeadGenQuickAccess_icon() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		WD.until(ExpectedConditions.elementToBeClickable(LeadGeneratorIcon_link));
+		LeadGeneratorIcon_link.click();
+		Thread.sleep(2000);
+	}	
 }
