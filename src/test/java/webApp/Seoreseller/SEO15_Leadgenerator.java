@@ -74,7 +74,7 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	
 	
 	
-	@When("I populate SEO15_Location textfield with data coming from the test data file$")
+	@When("I populate SEO15_Location textfield with US location coming from the test data file$")
    	public void i_populate_SEO15_Location_data_from_json() throws Throwable, UnhandledAlertException {
 		 driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		 Date currentDate = new Date();
