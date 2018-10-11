@@ -27,7 +27,7 @@ import com.cucumber.listener.*;
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/CompassReport.html","rerun:target/rerun.txt"},
-        tags = {"@COMSMOKETEST_TS01, @COMSMOKETEST_TS04"}
+        tags = {"@CPSSMOKETEST"}
    
 
 )
@@ -49,7 +49,7 @@ public class R1_CompassSmokeTest extends WEBHelper{
 	public static void AfterClass() throws IOException, Throwable
 	{	
 	
-		Mail.SendReport("CompassReport.html", "CompassDEVURL", "[SMOKE TEST]: COMPASS - ");
+		Mail.SendReport("CompassReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 		
 	}

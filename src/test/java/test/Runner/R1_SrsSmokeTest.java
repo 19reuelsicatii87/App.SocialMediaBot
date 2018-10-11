@@ -37,7 +37,7 @@ public class R1_SrsSmokeTest extends WEBHelper{
 	@AfterClass
 	public static void AfterClass() throws IOException, Throwable
 	{	
-		Mail.SendReport("SRSDashboardReport.html", "SeoresellerSTGURL_Login", "[SMOKE TEST]: SRS - ");
+		Mail.SendReport("SRSDashboardReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }

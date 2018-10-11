@@ -148,7 +148,6 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
     
 		When I populate SEO01_CompetitorOne textfield with <compWebOne>
 		And I populate SEO01_CompetitorTwo textfield with <compWebTwo>
-		And I populate SEO01_CompetitorThree textfield with <compWebThree>
 		And I click SEO01_RunNewAuditBeta button
 		Then I will be notified <websiteText> is now ready!
 		And Ill see the SEO01_click here link of <websiteText>

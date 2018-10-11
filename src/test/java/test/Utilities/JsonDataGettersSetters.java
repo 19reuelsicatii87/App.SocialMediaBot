@@ -1,6 +1,7 @@
 package test.Utilities;
 
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,6 +19,14 @@ public class JsonDataGettersSetters {
 	@JsonProperty("TaskDependencies") private List<String> taskDependencies;
 	@JsonProperty("TabsSetup") private List<String> tabsSetup;
 	
+	@JsonProperty("Monday")	private Map <String, String> monday;
+	@JsonProperty("Tuesday")private Map <String, String> tuesday;
+	@JsonProperty("Wednesday")private Map <String, String> wednesday;
+	@JsonProperty("Thursday")private Map <String, String> thursday;
+	@JsonProperty("Friday")private Map <String, String> friday;
+	@JsonProperty("Saturday")private Map <String, String> saturday;
+	@JsonProperty("Sunday")private Map <String, String> sunday;
+
 	public List<String> getTabName() {
 		return tabName;
 	}
@@ -90,6 +99,48 @@ public class JsonDataGettersSetters {
 	}
 	public void setTabsSetup(List<String> tabsSetup) {
 		this.tabsSetup = tabsSetup;
+	}
+	public Map<String, String> getMonday() {
+		return monday;
+	}
+	public void setMonday(Map<String, String> monday) {
+		this.monday = monday;
+	}
+	public Map<String, String> getTuesday() {
+		return tuesday;
+	}
+	public void setTuesday(Map<String, String> tuesday) {
+		this.tuesday = tuesday;
+	}
+	public Map<String, String> getWednesday() {
+		return wednesday;
+	}
+	public void setWednesday(Map<String, String> wednesday) {
+		this.wednesday = wednesday;
+	}
+	public Map<String, String> getThursday() {
+		return thursday;
+	}
+	public void setThursday(Map<String, String> thursday) {
+		this.thursday = thursday;
+	}
+	public Map<String, String> getFriday() {
+		return friday;
+	}
+	public void setFriday(Map<String, String> friday) {
+		this.friday = friday;
+	}
+	public Map<String, String> getSaturday() {
+		return saturday;
+	}
+	public void setSaturday(Map<String, String> saturday) {
+		this.saturday = saturday;
+	}
+	public Map<String, String> getSunday() {
+		return sunday;
+	}
+	public void setSunday(Map<String, String> sunday) {
+		this.sunday = sunday;
 	}
 	
 }

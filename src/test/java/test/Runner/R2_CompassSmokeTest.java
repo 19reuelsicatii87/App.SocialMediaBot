@@ -55,7 +55,7 @@ public class R2_CompassSmokeTest extends WEBHelper{
 		else 
 		{
 		    System.out.println("File is not EMPTY");
-			Mail.SendReport("CompassReportReRun.html", "CompassDEVURL", "[SMOKE TEST]: COMPASS RERUN - ");
+			Mail.SendReport("CompassReportReRun.html", GetApplication() + GetTestEnv(), "[SMOKE TEST - RERUN]: " + GetApplication() + GetTestEnv() + " - ");
 			log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 		}		
 	}
