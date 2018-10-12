@@ -18,16 +18,16 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-		format = { "pretty", "html:target/cucumber","json:target/JSON/WebAuditOutputRerun.json" },
-        features = {"@target/SrsWebAuditRerun.txt"},
+		format = { "pretty", "html:target/cucumber","json:target/JSON/WebAuditv3OutputRerun.json" },
+        features = {"@target/SrsWebAuditv3Rerun.txt"},
         glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardReportReRun.html","rerun:target/SrsWebAuditRerun2.txt"}
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardReportReRun.html","rerun:target/SrsWebAuditv3Rerun2.txt"}
    
 
 )
 
 
-public class R2_SrsSmokeTestWebAudit extends WEBHelper{
+public class R2_SrsSmokeTestWebAuditv3 extends WEBHelper{
 	@BeforeClass
 	public static void SecondBeforeClass() throws Exception 
 	{
@@ -40,7 +40,7 @@ public class R2_SrsSmokeTestWebAudit extends WEBHelper{
 	public static void SecondAfterClass() throws Exception
 	{		
 		@SuppressWarnings("resource")
-		BufferedReader br = new BufferedReader(new FileReader("target/SrsWebAuditRerun.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("target/SrsWebAuditv3Rerun.txt"));
 		
 		String htmlFilePath = System.getProperty("user.dir") + "\\target\\SRSDashboardReportReRun.html";
 		String htmlFileContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
@@ -57,7 +57,7 @@ public class R2_SrsSmokeTestWebAudit extends WEBHelper{
 
 		}else{
 		    System.out.println("File is not EMPTY");
-			Mail.SendReport("SRSDashboardReportReRun.html", GetApplication() + GetTestEnv(), "[SMOKE TEST - RERUN]: " + GetApplication() + GetTestEnv() + " (WebAudit3:"+testStatus+") - ");
+			Mail.SendReport("SRSDashboardReportReRun.html", GetApplication() + GetTestEnv(), "[SMOKE TEST - RERUN]: " + GetApplication() + GetTestEnv() + " (WebAuditv3:"+testStatus+") - ");
 			log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 		}		
 	}
