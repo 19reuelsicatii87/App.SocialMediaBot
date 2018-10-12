@@ -9,7 +9,7 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP Smoke/Regression TestSuite
   #And I have a Yahoo/Microsoft Account
   #When I set the Email Wizard Settings
   #Then I'll see the 'Oops. We currently don't support Yahoo and Microsot emails. 'Message
-  @SRSSMOKETEST @SafeEmail @SafeEmail_TS01 @TAA-159
+  @SRSSMOKETEST @SafeEmail_IMAP @SafeEmail_TS01 @TAA-159
   Scenario Outline: TAA-159
     Given Im an existing Partner
     When I navigate to "Login"
@@ -45,7 +45,7 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP Smoke/Regression TestSuite
   #And I have a Yahoo/Microsoft Account
   #When I click an email trigger in the Dashboard
   #Then I'll see the 'Oops. We currently don't support Yahoo and Microsot emails. 'Message
-  @SRSSMOKETEST @SafeEmail @SafeEmail_TS02 @TAA-163
+  @SRSSMOKETEST @SafeEmail_IMAP @SafeEmail_TS02 @TAA-163
   Scenario Outline: TAA-163
   Given Im an existing Partner
 	When I navigate to "SEOSTG_Login"
@@ -85,7 +85,7 @@ Feature: [TAA-131] [SEOReseller]: SafeEmail_IMAP Smoke/Regression TestSuite
   #And I click an Email Trigger
   #Then Ill see that the email is sent by indicated email address in the email wizard settings
   #And Ill see the status of the Email Signature in my email
-  @SRSSMOKETEST @SafeEmail @SafeEmail_TS02 @TAA-174
+  @SRSSMOKETEST @SafeEmail_IMAP @SafeEmail_TS02 @TAA-174
   Scenario Outline: TAA-174
     Given Im an existing Partner
     When I navigate to "Login"

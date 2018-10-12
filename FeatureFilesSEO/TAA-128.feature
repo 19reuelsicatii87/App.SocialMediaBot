@@ -12,7 +12,7 @@ Feature: [TAA-128] [SEOReseller]: SafeEmail_OAuth (Default)
   # And Ill see the Do It Later button
   # When I click the Do It Later button
   # Then I can send an email
-  @SRSSMOKETEST @SafeEmail @SafeEmailOauth_TS01 @TAA-133
+  @SRSSMOKETEST @SafeEmail_OAuth @SafeEmailOauth_TS01 @TAA-133
   Scenario Outline: TAA-133
     Given Im an existing Partner
 		When I navigate to "SEOSTG_Login"
