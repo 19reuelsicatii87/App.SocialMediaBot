@@ -35,7 +35,7 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	@FindBy(xpath="//img[@alt='Print all']")
 	WebElement GooglePrintAll_img;
 	
-	@FindBy(xpath="//a[@title='Gmail']")
+	@FindBy(xpath="//a[@title='Gmail']/img")
 	WebElement Google_hyperlink;
 	
 	@FindBy(xpath="//div[@class='J-J5-Ji J-JN-M-I-Jm']/span")
@@ -70,7 +70,7 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	}
 	
 	public static final WebElement SearchEmail(String keyword){
-		WebElement EmailSubject = driver.findElement(By.xpath("//span[contains(.,'"+keyword+"')]"));
+		WebElement EmailSubject = driver.findElement(By.xpath("(//td[@class='xY a4W']//span[@class='bqe'][contains(.,'"+keyword+"')])[1]"));
 		return EmailSubject;
 	}
 	
@@ -154,13 +154,33 @@ public class GMAIL01_MailInbox extends WEBHelper{
 				if(i==2){
 					fail("Expected to receive the email with subject: "+subject );
 				}
+				Thread.sleep(10000);
+			}
+		}
+	}
+	
+	@When("^I click the GMAIL01_EmailSubject div with \"(Account Password successfully updated)\"$")
+	public void i_click_the_GMAIL_EmailSubject_with_Subject_Account_Password_Successfully_Updated(String subject) throws Throwable, UnhandledAlertException {
+		loop:
+		for(int i=0;i<3; i++){
+			Google_hyperlink.click();
+			Thread.sleep(5000);
+			if(SearchEmail(subject).isDisplayed()){
+				SearchEmail(subject).click();
+				break loop;
+			}else{
+				if(i==2){
+					fail("Expected to receive the email with subject: "+subject );
+				}
+				Thread.sleep(10000);
 			}
 		}
 	}
 
 	@Then("^Ill see the GMAIL01_Message div with \"(To reset your password please click on the button below. Link will only be valid for 24 hours:)\"$")
 	public void ill_see_the_GMAIL__Message_div_with_Hi_Partner_To_reset_your_password_please_click_on_the_button_below_Link_will_only_be_valid_for_hours(String Message) throws Throwable, UnhandledAlertException {
-		for (WebElement div : getdivList(Message)) {			
+		Thread.sleep(5000);
+		for (WebElement div : getdivList(Message)) {
 			if (div.isDisplayed()) {
 				Assert.assertEquals(Message, div.getText());
 				break;
@@ -168,9 +188,9 @@ public class GMAIL01_MailInbox extends WEBHelper{
 		}		
 	}
 	
-	@Then("^Ill see the GMAIL01_Message div with \"(This message is to confirm that you changed your password.)\"$")
+	@Then("^Ill see the GMAIL01_Message div with \"(This message is to confirm that you changed your password. Please see details:)\"$")
 	public void ill_see_the_GMAIL__Message_div_with_Hello_This_message_is_to_confirm_that_you_changed_your_password(String Message) throws Throwable, UnhandledAlertException {
-		
+		Thread.sleep(5000);
 		for (WebElement div : getdivList(Message)) {			
 			if (div.isDisplayed()) {
 				Assert.assertEquals(Message, div.getText());

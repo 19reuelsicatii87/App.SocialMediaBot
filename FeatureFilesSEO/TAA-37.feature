@@ -37,15 +37,15 @@ Feature: [TAA-37] [SEOReseller]: Forgot Password Smoke/Regression TestSuite
     And I click the SEO09_Submit button
     Then Ill see the SEO00_Dashboard page
     When I navigate to ParentWindow
-    And I click the GMAIL01_EmailSubject div with "Reset Account Password Request"
-    Then Ill see the GMAIL01_Message div with "This message is to confirm that you changed your password."
+    And I click the GMAIL01_EmailSubject div with "Account Password successfully updated"
+    Then Ill see the GMAIL01_Message div with "This message is to confirm that you changed your password. Please see details:"
 
     Examples: 
       | Email                        | Password  | NewPassword | ElementName |
       | RNDAutomationTest8@gmail.com | happy123$ | happy123    | link        |
       | RNDAutomationTest8@gmail.com | happy123$ | happy123    | button      |
-      | RNDAutomationTest8@gmail.com | happy123$ |    12345678 | link        |
-      | RNDAutomationTest8@gmail.com | happy123$ |    12345678 | button      |
+      | RNDAutomationTest8@gmail.com | happy123$ | 12345678    | link        |
+      | RNDAutomationTest8@gmail.com | happy123$ | 12345678    | button      |
       | RNDAutomationTest8@gmail.com | happy123$ | happyabc    | link        |
       | RNDAutomationTest8@gmail.com | happy123$ | happyabc    | button      |
 
