@@ -114,7 +114,7 @@ public class COM19_TaskTemplate extends WEBHelper{
 	
 	@When("I create ([^\"]*) under Create Tasklist section for ([^\"]*)$")
    	public void i_create_number_task(int taskCount, String product) throws Throwable, UnhandledAlertException {
-		String jsonFilePath = System.getProperty("user.dir") + "\\Data\\"+product+"_Tasks.json";
+		String jsonFilePath = System.getProperty("user.dir") + "\\Data\\webApp.Compass\\"+product+"_Tasks.json";
 		String jsonContent = "";
 		jsonContent = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
 		JsonDataGettersSetters jsonFile = JsonUtil.fromJson(jsonContent, JsonDataGettersSetters.class);
@@ -135,7 +135,7 @@ public class COM19_TaskTemplate extends WEBHelper{
 	
 	@When("I create ([^\"]*) under \"([^\"]*)\" for ([^\"]*)$")
    	public void i_create_subtask_number_for_task_value(int subTaskCount, String task, String product) throws Throwable, UnhandledAlertException {
-		String jsonFilePath = System.getProperty("user.dir") + "\\Data\\"+task+"_Subtasks.json";
+		String jsonFilePath = System.getProperty("user.dir") + "\\Data\\webApp.Compass\\"+task+"_Subtasks.json";
 		String jsonContent = "";
 		jsonContent = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
 		JsonDataGettersSetters jsonFile = JsonUtil.fromJson(jsonContent, JsonDataGettersSetters.class);

@@ -90,7 +90,7 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	     }
 	     
 	     
-	 	String jsonFilePath = System.getProperty("user.dir") + "\\Data\\LeadGeneratorData.json";
+	 	String jsonFilePath = System.getProperty("user.dir") + "\\Data\\webApp.Seoreseller\\LeadGeneratorData.json";
 		String jsonContent = "";
 		jsonContent = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
 		JsonDataGettersSetters jsonFile = JsonUtil.fromJson(jsonContent, JsonDataGettersSetters.class);

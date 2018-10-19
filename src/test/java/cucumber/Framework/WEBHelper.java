@@ -123,6 +123,10 @@ public class WEBHelper{
 			case "COMSMOKETEST_TS09": 
 				BrowserType = "FIREFOX";
 	        break;
+	        
+			case "LocalSEO_TS01": 
+				BrowserType = "FIREFOX";
+	        break; 
 
 			default: 
 				BrowserType = GetPropertValue("Data/TestProperties.xml","BrowserType");		        
