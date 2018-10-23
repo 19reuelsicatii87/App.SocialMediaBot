@@ -59,6 +59,9 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	@FindBy(xpath="//a[contains(.,'account.seoreseller')]")
 	WebElement GoToDashBoard_link;
 	
+	@FindBy(xpath="//p[text()='One moment please...']")
+	WebElement OneMomentPlease_text;
+	
 	public static final List<WebElement> getdivList(String keyword){
 		List<WebElement> divList = driver.findElements(By.xpath("//div[contains(text(),'" + keyword + "')]"));
 		return divList;
@@ -229,7 +232,7 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	
 	@Then("^Ill not see the GMAIL01_GooglePopUp window$")
 	public void google_signin_window_will_close() throws Throwable, UnhandledAlertException {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	}
 	
 	@Then("^Ill see the GMAIL01_ThankYouForRegistering div with \"(Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below.)\"$")
