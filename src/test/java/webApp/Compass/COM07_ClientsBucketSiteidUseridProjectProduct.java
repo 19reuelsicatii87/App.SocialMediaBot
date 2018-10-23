@@ -53,7 +53,7 @@ public class COM07_ClientsBucketSiteidUseridProjectProduct extends WEBHelper{
 	public void i_select_Category_over_SelectACategory_list(String arg1) throws Throwable {
 		String dateIdentifier;
 		String finalCat; 
-		dateIdentifier = readTextfile("TAA248_Date.txt");
+		dateIdentifier = readTextfile("webApp.Compass\\TAA248_Date.txt");
 		finalCat = arg1+"_"+dateIdentifier;
 		
 		Thread.sleep(2000);
@@ -76,7 +76,7 @@ public class COM07_ClientsBucketSiteidUseridProjectProduct extends WEBHelper{
 	public void i_click_Product_name(String arg1) throws Throwable {
 		String dateIdentifier;
 		String finalProduct; 
-		dateIdentifier = readTextfile("TAA248_Date.txt");
+		dateIdentifier = readTextfile("webApp.Compass\\TAA248_Date.txt");
 		finalProduct = arg1+"_"+dateIdentifier;
 		
 		WebElement Product = driver.findElement(By.xpath(".//*[@id='products_wrapper']//li[@data-product-name='" + finalProduct+"']"));
