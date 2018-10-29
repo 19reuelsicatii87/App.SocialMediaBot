@@ -72,7 +72,14 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath="//p[@class='error-msg'][text()='No locations found.']")
+	WebElement NoLocationsFound_text;
 	
+	@FindBy(xpath="//h3[text()='Lead Generator Results']")
+	WebElement LeadGeneratorResults_header;
+	
+	@FindBy(xpath="//p[@class='error-msg'][text()='No search results for this niche.']")
+	WebElement NoSearchResultsForThisNiche_text;
 	
 	@When("I populate SEO15_Location textfield with US location coming from the test data file$")
    	public void i_populate_SEO15_Location_data_from_json() throws Throwable, UnhandledAlertException {
@@ -196,5 +203,22 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		    Assert.assertEquals(false, CompanyByIndex_text(i).getText().isEmpty());
 			
 		}
+	}
+	
+	@Then("^Ill see the SEO15_ErrorMessage 'No locations found.' in red under the field$")
+	public void ill_see_SEO15_ErrorMessage_No_location_found() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(true, NoLocationsFound_text.isDisplayed());
+	}
+	
+	@Then("^Ill be redirected to Lead Generator page$")
+	public void ill_be_redirected_to_lead_generator_page() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(true, LeadGeneratorResults_header.isDisplayed());
+	}
+	
+	@When("^I populate SEO15_Location textfield with ([^\"]*)$")
+	public void i_populate_SEO15_Location_textfield(String location) throws Throwable, UnhandledAlertException {
+		Location_textfield.sendKeys(location);
 	}
 }

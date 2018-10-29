@@ -45,3 +45,28 @@ Feature: [TAA-302] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
     Examples: 
       | email                | password  |           keyword       |
       | tlosrnd321@gmail.com | happy123  |      veterinary clinic  |
+      
+	#Given I am a user
+	#And I open Lead Generator
+	#When I enter text that does not match any location in Yellow Pages or Google Places
+	#Then I will see the text "No locations found." in red under the field
+  @SRSSMOKETEST @LeadGen @SRS-5943_TS01 @TAA-303
+  Scenario Outline: TAA-303
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		Then Ill be redirected to Lead Generator page
+		
+		And I populate SEO15_Location textfield with <location>
+		Then Ill see the SEO15_ErrorMessage 'No locations found.' in red under the field
+
+
+    Examples: 
+      | email                | password  |       location      |
+      | tlosrnd321@gmail.com | happy123  |   Akihabara, Japan  |      
+      
