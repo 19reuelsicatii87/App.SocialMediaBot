@@ -65,6 +65,7 @@ Feature: [TAA-302] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		And I populate SEO15_Location textfield with <location>
 		Then Ill see the SEO15_ErrorMessage 'No locations found.' in red under the field
 
+
     Examples: 
       | email                | password  |       location      |
       | tlosrnd321@gmail.com | happy123  |   Akihabara, Japan  |      
