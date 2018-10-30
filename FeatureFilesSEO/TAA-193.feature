@@ -77,7 +77,7 @@ Feature: [TAA-302] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 	#When I enter text on the Niche field that does not match any of the Autocomplete listings for Yellow Pages
 	#Then I will see the text "No search results for this niche." in red under the field
   @SRSSMOKETEST @LeadGen @SRS-5943_TS02 @TAA-304
-  Scenario Outline: TAA-303
+  Scenario Outline: TAA-304
     Given Im an existing Partner
 		When I navigate to "Login"
 		And I populate the SEOE6_EmailAddress textfield with <email>
@@ -89,9 +89,39 @@ Feature: [TAA-302] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		Then Ill be redirected to Lead Generator page
 		
 		When I populate SEO15_Location textfield with <location>
-		And I enter a <keyword> that will return a no result
+		And I enter the keyword '<keyword>' that will not display results list
 		Then Ill see the SEO15_ErrorMessage 'No search results for this niche.' in red under the field
 
     Examples: 
       | email                | password  |       location      |      keyword        |      
       | tlosrnd321@gmail.com | happy123  |   New York, USA     |   Video Marketing   |
+     
+      
+	#Given I am a user
+	#And I have selected a Non-US location
+	#When I enter <characters> in the niche field
+	#Then the Generate Leads button will be enabled
+  @SRSSMOKETEST @LeadGen @SRS-5943_TS03 @TAA-305
+  Scenario Outline: TAA-305
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		Then Ill be redirected to Lead Generator page
+		And Ill see SEO15_Location textfield
+		And Ill see SEO15_Keyword textfield
+		And Ill see SEO15_GenerateLeads button is Disabled
+		
+		When I populate SEO15_Location textfield with <location>
+		And I enter the keyword '<characters>' that will not display results list
+		And Ill see SEO15_GenerateLeads button is Enabled
+
+    Examples: 
+      | email                | password  |              location                 |      characters     |      
+      | tlosrnd321@gmail.com | happy123  |   Makati, Metro Manila, Philippines   |           L         |
+      | tlosrnd321@gmail.com | happy123  |   Makati, Metro Manila, Philippines   |     UST Comp Sci    |
+      

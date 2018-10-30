@@ -228,12 +228,37 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		Thread.sleep(5000);
 		Assert.assertEquals(true, NoSearchResultsForThisNiche_text.isDisplayed());
 	}
-	
-	@When("^I enter a ([^\"]*) that will return a no result$")
-	public void i_populate_SEO15_Keyword_textfield_with_no_results(String keyword) throws Throwable, UnhandledAlertException {
+
+	@When("^I enter the keyword '([^\"]*)' that will not display results list$")
+	public void i_populate_SEO15_Keyword_textfield_with_value_no_list(String keyword) throws Throwable, UnhandledAlertException {
 		Keyword_textfield.click();
 		Thread.sleep(3000);
 		Keyword_textfield.sendKeys(keyword);
 		Thread.sleep(3000);
+	}
+	
+	
+	@Then("^Ill see SEO15_Location textfield$")
+	public void ill_see_SEO15_Location() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(true, Location_textfield.isDisplayed());
+	}
+	
+	@Then("^Ill see SEO15_Keyword textfield$")
+	public void ill_see_SEO15_Keyword() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(true, Keyword_textfield.isDisplayed());
+	}
+	
+	@Then("^Ill see SEO15_GenerateLeads button is Disabled$")
+	public void SEO15_GenerateLeads_disabled_by_default() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(false, GenerateLeads_button.isEnabled());
+	}
+	
+	@Then("^Ill see SEO15_GenerateLeads button is Enabled$")
+	public void SEO15_GenerateLeads_enabled() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(true, GenerateLeads_button.isEnabled());
 	}
 }
