@@ -81,6 +81,9 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	@FindBy(xpath="//p[@class='error-msg'][text()='No search results for this niche.']")
 	WebElement NoSearchResultsForThisNiche_text;
 	
+	@FindBy(xpath="//p[@class='error-msg'][text()='Search term must be 3 characters and above.']")
+	WebElement SearchTermMustBeThreeChars_text;
+	
 	@When("I populate SEO15_Location textfield with US location coming from the test data file$")
    	public void i_populate_SEO15_Location_data_from_json() throws Throwable, UnhandledAlertException {
 		 driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
@@ -260,5 +263,12 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	public void SEO15_GenerateLeads_enabled() throws Throwable, UnhandledAlertException {
 		Thread.sleep(5000);
 		Assert.assertEquals(true, GenerateLeads_button.isEnabled());
+	}
+	
+	@Then("^Ill see the SEO15_ErrorMessage 'Search term must be 3 characters and above.' in red under the field$")
+	public void ill_see_SEO15_ErrorMessage_search_must_be_three_chars_and_above() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(true, SearchTermMustBeThreeChars_text.isDisplayed());
+		
 	}
 }

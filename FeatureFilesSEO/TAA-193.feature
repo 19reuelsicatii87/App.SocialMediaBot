@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: [TAA-302] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
+Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 
   #Scenario Description:
   #Given I'm a User
@@ -118,10 +118,43 @@ Feature: [TAA-302] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		
 		When I populate SEO15_Location textfield with <location>
 		And I enter the keyword '<characters>' that will not display results list
-		And Ill see SEO15_GenerateLeads button is Enabled
+		Then Ill see SEO15_GenerateLeads button is Enabled
 
     Examples: 
       | email                | password  |              location                 |      characters     |      
       | tlosrnd321@gmail.com | happy123  |   Makati, Metro Manila, Philippines   |           L         |
       | tlosrnd321@gmail.com | happy123  |   Makati, Metro Manila, Philippines   |     UST Comp Sci    |
       
+	#Given I am a user
+	#And I have selected a Non-US location
+	#When I enter <characters> in the niche field
+	#And I see that the generate Leads button was enabled
+	#And I click  the generate leads button
+	#Then the Niche textbox will be highlighted in red
+	#And I will see the text "Search term must be 3 characters and above." in red under the field
+	#And I will not generate any leads
+  @SRSSMOKETEST @LeadGen @SRS-5943_TS04 @TAA-306
+  Scenario Outline: TAA-306
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		Then Ill be redirected to Lead Generator page
+		And Ill see SEO15_Location textfield
+		And Ill see SEO15_Keyword textfield
+		And Ill see SEO15_GenerateLeads button is Disabled
+		
+		When I populate SEO15_Location textfield with <location>
+		And I enter the keyword '<characters>' that will not display results list
+		And I click the the SEO15_GenerateLeads button
+		And Ill see the SEO15_ErrorMessage 'Search term must be 3 characters and above.' in red under the field
+
+
+    Examples: 
+      | email                | password  |              location                 |  characters  |      
+      | tlosrnd321@gmail.com | happy123  |   Makati, Metro Manila, Philippines   |      L       |
+      | tlosrnd321@gmail.com | happy123  |   Makati, Metro Manila, Philippines   |     ca       |
