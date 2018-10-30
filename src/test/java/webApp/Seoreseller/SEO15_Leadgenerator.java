@@ -220,5 +220,20 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	@When("^I populate SEO15_Location textfield with ([^\"]*)$")
 	public void i_populate_SEO15_Location_textfield(String location) throws Throwable, UnhandledAlertException {
 		Location_textfield.sendKeys(location);
+		Thread.sleep(3000);
+	}
+	
+	@Then("^Ill see the SEO15_ErrorMessage 'No search results for this niche.' in red under the field$")
+	public void ill_see_SEO15_ErrorMessage_No_results_for_niche() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(true, NoSearchResultsForThisNiche_text.isDisplayed());
+	}
+	
+	@When("^I enter a ([^\"]*) that will return a no result$")
+	public void i_populate_SEO15_Keyword_textfield_with_no_results(String keyword) throws Throwable, UnhandledAlertException {
+		Keyword_textfield.click();
+		Thread.sleep(3000);
+		Keyword_textfield.sendKeys(keyword);
+		Thread.sleep(3000);
 	}
 }

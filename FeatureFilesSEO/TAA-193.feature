@@ -63,10 +63,35 @@ Feature: [TAA-302] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		Then Ill be redirected to Lead Generator page
 		
 		And I populate SEO15_Location textfield with <location>
-		Then Ill see the SEO15_ErrorMessage 'No locations found.' in red under the field
+		And I populate SEO15_Keyword textfield with <keyword>
+		Then Ill see the SEO15_ErrorMessage 'No search results for this niche.' in red under the field
 
 
     Examples: 
       | email                | password  |       location      |
       | tlosrnd321@gmail.com | happy123  |   Akihabara, Japan  |      
       
+	#Given I am a user
+	#And I open Lead Generator
+	#And I have selected a US location
+	#When I enter text on the Niche field that does not match any of the Autocomplete listings for Yellow Pages
+	#Then I will see the text "No search results for this niche." in red under the field
+  @SRSSMOKETEST @LeadGen @SRS-5943_TS02 @TAA-304
+  Scenario Outline: TAA-303
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		Then Ill be redirected to Lead Generator page
+		
+		When I populate SEO15_Location textfield with <location>
+		And I enter a <keyword> that will return a no result
+		Then Ill see the SEO15_ErrorMessage 'No search results for this niche.' in red under the field
+
+    Examples: 
+      | email                | password  |       location      |      keyword        |      
+      | tlosrnd321@gmail.com | happy123  |   New York, USA     |   Video Marketing   |
