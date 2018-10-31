@@ -158,3 +158,28 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
       | email                | password  |              location                 |  characters  |      
       | tlosrnd321@gmail.com | happy123  |   Makati, Metro Manila, Philippines   |      L       |
       | tlosrnd321@gmail.com | happy123  |   Makati, Metro Manila, Philippines   |     ca       |
+   
+	#Given I start typing in the niche/keyword field
+	#And I have selected a US location
+	#When I keyup
+	#And there are matching results from "https://www.yellowpages.com/autosuggest/headings.html?text=my_query"
+	#Then I see autocomplete keywords
+	#Filtering out list elements with a data-address attribute
+	#And keeping only the li elements with class="no-geo"
+	@SRSSMOKETEST @LeadGen @SRS-5944_TS01 @TAA-374 
+  Scenario Outline: TAA-374
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		And I populate SEO15_Location textfield with <location>
+		And I populate SEO15_Keyword textfield with <keyword>
+		Then Ill see the auto suggestion list for <keyword> matches result from yellowpages
+
+    Examples: 
+      | email                | password  |     location         |  keyword  |      
+      | tlosrnd321@gmail.com | happy123  |   New York, NY, USA  | chocolate |

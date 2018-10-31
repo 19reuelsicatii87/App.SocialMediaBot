@@ -3,8 +3,10 @@ package webApp.Seoreseller;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -67,6 +69,12 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	
 	@FindBy(xpath="//div[@id='lead-generator-table_processing']")
 	WebElement LeadGenLoader_icon;
+	
+	@FindBy(xpath="//div[@class='keyword-suggestions-item']")
+	List<WebElement> SRSkeywordSuggestionList_div;
+	
+	@FindBy(xpath="//li[@class='no-geo']")
+	List<WebElement> YPkeywordSuggestionList_list;
 	
 	public SEO15_Leadgenerator() {
 		PageFactory.initElements(driver, this);
@@ -270,5 +278,24 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		Thread.sleep(5000);
 		Assert.assertEquals(true, SearchTermMustBeThreeChars_text.isDisplayed());
 		
+	}
+	
+	@Then("^Ill see the auto suggestion list for ([^\"]*) matches result from yellowpages$")
+	public void ill_see_auto_sugesstion_matches_yellowpages(String keyword) throws Throwable, UnhandledAlertException {
+		int keywordDashboardSize = SRSkeywordSuggestionList_div.size();
+		List<String> myList = new ArrayList<String>();
+		
+		for (int i = 0; i < keywordDashboardSize; i ++){
+			myList.add( SRSkeywordSuggestionList_div.get(i).getAttribute("data-keyword"));
+		}
+		
+		driver.get("https://www.yellowpages.com/autosuggest/headings.html?text="+keyword+"");
+		Thread.sleep(3000);
+		
+		int keywordYPsize = YPkeywordSuggestionList_list.size();
+		for (int i = 0; i < keywordYPsize; i ++){
+			Assert.assertEquals(myList.get(i), YPkeywordSuggestionList_list.get(i).getAttribute("data-value"));
+
+		}
 	}
 }
