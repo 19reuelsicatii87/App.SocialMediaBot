@@ -259,7 +259,7 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 	#And I enter an invalid keyword
 	#When I clear the niche
 	#Then no error message is displayed
-  @SRSSMOKETEST @LeadGen @SRS-5943_TS05 @TAA-378
+  @SRSSMOKETEST @LeadGen @SRS-5944_TS05 @TAA-378
   Scenario Outline: TAA-378
     Given Im an existing Partner
 		When I navigate to "Login"
