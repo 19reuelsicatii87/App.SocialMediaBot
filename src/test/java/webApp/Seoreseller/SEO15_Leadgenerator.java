@@ -10,8 +10,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.junit.internal.runners.statements.Fail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -333,5 +335,18 @@ public class SEO15_Leadgenerator extends WEBHelper{
    		Thread.sleep(3000);		
    		Assert.assertEquals(firstItem, compareString);
    	}
- 
+    
+  
+    @Then("^Ill not see the SEO15_NicheSuggestion list for ([^\"]*)$")
+   	public void ill_not_see_SEO15_NicheSuggestion_list(String keyword) throws Throwable, UnhandledAlertException {
+   		Thread.sleep(3000);
+   		try{
+   			if(KeywordAutoComplete_text(keyword).isDisplayed()){
+   				Assert.fail("SEO15_NicheSuggestion was displayed");
+   			}
+   			
+   		}catch(NoSuchElementException ex){
+			Assert.assertTrue(true);
+   		}
+   	}
 }

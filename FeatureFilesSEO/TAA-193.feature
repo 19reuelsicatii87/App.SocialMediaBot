@@ -230,3 +230,25 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 	  Examples: 
 	    | email                | password  |     location         |  keyword  |        firstItem         |    
 	    | tlosrnd321@gmail.com | happy123  |   New York, NY, USA  |   Candy   |   Candy & Confectionery  |
+	    
+	#Given I am a User
+	#And I have entered Non-US location
+	#When I enter keyword
+	#Then I see no autocomplete in niche field
+	@SRSSMOKETEST @LeadGen @SRS-5944_TS04 @TAA-377   
+	Scenario Outline: TAA-377
+	Given Im an existing Partner
+	When I navigate to "Login"
+	And I populate the SEOE6_EmailAddress textfield with <email>
+	And I populate the SEOE6_Password textfield with <password>
+	And I click the SEO06_LoginToYourDashBoard button
+	Then I see the SEO01_Home Page
+	
+	When I click the SEO01_LeadGenQuickAccess icon
+	And I populate SEO15_Location textfield with <location>
+	And I enter the keyword '<keyword>' in the SEO15_Keyword textfield without auto selection
+	And Ill not see the SEO15_NicheSuggestion list for <keyword>
+	  
+  Examples: 
+    | email                | password  |  location |  keyword  |
+    | tlosrnd321@gmail.com | happy123  |   Makati  |   Candy   |
