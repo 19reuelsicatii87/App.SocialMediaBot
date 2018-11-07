@@ -77,6 +77,9 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	@FindBy(xpath="//li[@class='no-geo']")
 	List<WebElement> YPkeywordSuggestionList_list;
 	
+	@FindBy(xpath="//input[@id='leadGenerationFilter']")
+	WebElement Filter_textfield;
+	
 	public SEO15_Leadgenerator() {
 		PageFactory.initElements(driver, this);
 	}
@@ -241,7 +244,7 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		Assert.assertEquals(true, NoSearchResultsForThisNiche_text.isDisplayed());
 	}
 
-	@When("^I enter the keyword '([^\"]*)' without auto selection$")
+	@When("^I enter the keyword '([^\"]*)' in the SEO15_Keyword textfield without auto selection$")
 	public void i_populate_SEO15_Keyword_textfield_with_value_no_list(String keyword) throws Throwable, UnhandledAlertException {
 		Keyword_textfield.click();
 		Thread.sleep(3000);
@@ -315,4 +318,20 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		KeywordAutoComplete_text(selectedKeyword).click();
 		Thread.sleep(3000);
 	}
+    
+    @When("^I click outside of the SEO15_Keyword textfield$")
+	public void i_click_outside_of_SEO15_Keyword_textfield() throws Throwable, UnhandledAlertException {
+		Filter_textfield.click();
+	}
+    
+    
+    @Then("^Ill see that the first item ([^\"]*) from the autocomplete list is displayed in the SEO15_Keyword textfield$")
+   	public void ill_see_first_item_displayed_in_SEO15_Keyword_textfield(String firstItem) throws Throwable, UnhandledAlertException {
+   		Thread.sleep(5000);
+   		JavascriptExecutor js = (JavascriptExecutor) driver;
+   		String compareString = js.executeScript("return document.getElementById('keyword').value;").toString();
+   		Thread.sleep(3000);		
+   		Assert.assertEquals(firstItem, compareString);
+   	}
+ 
 }

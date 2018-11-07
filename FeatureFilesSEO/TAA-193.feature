@@ -89,7 +89,7 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		Then Ill be redirected to Lead Generator page
 		
 		When I populate SEO15_Location textfield with <location>
-		And I enter the keyword '<keyword>' without auto selection
+		And I enter the keyword '<keyword>' in the SEO15_Keyword textfield without auto selection
 		Then Ill see the SEO15_ErrorMessage 'No search results for this niche.' in red under the field
 
     Examples: 
@@ -117,7 +117,7 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		And Ill see SEO15_GenerateLeads button is Disabled
 		
 		When I populate SEO15_Location textfield with <location>
-		And I enter the keyword '<keyword>' without auto selection
+		And I enter the keyword '<keyword>' in the SEO15_Keyword textfield without auto selection
 		Then Ill see SEO15_GenerateLeads button is Enabled
 
     Examples: 
@@ -149,7 +149,7 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		And Ill see SEO15_GenerateLeads button is Disabled
 		
 		When I populate SEO15_Location textfield with <location>
-		And I enter the keyword '<keyword>' without auto selection
+		And I enter the keyword '<keyword>' in the SEO15_Keyword textfield without auto selection
 		And I click the the SEO15_GenerateLeads button
 		And Ill see the SEO15_ErrorMessage 'Search term must be 3 characters and above.' in red under the field
 
@@ -199,10 +199,34 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		
 		When I click the SEO01_LeadGenQuickAccess icon
 		And I populate SEO15_Location textfield with <location>
-		And I enter the keyword '<keyword>' without auto selection
+		And I enter the keyword '<keyword>' in the SEO15_Keyword textfield without auto selection
 		And I select the <selectedKeyword> in the SEO15_NicheSuggestion List   
 		Then Ill see that the selected <selectedKeyword> is displayed in the SEO15_Keyword textfield
     
     Examples: 
       | email                | password  |     location         |  keyword  |   selectedKeyword  |    
-      | tlosrnd321@gmail.com | happy123  |   New York, NY, USA  | chocolate |   chocolate store  |       
+      | tlosrnd321@gmail.com | happy123  |   New York, NY, USA  | chocolate |   chocolate store  |
+      
+	#Given I am a User
+	#And I have autocomplete results from Yellow Pages
+	#When I enter keyword
+	#And I click on outside the niche field
+	#Then I see that the first item from the list is displayed in the niche/keyword field
+	@SRSSMOKETEST @LeadGen @SRS-5944_TS03 @TAA-376
+  Scenario Outline: TAA-376
+		Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		And I populate SEO15_Location textfield with <location>
+		And I enter the keyword '<keyword>' in the SEO15_Keyword textfield without auto selection
+		And I click outside of the SEO15_Keyword textfield
+	  Then Ill see that the first item <firstItem> from the autocomplete list is displayed in the SEO15_Keyword textfield
+	  
+	  Examples: 
+	    | email                | password  |     location         |  keyword  |        firstItem         |    
+	    | tlosrnd321@gmail.com | happy123  |   New York, NY, USA  |   Candy   |   Candy & Confectionery  |
