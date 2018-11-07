@@ -252,3 +252,34 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
   Examples: 
     | email                | password  |  location |  keyword  |
     | tlosrnd321@gmail.com | happy123  |   Makati  |   Candy   |
+    
+	#Given I am a User
+	#And I have entered <location>
+	#And I enter a valid keyword
+	#And I enter an invalid keyword
+	#When I clear the niche
+	#Then no error message is displayed
+  @SRSSMOKETEST @LeadGen @SRS-5943_TS05 @TAA-378
+  Scenario Outline: TAA-378
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		Then Ill be redirected to Lead Generator page
+		
+		When I populate SEO15_Location textfield with <location>
+		And I enter the keyword '<keywordA>' in the SEO15_Keyword textfield without auto selection
+		And I clear SEO15_Keyword textfield
+		And I enter the keyword '<keywordB>' in the SEO15_Keyword textfield without auto selection
+		Then Ill see the SEO15_ErrorMessage 'No search results for this niche.' in red under the field
+		
+		When I clear SEO15_Keyword textfield
+		Then Ill NOT see the SEO15_ErrorMessage 'No search results for this niche.' in red under the field
+
+    Examples: 
+      | email                | password  |       location      |    keywordA     |  keywordB  |
+      | tlosrnd321@gmail.com | happy123  |  New York, NY, USA  |   ice cream     |  papamama  |

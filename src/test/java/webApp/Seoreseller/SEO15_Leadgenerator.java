@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
-import org.junit.internal.runners.statements.Fail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
@@ -349,4 +349,25 @@ public class SEO15_Leadgenerator extends WEBHelper{
 			Assert.assertTrue(true);
    		}
    	}
+   
+    @When("^I clear SEO15_Keyword textfield$")
+	public void i_clear_SEO15_Keyword_textfield() throws Throwable, UnhandledAlertException {
+    	Keyword_textfield.sendKeys(Keys.BACK_SPACE);
+		Keyword_textfield.clear();
+		Thread.sleep(5000);
+	}
+
+	@Then("^Ill NOT see the SEO15_ErrorMessage 'No search results for this niche.' in red under the field$")
+	public void ill_not_see_SEO15_ErrorMessage_No_results_for_niche() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		try{
+   			if(NoSearchResultsForThisNiche_text.isDisplayed()){
+   				Assert.fail("'No search results for this niche.' was displayed");
+   			}
+   			
+   		}catch(NoSuchElementException ex){
+			Assert.assertTrue(true);
+   		}
+		Thread.sleep(5000);
+	}
 }
