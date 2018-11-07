@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -240,7 +241,7 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		Assert.assertEquals(true, NoSearchResultsForThisNiche_text.isDisplayed());
 	}
 
-	@When("^I enter the keyword '([^\"]*)' that will not display results list$")
+	@When("^I enter the keyword '([^\"]*)' without auto selection$")
 	public void i_populate_SEO15_Keyword_textfield_with_value_no_list(String keyword) throws Throwable, UnhandledAlertException {
 		Keyword_textfield.click();
 		Thread.sleep(3000);
@@ -297,5 +298,21 @@ public class SEO15_Leadgenerator extends WEBHelper{
 			Assert.assertEquals(myList.get(i), YPkeywordSuggestionList_list.get(i).getAttribute("data-value"));
 
 		}
+	}
+    
+    @Then("^Ill see that the selected ([^\"]*) is displayed in the SEO15_Keyword textfield$")
+	public void ill_see_selected_keyword_displayed_in_SEO15_Keyword_textfield(String selectedKeyword) throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String compareString = js.executeScript("return document.getElementById('keyword').value;").toString();
+		Thread.sleep(3000);		
+		Assert.assertEquals(selectedKeyword, compareString);
+	}
+    
+    @When("^I select the ([^\"]*) in the SEO15_NicheSuggestion List$")
+	public void i_select_niche_in_SEO15_NicheSuggestion_list(String selectedKeyword) throws Throwable, UnhandledAlertException {
+		Thread.sleep(3000);
+		KeywordAutoComplete_text(selectedKeyword).click();
+		Thread.sleep(3000);
 	}
 }

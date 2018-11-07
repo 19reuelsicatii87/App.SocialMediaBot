@@ -89,7 +89,7 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		Then Ill be redirected to Lead Generator page
 		
 		When I populate SEO15_Location textfield with <location>
-		And I enter the keyword '<keyword>' that will not display results list
+		And I enter the keyword '<keyword>' without auto selection
 		Then Ill see the SEO15_ErrorMessage 'No search results for this niche.' in red under the field
 
     Examples: 
@@ -117,7 +117,7 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		And Ill see SEO15_GenerateLeads button is Disabled
 		
 		When I populate SEO15_Location textfield with <location>
-		And I enter the keyword '<characters>' that will not display results list
+		And I enter the keyword '<keyword>' without auto selection
 		Then Ill see SEO15_GenerateLeads button is Enabled
 
     Examples: 
@@ -149,7 +149,7 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		And Ill see SEO15_GenerateLeads button is Disabled
 		
 		When I populate SEO15_Location textfield with <location>
-		And I enter the keyword '<characters>' that will not display results list
+		And I enter the keyword '<keyword>' without auto selection
 		And I click the the SEO15_GenerateLeads button
 		And Ill see the SEO15_ErrorMessage 'Search term must be 3 characters and above.' in red under the field
 
@@ -183,3 +183,26 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
     Examples: 
       | email                | password  |     location         |  keyword  |      
       | tlosrnd321@gmail.com | happy123  |   New York, NY, USA  | chocolate |
+      
+	#Given I am a User
+	#And I have autocomplete results from Yellow Pages
+	#When I select on one of the results
+	#Then I see that the selected result is displayed in the niche/keyword field
+	@SRSSMOKETEST @LeadGen @SRS-5944_TS02 @TAA-375
+  Scenario Outline: TAA-375
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		And I populate SEO15_Location textfield with <location>
+		And I enter the keyword '<keyword>' without auto selection
+		And I select the <selectedKeyword> in the SEO15_NicheSuggestion List   
+		Then Ill see that the selected <selectedKeyword> is displayed in the SEO15_Keyword textfield
+    
+    Examples: 
+      | email                | password  |     location         |  keyword  |   selectedKeyword  |    
+      | tlosrnd321@gmail.com | happy123  |   New York, NY, USA  | chocolate |   chocolate store  |       
