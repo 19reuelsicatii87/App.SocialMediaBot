@@ -28,7 +28,8 @@ Feature: [TAA-39] [SEOReseller] Login/Logout Smoke/Regression TestSuite
     And Ill see the SEO06_LogIntoyouDashboard button
     And Ill see the SEO06_SigninwithGoogle button
     And Ill see the SEO06_TermsofUseandPrivacyPolicy div with message "By logging in, you agree to SEOReseller's Terms of Use and Privacy Policy"
-
+		And Ill see that the SEO06_TermsofUse link will direct to /terms-use upon click
+		And Ill see that the SEO06_PrivacyPolicy link will direct to /privacy-policy upon click
     Examples: 
       | Email                        | Password  |
       | rndautomationtest5@gmail.com | happy123$ |

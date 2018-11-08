@@ -1,6 +1,8 @@
 package webApp.Seoreseller;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -45,6 +47,12 @@ public class SEO06_Login extends WEBHelper{
 	
 	@FindBy(xpath="//div[@class='terms-condition-container']")
 	WebElement TermsOfUseAndPrivacyPolicyVerbiage_Text;
+	
+	@FindBy(xpath="//a[text()='Terms of Use']")
+	WebElement TermsOfUse_link;
+	
+	@FindBy(xpath="//a[text()='Privacy Policy']")
+	WebElement PrivacyPolicy_link;
 	
 	public SEO06_Login() {
 		PageFactory.initElements(driver, this);
@@ -125,7 +133,37 @@ public class SEO06_Login extends WEBHelper{
 	
 	@Then("^Ill see the SEO06_LogIn page$")
 	public void ill_see_login_page() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, SrsBanner_image.isDisplayed());
+		for(int i = 0; i <=4; i++){
+			Thread.sleep(3000);
+			if(SrsBanner_image.isDisplayed()){
+				Assert.assertEquals(true, SrsBanner_image.isDisplayed());
+			}else{
+				System.out.println("SEO Banner not yet completely displayed");
+				Thread.sleep(5000);
+			}
+		}
+	}
+	
+	@Then("^Ill see that the SEO06_TermsofUse link will direct to /terms-use upon click$")
+	public void ill_see_correct_redirection_of_TermsOfUSe_link() throws Throwable, UnhandledAlertException {
+			TermsOfUse_link.click();
+			Thread.sleep(3000);
+			ReUsablesKeyword.switchToLatestTab();
+			String currentUrl = driver.getCurrentUrl();
+			Assert.assertEquals(true, currentUrl.contains("terms-use"));
+			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "w");  
+			ReUsablesKeyword.switchWindowTab(0);
+	}
+	
+	@Then("^Ill see that the SEO06_PrivacyPolicy link will direct to /privacy-policy upon click$")
+	public void ill_see_correct_redirection_of_PrivacyPolicy_link() throws Throwable, UnhandledAlertException {
+			PrivacyPolicy_link.click();
+			Thread.sleep(3000);
+			ReUsablesKeyword.switchToLatestTab();
+			String currentUrl = driver.getCurrentUrl();
+			Assert.assertEquals(true, currentUrl.contains("privacy-policy"));
+			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "w");  
+			ReUsablesKeyword.switchWindowTab(0);
 	}
 	
 }
