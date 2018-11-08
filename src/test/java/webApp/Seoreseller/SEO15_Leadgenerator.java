@@ -370,4 +370,17 @@ public class SEO15_Leadgenerator extends WEBHelper{
    		}
 		Thread.sleep(5000);
 	}
+	
+	
+	@Then("^Ill see that the SEO15_Location is enabled$")
+	public void SSEO15_Locations_enabled_by_default() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(true, Location_textfield.isEnabled());
+	}
+	
+	@Then("^Ill see that the SEO15_Keyword is disabled$")
+	public void SEO15_Keyword_disabled_by_default() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
+		Assert.assertEquals(false, Keyword_textfield.isEnabled());
+	}
 }

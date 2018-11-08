@@ -283,3 +283,28 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
     Examples: 
       | email                | password  |       location      |    keywordA     |  keywordB  |
       | tlosrnd321@gmail.com | happy123  |  New York, NY, USA  |   ice cream     |  papamama  |
+      
+	#Given I'm an AppUser, 
+	#When I navigate to Dashboard >> Agency Tools >> Lead Generator
+	#Then I will see the field Search in (location) enabled
+	#And I will see the field for (niche or keyword) disabled
+	#And I will see the Generate Leads button disabled
+	@SRSSMOKETEST @LeadGen @SRS-5945_TS01 @TAA-379
+  Scenario Outline: TAA-379
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		Then Ill be redirected to Lead Generator page
+		And Ill see that the SEO15_Location is enabled
+		And Ill see that the SEO15_Keyword is disabled
+		And Ill see SEO15_GenerateLeads button is Disabled
+		
+
+    Examples: 
+      | email                | password  |
+      | tlosrnd321@gmail.com | happy123  |
