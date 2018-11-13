@@ -153,7 +153,7 @@ public class COM16_Storemanagemenet extends WEBHelper{
 	
     @When("I populate COM16_Description with ([^\"]*)$")
 	public void i_populate_description_with_value(String categoryName) throws Throwable, UnhandledAlertException {
-    	String content = ReadContentFromTextFile(categoryName+"_Description.txt");
+    	String content = ReadContentFromTextFile("webApp.Compass\\"+categoryName+"_Description.txt");
     	Thread.sleep(2000);
     	BasicDetailsDescription_textarea.sendKeys(content);
 
@@ -187,7 +187,7 @@ public class COM16_Storemanagemenet extends WEBHelper{
    	public void i_click_category_under_category_list(String categoryName) throws Throwable, UnhandledAlertException {
     	Thread.sleep(5000);
        	WindowScrollAndClick(CategoryItem_span(categoryName+"_"+ dateNoSpace));
-       	clearWriteTextfile("TAA248_Date.txt", dateNoSpace);
+       	clearWriteTextfile("webApp.Compass\\TAA248_Date.txt", dateNoSpace);
    	}
    
     @When("I click COM16_AddNewProduct button$")
@@ -203,12 +203,12 @@ public class COM16_Storemanagemenet extends WEBHelper{
     @When("I populate COM16_ProductName textfield with ([^\"]*)$")
    	public void i_populate_product_name_textfield_with_value(String product) throws Throwable, UnhandledAlertException {
        	ProductName_textfield.sendKeys(product+"_"+ dateNoSpace);
-       	clearWriteTextfile("TAA248_Date.txt", dateNoSpace);
+       	clearWriteTextfile("webApp.Compass\\TAA248_Date.txt", dateNoSpace);
    	}
     
     @When("I populate COM16_Description of Add New Product Modal with ([^\"]*)$")
    	public void i_populate_description_of_add_new_product_value(String categoryName) throws Throwable, UnhandledAlertException {
-        String content = ReadContentFromTextFile(categoryName+"_Description.txt");
+        String content = ReadContentFromTextFile("webApp.Compass\\"+categoryName+"_Description.txt");
         ProductDescription_textarea.sendKeys(content);
    	}
     
@@ -254,7 +254,7 @@ public class COM16_Storemanagemenet extends WEBHelper{
 	
 	@When("I populate COM16_KeyFeature textarea with ([^\"]*)$")
    	public void i_populate_key_features_with_value(String product) throws Throwable, UnhandledAlertException {
-        String content = ReadContentFromTextFile(product+"_Key Features.txt");
+        String content = ReadContentFromTextFile("webApp.Compass\\"+product+"_Key Features.txt");
         CodeView_button.get(0).click();
         actionSendKeys(TabCodeEditor_textarea.get(0), content);
         CodeView_button.get(0).click();
@@ -263,7 +263,7 @@ public class COM16_Storemanagemenet extends WEBHelper{
 	
 	@When("I add an additional ([^\"]*) for ([^\"]*)$")
    	public void i_add_addtional_tab_value_for_value(int count, String product) throws Throwable, UnhandledAlertException {
-		String jsonFilePath = System.getProperty("user.dir") + "\\Data\\"+product+"_Price Settings.json";
+		String jsonFilePath = System.getProperty("user.dir") + "\\Data\\webApp.Compass\\"+product+"_Price Settings.json";
 		String jsonContent = "";
 		jsonContent = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
 		JsonDataGettersSetters jsonFile = JsonUtil.fromJson(jsonContent, JsonDataGettersSetters.class);
@@ -276,10 +276,9 @@ public class COM16_Storemanagemenet extends WEBHelper{
 			TabName_textfield.get(a).clear();
 			TabName_textfield.get(a).sendKeys(jsonFile.getTabName().get(i));
 			
-			String textFilePath = product+jsonFile.getFileName().get(i);
+			String textFilePath = "webApp.Compass\\"+product+jsonFile.getFileName().get(i);
 	        String textFileContent = ReadContentFromTextFile(textFilePath);
-			
-	        CodeView_button.get(a).click();
+	        CodeView_button.get(a).click(); 
 	        Thread.sleep(3000);
 			actions.moveToElement(TabCodeEditor_textarea.get(0));
 	        actions.click();

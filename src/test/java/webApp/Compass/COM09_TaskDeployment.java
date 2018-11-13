@@ -66,7 +66,7 @@ public class COM09_TaskDeployment extends WEBHelper{
 	 @When("^I search the \"([^\"]*)\" in the COM09_CampaignSearch textfield$")
 		public void i_search_campaign_in_campaign_search_bar(String campaignName) throws Throwable, UnhandledAlertException {
 			String dateIdentifier;
-			dateIdentifier = readTextfile("TAA248_Date.txt");
+			dateIdentifier = readTextfile("webApp.Compass\\TAA248_Date.txt");
 		 	CampaignSearch_textfield.sendKeys(campaignName+"_"+dateIdentifier);
 			Thread.sleep(3000);
 	}

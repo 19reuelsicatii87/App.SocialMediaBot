@@ -56,7 +56,7 @@ public class COM04_ClientsBucketSiteidUseridCampaignsCreatecampaign extends WEBH
 	@When("^I populate COM04_CampaignName with \"([^\"]*)\"$")
 	public void i_populate_CampaignName_with(String arg1) throws Throwable, UnhandledAlertException {
 		String dateIdentifier;
-		dateIdentifier = readTextfile("TAA248_Date.txt");
+		dateIdentifier = readTextfile("webApp.Compass\\TAA248_Date.txt");
 		CampaignName_textfield.sendKeys(arg1+"_"+dateIdentifier);
 	}
 	

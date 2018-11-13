@@ -429,10 +429,18 @@ public class SEO01_Home extends WEBHelper{
 		Thread.sleep(3000);
 	}
 	
+	
 	@Then("^Ill see SEO01_CompetitorOne textfield$")
 	public void i_see_SEO01_CompetitorOne_textfield() throws Throwable, UnhandledAlertException {
-		Assert.assertEquals(true, FirstCompetitor_textfield.isDisplayed());
-		
+		for(int i = 0; i <=4; i++){
+			Thread.sleep(3000);
+			if(FirstCompetitor_textfield.isDisplayed()){
+				Assert.assertEquals(true, FirstCompetitor_textfield.isDisplayed());
+			}else{
+				System.out.println("Elements for Competitors' textfields not yet completely displayed");
+				Thread.sleep(5000);
+			}
+		}
 	}
 	
 	@Then("^Ill see SEO01_CompetitorTwo textfield$")
@@ -526,6 +534,7 @@ public class SEO01_Home extends WEBHelper{
 	
 	@When("^I click the SEO01_AuditQuickAccess icon$")
 	public void i_click_SEO01_AuditQuickAccess_icon() throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
 		WD.until(ExpectedConditions.elementToBeClickable(WebAuditIcon_link));
 		WebAuditIcon_link.click();
 		Thread.sleep(5000);

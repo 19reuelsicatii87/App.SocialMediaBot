@@ -71,7 +71,7 @@ public class COM08_ClientsBucketSiteidUseridProjectSubproject extends WEBHelper{
 	@When("^I select ([^\"]*) with ([^\"]*) over COM08_SelectAProduct dropdown$")
 	public void i_select_Product_over_COM08_SelectAProduct_dropdown(String category, String product) throws Throwable {
 			String dateIdentifier;
-			dateIdentifier = readTextfile("TAA248_Date.txt");
+			dateIdentifier = readTextfile("webApp.Compass\\TAA248_Date.txt");
 			
 			Select S=new Select(SelectAProduct_dropdown);
 			S.selectByVisibleText(category+"_"+dateIdentifier+" - "+product+"_"+dateIdentifier);
