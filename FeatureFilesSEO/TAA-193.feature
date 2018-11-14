@@ -34,7 +34,7 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		Then I see the SEO01_Home Page
 		
 		When I click the SEO01_LeadGenQuickAccess icon
-		And I populate SEO15_Location textfield with US location coming from the test data file
+		And I enter a US Location data in SEO15_Location textfield coming from LeadGeneratorData Json
 		And I populate SEO15_Keyword textfield with <keyword>
 		And I click the the SEO15_GenerateLeads button
 		And I click the SE014_ViewLeads button of <keyword> in location from the test data file
