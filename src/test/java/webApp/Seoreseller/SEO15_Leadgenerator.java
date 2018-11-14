@@ -98,7 +98,7 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	@FindBy(xpath="//p[@class='error-msg'][text()='Search term must be 3 characters and above.']")
 	WebElement SearchTermMustBeThreeChars_text;
 	
-	@When("I populate SEO15_Location textfield with US location coming from the test data file$")
+	@When("I enter a US Location data in SEO15_Location textfield coming from LeadGeneratorData Json$")
    	public void i_populate_SEO15_Location_data_from_json() throws Throwable, UnhandledAlertException {
 		 driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		 Date currentDate = new Date();
@@ -171,7 +171,7 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	
 	@When("^I click the SE014_ViewLeads button of ([^\"]*) in location from the test data file$")
 	public void i_click_SE014_ViewLeads_button(String keyword) throws Throwable, UnhandledAlertException {
-		for (int i = 0 ; i <10 ; i++){
+		for (int i = 0 ; i <24 ; i++){
 			if(SuccessfulLeadGen_text.isDisplayed()){
 				System.out.println("Generation of Lead Gen is Completed");
 				Thread.sleep(5000);

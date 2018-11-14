@@ -115,4 +115,22 @@ public class SEO14_Webaudits extends WEBHelper{
 		RunAuditBeta_button.click();
 	}
 	
+	@Then("^Ill not see SEO14_CompetitorOne textfield$")
+	public void ill_not_see_SEO14_CompetitorOne_textfield() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(false, FirstCompetitor_textfield.isDisplayed());
+		
+	}
+	
+	@Then("^Ill not see SEO14_CompetitorTwo textfield$")
+	public void ill_not_see_SEO14_CompetitorTwo_textfield() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(false, SecondCompetitor_textfield.isDisplayed());
+		
+	}
+	
+	@Then("^Ill not see SEO14_CompetitorThree textfield$")
+	public void ill_not_see_SEO14_CompetitorThree_textfield() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(false, ThirdCompetitor_textfield.isDisplayed());
+		
+	}
+	
 }
