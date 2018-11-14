@@ -292,3 +292,34 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
 		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  blank                  |   blank            | https://www.google.com/ | www.google.com  |  blank                     |  blank            |
 		  | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |      www.posh.com     |  blank                  |   blank            | blank                   | blank           |  https://www.yugatech.com/ |  www.yugatech.com |
 	
+	#Scenario Description:
+	#Given I'm an AppUser
+	#And I click "Remove Competitor's New Audit (Beta) only" link
+	#Then the three competitor text fields will be gone 
+  @SRSSMOKETEST @WebAudit @SRS-3569_TS03 @TAA-322
+  Scenario Outline: TAA-322
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_AuditQuickAccess icon
+		And I click SEO14_AddCompetitors link
+		Then Ill see SEO14_CompetitorOne textfield
+    And Ill see SEO14_CompetitorTwo textfield
+    And Ill see SEO14_CompetitorThree textfield	
+	
+	  When I populate SEO14_website textfield with <website>
+		And I populate SEO14_CompetitorOne textfield with <compWebOne>
+		And I populate SEO14_CompetitorTwo textfield with <compWebTwo>
+		And I populate SEO14_CompetitorThree textfield with <compWebThree>
+		And I click SEO01_RemoveCompetitors link
+		Then Ill not see SEO14_CompetitorOne textfield
+    And Ill not see SEO14_CompetitorTwo textfield
+    And Ill not see SEO14_CompetitorThree textfield	
+	
+    Examples: 
+      | email                | password  |           website             |    compWebOne             |       compWebTwo         |      compWebThree           | 
+      | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |    https://www.yondu.com/ |  https://www.google.com/ |   https://www.yugatech.com/ |
