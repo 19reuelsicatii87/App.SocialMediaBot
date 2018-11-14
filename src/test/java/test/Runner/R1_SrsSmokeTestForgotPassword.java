@@ -18,7 +18,7 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		format = { "pretty", "html:target/cucumber","json:target/JSON/ForgotPasswordOutput.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardForgotPasswordReport.html","rerun:target/SrsForgotPasswordRerun.txt"},
