@@ -1,4 +1,4 @@
-package webApi.Sheets;
+package test.Runner;
 
 
 import java.io.File;
@@ -8,21 +8,23 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Date;
 import com.jayway.jsonpath.JsonPath;
+
+import org.junit.AfterClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import com.google.api.services.sheets.v4.Sheets;
 import cucumber.Framework.*;
+import cucumber.api.junit.Cucumber;
+import webApi.Sheets.GoogleSheet;
+@RunWith(Cucumber.class)
 
-
-public class GS_Report {
+public class GS_TestReport {
 	
-	@Test
-	public void main() throws Exception 
+	@AfterClass
+	public static void main() throws Exception 
 	{	
-		
-
-		
-		
-        // Retrieve Data
+		// Retrieve Data
         //===================================================
 		File jsonfile = new File(System.getProperty("user.dir") + "\\target\\JSON\\Output.json");
 		List<Object> statuses = JsonPath.read(jsonfile, "$..after..status");
@@ -61,12 +63,12 @@ public class GS_Report {
 		}
 		else if (TestSuite.get(0).toString().contains("[SEOReseller]: WebAudit")) 
 		{
-			range = "WebAduit!A5";
+			range = "WebAudit!A5";
 		}
 		
 		else if (TestSuite.get(0).toString().contains("[SEOReseller]: Lead Generator")) 
 		{
-			range = "LEadGen!A5";
+			range = "LeadGen!A5";
 		}
 		else 
 		{
@@ -98,15 +100,9 @@ public class GS_Report {
         //===================================================
         //final String spreadsheetId = "1kRZ2UiQ79MIekcBavePjfrNkVFvm2jUKKTZ2VLEkEjg";	
         Sheets sheets = GoogleSheet.connectSheet();
-        GoogleSheet.appendSheet(sheets, spreadsheetId, range, valuesXY);	
-		
+        GoogleSheet.appendSheet(sheets, spreadsheetId, range, valuesXY);			
 		  
-	}
-	
-	
- 	
-
-	
+	}	
 }
 
 
