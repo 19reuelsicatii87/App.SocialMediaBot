@@ -323,3 +323,35 @@ Feature: [TAA-191] [SEOReseller]: WebAudit Smoke/Regression TestSuite
     Examples: 
       | email                | password  |           website             |    compWebOne             |       compWebTwo         |      compWebThree           | 
       | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/      |    https://www.yondu.com/ |  https://www.google.com/ |   https://www.yugatech.com/ |
+      
+	#Given I'm an AppUser
+	#When I enter a website and three competitor websites with invalid URL(WebAudit Page)
+	#Then I'll see an error pop-up message that says "ERROR Please enter a valid website URL ending in .com, .net, .us, .biz, .food, etc.) 
+  @SRSSMOKETEST @WebAudit @SRS-3569_TS04 @TAA-323
+  Scenario Outline: TAA-323
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_AuditQuickAccess icon
+		And I populate SEO14_website textfield with <website>
+		And I click SEO14_AddCompetitors link
+		Then Ill see SEO14_CompetitorOne textfield
+    And Ill see SEO14_CompetitorTwo textfield
+    And Ill see SEO14_CompetitorThree textfield
+    
+		When I populate SEO14_CompetitorOne textfield with <compWebOne>
+		And I populate SEO14_CompetitorTwo textfield with <compWebTwo>
+		And I populate SEO14_CompetitorThree textfield with <compWebThree>
+		And I click SEO14_RunNewAuditBeta button
+    Then Ill see a SEO01_WebAuditInvalid notification
+    
+    Examples: 
+      | email                | password  |        website             |      compWebOne                |     compWebTwo            |       compWebThree      |
+      | tlosrnd321@gmail.com | happy123  |     htt://www.posh.com/    |      blank                     |       blank               |          blank          |
+      | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/   |      htt://www.posh.com/       |       blank               |          blank          |
+	    | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/   |      blank                     |    htt://www.posh.com/    |          blank          |
+	    | tlosrnd321@gmail.com | happy123  |     http://www.posh.com/   |      blank                     |       blank               |   htt://www.posh.com/   |	 
