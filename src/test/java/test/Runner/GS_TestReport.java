@@ -24,7 +24,7 @@ public class GS_TestReport {
 	@AfterClass
 	public static void main() throws Exception 
 	{	
-		// Retrieve Data
+		// Retrieve Data 
         //===================================================
 		File jsonfile = new File(System.getProperty("user.dir") + "\\target\\JSON\\Output.json");
 		List<Object> statuses = JsonPath.read(jsonfile, "$..after..status");
