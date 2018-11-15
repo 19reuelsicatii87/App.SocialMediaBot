@@ -304,7 +304,37 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
 		And Ill see that the SEO15_Keyword is disabled
 		And Ill see SEO15_GenerateLeads button is Disabled
 		
-
     Examples: 
       | email                | password  |
       | tlosrnd321@gmail.com | happy123  |
+      
+	#Given I'm an AppUser, 
+	#When I type on the location field
+	#And the target location is non-US
+	#Then the niche field will be enabled
+	#When I type on the niche field
+	#And click Generate Leads
+	#Then I will be able to generate leads based on my search input sourced from Google Places
+	@SRSSMOKETEST @LeadGen @SRS-5945_TS03 @TAA-381
+  Scenario Outline: TAA-381
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		And I populate SEO15_Location textfield with <location>
+		And I enter the keyword '<keyword>' in the SEO15_Keyword textfield without auto selection
+		And I click the the SEO15_GenerateLeads button
+		And I click the SE014_ViewLeads button of <keyword> in location from the test data file
+		Then Ill see the SE014_LeadGen table
+		And Ill see that SEO15_TotalLeadsFound is equal to the row count returned
+		And Ill see that the Company Name is available per row
+		
+    Examples: 
+      | email                | password  |           location                  |    keyword    |
+      | tlosrnd321@gmail.com | happy123  | Manila, Metro Manila, Philippines   |    Pizza      |
+      | tlosrnd321@gmail.com | happy123  |     Johannesburg, South Africa      |    food       |
+      | tlosrnd321@gmail.com | happy123  |       Sydney NSW, Australia         |    chocolate  |
