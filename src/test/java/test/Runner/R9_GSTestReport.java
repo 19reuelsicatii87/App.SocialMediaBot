@@ -23,10 +23,25 @@ public class R9_GSTestReport {
 	
 	@AfterClass
 	public static void main() throws Exception 
+	{
+		File jsonfile = new File(System.getProperty("user.dir") + "\\Data\\webApi.Google\\GSTestReport.json");
+		String[] filename = JsonPath.read(jsonfile, "$.filename");
+		String[] range = JsonPath.read(jsonfile, "$.range");
+		
+	     for (int i = 0; i < range.length; i++) 
+	     {
+	    	 createGSTestReport(filename[i],range[i]);		
+	     }
+		
+		
+	}
+	
+	
+	public static void createGSTestReport(String filename, String range) throws Exception 
 	{	
 		// Retrieve Data 
         //===================================================
-		File jsonfile = new File(System.getProperty("user.dir") + "\\target\\JSON\\Output.json");
+		File jsonfile = new File(System.getProperty("user.dir") + "\\target\\JSON\\" + filename);
 		List<Object> statuses = JsonPath.read(jsonfile, "$..after..status");
 		List<Object> TestSuite = JsonPath.read(jsonfile, "$..name");
 		System.out.println("TestSuite: " + TestSuite.get(0).toString());
@@ -43,37 +58,8 @@ public class R9_GSTestReport {
 			
 		}   
         
-        List<List<Object>> valuesXY = Arrays.asList(valuesX);
-        
-		//Retrieve Range
-        //===================================================
-        String range = null;
-		if (TestSuite.get(0).toString().contains("[SEOReseller] Login/Logout")) 
-			{
-				range = "LoginLogout!A5";
-			} 
-		
-		else if (TestSuite.get(0).toString().contains("[SEOReseller]: Registration")) 
-			{
-				range = "Registration!A5";
-			}	
-		else if (TestSuite.get(0).toString().contains("[SEOReseller]: Forgot Password")) 
-		{
-			range = "ForgotPassword!A5";
-		}
-		else if (TestSuite.get(0).toString().contains("[SEOReseller]: WebAudit")) 
-		{
-			range = "WebAudit!A5";
-		}
-		
-		else if (TestSuite.get(0).toString().contains("[SEOReseller]: Lead Generator")) 
-		{
-			range = "LeadGen!A5";
-		}
-		else 
-		{
-				System.out.println("No Equivalent GoogleSheet - Range");
-		}
+        List<List<Object>> valuesXY = Arrays.asList(valuesX);        
+       
 		
 		//Retrieve SpreadSheetID
         //===================================================
@@ -100,7 +86,13 @@ public class R9_GSTestReport {
         //===================================================
         //final String spreadsheetId = "1kRZ2UiQ79MIekcBavePjfrNkVFvm2jUKKTZ2VLEkEjg";	
         Sheets sheets = GoogleSheet.connectSheet();
-        GoogleSheet.appendSheet(sheets, spreadsheetId, range, valuesXY);			
+        try {
+        	GoogleSheet.appendSheet(sheets, spreadsheetId, range, valuesXY);	
+		} catch (Exception e) {
+			System.out.println("Either <filename>.json or Googheetsheet tab is not found");
+			e.printStackTrace();
+			System.out.println(e);
+		}    		
 		  
 	}	
 }
