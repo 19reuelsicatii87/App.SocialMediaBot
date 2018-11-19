@@ -18,7 +18,6 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
@@ -38,7 +37,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import test.Utilities.CustomLogger;
 import com.github.genium_framework.appium.support.server.AppiumServer;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -47,6 +45,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
 import io.appium.java_client.android.AndroidDriver;
+import test.Utilities.CustomLogger;
 
 public class WEBHelper{
 	
@@ -127,7 +126,11 @@ public class WEBHelper{
 			case "LocalSEO_TS01": 
 				BrowserType = "FIREFOX";
 	        break; 
-
+	        
+			case "TAA-382":
+				BrowserType = "FIREFOX";
+		    break; 
+		        
 			default: 
 				BrowserType = GetPropertValue("Data/TestProperties.xml","BrowserType");		        
 			break;
@@ -144,7 +147,7 @@ public class WEBHelper{
 			log.info("Execute TASK KILL");
 			//Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe");
 			Runtime.getRuntime().exec("taskkill /F /IM IEDriverServer.exe");
-			Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe");
+			Runtime.getRuntime().exec("run");
 		} catch (IOException e) 
 		
 		{
