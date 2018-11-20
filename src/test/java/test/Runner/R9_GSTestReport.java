@@ -25,23 +25,31 @@ public class R9_GSTestReport {
 	public static void main() throws Exception 
 	{
 		File jsonfile = new File(System.getProperty("user.dir") + "\\Data\\webApi.Google\\GSTestReport.json");
-		String[] filename = JsonPath.read(jsonfile, "$.filename");
-		String[] range = JsonPath.read(jsonfile, "$.range");
+		List<String> filenames = JsonPath.read(jsonfile, "$..filename");
+		String [] filename = filenames.toArray(new String[filenames.size()]);
+		List<String> ranges = JsonPath.read(jsonfile, "$..range");
+		String [] range = ranges.toArray(new String[ranges.size()]);
 		
 	     for (int i = 0; i < range.length; i++) 
 	     {
-	    	 createGSTestReport(filename[i],range[i]);		
+	    	 try {
+	    		 createGSTestReport(filename[i],range[i]);	
+				
+			} catch (Exception e) {
+				System.out.println("File not Found. Moving to the next file.");
+			}
+	    	 	
 	     }
 		
 		
 	}
 	
-	
 	public static void createGSTestReport(String filename, String range) throws Exception 
-	{	
+	{		
+		
 		// Retrieve Data 
         //===================================================
-		File jsonfile = new File(System.getProperty("user.dir") + "\\target\\JSON\\" + filename + "json");
+		File jsonfile = new File(System.getProperty("user.dir") + "\\target\\JSON\\" + filename + ".json");
 		List<Object> statuses = JsonPath.read(jsonfile, "$..after..status");
 		List<Object> TestSuite = JsonPath.read(jsonfile, "$..name");
 		System.out.println("TestSuite: " + TestSuite.get(0).toString());

@@ -1,49 +1,56 @@
-[
-  {
-	"testrunner": "R1_SrsSmokeTestLeadGenerator",
-    "filename": "R1_SrsSmokeTestLeadGeneratorOuput",
-    "range": "R1_SrsSmokeTestLeadGeneratorOuput!A5"
-
-  },
-  {
-	"testrunner": "R1_SrsSmokeTestWebAuditv2",
-    "filename": "R1_SrsSmokeTestWebAuditv2Ouput",
-    "range": "R1_SrsSmokeTestWebAuditv2!A5"
-
-  },
-  {
-    "testrunner": "R1_SrsSmokeTestWebAuditv3",
-    "filename": "R1_SrsSmokeTestWebAuditv3Ouput",
-    "range": "R1_SrsSmokeTestWebAuditv3!A5"
-  },
-  {
-    "testrunner": "R1_SrsSmokeTestLoginLogout",
-    "filename": "R1_SrsSmokeTestLoginLogoutOuput",
-    "range": "R1_SrsSmokeTestLoginLogout!A5"
-  },
-  {
-    "testrunner": "R1_SrsSmokeTestForgotPassword",
-    "filename": "R1_SrsSmokeTestForgotPasswordOuput",
-    "range": "R1_SrsSmokeTestForgotPassword!A5"
-  },
-  {
-    "testrunner": "R1_SrsSmokeTestRegistration",
-    "filename": "R1_SrsSmokeTestRegistrationOuput",
-    "range": "R1_SrsSmokeTestRegistration!A5"
-  },
-  {
-    "testrunner": "R2_SrsSmokeTestLoginLogout",
-    "filename": "R2_SrsSmokeTestLoginLogoutOuput",
-    "range": "R2_SrsSmokeTestLoginLogout!A5"
-  },
-  {
-    "testrunner": "R2_SrsSmokeTestForgotPassword",
-    "filename": "R2_SrsSmokeTestForgotPasswordOuput",
-    "range": "R2_SrsSmokeTestForgotPassword!A5"
-  },
-  {
-    "testrunner": "R2_SrsSmokeTestRegistration",
-    "filename": "R2_SrsSmokeTestRegistrationOuput",
-    "range": "R2_SrsSmokeTestRegistration!A5"
-  }
-]
+{
+  "R1_SrsSmokeTestLeadGenerator": [
+    {
+      "filename": "R1_SrsSmokeTestLeadGeneratorOutput",
+      "range": "R1_SrsSmokeTestLeadGeneratorOuput!A5"
+    }
+  ],
+  "R1_SrsSmokeTestWebAuditv2": [
+    {
+      "filename": "R1_SrsSmokeTestWebAuditv2Output",
+      "range": "R1_SrsSmokeTestWebAuditv2!A5"
+    }
+  ],
+  "R1_SrsSmokeTestWebAuditv3": [
+    {
+      "filename": "R1_SrsSmokeTestWebAuditv3Output",
+      "range": "R1_SrsSmokeTestWebAuditv3!A5"
+    }
+  ],
+  "R1_SrsSmokeTestLoginLogout": [
+    {
+      "filename": "R1_SrsSmokeTestLoginLogoutOutput",
+      "range": "R1_SrsSmokeTestLoginLogout!A5"
+    }
+  ],
+  "R1_SrsSmokeTestForgotPassword": [
+    {
+      "filename": "R1_SrsSmokeTestForgotPasswordOutput",
+      "range": "R1_SrsSmokeTestForgotPassword!A5"
+    }
+  ],
+  "R1_SrsSmokeTestRegistration": [
+    {
+      "filename": "R1_SrsSmokeTestRegistrationOutput",
+      "range": "R1_SrsSmokeTestRegistration!A5"
+    }
+  ],
+  "R2_SrsSmokeTestLoginLogout": [
+    {
+      "filename": "R2_SrsSmokeTestLoginLogoutOutput",
+      "range": "R2_SrsSmokeTestLoginLogout!A5"
+    }
+  ],
+  "R2_SrsSmokeTestForgotPassword": [
+    {
+      "filename": "R2_SrsSmokeTestForgotPasswordOutput",
+      "range": "R2_SrsSmokeTestForgotPassword!A5"
+    }
+  ],
+  "R2_SrsSmokeTestRegistration": [
+    {
+      "filename": "R2_SrsSmokeTestRegistrationOutput",
+      "range": "R2_SrsSmokeTestRegistration!A5"
+    }
+  ]
+}
