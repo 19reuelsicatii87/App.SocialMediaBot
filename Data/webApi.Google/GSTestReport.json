@@ -1,13 +1,15 @@
 [
   {
+	"testrunner": "R1_SrsSmokeTestLeadGenerator",
     "filename": "R1_SrsSmokeTestLeadGeneratorOuput",
-    "range": "R1_SrsSmokeTestLeadGeneratorOuput!A5",
-    "testrunner": "R1_SrsSmokeTestLeadGenerator"
+    "range": "R1_SrsSmokeTestLeadGeneratorOuput!A5"
+
   },
   {
+	"testrunner": "R1_SrsSmokeTestWebAuditv2",
     "filename": "R1_SrsSmokeTestWebAuditv2Ouput",
-    "range": "R1_SrsSmokeTestWebAuditv2!A5",
-    "testrunner": "R1_SrsSmokeTestWebAuditv2"
+    "range": "R1_SrsSmokeTestWebAuditv2!A5"
+
   },
   {
     "testrunner": "R1_SrsSmokeTestWebAuditv3",

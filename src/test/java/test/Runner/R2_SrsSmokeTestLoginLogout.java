@@ -18,7 +18,7 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R2_SrsSmokeTestLoginLogoutOutput.json" },
         features = {"@target/SrsLoginLogoutRerun.txt"},
         glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardReportReRun.html","rerun:target/SrsLoginLogoutRerun2.txt"}
