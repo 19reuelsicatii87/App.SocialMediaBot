@@ -41,7 +41,7 @@ public class R9_GSTestReport {
 	{	
 		// Retrieve Data 
         //===================================================
-		File jsonfile = new File(System.getProperty("user.dir") + "\\target\\JSON\\" + filename);
+		File jsonfile = new File(System.getProperty("user.dir") + "\\target\\JSON\\" + filename + "json");
 		List<Object> statuses = JsonPath.read(jsonfile, "$..after..status");
 		List<Object> TestSuite = JsonPath.read(jsonfile, "$..name");
 		System.out.println("TestSuite: " + TestSuite.get(0).toString());
