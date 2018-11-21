@@ -19,7 +19,7 @@ import cucumber.api.junit.Cucumber;
 import webApi.Sheets.GoogleSheet;
 @RunWith(Cucumber.class)
 
-public class GS_TestReport {
+public class R9_GSTestReport {
 	
 	@AfterClass
 	public static void main() throws Exception 

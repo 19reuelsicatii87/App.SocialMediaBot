@@ -18,7 +18,7 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-		format = { "pretty", "html:target/cucumber","json:target/JSON/WebAuditv2OutputRerun.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
         features = {"@target/SrsWebAuditv2Rerun.txt"},
         glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardReportReRun.html","rerun:target/SrsWebAuditv2Rerun2.txt"}
