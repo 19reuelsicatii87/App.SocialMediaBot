@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
+import org.openqa.selenium.By; 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -25,7 +25,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import test.Utilities.JsonDataGettersSetters;
 import test.Utilities.JsonUtil;
-import webApp.zOther.YP01_SearchResult;
+import webApp.YellowPages.YP01_SearchResult;
 
 public class SEO15_Leadgenerator extends WEBHelper{
 	@FindBy(xpath="//input[@id='location']")
