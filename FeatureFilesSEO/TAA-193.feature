@@ -338,3 +338,35 @@ Feature: [TAA-193] [SEOReseller]: Lead Generator Smoke/Regression TestSuite
       | tlosrnd321@gmail.com | happy123  | Manila, Metro Manila, Philippines   |    Pizza      |
       | tlosrnd321@gmail.com | happy123  |     Johannesburg, South Africa      |    food       |
       | tlosrnd321@gmail.com | happy123  |       Sydney NSW, Australia         |    chocolate  |
+      
+	#Given I'm an AppUser, 
+	#When I type on the location field
+	#And the target location is in the US
+	#Then the niche field will be enabled
+	#When I type on the niche field
+	#And click Generate Leads
+	#Then I will be able to generate leads based on my search input sourced from Yellow Pages:
+	#Business name, Address, Website, Phone number from YP search results
+	#Email, additional Phone number & FB from website 
+	#SEO results and Adwords from spyfu
+	@SRSSMOKETEST @LeadGen @SRS-5945_TS04 @TAA-382
+  Scenario Outline: TAA-382
+    Given Im an existing Partner
+		When I navigate to "Login"
+		And I populate the SEOE6_EmailAddress textfield with <email>
+		And I populate the SEOE6_Password textfield with <password>
+		And I click the SEO06_LoginToYourDashBoard button
+		Then I see the SEO01_Home Page
+		
+		When I click the SEO01_LeadGenQuickAccess icon
+		And I populate SEO15_Location textfield with <location>
+	  And I populate SEO15_Keyword textfield with <keyword>
+		And I click the the SEO15_GenerateLeads button
+		And I click the SE014_ViewLeads button of <keyword> in location from the test data file
+		Then Ill see the SE014_LeadGen table
+		And Ill see that the Details for Search Result of <keyword> in <location> matches the details from yellowpages
+		
+    Examples: 
+      | email                | password  |   location         |    keyword              |
+      #| tlosrnd321@gmail.com | happy123  |  Jersey City, NJ  |   Basketball Clubs      |
+      | tlosrnd321@gmail.com | happy123  |  Arizona City, AZ  |   ice cream             |
