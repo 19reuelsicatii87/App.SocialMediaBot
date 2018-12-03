@@ -74,23 +74,25 @@ public class CommonSteps extends WEBHelper {
 	
 	@Then("^I ensure that ([^\"]*) does not exist$")
 	public void ii_check_email_value_not_existing(String email) throws Throwable, UnhandledAlertException {
-		
-		String ToEmail = UUID.randomUUID().toString().replace("-", "");
-		RequestSpecBuilder reqB = new RequestSpecBuilder();
-		reqB.setBaseUri(GetPropertValue("Data/TestProperties.xml", "Lumen" + GetTestEnv()));
-		reqB.setBasePath("admin/tools/email-updater");
-		reqB.addParam("site_id", "1");
-		reqB.addParam("from_email", email);
-		reqB.addParam("to_email", ToEmail + "@gmail.com");		
-		reqB.addParam("username", ToEmail + "@gmail.com");
-		requestSpecification = reqB.build();
-		Response Resp = post();
-		
-		if (Resp.getStatusCode() == 200) {
-			System.out.println("Successfully updated registered EmailAdress");
-			
-		} else {
-			System.out.println("Unsuccessfully updated registered EmailAdress");
+		if(GetTestEnv().contains("PRD")){
+			System.out.println("Do Nothing");
+		}else{
+			String ToEmail = UUID.randomUUID().toString().replace("-", "");
+			RequestSpecBuilder reqB = new RequestSpecBuilder();
+			reqB.setBaseUri(GetPropertValue("Data/TestProperties.xml", "Lumen" + GetTestEnv()));
+			reqB.setBasePath("admin/tools/email-updater");
+			reqB.addParam("site_id", "1");
+			reqB.addParam("from_email", email);
+			reqB.addParam("to_email", ToEmail + "@gmail.com");		
+			reqB.addParam("username", ToEmail + "@gmail.com");
+			requestSpecification = reqB.build();
+			Response Resp = post();
+			if (Resp.getStatusCode() == 200) {
+				System.out.println("Successfully updated registered EmailAdress");
+				
+			} else {
+				System.out.println("Unsuccessfully updated registered EmailAdress");
+			}
 		}
 	
 	}

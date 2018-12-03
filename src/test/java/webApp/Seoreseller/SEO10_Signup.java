@@ -126,20 +126,28 @@ public class SEO10_Signup extends WEBHelper{
 	
 	@Then("^I populate the SEO010_Email textfield with ([^\"]*)$")
 	public void i_populate_email_field_with_email_value(String email) throws Throwable, UnhandledAlertException {
-		EmailAddress_textfield.sendKeys(email);
+        if(GetTestEnv().contains("PRD")){
+			String[] emailParts = email.split("@");
+			String finalString = emailParts[0]+"+"+dateNoMin+"@"+emailParts[1];
+			EmailAddress_textfield.sendKeys(finalString);			
+			
+		}else{
+			EmailAddress_textfield.sendKeys(email);			
+		}
+        
         Thread.sleep(3000);
 	}
 	
 	@Then("^I populate the SEO010_Password textfield with ([^\"]*)$")
 	public void i_populate_password_field_with_password_value(String password) throws Throwable, UnhandledAlertException {
 		Password_textfield.sendKeys(password);
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 	}
 	
 	@Then("^I click SEO010_CreateAccount button$")
 	public void i_click_create_account_button() throws Throwable, UnhandledAlertException {
 		CreateAccount_button.click();
-        Thread.sleep(50000);
+        Thread.sleep(5000);
         
 	}
 	
