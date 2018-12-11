@@ -68,7 +68,7 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	}
 	
 	public static final List<WebElement> getspanList(String keyword){
-		List<WebElement> spanList = driver.findElements(By.xpath("//span/b[contains(text(),'" + keyword + "')]"));
+		List<WebElement> spanList = driver.findElements(By.xpath("//span[@class='bog']/span[contains(text(),'" + keyword + "')]"));
 		return spanList;
 	}
 	
@@ -111,7 +111,7 @@ public class GMAIL01_MailInbox extends WEBHelper{
 
 	@When("^I click the GMAIL01_GooglePasswordNext button$")
 	public void i_click_the_GMAIL__GooglePasswordNext_button() throws Throwable, UnhandledAlertException {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		GooglePasswordNext_button.click();
 	}
 
@@ -124,24 +124,30 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	@Then("^I see the GMAIL01_EmailSubject div with \"(Please Confirm Your Email Address)\"$")
 	public void i_see_the_GMAIL_EmailSubject_with_Subject(String subject) throws Throwable, UnhandledAlertException {
 		Thread.sleep(5000);
-		for (WebElement span : getspanList(subject)) {			
+		for (WebElement span : getspanList(subject)) {		
 			if (span.isDisplayed()) {
 				Assert.assertEquals(subject, span.getText());
 				break;
 			}			
 		}	
-		
 	}
 
 	@When("^I click the GMAIL01_EmailSubject div with \"(Please Confirm Your Email Address)\"$")
 	public void i_click_the_GMAIL_EmailSubject_with_Subject_Please_Confirm_Your_Email_Address(String subject) throws Throwable, UnhandledAlertException {
-		Thread.sleep(2000);
-		for (WebElement span : getspanList(subject)) {			
-			if (span.isDisplayed()) {
-				span.click();
-				break;
-			}			
-		}	
+		loop:
+			for(int i=0;i<3; i++){
+				Google_hyperlink.click();
+				Thread.sleep(5000);
+				if(SearchEmail(subject).isDisplayed()){
+					SearchEmail(subject).click();
+					break loop;
+				}else{
+					if(i==2){
+						fail("Expected to receive the email with subject: "+subject );
+					}
+					Thread.sleep(10000);
+				}
+			}
 	}
 	
 	@When("^I click the GMAIL01_EmailSubject div with \"(Reset Account Password Request)\"$")
@@ -237,6 +243,7 @@ public class GMAIL01_MailInbox extends WEBHelper{
 	
 	@Then("^Ill see the GMAIL01_ThankYouForRegistering div with \"(Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below.)\"$")
 	public void ill_see_email_thankyou_for_registering_text(String Message) throws Throwable, UnhandledAlertException {
+		Thread.sleep(5000);
 		Assert.assertEquals(true, ThankYouForRegistering_div.isDisplayed());
 		Assert.assertEquals(Message, ThankYouForRegistering_div.getText());
 	}

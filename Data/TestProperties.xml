@@ -52,8 +52,9 @@
 
 
 <!-- Use below configuration for Lumen API Application -->
-	<entry key = "LumenDEV">http://192.168.10.5/api</entry>
+	<entry key = "LumenDEV">http://192.168.10.5/</entry>
 	<entry key = "LumenSTG">http://staging.api.lumen.io.aws/</entry>
+	<entry key = "LumenPRD">http://api.lumen.io.aws/</entry>
 
 	
 <!-- Use below configuration for Kratos API Application -->

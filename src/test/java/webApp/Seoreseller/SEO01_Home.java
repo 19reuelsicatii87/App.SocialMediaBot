@@ -211,6 +211,12 @@ public class SEO01_Home extends WEBHelper{
 	@FindBy(xpath="//p[text()='The website you are trying to audit cannot be reached right now. Please try again later..']")
 	WebElement WebAuditCannotBeReachedNotif_text;
 	
+	@FindBy(xpath="//div[@class='intercom-team-avatar-container']")
+	WebElement IntercomAvatar_icon;
+	
+	@FindBy(xpath="//div[@class='intercom-borderless-dismiss-button']")
+	WebElement IntercomCloseChat_button;
+	
 	public SEO01_Home() {
 		
 		PageFactory.initElements(driver, this);
@@ -224,7 +230,6 @@ public class SEO01_Home extends WEBHelper{
 		AddCampaign_button.click();
 	}
 	
-	
 	@When("^I populate the SEO01_DomainUrl textfield with \"([^\"]*)\"$")
 	public void i_populate_the_SEO01_DomainUrl_textfield_with(String arg1) throws Throwable {
 		DomainUrl_textfield.sendKeys(arg1);
@@ -237,7 +242,12 @@ public class SEO01_Home extends WEBHelper{
 	
 	@When("^I click the SEO01_Logout list$")
 	public void i_click_the_logout() throws Throwable, UnhandledAlertException {
-		Logout_list.click();
+//		if(IntercomAvatar_icon.isDisplayed()){
+//			IntercomCloseChat_button.click();
+//			Logout_list.click();
+//		}else{
+			Logout_list.click();
+//		}
 	}
 	
 	
@@ -343,7 +353,7 @@ public class SEO01_Home extends WEBHelper{
 	
 	@Then("^Ill not see the SEO01_CompanySetup popup$")
 	public void Ill_not_see_SEO01_CompanySetup_popup() throws Throwable, UnhandledAlertException {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		Assert.assertEquals(true, UserAvatar_image.isDisplayed());
 	}
 
