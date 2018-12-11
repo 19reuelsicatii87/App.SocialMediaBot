@@ -70,7 +70,7 @@ public class WEBHelper{
 	public static String yearMonthDayTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
 	public static String dateNoSpace = new SimpleDateFormat("yyyyMMddHHmmss").format(date);
 	public static String monthYearFormat = new SimpleDateFormat("MMM yyyy").format(date);
-
+	public static String dateNoMin = new SimpleDateFormat("yyMMddHHss").format(date);
 
 		 
 
