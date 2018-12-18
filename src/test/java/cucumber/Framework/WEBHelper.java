@@ -71,6 +71,7 @@ public class WEBHelper{
 	public static String dateNoSpace = new SimpleDateFormat("yyyyMMddHHmmss").format(date);
 	public static String monthYearFormat = new SimpleDateFormat("MMM yyyy").format(date);
 	public static String dateNoMin = new SimpleDateFormat("yyMMddHHss").format(date);
+	public static String loginRunStatus = "no";
 
 		 
 
