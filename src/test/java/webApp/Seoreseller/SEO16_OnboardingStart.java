@@ -86,5 +86,6 @@ public class SEO16_OnboardingStart extends WEBHelper{
 	public void i_see_the_lets_get_started_button() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, LetsGetStarted_button.isDisplayed());
 	}
+	
 }
 
