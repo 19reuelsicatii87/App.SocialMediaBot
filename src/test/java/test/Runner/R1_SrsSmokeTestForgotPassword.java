@@ -22,7 +22,7 @@ import test.Utilities.Mail;
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardForgotPasswordReport.html","rerun:target/SrsForgotPasswordRerun.txt"},
-        tags = {"@ForgotPassword"}
+        tags = {"@TAA-45"}
    
 )
 
@@ -34,6 +34,7 @@ public class R1_SrsSmokeTestForgotPassword extends WEBHelper{
 	public static void BeforeClass() throws Exception
 	{
 		log.info("Execution is started from First Runner Test - BeforeClass Annotation");
+		loginRunStatus = "yes";
 	}	
  	
 	@AfterClass
