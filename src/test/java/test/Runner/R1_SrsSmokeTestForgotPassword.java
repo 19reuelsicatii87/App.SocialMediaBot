@@ -22,7 +22,7 @@ import test.Utilities.Mail;
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardForgotPasswordReport.html","rerun:target/SrsForgotPasswordRerun.txt"},
-        tags = {"@TAA-45"}
+        tags = {"@ForgotPassword"}
    
 )
 
