@@ -34,6 +34,7 @@ public class R1_SrsSmokeTestForgotPassword extends WEBHelper{
 	public static void BeforeClass() throws Exception
 	{
 		log.info("Execution is started from First Runner Test - BeforeClass Annotation");
+		loginRunStatus = "yes";
 	}	
  	
 	@AfterClass
