@@ -35,6 +35,7 @@ public class R1_SrsSmokeTestForgotPassword extends WEBHelper{
 	public static void BeforeClass() throws Exception
 	{
 		log.info("Execution is started from First Runner Test - BeforeClass Annotation");
+		loginRunStatus = "yes";
 		File file = new File(System.getProperty("user.dir") + "\\target\\JSON\\R1_SrsSmokeTestForgotPasswordReport.json");
 		try {
 			file.delete();
