@@ -16,6 +16,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I ensure that <Email> does not exist
     When I navigate to "Login"
     Then Ill see the SEO06_SeoReseller Banner
+    
     When I click SEO06_SignUp link
     And I wait for page to load
     Then Ill see the SEO010_SignUp Page
@@ -28,6 +29,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And Ill see the SEO010_TermsOfUseAndPrivacyPolicyVerbiage_div with "By signing up, you agree to SEOReseller's Terms of Use and Privacy Policy"
     And Ill see the SEO010_AlreadyhaveAnAccount_div with "Already have an account"
     And Ill see the SEO010_CreateAccount button
+   
     When I populate the SEO010_FirstName textfield with <FirstName>
     And I populate the SEO010_LastName textfield with <LastName>
     And I populate the SEO010_Email textfield with <Email>
@@ -36,6 +38,7 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I wait for page to load
     Then Ill be redirected to SEO11_Welcome page
     And I see the SEO11_Congratulations div with "Congratulations! You are just one step away to access all features of your free account."
+    
     When I navigate to GMAIL
     And I click the GMAIL01_GoogleHomeSignIn link
     And I populate the GMAIL01_GoogleEmail textField with <Email>
@@ -43,27 +46,35 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I populate the GMAIL01_GooglePassword textField with <Password>
     And I click the GMAIL01_GooglePasswordNext button
     Then I see the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
-    When I click the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
+   
+		When I click the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
     Then Ill see the GMAIL01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
     And Ill see the GMAIL01_GotoMyDashboard <ElementName>
+    
     When I click the GMAIL01_GotoMyDashboard <ElementName>
     And I navigate to ChildWindow
     And I wait for page to load
-    Then Ill see the SEO00_Dashboard page
-    And Ill see the SEO01_SuccessAccountVerifyMessage div with "Congratulations! You have successfully verified your email address."
+    And I click the SEO16_LetsGetStarted button
+    And I click the SEO17_Skip link
+    And I click the SEO18_LetsGoToTheDashboard button
+    Then Ill see the SEO01_SuccessAccountVerifyMessage div with "Congratulations! You have successfully verified your email address."
+    
     When I click the SEO01_UserAvatar button
     And I click the SEO01_Logout list
     And I wait for page to load
     Then Ill see the SEO06_LogIn page
+    
     When I populate the SEOE6_EmailAddress textfield with <Email>
     And I populate the SEOE6_Password textfield with <Password>
     And I click the SEO06_LoginToYourDashBoard button
     Then Ill see the SEO01_CompanySetup popup
     And Ill see SEO01_CompanyProfile div with "Customize your account by completing your profile information."
+    
     When I click SEO01_CompleteProfile button
     Then Ill see the SEO01_UploadLogo button is removed
     And Ill see the SEO01_CompanyWebsite globe
     And Ill see the SEO01_PhoneCountry icon is <Country>
+    
     When I populate SEO01_CompanyName textfield with <CompanyName>
     And I click the SEO01_CompanyProfile dropdown to choose <CompanyProfile>
     And I click the SEO01_ExistingClient dropdown to choose <ExistingClients>
@@ -125,9 +136,10 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And Ill see the ZOHO01_GotoMyDashboard <ElementName>
     When I click the ZOHO01_GotoMyDashboard <ElementName>
     And I navigate to ChildWindow
-    And I wait for page to load
-    Then Ill see the SEO00_Dashboard page
-    And Ill see the SEO01_SuccessAccountVerifyMessage div with "Congratulations! You have successfully verified your email address."
+    And I click the SEO16_LetsGetStarted button
+    And I click the SEO17_Skip link
+    And I click the SEO18_LetsGoToTheDashboard button
+    Then Ill see the SEO01_SuccessAccountVerifyMessage div with "Congratulations! You have successfully verified your email address."
     When I click the SEO01_UserAvatar button
     And I click the SEO01_Logout list
     And I wait for page to load
@@ -267,7 +279,10 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     Then Ill see the GMAIL01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
     And Ill see the GMAIL01_GotoMyDashboard <ElementName>
     When I click the GMAIL01_GotoMyDashboard <ElementName>
-    And Ill see the SEO01_SuccessAccountVerifyMessage div with "Congratulations! You have successfully verified your email address."
+    And I click the SEO16_LetsGetStarted button
+    And I click the SEO17_Skip link
+    And I click the SEO18_LetsGoToTheDashboard button
+    Then Ill see the SEO01_SuccessAccountVerifyMessage div with "Congratulations! You have successfully verified your email address."
     When I click the SEO01_UserAvatar button
     And I click the SEO01_Logout list
     And I wait for page to load

@@ -1,17 +1,9 @@
 package webApp.Seoreseller;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.UnhandledAlertException;
-import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;

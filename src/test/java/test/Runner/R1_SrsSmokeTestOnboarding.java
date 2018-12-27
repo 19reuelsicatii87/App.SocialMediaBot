@@ -18,30 +18,29 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_SrsSmokeTestLoginLogoutOutput.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardLoginLogoutReport.html","rerun:target/SrsLoginLogoutRerun.txt"},
-        tags = {"@LoginLogout"}
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SrsOnboardingReport.html","rerun:target/SrsOnboardingRerun.txt"},
+        tags = {"@Onboarding"}
    
 )
 
 
-public class R1_SrsSmokeTestLoginLogout extends WEBHelper{
+public class R1_SrsSmokeTestOnboarding extends WEBHelper{
 	
 	
 	@BeforeClass
 	public static void BeforeClass() throws Exception
 	{
 		log.info("Execution is started from First Runner Test - BeforeClass Annotation");
-		loginRunStatus = "yes";
 	}	
  	
 	@AfterClass
 	public static void AfterClass() throws IOException, Throwable
 	{	
 		
-		String htmlFilePath = System.getProperty("user.dir") + "\\target\\SRSDashboardLoginLogoutReport.html";
+		String htmlFilePath = System.getProperty("user.dir") + "\\target\\SrsOnboardingReport.html";
 		String htmlFileContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
 		String testStatus;
 		if(htmlFileContent.contains("'status fail'")){
@@ -50,7 +49,7 @@ public class R1_SrsSmokeTestLoginLogout extends WEBHelper{
 			testStatus = "PASSED";
 		}
 	
-		Mail.SendReport("SRSDashboardLoginLogoutReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (LoginLogout:"+testStatus+") - ");
+		Mail.SendReport("SrsOnboardingReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (Onboarding:"+testStatus+") - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }

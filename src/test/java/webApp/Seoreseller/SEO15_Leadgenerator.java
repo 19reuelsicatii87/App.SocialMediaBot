@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
+import org.openqa.selenium.By; 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -25,9 +25,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import test.Utilities.JsonDataGettersSetters;
 import test.Utilities.JsonUtil;
+import webApp.YellowPages.YP01_SearchResult;
 
 public class SEO15_Leadgenerator extends WEBHelper{
-	
 	@FindBy(xpath="//input[@id='location']")
 	WebElement Location_textfield;
 	
@@ -60,9 +60,24 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		return specificViewLeads_button;
 	}
 	
-	public static final WebElement CompanyByIndex_text(int index){
+	public static final WebElement CompanyNameByIndex_text(int index){
 		WebElement companyByIndex_text = driver.findElement(By.xpath("(//div[@class='company'])["+index+"]"));
 		return companyByIndex_text;
+	}
+	
+	public static final WebElement CompanyAddressByIndex_text(int index){
+		WebElement companyAddressByIndex_text = driver.findElement(By.xpath("(//div[@class='address'])["+index+"]"));
+		return companyAddressByIndex_text;
+	}
+	
+	public static final WebElement WebsiteByIndex_text(int index){
+		WebElement websiteByIndex_text = driver.findElement(By.xpath("(//div[@class='website'])["+index+"]"));
+		return websiteByIndex_text;
+	}
+	
+	public static final WebElement PhoneNumberByIndex_text(int index){
+		WebElement phoneNumberByIndex_text = driver.findElement(By.xpath("(//div[@class='phone'])["+index+"]"));
+		return phoneNumberByIndex_text;
 	}
 	
 	public static final WebElement KeywordAutoComplete_text(String keyword){
@@ -82,9 +97,7 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	@FindBy(xpath="//input[@id='leadGenerationFilter']")
 	WebElement Filter_textfield;
 	
-	public SEO15_Leadgenerator() {
-		PageFactory.initElements(driver, this);
-	}
+	
 	
 	@FindBy(xpath="//p[@class='error-msg'][text()='No locations found.']")
 	WebElement NoLocationsFound_text;
@@ -97,6 +110,19 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	
 	@FindBy(xpath="//p[@class='error-msg'][text()='Search term must be 3 characters and above.']")
 	WebElement SearchTermMustBeThreeChars_text;
+	
+	@FindBy(xpath="//input[@name='search_terms']")
+	WebElement SearchTerm_textfield;
+	
+	@FindBy(xpath="//input[@name='geo_location_terms']")
+	WebElement GeoLocation_textfield;
+	
+	@FindBy(xpath="//button[@class='search-hinter']")
+	WebElement Search_button;
+	
+	public SEO15_Leadgenerator() {
+		PageFactory.initElements(driver, this);
+	}
 	
 	@When("I enter a US Location data in SEO15_Location textfield coming from LeadGeneratorData Json$")
    	public void i_populate_SEO15_Location_data_from_json() throws Throwable, UnhandledAlertException {
@@ -216,8 +242,8 @@ public class SEO15_Leadgenerator extends WEBHelper{
 		int tableTotalCount = driver.findElements(By.xpath("//table[@id='lead-generator-table']//tbody//tr")).size();
 		
 		for (int i =1; i<= tableTotalCount; i++){
-			System.out.println("Companny Name[" +i+ "]" + CompanyByIndex_text(i).getAttribute("title"));
-		    Assert.assertEquals(false, CompanyByIndex_text(i).getText().isEmpty());
+			System.out.println("Companny Name[" +i+ "]" + CompanyNameByIndex_text(i).getAttribute("title"));
+		    Assert.assertEquals(false, CompanyNameByIndex_text(i).getText().isEmpty());
 			
 		}
 	}
@@ -382,5 +408,62 @@ public class SEO15_Leadgenerator extends WEBHelper{
 	public void SEO15_Keyword_disabled_by_default() throws Throwable, UnhandledAlertException {
 		Thread.sleep(5000);
 		Assert.assertEquals(false, Keyword_textfield.isEnabled());
+	}
+	
+	@Then("^Ill see that the Details for Search Result of ([^\"]*) in ([^\"]*) matches the details from yellowpages$")
+	public void ill_see_dshboard_company_details_matches_yp_company_details(String keyword, String location) throws Throwable, UnhandledAlertException {
+		int dbTableTotalCount = driver.findElements(By.xpath("//table[@id='lead-generator-table']//tbody//tr")).size();
+		String dbCompanyName = "";
+		String dbLocation = "";
+		String dbWesbite = "";
+		String dbPhone = "";
+		
+		for (int i =1; i<= dbTableTotalCount; i++){
+		    dbCompanyName = CompanyNameByIndex_text(i).getText();
+		    dbLocation = CompanyAddressByIndex_text(i).getText();
+		    dbWesbite = WebsiteByIndex_text(i).getText();
+		    dbPhone = PhoneNumberByIndex_text(i).getText().replaceAll("[^a-zA-Z0-9]", "");
+		    
+		    String[] splitLoc = dbLocation.split(",");		 
+		    dbLocation = splitLoc[0];
+		    
+			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t"); 
+			ReUsablesKeyword.switchToLatestTab();
+			Thread.sleep(3000);
+		    driver.get("https://www.yellowpages.com/");
+			Thread.sleep(3000);
+			SearchTerm_textfield.sendKeys(keyword);
+			GeoLocation_textfield.clear();
+			GeoLocation_textfield.sendKeys(location);
+			Search_button.click();
+			Thread.sleep(3000);
+			
+			String url = driver.getCurrentUrl();
+			String newurl = url+"&refinements=bbb_grade_display%3A1";
+			driver.get(newurl);
+			Thread.sleep(3000);
+			
+			if(YP01_SearchResult.BusinessLocality_text(dbCompanyName).getText().contains(dbLocation)){
+				Assert.assertTrue(true);
+			}else{
+				Assert.fail("Business' location from Dashboard doesnt match the location details from YP");
+			}
+			
+			if(YP01_SearchResult.BusinessPrimaryPhone_text(dbCompanyName).getText().replaceAll("[^a-zA-Z0-9]", "").contains(dbPhone)){
+				Assert.assertTrue(true);
+			}else{
+				Assert.fail("Business' Phone from Dashboard doesnt match the phone details from YP");
+			}
+			
+			if(YP01_SearchResult.BusinessWebsite_link(dbCompanyName).getAttribute("href").contains(dbWesbite)){
+				Assert.assertTrue(true);
+			}else{
+				Assert.fail("Business' Website from Dashboard doesnt match the Website details from YP");
+			}
+			
+			
+			driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "w");  
+			ReUsablesKeyword.switchWindowTab(0);
+		}
 	}
 }

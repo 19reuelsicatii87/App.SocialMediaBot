@@ -53,7 +53,12 @@ public class SEO11_Signupsuccess extends WEBHelper{
 	public void ill_be_redirected_to_Welcome_page() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, SrsBanner_image.isDisplayed());
 		Assert.assertEquals(true, Welcome_heading.isDisplayed());
-		Assert.assertEquals("http://staging.account.seoreseller.com/signup-success", driver.getCurrentUrl());
+		
+		if(driver.getCurrentUrl().contains("account.seoreseller.com/signup-success")){
+			Assert.assertTrue(true);;
+		}else{
+			Assert.fail("User not redirected to the Signup Success Page");
+		}
 	}
 	
 	@Then("^I see the SEO11_Congratulations div with \"(Congratulations! You are just one step away to access all features of your free account.)\"$")
