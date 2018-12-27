@@ -19,10 +19,10 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_SrsSmokeTestForgotPasswordOutput.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_SrsSmokeTestForgotPasswordReport.json" },
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardForgotPasswordReport.html","rerun:target/SrsForgotPasswordRerun.txt"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R1_SrsSmokeTestForgotPasswordReport.html","rerun:target/SrsForgotPasswordRerun.txt"},
         tags = {"@ForgotPassword"}
    
 )
@@ -35,7 +35,7 @@ public class R1_SrsSmokeTestForgotPassword extends WEBHelper{
 	public static void BeforeClass() throws Exception
 	{
 		log.info("Execution is started from First Runner Test - BeforeClass Annotation");
-		File file = new File(System.getProperty("user.dir") + "\\target\\JSON\\R1_SrsSmokeTestForgotPasswordOuput.json");
+		File file = new File(System.getProperty("user.dir") + "\\target\\JSON\\R1_SrsSmokeTestForgotPasswordReport.json");
 		try {
 			file.delete();
 			log.info("File successfully deleted");
@@ -49,7 +49,7 @@ public class R1_SrsSmokeTestForgotPassword extends WEBHelper{
 	public static void AfterClass() throws IOException, Throwable
 	{	
 		
-		String htmlFilePath = System.getProperty("user.dir") + "\\target\\SRSDashboardForgotPasswordReport.html";
+		String htmlFilePath = System.getProperty("user.dir") + "\\target\\R1_SrsSmokeTestForgotPasswordReport.html";
 		String htmlFileContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
 		String testStatus;
 		if(htmlFileContent.contains("'status fail'")){
@@ -58,7 +58,7 @@ public class R1_SrsSmokeTestForgotPassword extends WEBHelper{
 			testStatus = "PASSED";
 		}
 	
-		Mail.SendReport("SRSDashboardForgotPasswordReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (ForgotPassword:"+testStatus+") - ");
+		Mail.SendReport("R1_SrsSmokeTestForgotPasswordReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (ForgotPassword:"+testStatus+") - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }

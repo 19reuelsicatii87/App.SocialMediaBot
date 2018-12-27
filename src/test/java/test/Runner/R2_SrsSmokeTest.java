@@ -16,10 +16,10 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-		format = { "pretty", "html:target/cucumber","json:target/JSON/OutputRerun.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R2_SrsSmokeTestReport.json" },
         features = {"@target/SrsRerun.txt"},
         glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardReportReRun.html","rerun:target/SrsRerun2.txt"}
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R2_SrsSmokeTestReport.html","rerun:target/SrsRerun2.txt"}
    
 
 )
@@ -45,7 +45,7 @@ public class R2_SrsSmokeTest extends WEBHelper{
 
 		}else{
 		    System.out.println("File is not EMPTY");
-			Mail.SendReport("SRSDashboardReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST - RERUN]: " + GetApplication() + GetTestEnv() + " - ");
+			Mail.SendReport("R2_SrsSmokeTestReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST - RERUN]: " + GetApplication() + GetTestEnv() + " - ");
 			log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 		}		
 	}

@@ -18,10 +18,10 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_SrsSmokeTestLoginLogoutOutput.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_SrsSmokeTestLoginLogoutReport.json" },
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardLoginLogoutReport.html","rerun:target/SrsLoginLogoutRerun.txt"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R1_SrsSmokeTestLoginLogoutReport.html","rerun:target/SrsLoginLogoutRerun.txt"},
         tags = {"@LoginLogout"}
    
 )
@@ -41,7 +41,7 @@ public class R1_SrsSmokeTestLoginLogout extends WEBHelper{
 	public static void AfterClass() throws IOException, Throwable
 	{	
 		
-		String htmlFilePath = System.getProperty("user.dir") + "\\target\\SRSDashboardLoginLogoutReport.html";
+		String htmlFilePath = System.getProperty("user.dir") + "\\target\\R1_SrsSmokeTestLoginLogoutReport.html";
 		String htmlFileContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
 		String testStatus;
 		if(htmlFileContent.contains("'status fail'")){
@@ -50,7 +50,7 @@ public class R1_SrsSmokeTestLoginLogout extends WEBHelper{
 			testStatus = "PASSED";
 		}
 	
-		Mail.SendReport("SRSDashboardLoginLogoutReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (LoginLogout:"+testStatus+") - ");
+		Mail.SendReport("R1_SrsSmokeTestLoginLogoutReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (LoginLogout:"+testStatus+") - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }

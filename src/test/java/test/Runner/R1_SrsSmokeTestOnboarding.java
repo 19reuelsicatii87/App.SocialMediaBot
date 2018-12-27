@@ -18,10 +18,10 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_SrsSmokeTestOnboardingReport.json" },
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SrsOnboardingReport.html","rerun:target/SrsOnboardingRerun.txt"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R1_SrsSmokeTestOnboardingReport.html","rerun:target/SrsOnboardingRerun.txt"},
         tags = {"@Onboarding"}
    
 )
@@ -40,7 +40,7 @@ public class R1_SrsSmokeTestOnboarding extends WEBHelper{
 	public static void AfterClass() throws IOException, Throwable
 	{	
 		
-		String htmlFilePath = System.getProperty("user.dir") + "\\target\\SrsOnboardingReport.html";
+		String htmlFilePath = System.getProperty("user.dir") + "\\target\\R1_SrsSmokeTestOnboardingReport.html";
 		String htmlFileContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
 		String testStatus;
 		if(htmlFileContent.contains("'status fail'")){
@@ -49,7 +49,7 @@ public class R1_SrsSmokeTestOnboarding extends WEBHelper{
 			testStatus = "PASSED";
 		}
 	
-		Mail.SendReport("SrsOnboardingReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (Onboarding:"+testStatus+") - ");
+		Mail.SendReport("R1_SrsSmokeTestOnboardingReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (Onboarding:"+testStatus+") - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }

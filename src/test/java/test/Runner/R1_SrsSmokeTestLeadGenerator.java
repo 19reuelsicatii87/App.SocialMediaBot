@@ -18,10 +18,10 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_SrsSmokeTestLeadGeneratorOutput.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_SrsSmokeTestLeadGeneratorReport.json" },
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardLeadGenReport.html","rerun:target/SrsLeadGenRerun.txt"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R1_SrsSmokeTestLeadGeneratorReport.html","rerun:target/SrsLeadGenRerun.txt"},
         tags = {"@TAA-302"}
    
 )
@@ -40,7 +40,7 @@ public class R1_SrsSmokeTestLeadGenerator extends WEBHelper{
 	public static void AfterClass() throws IOException, Throwable
 	{	
 		
-		String htmlFilePath = System.getProperty("user.dir") + "\\target\\SRSDashboardLeadGenReport.html";
+		String htmlFilePath = System.getProperty("user.dir") + "\\target\\R1_SrsSmokeTestLeadGeneratorReport.html";
 		String htmlFileContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
 		String testStatus;
 		if(htmlFileContent.contains("'status fail'")){
@@ -49,7 +49,7 @@ public class R1_SrsSmokeTestLeadGenerator extends WEBHelper{
 			testStatus = "PASSED";
 		}
 	
-		Mail.SendReport("SRSDashboardLeadGenReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (LeadGen:"+testStatus+") - ");
+		Mail.SendReport("R1_SrsSmokeTestLeadGeneratorReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " (LeadGen:"+testStatus+") - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 	}
 }
