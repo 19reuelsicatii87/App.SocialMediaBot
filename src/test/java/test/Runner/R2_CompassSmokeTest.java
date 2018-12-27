@@ -19,10 +19,10 @@ import test.Utilities.*;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-		format = { "pretty", "html:target/cucumber","json:target/JSON/OutputRerun.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R2_CompassSmokeTestReport.json" },
         features = {"@target/rerun.txt"},
         glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/CompassReportReRun.html","rerun:target/rerun1.txt"}
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R2_CompassSmokeTestReport.html","rerun:target/rerun1.txt"}
    
 
 )
@@ -55,7 +55,7 @@ public class R2_CompassSmokeTest extends WEBHelper{
 		else 
 		{
 		    System.out.println("File is not EMPTY");
-			Mail.SendReport("CompassReportReRun.html", GetApplication() + GetTestEnv(), "[SMOKE TEST - RERUN]: " + GetApplication() + GetTestEnv() + " - ");
+			Mail.SendReport("R2_CompassSmokeTestReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST - RERUN]: " + GetApplication() + GetTestEnv() + " - ");
 			log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 		}		
 	}

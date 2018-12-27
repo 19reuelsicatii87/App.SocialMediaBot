@@ -17,10 +17,10 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_KratosSmokeTestReport.json" },
 		features = {"."},
 		glue = {"webApi.Kratos", "restassured.Framework"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/KratosReport.html","rerun:target/rerun_apikratos.txt"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R1_KratosSmokeTestReport.html","rerun:target/rerun_apikratos.txt"},
         tags = {"@KRATOSSMOKETEST"}
 
    
@@ -40,7 +40,7 @@ public class R1_KratosSmokeTest extends WEBHelper {
 	@AfterClass
 	public static void AfterClass() throws IOException, Throwable
 	{	
-		Mail.SendReport("KratosReport.html", "KratosDEVURL", "[SMOKE TEST]: KRATOS - ");		
+		Mail.SendReport("R1_KratosSmokeTestReport.html", "KratosDEVURL", "[SMOKE TEST]: KRATOS - ");		
 		log.info("Execution is ended from First Runner - Test AfterClass Annotation");
 		
 	}

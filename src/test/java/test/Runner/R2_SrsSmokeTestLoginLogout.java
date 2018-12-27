@@ -18,10 +18,10 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R2_SrsSmokeTestLoginLogoutReport.json" },
         features = {"@target/SrsLoginLogoutRerun.txt"},
         glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/SRSDashboardReportReRun.html","rerun:target/SrsLoginLogoutRerun2.txt"}
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R2_SrsSmokeTestLoginLogoutReport.html","rerun:target/SrsLoginLogoutRerun2.txt"}
    
 
 )
@@ -42,7 +42,7 @@ public class R2_SrsSmokeTestLoginLogout extends WEBHelper{
 		@SuppressWarnings("resource")
 		BufferedReader br = new BufferedReader(new FileReader("target/SrsLoginLogoutRerun.txt"));
 		
-		String htmlFilePath = System.getProperty("user.dir") + "\\target\\SRSDashboardReportReRun.html";
+		String htmlFilePath = System.getProperty("user.dir") + "\\target\\R2_SrsSmokeTestLoginLogoutReport.html";
 		String htmlFileContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
 		String testStatus;
 		if(htmlFileContent.contains("'status fail'")){
@@ -57,7 +57,7 @@ public class R2_SrsSmokeTestLoginLogout extends WEBHelper{
 
 		}else{
 		    System.out.println("File is not EMPTY");
-			Mail.SendReport("SRSDashboardReportReRun.html", GetApplication() + GetTestEnv(), "[SMOKE TEST - RERUN]: " + GetApplication() + GetTestEnv() + " (LoginLogout:"+testStatus+") - ");
+			Mail.SendReport("R2_SrsSmokeTestLoginLogoutReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST - RERUN]: " + GetApplication() + GetTestEnv() + " (LoginLogout:"+testStatus+") - ");
 			log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 		}		
 	}

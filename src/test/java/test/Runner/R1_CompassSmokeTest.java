@@ -23,10 +23,10 @@ import com.cucumber.listener.*;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		format = { "pretty", "html:target/cucumber","json:target/JSON/Output.json" },
+		format = { "pretty", "html:target/cucumber","json:target/JSON/R1_CompassSmokeTestReport.json" },
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent"},
-        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/CompassReport.html","rerun:target/rerun.txt"},
+        plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R1_CompassSmokeTestReport.html","rerun:target/rerun.txt"},
         tags = {"@CPSSMOKETEST"}
    
 
@@ -49,7 +49,7 @@ public class R1_CompassSmokeTest extends WEBHelper{
 	public static void AfterClass() throws IOException, Throwable
 	{	
 	
-		Mail.SendReport("CompassReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " - ");
+		Mail.SendReport("R1_CompassSmokeTestReport.html", GetApplication() + GetTestEnv(), "[SMOKE TEST]: " + GetApplication() + GetTestEnv() + " - ");
 		log.info("Execution is ended from Second Runner - Test AfterClass Annotation");
 		
 	}
