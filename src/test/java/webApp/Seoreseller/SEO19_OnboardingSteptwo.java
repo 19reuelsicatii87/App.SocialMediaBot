@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class SEO19_OnboardingSteptwo extends WEBHelper{
 	@FindBy(xpath="//h1[text()='Getting to know you']")
@@ -22,15 +23,23 @@ public class SEO19_OnboardingSteptwo extends WEBHelper{
 	@FindBy(xpath="//input[@type='tel']")
 	WebElement ContactNumber_textfield;
 	
-	public SEO19_OnboardingSteptwo() {
-		PageFactory.initElements(driver, this);
-	}
+	
 	
 	@FindBy(xpath="//p[text()='The Diagnosis call allowed me to start thinking differently about my agency and build a serious business plan. I’ve just passed my first million dollar in revenue!']")
 	WebElement TheDiagnosisCallAllowed_text;
 	
 	@FindBy(xpath="//p[text()='In case we need to contact you about your campaigns, please provide us with a phone number where we can easily reach you.']")
 	WebElement InCaseWeNeedToContact_text;
+	
+	@FindBy(xpath="//button[text()='Save']")
+	WebElement Save_button;
+	
+	
+	public SEO19_OnboardingSteptwo() {
+		PageFactory.initElements(driver, this);
+	}
+	
+	
 	
 	@Then("^I will see the SEO19_GettingToKnowYou header")
 	public void i_see_getting_to_know_you_header() throws Throwable, UnhandledAlertException {
@@ -67,5 +76,17 @@ public class SEO19_OnboardingSteptwo extends WEBHelper{
 	public void i_see_the_contact_num_field() throws Throwable, UnhandledAlertException {
 		Assert.assertEquals(true, ContactNumber_textfield.isDisplayed());
 	}
+	
+	@When("^I populate SEO19_ContactNumber textfield with ([^\"]*)$")
+	public void i_populate_contact_num_field_with_value(String contactNumber) throws Throwable, UnhandledAlertException {
+	   ContactNumber_textfield.sendKeys(contactNumber);
+	}
+	
+	@When("^I click the SEO19_Save button$")
+	public void i_click_save_button() throws Throwable, UnhandledAlertException {
+		Save_button.click();
+	}
+	
+	
 	
 }
