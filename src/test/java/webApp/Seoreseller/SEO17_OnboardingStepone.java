@@ -79,4 +79,37 @@ public class SEO17_OnboardingStepone extends WEBHelper{
 		Assert.assertEquals(true, Proceed_button.isEnabled());
 
 	}
+	
+	@When("^I click the SEO17_Proceed button")
+	public void i_click_proceed_button() throws Throwable, UnhandledAlertException {
+		Proceed_button.click();
+
+	}
+	
+	@When("^I click the radio button of SEO17_([^\"]*)")
+	public void i_click_the_value_radio_button(String radioOption) throws Throwable, UnhandledAlertException {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
+		if(radioOption.contains("myself")){
+			js.executeScript("document.getElementById('radio-list-0').click();");
+			
+		}else if(radioOption.contains("in-house")){
+			js.executeScript("document.getElementById('radio-list-1').click();");
+			
+		}else if(radioOption.contains("with a freelancer")){
+			js.executeScript("document.getElementById('radio-list-2').click();");
+			
+		}else if(radioOption.contains("with an agency")){
+			js.executeScript("document.getElementById('radio-list-3').click();");
+			
+		}else if(radioOption.contains("with an outsource provider")){
+			js.executeScript("document.getElementById('radio-list-4').click();");
+			
+		}else if(radioOption.contains("no seo")){
+			js.executeScript("document.getElementById('radio-list-5').click();");
+			
+		}
+		
+	}
+	
 }
