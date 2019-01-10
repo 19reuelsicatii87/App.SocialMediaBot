@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class SEO20_OnboardingStepthree extends WEBHelper{
 	@FindBy(xpath="//h2[text()='Let’s schedule your onboarding call']")
@@ -25,6 +26,34 @@ public class SEO20_OnboardingStepthree extends WEBHelper{
 	
 	@FindBy(xpath="//span[text()='Nah, I’ll do it later']")
 	WebElement IllDotItLater_link;
+	
+	@FindBy(xpath="(//div[@class='fraction js-day-wrapper available']/div[@class='day js-show-picker'])[1]")
+	WebElement FirstAvailableDayCalendly_div;
+	
+	@FindBy(xpath="(//li[@class='spot available collapsed']/button[@class='button js-select time-button'])[1]")
+	WebElement FirstAvailableTimeCalendly_button;
+	
+	@FindBy(xpath="(//button[text()='Confirm'])[1]")
+	WebElement FirstConfirmCalendly_button;
+	
+	@FindBy(xpath="//input[@name='full_name']")
+	WebElement FullNameCalendly_textfield;
+	
+	@FindBy(xpath="//input[@name='email']")
+	WebElement EmailCalendly_textfield;
+	
+	@FindBy(xpath="//input[@name='national_number']")
+	WebElement NationalNumberCalendly_textfield;
+	
+	@FindBy(xpath="//input[@value='Schedule Event']")
+	WebElement ScheduleEventCalendly_button;
+	
+	@FindBy(xpath="//h2[text()='Select a Day']")
+	WebElement SelectADayCalendly_header;
+	
+	@FindBy(xpath="//span[@class='icon-angle-right']")
+	WebElement NextCalendly_icon;
+	
 	
 	public SEO20_OnboardingStepthree() {
 		PageFactory.initElements(driver, this);
@@ -61,5 +90,51 @@ public class SEO20_OnboardingStepthree extends WEBHelper{
 		Assert.assertEquals(true, IllDotItLater_link.isDisplayed());
 	}
  
+    
+    @When("^I select the SEO20_FirstAvailableDay in Calendly$")
+   	public void i_select_first_available_day_calendly() throws Throwable, UnhandledAlertException {
+    	driver.switchTo().frame(Calendly_iframe);
+    	Thread.sleep(3000);
+    	JS.executeScript("return document.getElementsByClassName('day js-show-picker')[1].click();");
+
+   	}
 	
+    @When("^I select the SEO20_FirstAvailableTime in Calendly$")
+   	public void i_select_first_available_time_calendly() throws Throwable, UnhandledAlertException {
+    	JS.executeScript("return document.getElementsByClassName('button js-select time-button ')[1].click();");
+    }
+    
+    @When("^I click the SEO20_FirstAvailableConfirm button in Calendly$")
+   	public void i_click_first_available_confirm_calendly() throws Throwable, UnhandledAlertException {
+    	JS.executeScript("return document.getElementsByClassName('base button confirm-button js-confirm')[1].click();");
+   	}
+    
+    @When("^I populate the SEO20_FullNameCalendly textfield with ([^\"]*)$")
+   	public void i_populate_fullname_calendly_textfield_with_value(String fullName) throws Throwable, UnhandledAlertException {
+    	String currentSrc = JS.executeScript("return document.getElementsByClassName('calendly')[0].src;").toString();
+    	String finalSrc = currentSrc+"&full_name="+fullName;
+    	JS.executeScript ("return document.getElementsByClassName('calendly')[0].src = '"+finalSrc+"';");
+   	}
+    
+    @When("^I populate the SEO20_EmailCalendly textfield with ([^\"]*)$")
+   	public void i_populate_email_calendly_textfield_with_value(String email) throws Throwable, UnhandledAlertException {
+    	Thread.sleep(3000);
+    	String currentSrc = JS.executeScript("return document.getElementsByClassName('calendly')[0].src;").toString();
+    	String finalSrc = currentSrc+"&email="+email;
+    	JS.executeScript ("return document.getElementsByClassName('calendly')[0].src = '"+finalSrc+"';");
+   	}
+
+    
+    @When("^I click the SEO20_ScheduleEvent button$")
+   	public void i_click_schedule_event_button( ) throws Throwable, UnhandledAlertException {
+    	Thread.sleep(3000);
+    	JS.executeScript("return document.getElementsByClassName('button js-loading-hide')[0].click();");
+    	driver.switchTo().defaultContent();
+   	}
+    
+    
+    @When("^I click the SEO20_DoneWithBookingMyCall button$")
+   	public void i_click_done_with_booking_my_call_button( ) throws Throwable, UnhandledAlertException {
+    	DoneWithMyBooking_button.click();
+   	}
 }

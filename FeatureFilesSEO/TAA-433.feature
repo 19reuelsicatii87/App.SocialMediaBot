@@ -252,3 +252,86 @@ Feature: [TAA-433] [SEOReseller] Onboarding Smoke/Regression TestSuite
   Examples: 
 		| FirstName | LastName   | Email                         | Password  | ElementName | contactNumber |
     | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | button      | (321) 321-321 |
+    
+  #Scenario Description:
+  #Covered Ticket : SRS-6974
+	#Given I am a User 
+	#And I access the sign up process using a <Type> 
+	#And I already finished the sign up process 
+	#And I received the "Please confirm your email address email" 
+	#When I confirm my Email Address
+	#And clearbit analyzed my Sign Up data 
+	#And I click the Lets Get Started button in the "Hey There" Page
+	#And I select an option in the "Getting to know you" first Page
+	#And I click Proceed button in the "Getting to know you" first Page
+	#And I click on the "Save" button in the "Getting to know you" second Page
+	#And I already select a schedule in the Calendly scheduler 
+	#Then I will be able to see the "You're all set!" page 
+	#And I will be able to see a step counter with 3 nodes 
+	#And I will see the step counter's 1st node is filled in green with a checkmark
+	#And I will see the step counter's 2nd node is filled in green with a checkmark
+	#And I will see the step counter's 3rd node is filled in green with a checkmark
+	#And I will be able to see the text "We'll contact you at your chosen date and time and send you a reminder beforehand." 
+	#And I will be able to see the text "If you have any questions, send us a message, or give us a call at (415) 625-9700."
+	#And I will be able to see that the "Message" is highlighted is underlined and is a hyperlink 
+	#And I will be able to see the button "Let's go to the dashboard" 
+	@SRSSMOKETEST @Onboarding @OnboardingNonFunc_TS05 @TAA-438
+  Scenario Outline: TAA-438
+		Given Im a new Partner
+    And I ensure that <Email> does not exist
+    When I navigate to "Login"
+    Then Ill see the SEO06_SeoReseller Banner
+    
+    When I click SEO06_SignUp link
+    And I wait for page to load
+    And I populate the SEO010_FirstName textfield with <FirstName>
+    And I populate the SEO010_LastName textfield with <LastName>
+    And I populate the SEO010_Email textfield with <Email>
+    And I populate the SEO010_Password textfield with <Password>
+    And I click SEO010_CreateAccount button
+    And I wait for page to load
+    Then Ill be redirected to SEO11_Welcome page
+    And I see the SEO11_Congratulations div with "Congratulations! You are just one step away to access all features of your free account."
+    
+    When I navigate to GMAIL
+    And I click the GMAIL01_GoogleHomeSignIn link
+    And I populate the GMAIL01_GoogleEmail textField with <Email>
+    And I click the GMAIL01_GoogleEmailNext button
+    And I populate the GMAIL01_GooglePassword textField with <Password>
+    And I click the GMAIL01_GooglePasswordNext button
+    Then I see the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
+    
+    When I click the GMAIL01_EmailSubject div with "Please Confirm Your Email Address"
+    Then Ill see the GMAIL01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
+    
+    When I click the GMAIL01_GotoMyDashboard <ElementName>
+    And I navigate to ChildWindow
+    And I wait for page to load
+    Then Ill be redirected to the SEO16_HeyThere Page
+    
+    When I click the SEO16_LetsGetStarted button
+    And I click the SEO17_Myself Radio button
+    And I click the SEO17_Proceed button
+    Then I will see the SEO19_GettingToKnowYou header
+    
+    When I populate SEO19_ContactNumber textfield with <contactNumber>
+    And I click the SEO19_Save button
+    Then Ill see the SEO20_LetsScheduleYourcall header with "Let's schedule your onboarding call"
+    And Ill see the SEO20_DiscussOurFuturePartnership text with "We'll discuss our future partnership, how we will be working together"
+    And Ill see the SEO20_Calendly iframe
+    
+    When I populate the SEO20_FullNameCalendly textfield with <fullName>
+    And I populate the SEO20_EmailCalendly textfield with <Email>
+    And I select the SEO20_FirstAvailableDay in Calendly
+		And I select the SEO20_FirstAvailableTime in Calendly
+    And I click the SEO20_FirstAvailableConfirm button in Calendly
+    And I click the SEO20_ScheduleEvent button
+		And I click the SEO20_DoneWithBookingMyCall button
+    Then Ill see the SEO21_WellContactYou header with "We'll contact you at your chosen date and time and send you a reminder beforehand."
+    And Ill see the SEO21_IfYouHaveAnyQuestions text with "If you have any questions"
+    And Ill see that the SEO21_Message text is a link
+    And Ill see the SEO21_LetsGoToTheDashboard button
+    
+  Examples: 
+		| FirstName | LastName   | Email                         | Password  | ElementName | contactNumber |     fullName    |
+    | RND       | Automation | RNDAutomationTest12@gmail.com | happy123$ | button      | (786)1234567  | RND Automation  |
