@@ -1,5 +1,8 @@
 package webApp.Seoreseller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.Assert;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
@@ -127,6 +130,8 @@ public class SEO10_Signup extends WEBHelper{
 	@Then("^I populate the SEO010_Email textfield with ([^\"]*)$")
 	public void i_populate_email_field_with_email_value(String email) throws Throwable, UnhandledAlertException {
         if(GetTestEnv().contains("PRD")){
+        	Date date = new Date();
+			String dateNoMin = new SimpleDateFormat("yyMMddSSS").format(date);
 			String[] emailParts = email.split("@");
 			String finalString = emailParts[0]+"+"+dateNoMin+"@"+emailParts[1];
 			EmailAddress_textfield.sendKeys(finalString);			
