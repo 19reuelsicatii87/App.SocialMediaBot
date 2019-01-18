@@ -22,7 +22,7 @@ import test.Utilities.Mail;
 		features = {"."},
 		glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R1_SrsSmokeTestOnboardingReport.html","rerun:target/SrsOnboardingRerun.txt"},
-        tags = {"@Onboarding"}
+        tags = {"@OnboardingNonFunc_TS01,@OnboardingNonFunc_TS02,@OnboardingNonFunc_TS03,@OnboardingNonFunc_TS04"}
    
 )
 
