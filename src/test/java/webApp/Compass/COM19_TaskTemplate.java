@@ -107,6 +107,9 @@ public class COM19_TaskTemplate extends WEBHelper{
 	@FindBy(xpath="//div[@class='modal-footer']//button[@onclick='product_template.submit(); return false;']")
 	WebElement MainSubtaskSave_button;
 	
+	@FindBy(xpath="//select[@name='category']")
+	WebElement TaskListCategory_dropdown;
+	
 	public COM19_TaskTemplate() {
 		PageFactory.initElements(driver, this);
 		
@@ -126,6 +129,7 @@ public class COM19_TaskTemplate extends WEBHelper{
 			 TaskListShortDescription_textfield.sendKeys(jsonFile.getTaskName().get(i)+"_"+dateNoSpace);
 			 Thread.sleep(2000);
 			 SelectByVisibleText(TaskListDepartment_dropdown, jsonFile.getDepartment().get(i));
+			 Thread.sleep(2000);
 			 TaskListSave_button.click();
 			 Thread.sleep(2000);
 			 CreateTaskListModalClose_button.click();
@@ -149,6 +153,8 @@ public class COM19_TaskTemplate extends WEBHelper{
 			 Thread.sleep(3000);
 			 MainSubtaskName_textfield.clear();
 			 MainSubtaskName_textfield.sendKeys(jsonFile.getSubtaskDescription().get(i));
+			 SelectByVisibleText(TaskListCategory_dropdown, jsonFile.getCategory().get(i));
+			 Thread.sleep(2000);
 			 SelectByVisibleText(MainSubtaskDepartment_dropdown, jsonFile.getDepartment().get(i));
 			 
 			 MainSubtaskStartIn_textfield.sendKeys(jsonFile.getStartTask().get(i));

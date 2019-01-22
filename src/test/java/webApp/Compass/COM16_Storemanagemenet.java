@@ -12,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import cucumber.Framework.SetUp;
 import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -187,7 +188,15 @@ public class COM16_Storemanagemenet extends WEBHelper{
    	public void i_click_category_under_category_list(String categoryName) throws Throwable, UnhandledAlertException {
     	Thread.sleep(5000);
        	WindowScrollAndClick(CategoryItem_span(categoryName+"_"+ dateNoSpace));
-       	clearWriteTextfile("webApp.Compass\\TAA248_Date.txt", dateNoSpace);
+    	String scenario = SetUp.getScenarioName();
+		
+		if(scenario.contains("LocalSEO")){
+	       	clearWriteTextfile("webApp.Compass\\LocalSEO_Date.txt", dateNoSpace);
+
+		}else if(scenario.contains("OrganicSEO")){
+	       	clearWriteTextfile("webApp.Compass\\OrganicSEO_Date.txt", dateNoSpace);
+
+		}
    	}
    
     @When("I click COM16_AddNewProduct button$")
@@ -203,7 +212,17 @@ public class COM16_Storemanagemenet extends WEBHelper{
     @When("I populate COM16_ProductName textfield with ([^\"]*)$")
    	public void i_populate_product_name_textfield_with_value(String product) throws Throwable, UnhandledAlertException {
        	ProductName_textfield.sendKeys(product+"_"+ dateNoSpace);
-       	clearWriteTextfile("webApp.Compass\\TAA248_Date.txt", dateNoSpace);
+       	String scenario = SetUp.getScenarioName();
+		
+		if(scenario.contains("LocalSEO")){
+	       	clearWriteTextfile("webApp.Compass\\LocalSEO_Date.txt", dateNoSpace);
+
+		}else if(scenario.contains("OrganicSEO")){
+	       	clearWriteTextfile("webApp.Compass\\OrganicSEO_Date.txt", dateNoSpace);
+
+		}
+       	
+       	
    	}
     
     @When("I populate COM16_Description of Add New Product Modal with ([^\"]*)$")

@@ -74,8 +74,8 @@ public class COM20_TaskTemplateNumberBuild extends WEBHelper{
 	 
 	 @When("^I click the COM20_Collapse icon of \"([^\"]*)\"$")
 		public void i_click_collapse_icon_of_task_value(String taskName) throws Throwable, UnhandledAlertException {
-			taskName = taskName.toUpperCase();
-			TaskCollapse_icon(taskName).click();
+			Thread.sleep(3000);
+			TaskCollapse_icon(taskName.toUpperCase()).click();
 	 }
 	 
 	 @When("^I select \"([^\"]*)\"$")

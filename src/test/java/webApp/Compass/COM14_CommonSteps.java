@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import cucumber.Framework.SetUp;
 import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.When;
 
@@ -29,7 +30,7 @@ public class COM14_CommonSteps extends WEBHelper{
 	}
 	
 	public static final WebElement ReturnProjectSelect_link(String keyword){
-		WebElement returnClientSelect_link = driver.findElement(By.xpath("//div[@class='clients-results-wrapper']//a[contains(.,'"+keyword+"')]"));
+		WebElement returnClientSelect_link = driver.findElement(By.xpath("//div[@class='project-results-wrapper']//a[contains(.,'"+keyword+"')]"));
 		return returnClientSelect_link;
 	}
 	
@@ -60,6 +61,7 @@ public class COM14_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//a[text()='Product Templates']")
 	WebElement ProductTemplates_link;
 	
+	
 	public COM14_CommonSteps() {
 		PageFactory.initElements(driver, this);
 		
@@ -76,6 +78,25 @@ public class COM14_CommonSteps extends WEBHelper{
 		ReturnClientSelect_link(keyword).click();
 	}
 
+	@When("^I select \"([^\"]*)\" in the Campaign Result Section$")
+	public void i_select_campaign_in_campaign_result_section(String keyword) throws Throwable, UnhandledAlertException {
+		String dateIdentifier = null;
+		
+		String scenario = SetUp.getScenarioName();
+		
+		if(scenario.contains("LocalSEO")){
+			dateIdentifier = readTextfile("webApp.Compass\\LocalSEO_Date.txt");	 
+
+		}else if(scenario.contains("OrganicSEO")){
+			dateIdentifier = readTextfile("webApp.Compass\\OrganicSEO_Date.txt");	 
+
+		}
+		
+		ReturnProjectSelect_link(keyword+"_"+dateIdentifier).click();
+		Thread.sleep(3000);
+	}
+	
+	
 	@When("^I click COM14_OverviewTab$")
 	public void i_click_overview_tab() throws Throwable, UnhandledAlertException {
 		OverviewTab_button.click();
@@ -135,5 +156,28 @@ public class COM14_CommonSteps extends WEBHelper{
 	@When("^I select COM14_ProductTemplates link$")
 	public void i_click_product_templates_link_tab() throws Throwable, UnhandledAlertException {
 		ProductTemplates_link.click();
+	}
+	
+	@When("^I search \"([^\"]*)\" in the COM14_GlobalSearch textfield$")
+		public void i_search_campaign_in_campaign_search_bar(String campaignName) throws Throwable, UnhandledAlertException {
+			GlobalSearch_textfield.sendKeys(campaignName);
+			
+	}
+	
+	@When("^I enter the campaign \"([^\"]*)\" in the COM14_GlobalSearch textfield$")
+	public void i_enter_specific_campaign_in_global_search_bar(String campaignName) throws Throwable, UnhandledAlertException {
+		String dateIdentifier = null;
+		String scenario = SetUp.getScenarioName();
+		
+		
+		if(scenario.contains("LocalSEO")){
+			dateIdentifier = readTextfile("webApp.Compass\\LocalSEO_Date.txt");	 
+
+		}else if(scenario.contains("OrganicSEO")){
+			dateIdentifier = readTextfile("webApp.Compass\\OrganicSEO_Date.txt");	 
+
+		}
+		
+		GlobalSearch_textfield.sendKeys(campaignName+"_"+dateIdentifier);
 	}
 }

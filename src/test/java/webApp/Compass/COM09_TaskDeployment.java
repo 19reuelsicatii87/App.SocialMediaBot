@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import cucumber.Framework.SetUp;
 import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -65,8 +66,18 @@ public class COM09_TaskDeployment extends WEBHelper{
 
 	 @When("^I search the \"([^\"]*)\" in the COM09_CampaignSearch textfield$")
 		public void i_search_campaign_in_campaign_search_bar(String campaignName) throws Throwable, UnhandledAlertException {
-			String dateIdentifier;
-			dateIdentifier = readTextfile("webApp.Compass\\TAA248_Date.txt");
+			String dateIdentifier = null;
+			
+			String scenario = SetUp.getScenarioName();
+			
+			if(scenario.contains("LocalSEO")){
+				dateIdentifier = readTextfile("webApp.Compass\\LocalSEO_Date.txt");	 
+
+			}else if(scenario.contains("OrganicSEO")){
+				dateIdentifier = readTextfile("webApp.Compass\\OrganicSEO_Date.txt");	 
+
+			}
+			
 		 	CampaignSearch_textfield.sendKeys(campaignName+"_"+dateIdentifier);
 			Thread.sleep(3000);
 	}

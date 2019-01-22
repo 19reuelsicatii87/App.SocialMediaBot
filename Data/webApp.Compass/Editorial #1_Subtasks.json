@@ -43,5 +43,10 @@
     "Article Creation",
     "Article Review",
     "Article Submission"
+  ],
+  "Category": [
+    "3rd Party Site Content",
+    "Property Site Content Editing",
+    "Property Submission"
   ]
 }
