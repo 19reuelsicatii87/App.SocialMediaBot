@@ -18,7 +18,8 @@ public class JsonDataGettersSetters {
 	@JsonProperty("OutputRequirements") private List<String> outputRequirements;
 	@JsonProperty("TaskDependencies") private List<String> taskDependencies;
 	@JsonProperty("TabsSetup") private List<String> tabsSetup;
-	
+	@JsonProperty("Category") private List<String> category;
+
 	@JsonProperty("Monday")	private Map <String, String> monday;
 	@JsonProperty("Tuesday")private Map <String, String> tuesday;
 	@JsonProperty("Wednesday")private Map <String, String> wednesday;
@@ -100,6 +101,14 @@ public class JsonDataGettersSetters {
 	public void setTabsSetup(List<String> tabsSetup) {
 		this.tabsSetup = tabsSetup;
 	}
+
+	public List<String> getCategory() {
+		return category;
+	}
+	public void setCategory(List<String> category) {
+		this.category = category;
+	}
+	
 	public Map<String, String> getMonday() {
 		return monday;
 	}
