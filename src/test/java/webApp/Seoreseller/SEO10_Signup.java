@@ -132,6 +132,8 @@ public class SEO10_Signup extends WEBHelper{
         if(GetTestEnv().contains("PRD")){
         	Date date = new Date();
 			String dateNoMin = new SimpleDateFormat("yyMMddSSS").format(date);
+	       	clearWriteTextfile("webApp.Seoreseller\\Registration_Date.txt", dateNoMin);
+			
 			String[] emailParts = email.split("@");
 			String finalString = emailParts[0]+"+"+dateNoMin+"@"+emailParts[1];
 			EmailAddress_textfield.sendKeys(finalString);			
