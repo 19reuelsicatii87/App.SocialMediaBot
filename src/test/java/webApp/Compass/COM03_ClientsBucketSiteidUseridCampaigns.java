@@ -19,6 +19,7 @@ public class COM03_ClientsBucketSiteidUseridCampaigns extends WEBHelper{
 	@FindBy(xpath="//input[@value='Project Name']")
 	WebElement ProjectNameSearch_textfield;
 	
+	
 	public COM03_ClientsBucketSiteidUseridCampaigns() {
 		PageFactory.initElements(driver, this);
 	}	
@@ -45,4 +46,5 @@ public class COM03_ClientsBucketSiteidUseridCampaigns extends WEBHelper{
 		ProjectNameSearch_textfield .sendKeys(campaignName+dateNoSpace);
 		Thread.sleep(3000);
 	}
+	
 }
