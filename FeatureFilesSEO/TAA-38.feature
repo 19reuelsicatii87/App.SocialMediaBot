@@ -67,22 +67,6 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     When I populate the SEOE6_EmailAddress textfield with <Email>
     And I populate the SEOE6_Password textfield with <Password>
     And I click the SEO06_LoginToYourDashBoard button
-    Then Ill see the SEO01_CompanySetup popup
-    And Ill see SEO01_CompanyProfile div with "Customize your account by completing your profile information."
-    
-    When I click SEO01_CompleteProfile button
-    Then Ill see the SEO01_UploadLogo button is removed
-    And Ill see the SEO01_CompanyWebsite globe
-    And Ill see the SEO01_PhoneCountry icon is <Country>
-    
-    When I populate SEO01_CompanyName textfield with <CompanyName>
-    And I click the SEO01_CompanyProfile dropdown to choose <CompanyProfile>
-    And I click the SEO01_ExistingClient dropdown to choose <ExistingClients>
-    And I populate the SEO01_CompanyWebsite textfield with <CompanyWebsite>
-    And I populate the SEO01_BusinessPhone textfield with <BusinessPhone>
-    And I populate the SEO01_Address textfield with <Address> returned by Google
-    And Ill see the SEO01_State and SEO01_Country fields are auto-populated
-    And I click the SEO01_FinishSetup button
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
@@ -129,9 +113,11 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     And I populate the ZOHO01_Email textField with <Email>
     And I populate the ZOHO01_Password textField with <Password>
     And I click the ZOHO01_SignIn button
+    And I wait for page to load
     And I click the ZOHO01_SEOReseller button
     Then I see the ZOHO01_EmailSubject div with "Please Confirm Your Email Address"
     When I click the ZOHO01_EmailSubject div with "Please Confirm Your Email Address"
+    And I wait for page to load
     Then Ill see the ZOHO01_ThankYouForRegistering div with "Thank you for registering at SEOReseller.com There's just one more step to get you started. To confirm your email address, please click on the button below."
     And Ill see the ZOHO01_GotoMyDashboard <ElementName>
     When I click the ZOHO01_GotoMyDashboard <ElementName>
@@ -147,20 +133,6 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     When I populate the SEOE6_EmailAddress textfield with <Email>
     And I populate the SEOE6_Password textfield with <Password>
     And I click the SEO06_LoginToYourDashBoard button
-    Then Ill see the SEO01_CompanySetup popup
-    And Ill see SEO01_CompanyProfile div with "Customize your account by completing your profile information."
-    When I click SEO01_CompleteProfile button
-    Then Ill see the SEO01_PhoneCountry icon is <Country>
-    And Ill see the SEO01_UploadLogo button is removed
-    And Ill see the SEO01_CompanyWebsite globe
-    When I populate SEO01_CompanyName textfield with <CompanyName>
-    And I click the SEO01_CompanyProfile dropdown to choose <CompanyProfile>
-    And I click the SEO01_ExistingClient dropdown to choose <ExistingClients>
-    And I populate the SEO01_CompanyWebsite textfield with <CompanyWebsite>
-    And I populate the SEO01_BusinessPhone textfield with <BusinessPhone>
-    And I populate the SEO01_Address textfield with <Address> returned by Google
-    And Ill see the SEO01_State and SEO01_Country fields are auto-populated
-    And I click the SEO01_FinishSetup button
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
@@ -208,20 +180,6 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     When I populate the SEOE6_EmailAddress textfield with <Email>
     And I populate the SEOE6_Password textfield with <Password>
     And I click the SEO06_LoginToYourDashBoard button
-    Then Ill see the SEO01_CompanySetup popup
-    And Ill see SEO01_CompanyProfile div with "Customize your account by completing your profile information."
-    And Ill see the SEO01_PhoneCountry icon is <Country>
-    When I click SEO01_CompleteProfile button
-    And Ill see the SEO01_UploadLogo button is removed
-    And Ill see the SEO01_CompanyWebsite globe
-    And I populate SEO01_CompanyName textfield with <CompanyName>
-    And I click the SEO01_CompanyProfile dropdown to choose <CompanyProfile>
-    And I click the SEO01_ExistingClient dropdown to choose <ExistingClients>
-    And I populate the SEO01_CompanyWebsite textfield with <CompanyWebsite>
-    And I populate the SEO01_BusinessPhone textfield with <BusinessPhone>
-    And I populate the SEO01_Address textfield with <Address> returned by Google
-    And Ill see the SEO01_State and SEO01_Country fields are auto-populated
-    And I click the SEO01_FinishSetup button
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
@@ -290,20 +248,6 @@ Feature: [TAA-38] [SEOReseller]: Registration Smoke/Regression TestSuite
     When I populate the SEOE6_EmailAddress textfield with <Email>
     And I populate the SEOE6_Password textfield with <Password>
     And I click the SEO06_LoginToYourDashBoard button
-    Then Ill see the SEO01_CompanySetup popup
-    And Ill see SEO01_CompanyProfile div with "Customize your account by completing your profile information."
-    And Ill see the SEO01_PhoneCountry icon is <Country>
-    When I click SEO01_CompleteProfile button
-    And Ill see the SEO01_UploadLogo button is removed
-    And Ill see the SEO01_CompanyWebsite globe
-    And I populate SEO01_CompanyName textfield with <CompanyName>
-    And I click the SEO01_CompanyProfile dropdown to choose <CompanyProfile>
-    And I click the SEO01_ExistingClient dropdown to choose <ExistingClients>
-    And I populate the SEO01_CompanyWebsite textfield with <CompanyWebsite>
-    And I populate the SEO01_BusinessPhone textfield with <BusinessPhone>
-    And I populate the SEO01_Address textfield with <Address> returned by Google
-    And Ill see the SEO01_State and SEO01_Country fields are auto-populated
-    And I click the SEO01_FinishSetup button
     Then Ill not see the SEO01_CompanySetup popup
 
     Examples: 
