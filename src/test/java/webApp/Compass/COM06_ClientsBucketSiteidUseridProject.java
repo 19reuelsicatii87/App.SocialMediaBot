@@ -68,6 +68,9 @@ public class COM06_ClientsBucketSiteidUseridProject extends WEBHelper{
 	@FindBy(xpath="//a[text()='URL Map']")
 	WebElement UrlMaps_link;
 	
+	@FindBy(xpath="(//a[text()='Projects'])[2]")
+	WebElement Projects_link;
+	
 	public COM06_ClientsBucketSiteidUseridProject() {
 		PageFactory.initElements(driver, this);
 	}
@@ -161,6 +164,37 @@ public class COM06_ClientsBucketSiteidUseridProject extends WEBHelper{
 	public void i_click_close_button() throws Throwable, UnhandledAlertException {
 		Thread.sleep(5000);
 		Clsoe_button.click();
+	}
+	
+	
+	@When("^I hover to COM06_SEO tab$")
+	public void i_hover_to_SEO_tab() throws Throwable {
+		MouseHover(SEO_tab);
+		Thread.sleep(5000);
+	}
+	
+	@When("^I select COM06_Keywords link$")
+	public void i_select_keywords_link() throws Throwable {
+		Thread.sleep(3000);
+		Keywords_link.click();
+	}
+	
+	@When("^I select COM06_URLmap link$")
+	public void i_select_urlMap_link() throws Throwable {
+		Thread.sleep(3000);
+		UrlMaps_link.click();
+	}
+	
+	@When("^I hover to COM06_ProjectManagement tab$")
+	public void i_hover_to_project_management_tab() throws Throwable {
+		MouseHover(ProjectManagement_tab);
+		Thread.sleep(5000);
+	}
+	
+	@When("^I select COM06_Projects link$")
+	public void i_select_projects_link() throws Throwable {
+		Thread.sleep(3000);
+		Projects_link.click();
 	}
 	
 }

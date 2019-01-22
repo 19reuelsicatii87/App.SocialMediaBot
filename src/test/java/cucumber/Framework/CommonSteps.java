@@ -4,17 +4,19 @@ import static io.restassured.RestAssured.post;
 import static io.restassured.RestAssured.requestSpecification;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
-import java.util.UUID;
 
 
 
@@ -25,7 +27,6 @@ public class CommonSteps extends WEBHelper {
 	
 	@When("^I navigate to \"([^\"]*)\"$")
 	public void i_navigate_to_URL_variable(String Path) throws Throwable {
-				
 		Thread.sleep(5000);
 		log.info("User Navigate to :" + GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
 		driver.get(GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));

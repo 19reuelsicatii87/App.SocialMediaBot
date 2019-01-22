@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import cucumber.Framework.SetUp;
 import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -51,9 +52,20 @@ public class COM07_ClientsBucketSiteidUseridProjectProduct extends WEBHelper{
 
 	@When("^I select ([^\"]*) over COM07_SelectACategory list$")
 	public void i_select_Category_over_SelectACategory_list(String arg1) throws Throwable {
-		String dateIdentifier;
+		String dateIdentifier = null;
 		String finalCat; 
-		dateIdentifier = readTextfile("webApp.Compass\\TAA248_Date.txt");
+		
+		String scenario = SetUp.getScenarioName();
+		
+		if(scenario.contains("LocalSEO")){
+			dateIdentifier = readTextfile("webApp.Compass\\LocalSEO_Date.txt");	 
+
+		}else if(scenario.contains("OrganicSEO")){
+			dateIdentifier = readTextfile("webApp.Compass\\OrganicSEO_Date.txt");	 
+
+		}
+		
+		
 		finalCat = arg1+"_"+dateIdentifier;
 		
 		Thread.sleep(2000);
@@ -74,9 +86,20 @@ public class COM07_ClientsBucketSiteidUseridProjectProduct extends WEBHelper{
 
 	@When("^I click ([^\"]*) name$")
 	public void i_click_Product_name(String arg1) throws Throwable {
-		String dateIdentifier;
+		String dateIdentifier = null;
 		String finalProduct; 
-		dateIdentifier = readTextfile("webApp.Compass\\TAA248_Date.txt");
+		
+		String scenario = SetUp.getScenarioName();
+		
+		
+		if(scenario.contains("LocalSEO")){
+			dateIdentifier = readTextfile("webApp.Compass\\LocalSEO_Date.txt");	 
+
+		}else if(scenario.contains("OrganicSEO")){
+			dateIdentifier = readTextfile("webApp.Compass\\OrganicSEO_Date.txt");	 
+
+		}
+			
 		finalProduct = arg1+"_"+dateIdentifier;
 		
 		WebElement Product = driver.findElement(By.xpath(".//*[@id='products_wrapper']//li[@data-product-name='" + finalProduct+"']"));

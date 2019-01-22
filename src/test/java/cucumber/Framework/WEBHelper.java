@@ -70,7 +70,7 @@ public class WEBHelper{
 	public static String yearMonthDayTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
 	public static String dateNoSpace = new SimpleDateFormat("yyyyMMddHHmmss").format(date);
 	public static String monthYearFormat = new SimpleDateFormat("MMM yyyy").format(date);
-	public static String dateNoMin = new SimpleDateFormat("yyMMddHHss").format(date);
+	public static String dateNoMin = new SimpleDateFormat("yyMMddSSS").format(date);
 	public static String loginRunStatus = "no";
 
 		 
@@ -125,6 +125,10 @@ public class WEBHelper{
 	        break;
 	        
 			case "LocalSEO_TS01": 
+				BrowserType = "FIREFOX";
+	        break; 
+	        
+			case "LocalSEO_TS04": 
 				BrowserType = "FIREFOX";
 	        break; 
 	        
