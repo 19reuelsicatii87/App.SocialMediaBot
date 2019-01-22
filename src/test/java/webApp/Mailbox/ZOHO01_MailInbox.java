@@ -25,7 +25,7 @@ public class ZOHO01_MailInbox extends WEBHelper{
 	@FindBy(xpath="//div[text()='Sign In']")
 	WebElement ZohoSignIn_button;
 	
-	@FindBy(xpath="(.//a[@class='signin'])[1]")
+	@FindBy(xpath="(.//a[@class='zgh-login'])[1]")
 	WebElement Login_link;
 	
 	@FindBy(xpath="//span[text()='SEOReseller']")

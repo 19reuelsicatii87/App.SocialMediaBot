@@ -83,8 +83,10 @@ public class SEO06_Login extends WEBHelper{
 	@When("^I populate the SEOE6_EmailAddress textfield with ([^\"]*)$")
 	public void i_enter_email_value_in_emailaddress_field(String EmailAddress) throws Throwable, UnhandledAlertException {
 		if(GetTestEnv().contains("PRD") & loginRunStatus.contains("no")){
+			String dateIdentifier = readTextfile("webApp.Seoreseller\\Registration_Date.txt");	 
+
 			String[] emailParts = EmailAddress.split("@");
-			String finalString = emailParts[0]+"+"+dateNoMin+"@"+emailParts[1];
+			String finalString = emailParts[0]+"+"+dateIdentifier+"@"+emailParts[1];
 			EmailAddress_textfield.sendKeys(finalString);			
 			
 		}else{
