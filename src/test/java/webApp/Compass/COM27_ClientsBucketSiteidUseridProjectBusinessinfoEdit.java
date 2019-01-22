@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import cucumber.Framework.WEBHelper;
 import cucumber.api.java.en.Then;
 
-public class COM06_ClientsBucketSiteidUseridProjectBusinessinfoEdit extends WEBHelper{
+public class COM27_ClientsBucketSiteidUseridProjectBusinessinfoEdit extends WEBHelper{
 	
 	@FindBy(xpath=".//a[@id='products_button']")
 	WebElement Product_tab;
@@ -46,7 +46,7 @@ public class COM06_ClientsBucketSiteidUseridProjectBusinessinfoEdit extends WEBH
 	
 	
 	
-	public COM06_ClientsBucketSiteidUseridProjectBusinessinfoEdit() {
+	public COM27_ClientsBucketSiteidUseridProjectBusinessinfoEdit() {
 		PageFactory.initElements(driver, this);
 	}
  
