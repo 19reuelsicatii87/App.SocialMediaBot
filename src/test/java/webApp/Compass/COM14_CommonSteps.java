@@ -61,6 +61,11 @@ public class COM14_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//a[text()='Product Templates']")
 	WebElement ProductTemplates_link;
 	
+	@FindBy(xpath="//li[@class='dropdown-toggle']/a/img")
+	WebElement UserAvatar_image;
+	
+	@FindBy(xpath="//a[text()='Log Out']")
+	WebElement LogOut_link;
 	
 	public COM14_CommonSteps() {
 		PageFactory.initElements(driver, this);
@@ -89,6 +94,9 @@ public class COM14_CommonSteps extends WEBHelper{
 
 		}else if(scenario.contains("OrganicSEO")){
 			dateIdentifier = readTextfile("webApp.Compass\\OrganicSEO_Date.txt");	 
+
+		}else if(scenario.contains("WebDesign")){
+			dateIdentifier = readTextfile("webApp.Compass\\WebDesign_Date.txt");	 
 
 		}
 		
@@ -176,8 +184,23 @@ public class COM14_CommonSteps extends WEBHelper{
 		}else if(scenario.contains("OrganicSEO")){
 			dateIdentifier = readTextfile("webApp.Compass\\OrganicSEO_Date.txt");	 
 
+		}else if(scenario.contains("WebDesign")){
+			dateIdentifier = readTextfile("webApp.Compass\\WebDesign_Date.txt");	 
+
 		}
 		
 		GlobalSearch_textfield.sendKeys(campaignName+"_"+dateIdentifier);
+	}
+	
+	@When("^I hover to COM14_UserAvatar image$")
+	public void i_hover_to_user_avatar_image() throws Throwable, UnhandledAlertException {
+		MouseHover(UserAvatar_image);
+		
+	}
+	
+	@When("^I select COM14_Logout link$")
+	public void i_select_logout_link() throws Throwable, UnhandledAlertException {
+		LogOut_link.click();
+		
 	}
 }

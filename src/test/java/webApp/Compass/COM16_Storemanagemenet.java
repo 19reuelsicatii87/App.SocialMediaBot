@@ -155,6 +155,7 @@ public class COM16_Storemanagemenet extends WEBHelper{
     @When("I populate COM16_Description with ([^\"]*)$")
 	public void i_populate_description_with_value(String categoryName) throws Throwable, UnhandledAlertException {
     	String content = ReadContentFromTextFile("webApp.Compass\\"+categoryName+"_Description.txt");
+    	
     	Thread.sleep(2000);
     	BasicDetailsDescription_textarea.sendKeys(content);
 
@@ -196,6 +197,8 @@ public class COM16_Storemanagemenet extends WEBHelper{
 		}else if(scenario.contains("OrganicSEO")){
 	       	clearWriteTextfile("webApp.Compass\\OrganicSEO_Date.txt", dateNoSpace);
 
+		}else if(scenario.contains("WebDesign")){
+	       	clearWriteTextfile("webApp.Compass\\WebDesign_Date.txt", dateNoSpace);
 		}
    	}
    
@@ -220,6 +223,8 @@ public class COM16_Storemanagemenet extends WEBHelper{
 		}else if(scenario.contains("OrganicSEO")){
 	       	clearWriteTextfile("webApp.Compass\\OrganicSEO_Date.txt", dateNoSpace);
 
+		}else if(scenario.contains("WebDesign")){
+	       	clearWriteTextfile("webApp.Compass\\WebDesign_Date.txt", dateNoSpace);
 		}
        	
        	
@@ -282,7 +287,7 @@ public class COM16_Storemanagemenet extends WEBHelper{
 	
 	@When("I add an additional ([^\"]*) for ([^\"]*)$")
    	public void i_add_addtional_tab_value_for_value(int count, String product) throws Throwable, UnhandledAlertException {
-		String jsonFilePath = System.getProperty("user.dir") + "\\Data\\webApp.Compass\\"+product+"_Price Settings.json";
+		String jsonFilePath = System.getProperty("user.dir") + "\\Data\\webApp.Compass\\"+product+"_Product Attributes.json";
 		String jsonContent = "";
 		jsonContent = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
 		JsonDataGettersSetters jsonFile = JsonUtil.fromJson(jsonContent, JsonDataGettersSetters.class);

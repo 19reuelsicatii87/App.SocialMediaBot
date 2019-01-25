@@ -140,7 +140,11 @@ public class WEBHelper{
 				BrowserType = "FIREFOX";
 	        break; 
 	        
-			case "TAA-382":
+			case "WebDesign_TS01": 
+				BrowserType = "FIREFOX";
+	        break; 
+	        
+   			case "TAA-382":
 				BrowserType = "FIREFOX";
 		    break; 
 		        

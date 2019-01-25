@@ -66,6 +66,9 @@ public class COM04_ClientsBucketSiteidUseridCampaignsCreatecampaign extends WEBH
 		}else if(scenario.contains("OrganicSEO")){
 			dateIdentifier = readTextfile("webApp.Compass\\OrganicSEO_Date.txt");	 
 
+		}else if(scenario.contains("WebDesign")){
+			dateIdentifier = readTextfile("webApp.Compass\\WebDesign_Date.txt");	 
+
 		}
 		
 		CampaignName_textfield.sendKeys(arg1+"_"+dateIdentifier);
