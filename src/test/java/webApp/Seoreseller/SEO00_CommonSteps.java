@@ -122,6 +122,15 @@ public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//h2[text()='Getting Started']")
 	WebElement HelpCenterGettingStarted_header;
 	
+	@FindBy(xpath="//a[contains(.,'Knowledge Base')]")
+	WebElement KnowledgeBase_link;
+	
+	@FindBy(xpath="//p[text()='Detailed user guides for every feature of our suite.']")
+	WebElement DetailedUserGuides_text;
+	
+	@FindBy(xpath="//h1[text()='Advice and answers from the SEOReseller Team']")
+	WebElement HelpCenterAdviceAndAnswers_header;
+	
 	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
 		
@@ -305,7 +314,6 @@ public class SEO00_CommonSteps extends WEBHelper{
 	public void i_click_the_getting_started_link(){
 		MouseHover(GettingStarted_link);
 		GettingStarted_link.click();
-		
 	}
     
     @Then("^Ill be redirected to the SEO00_Helpcenter")
@@ -315,8 +323,33 @@ public class SEO00_CommonSteps extends WEBHelper{
    	}
     
     @Then("^Ill see the SEO00_GettingStarted header")
-   	public void ill_see_the_getting_started_window(){
+   	public void ill_see_the_getting_started_header(){
    			Assert.assertEquals(true, HelpCenterGettingStarted_header.isDisplayed());
    	}
+    
+    
+    @Then("^Ill see the SEO00_KnowledgeBase link")
+	public void ill_see_the_knowledge_base_link(){
+			Assert.assertEquals(true, KnowledgeBase_link.isDisplayed());
+	}
+    
+    
+    @Then("^Ill see the SEO00_DetailedUserGuides \"([^\"]*)\" text")
+   	public void ill_see_the_detailed_user_guide_text(String text){
+   			Assert.assertEquals(true, DetailedUserGuides_text.isDisplayed());
+   			Assert.assertEquals(text, DetailedUserGuides_text.getText());
+   	}
+    
+    @When("^I click the SEO00_KnowledgeBase link$")
+	public void i_click_the_knowledge_base_link(){
+		MouseHover(KnowledgeBase_link);
+		KnowledgeBase_link.click();
+	}
+    
+    @Then("^Ill see the SEO00_AdviceAndAnswers header")
+   	public void ill_see_the_advice_and_answers_header(){
+   			Assert.assertEquals(true, HelpCenterAdviceAndAnswers_header.isDisplayed());
+   	}
+    
 	
 }
