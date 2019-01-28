@@ -131,6 +131,16 @@ public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//h1[text()='Advice and answers from the SEOReseller Team']")
 	WebElement HelpCenterAdviceAndAnswers_header;
 	
+	@FindBy(xpath="//a[contains(.,'Email us')]")
+	WebElement EmailUs_link;
+	
+	@FindBy(xpath="//b[text()='Our offices are open 24/5']")
+	WebElement OfficeOpenDays_text;
+	
+	@FindBy(xpath="//span[contains(.,'your timezone')]")
+	WebElement OfficeOpenHours_text;
+	
+	
 	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
 		
@@ -351,5 +361,33 @@ public class SEO00_CommonSteps extends WEBHelper{
    			Assert.assertEquals(true, HelpCenterAdviceAndAnswers_header.isDisplayed());
    	}
     
-	
+    @Then("^Ill see the SEO00_EmailUs link")
+	public void ill_see_the_email_us_link(){
+			Assert.assertEquals(true, EmailUs_link.isDisplayed());
+	}
+    
+    
+    @Then("^Ill see the SEO00_OfficeOpenDays \"([^\"]*)\" text")
+   	public void ill_see_the_office_open_days_text(String text){
+   			Assert.assertEquals(true, OfficeOpenDays_text.isDisplayed());
+   			Assert.assertEquals(text, OfficeOpenDays_text.getText());
+   	}
+    
+    @Then("^Ill see the SEO00_OfficeOpenHours \"([^\"]*)\" text")
+   	public void ill_see_the_office_open_hours_text(String text){
+			Assert.assertEquals(true, OfficeOpenHours_text.isDisplayed());
+   			Assert.assertEquals(true, text.contains(OfficeOpenHours_text.getText()));
+   	}
+    
+    @When("^I click the SEO00_EmailUs link$")
+   	public void i_click_the_email_us_link(){
+   		MouseHover(EmailUs_link);
+   		EmailUs_link.click();
+   	}
+    
+    @Then("^Ill see that the SEO00_EmailUs is a mail redirection")
+	public void ill_see_the_email_us_link_is_a_mail_redirection(){
+			Assert.assertEquals(true, EmailUs_link.getAttribute("href").contains("mailto:"));
+	}
+    
 }
