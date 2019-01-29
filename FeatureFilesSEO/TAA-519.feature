@@ -55,3 +55,29 @@ Feature: [TAA-519] [SEOReseller] Support Menu Smoke/Regression TestSuite
     Examples: 
 			| FirstName | LastName   | email                     | password  |
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |
+      
+  #Scenario Description:
+	#Given I am a Partner
+	#When I hover to the support menu
+	#And I click the Email Us Link
+	#Then Ill see that Ill be redirected to the mailbox
+  @SRSSMOKETEST @SupportMenu @SupportMenu_TS03 @TAA-522
+  Scenario Outline: TAA-522
+		Given Im a new Partner
+    When I navigate to "Login"
+    And I populate the SEOE6_EmailAddress textfield with <email>
+    And I populate the SEOE6_Password textfield with <password>
+    And I click the SEO06_LoginToYourDashBoard button
+    And I wait for page to load
+    Then Ill see the SEO00_Dashboard page
+    
+    When I hover to SEO00_SupportMenu link
+    Then Ill see the SEO00_EmailUs link
+    And Ill see that the SEO00_EmailUs is a mail redirection
+    And Ill see the SEO00_OfficeOpenDays "Our offices are open 24/5" text
+    And Ill see the SEO00_OfficeOpenHours "From Monday 7 AM To Saturday 7 AM, your timezone" text
+
+    
+    Examples: 
+			| FirstName | LastName   | email                     | password  |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |
