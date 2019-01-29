@@ -159,6 +159,12 @@ public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//a[@class='mailto-manager']")
 	WebElement ProjectManagerEmail_text;
 	
+	@FindBy(xpath="//button[text()='Contact Us']")
+	WebElement ContactUs_button;
+	
+	@FindBy(xpath="//h3[text()='Contact Us Today!']")
+	WebElement ContactUsToday_header;
+	
 	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
 		
@@ -423,5 +429,28 @@ public class SEO00_CommonSteps extends WEBHelper{
    	public void ill_see_the_project_manager_email(){
    			Assert.assertEquals(true, ProjectManagerEmail_text.isDisplayed());
    	}
+    
+    @Then("^Ill see the SEO00_ContactUs button")
+   	public void ill_see_the_contact_us_button(){
+   			Assert.assertEquals(true, ContactUs_button.isDisplayed());
+   	}
+    
+    @When("^I click the SEO00_ContactUs button")
+   	public void i_click_the_contact_us_button(){
+   			ContactUs_button.click();
+   	}
+    
+    
+    @Then("^Ill be redirected to the SEO00_SeoResellerContactUs Page")
+   	public void ill_be_redirected_to_seo_reseller_contact_us_page() throws InterruptedException{
+    		ReUsablesKeyword.switchToLatestTab();
+   			Assert.assertEquals(true, driver.getCurrentUrl().contains("seoreseller.com/contact-us"));
+   	}
+    
+    @Then("^Ill see the SEO00_ContactUsToday header")
+   	public void ill_see_the_contact_us_today_header(){
+   			Assert.assertEquals(true, ContactUsToday_header.isDisplayed());
+   	}
+    
     
 }
