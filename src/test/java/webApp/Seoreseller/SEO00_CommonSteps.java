@@ -129,17 +129,7 @@ public class SEO00_CommonSteps extends WEBHelper{
 	WebElement DetailedUserGuides_text;
 	
 	@FindBy(xpath="//h1[text()='Advice and answers from the SEOReseller Team']")
-	WebElement HelpCenterAdviceAndAnswers_header;
-	
-	@FindBy(xpath="//a[contains(.,'Email us')]")
-	WebElement EmailUs_link;
-	
-	@FindBy(xpath="//b[text()='Our offices are open 24/5']")
-	WebElement OfficeOpenDays_text;
-	
-	@FindBy(xpath="//span[contains(.,'your timezone')]")
-	WebElement OfficeOpenHours_text;
-	
+	WebElement HelpCenterAdviceAndAnswers_header;	
 	
 	@FindBy(xpath="//a[contains(.,'Email us')]")
 	WebElement EmailUs_link;
