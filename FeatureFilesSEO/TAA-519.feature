@@ -81,3 +81,28 @@ Feature: [TAA-519] [SEOReseller] Support Menu Smoke/Regression TestSuite
     Examples: 
 			| FirstName | LastName   | email                     | password  |
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |
+      
+      
+	#Scenario Description:
+	#Given I am a Partner
+	#When I hover to the support menu
+	#And I click the Knowledge Base Link
+	#Then Ill see the Advice and answers from the SEOReseller Team
+  @SRSSMOKETEST @SupportMenu @SupportMenu_TS04 @TAA-523
+  Scenario Outline: TAA-523
+		Given Im a new Partner
+    When I navigate to "Login"
+    And I populate the SEOE6_EmailAddress textfield with <email>
+    And I populate the SEOE6_Password textfield with <password>
+    And I click the SEO06_LoginToYourDashBoard button
+    And I wait for page to load
+    Then Ill see the SEO00_Dashboard page
+    
+    When I hover to SEO00_SupportMenu link
+    Then Ill see the SEO00_ProjectManager image
+    And Ill be able to see the SEO00_YourProjectManager "your Project Manager is here to guide you." text
+    And Ill be able to see the SEO00_ProjectManagaerEmail text
+    
+    Examples: 
+			| FirstName | LastName   | email                     | password  |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |   

@@ -141,6 +141,24 @@ public class SEO00_CommonSteps extends WEBHelper{
 	WebElement OfficeOpenHours_text;
 	
 	
+	@FindBy(xpath="//a[contains(.,'Email us')]")
+	WebElement EmailUs_link;
+	
+	@FindBy(xpath="//b[text()='Our offices are open 24/5']")
+	WebElement OfficeOpenDays_text;
+	
+	@FindBy(xpath="//span[contains(.,'your timezone')]")
+	WebElement OfficeOpenHours_text;
+	
+	@FindBy(xpath="//p[@class='clearfix manager-description']")
+	WebElement ProjectManagerIsHereToGuideYou_text;
+	
+	@FindBy(xpath="//div[@class='col-sm-6 intercom-manager text-center']//img")
+	WebElement ProjectManager_image;
+	
+	@FindBy(xpath="//a[@class='mailto-manager']")
+	WebElement ProjectManagerEmail_text;
+	
 	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
 		
@@ -389,5 +407,21 @@ public class SEO00_CommonSteps extends WEBHelper{
 	public void ill_see_the_email_us_link_is_a_mail_redirection(){
 			Assert.assertEquals(true, EmailUs_link.getAttribute("href").contains("mailto:"));
 	}
+	
+	    @Then("^Ill see the SEO00_ProjectManager image")
+   	public void ill_see_the_project_manager_image(){
+   			Assert.assertEquals(true, ProjectManager_image.isDisplayed());
+   	}
+    
+    @Then("^Ill be able to see the SEO00_YourProjectManager \"([^\"]*)\" text")
+   	public void ill_see_the_your_project_manager_is_here_text(String text){
+   			Assert.assertEquals(true, ProjectManagerIsHereToGuideYou_text.isDisplayed());
+   			Assert.assertEquals(true, ProjectManagerIsHereToGuideYou_text.getText().contains(text));
+   	}
+    
+    @Then("^Ill be able to see the SEO00_ProjectManagaerEmail text")
+   	public void ill_see_the_project_manager_email(){
+   			Assert.assertEquals(true, ProjectManagerEmail_text.isDisplayed());
+   	}
     
 }
