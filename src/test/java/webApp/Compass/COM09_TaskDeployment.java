@@ -76,6 +76,9 @@ public class COM09_TaskDeployment extends WEBHelper{
 			}else if(scenario.contains("OrganicSEO")){
 				dateIdentifier = readTextfile("webApp.Compass\\OrganicSEO_Date.txt");	 
 
+			}else if(scenario.contains("WebDesign")){
+				dateIdentifier = readTextfile("webApp.Compass\\WebDesign_Date.txt");	 
+
 			}
 			
 		 	CampaignSearch_textfield.sendKeys(campaignName+"_"+dateIdentifier);

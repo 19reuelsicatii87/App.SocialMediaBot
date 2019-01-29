@@ -53,5 +53,9 @@ public class COM00_UserAndPreConditions extends WEBHelper{
 	    // Write code here that turns the phrase above into concrete actions
 	}
 	
+	@Given("^I am an Account Manager or a Web Dev Specialist$")
+	public void im_an_account_manager_or_web_dev_specialist() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	}
 
 }
