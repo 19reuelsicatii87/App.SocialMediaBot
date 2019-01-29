@@ -65,7 +65,6 @@ public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//a[text()='Landing Pages']")
 	WebElement LandingPage_link;
 	
-	
 	@FindBy(xpath="(//i[@class='fa fa-paper-plane-o btn-send-email'])[1]")
 	WebElement WebAuditPaperPlane_button;
 	
@@ -111,6 +110,50 @@ public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//div[text()='Message sent']")
 	WebElement  MessageSentNotif_text;
 	
+	@FindBy(xpath="//a[text()='Support']")
+	WebElement Support_link;
+	
+	@FindBy(xpath="//a[contains(.,'Getting Started')]")
+	WebElement GettingStarted_link;
+	
+	@FindBy(xpath="//p[text()='Learn the basics to get productive with our marketing suite in minutes.']")
+	WebElement LearnTheBasic_text;
+	
+	@FindBy(xpath="//h2[text()='Getting Started']")
+	WebElement HelpCenterGettingStarted_header;
+	
+	@FindBy(xpath="//a[contains(.,'Knowledge Base')]")
+	WebElement KnowledgeBase_link;
+	
+	@FindBy(xpath="//p[text()='Detailed user guides for every feature of our suite.']")
+	WebElement DetailedUserGuides_text;
+	
+	@FindBy(xpath="//h1[text()='Advice and answers from the SEOReseller Team']")
+	WebElement HelpCenterAdviceAndAnswers_header;	
+	
+	@FindBy(xpath="//a[contains(.,'Email us')]")
+	WebElement EmailUs_link;
+	
+	@FindBy(xpath="//b[text()='Our offices are open 24/5']")
+	WebElement OfficeOpenDays_text;
+	
+	@FindBy(xpath="//span[contains(.,'your timezone')]")
+	WebElement OfficeOpenHours_text;
+	
+	@FindBy(xpath="//p[@class='clearfix manager-description']")
+	WebElement ProjectManagerIsHereToGuideYou_text;
+	
+	@FindBy(xpath="//div[@class='col-sm-6 intercom-manager text-center']//img")
+	WebElement ProjectManager_image;
+	
+	@FindBy(xpath="//a[@class='mailto-manager']")
+	WebElement ProjectManagerEmail_text;
+	
+	@FindBy(xpath="//button[text()='Contact Us']")
+	WebElement ContactUs_button;
+	
+	@FindBy(xpath="//h3[text()='Contact Us Today!']")
+	WebElement ContactUsToday_header;
 	
 	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
@@ -272,4 +315,132 @@ public class SEO00_CommonSteps extends WEBHelper{
 			Assert.assertEquals(true, MessageSentNotif_text.isDisplayed());
 	}
 	
+	
+	@When("^I hover to SEO00_SupportMenu link$")
+	public void i_hover_to_support_menu(){
+		MouseHover(Support_link);
+		
+	}
+	
+    @Then("^Ill see the SEO00_GettingStarted link")
+	public void ill_see_the_getting_started_link(){
+			Assert.assertEquals(true, GettingStarted_link.isDisplayed());
+	}
+    
+    @Then("^Ill see the SEO00_LearnTheBasic \"([^\"]*)\" text")
+   	public void ill_see_the_learn_the_basics_text(String text){
+   			Assert.assertEquals(true, LearnTheBasic_text.isDisplayed());
+   			Assert.assertEquals(text, LearnTheBasic_text.getText());
+   	}
+    
+    
+    @When("^I click the SEO00_GettingStarted link$")
+	public void i_click_the_getting_started_link(){
+		MouseHover(GettingStarted_link);
+		GettingStarted_link.click();
+	}
+    
+    @Then("^Ill be redirected to the SEO00_Helpcenter")
+   	public void ill_be_redirected_to_helpcenter() throws InterruptedException{
+    		ReUsablesKeyword.switchToLatestTab();
+   			Assert.assertEquals(true, driver.getCurrentUrl().contains("helpcenter"));
+   	}
+    
+    @Then("^Ill see the SEO00_GettingStarted header")
+   	public void ill_see_the_getting_started_header(){
+   			Assert.assertEquals(true, HelpCenterGettingStarted_header.isDisplayed());
+   	}
+    
+    
+    @Then("^Ill see the SEO00_KnowledgeBase link")
+	public void ill_see_the_knowledge_base_link(){
+			Assert.assertEquals(true, KnowledgeBase_link.isDisplayed());
+	}
+    
+    
+    @Then("^Ill see the SEO00_DetailedUserGuides \"([^\"]*)\" text")
+   	public void ill_see_the_detailed_user_guide_text(String text){
+   			Assert.assertEquals(true, DetailedUserGuides_text.isDisplayed());
+   			Assert.assertEquals(text, DetailedUserGuides_text.getText());
+   	}
+    
+    @When("^I click the SEO00_KnowledgeBase link$")
+	public void i_click_the_knowledge_base_link(){
+		MouseHover(KnowledgeBase_link);
+		KnowledgeBase_link.click();
+	}
+    
+    @Then("^Ill see the SEO00_AdviceAndAnswers header")
+   	public void ill_see_the_advice_and_answers_header(){
+   			Assert.assertEquals(true, HelpCenterAdviceAndAnswers_header.isDisplayed());
+   	}
+    
+    @Then("^Ill see the SEO00_EmailUs link")
+	public void ill_see_the_email_us_link(){
+			Assert.assertEquals(true, EmailUs_link.isDisplayed());
+	}
+    
+    
+    @Then("^Ill see the SEO00_OfficeOpenDays \"([^\"]*)\" text")
+   	public void ill_see_the_office_open_days_text(String text){
+   			Assert.assertEquals(true, OfficeOpenDays_text.isDisplayed());
+   			Assert.assertEquals(text, OfficeOpenDays_text.getText());
+   	}
+    
+    @Then("^Ill see the SEO00_OfficeOpenHours \"([^\"]*)\" text")
+   	public void ill_see_the_office_open_hours_text(String text){
+			Assert.assertEquals(true, OfficeOpenHours_text.isDisplayed());
+   			Assert.assertEquals(true, text.contains(OfficeOpenHours_text.getText()));
+   	}
+    
+    @When("^I click the SEO00_EmailUs link$")
+   	public void i_click_the_email_us_link(){
+   		MouseHover(EmailUs_link);
+   		EmailUs_link.click();
+   	}
+    
+    @Then("^Ill see that the SEO00_EmailUs is a mail redirection")
+	public void ill_see_the_email_us_link_is_a_mail_redirection(){
+			Assert.assertEquals(true, EmailUs_link.getAttribute("href").contains("mailto:"));
+	}
+	
+	    @Then("^Ill see the SEO00_ProjectManager image")
+   	public void ill_see_the_project_manager_image(){
+   			Assert.assertEquals(true, ProjectManager_image.isDisplayed());
+   	}
+    
+    @Then("^Ill be able to see the SEO00_YourProjectManager \"([^\"]*)\" text")
+   	public void ill_see_the_your_project_manager_is_here_text(String text){
+   			Assert.assertEquals(true, ProjectManagerIsHereToGuideYou_text.isDisplayed());
+   			Assert.assertEquals(true, ProjectManagerIsHereToGuideYou_text.getText().contains(text));
+   	}
+    
+    @Then("^Ill be able to see the SEO00_ProjectManagaerEmail text")
+   	public void ill_see_the_project_manager_email(){
+   			Assert.assertEquals(true, ProjectManagerEmail_text.isDisplayed());
+   	}
+    
+    @Then("^Ill see the SEO00_ContactUs button")
+   	public void ill_see_the_contact_us_button(){
+   			Assert.assertEquals(true, ContactUs_button.isDisplayed());
+   	}
+    
+    @When("^I click the SEO00_ContactUs button")
+   	public void i_click_the_contact_us_button(){
+   			ContactUs_button.click();
+   	}
+    
+    
+    @Then("^Ill be redirected to the SEO00_SeoResellerContactUs Page")
+   	public void ill_be_redirected_to_seo_reseller_contact_us_page() throws InterruptedException{
+    		ReUsablesKeyword.switchToLatestTab();
+   			Assert.assertEquals(true, driver.getCurrentUrl().contains("seoreseller.com/contact-us"));
+   	}
+    
+    @Then("^Ill see the SEO00_ContactUsToday header")
+   	public void ill_see_the_contact_us_today_header(){
+   			Assert.assertEquals(true, ContactUsToday_header.isDisplayed());
+   	}
+    
+    
 }
