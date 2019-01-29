@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
+Feature: [TAA-466] [Compass]: Compass WIGS Test Suite v0.1
 
 	# Scenario Description:
 	#	Given Im an App User from QA department
@@ -29,8 +29,8 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	#	When Workforce Team Launch a deployment
 	#	And I access app.compass/login
 	#	Then Ill see the 'tasks were deployed successfully' modal
-  @CPSSMOKETEST @LocalSEO @LocalSEO_TS01 @TAA-266
-  Scenario Outline: LocalSEO_TS01
+  @CPSSMOKETEST @OrganicSEO @OrganicSEO_TS01 @TAA-481
+  Scenario Outline: OrganicSEO_TS01
     Given Im an Account Manager
     When I navigate to "Login"
     And I populate COM01_Username with "lorraine@truelogic.com.ph"
@@ -114,19 +114,18 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 		    
     
     Examples: 
-      | client                   | category     |  product      |        categProduct          |    currency    |  monthlyFee  |   tabNumber  | taskCount  |  subtaskCountA   | subtaskCountB | subtaskCountC |  subtaskCountD |
-      | lorraine@truelogic.com.ph| Local SEO    |  Local Basic  |   Local SEO - Local Basic    | US Dollars USD |      249     |        3     |     4      |         1        |        1      |       3       |        3       |
+      | client                   | category       |  product         |            categProduct           |    currency    |  monthlyFee  |   tabNumber  | taskCount  |  subtaskCountA   | subtaskCountB | subtaskCountC |  subtaskCountD |
+      | lorraine@truelogic.com.ph| Organic SEO    |  Organic Silver  |   Organic SEO - Organic Silver    | US Dollars USD |      399     |        3     |     4      |         1        |        1      |       3       |        3       |
 
 
-
-  # Scenario Description:
+	# Scenario Description:
   # Given Im a Project Manager
 	# When I access app.compass/login
 	# And I create a Campaign
 	# And I order a product
 	# Then Ill see that a product will be successfully assigned to a campaign
-  @CPSSMOKETEST @LocalSEO @LocalSEO_TS02 @TAA-254
-  Scenario Outline: LocalSEO_TS02
+  @CPSSMOKETEST @OrganicSEO @OrganicSEO_TS02 @TAA-484
+  Scenario Outline: OrganicSEO_TS02
     Given Im an Account Manager
     When I navigate to "Login"
     And I populate COM01_Username with "lorraine@truelogic.com.ph"
@@ -146,13 +145,13 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 		Then Ill see the Campaign Page
 		
 		When I click COM03_CreateCampaign button
-		And I populate COM04_CampaignName with "Little Miss BBQ"
-		And I populate COM04_BrandName with "www.littlemissbbq.com"
-		And I populate COM04_CampaignURL with "https://www.littlemissbbq.com/"
-		And I populate COM04_Description textfield with "Test BBQ Automation Description"
+		And I populate COM04_CampaignName with "Uniqlo"
+		And I populate COM04_BrandName with "www.uniqlo.com"
+		And I populate COM04_CampaignURL with "http://www.uniqlo.com/ph/"
+		And I populate COM04_Description textfield with "Test Uniqlo Automation Description"
 		And I populate COM04_ProductandServiceOverview textfield with "Test Automation ProductandServiceOverview"
 		And I populate COM04_BusinessEmail textfield with <client>
-		And I select "Travel & Hospitality" over COM04_Category dropdown
+		And I select "Fashion & Lifestyle" over COM04_Category dropdown
 		And I click COM04_Submit button
 		Then Ill see campaign successfully created
 		
@@ -184,8 +183,8 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 		Then Ill see that the COM06_Product Status is <productStatus>
 		
     Examples: 
-      | client                     | category     |  product      |        categProduct          |  productStatus    |
-      | lorraine@truelogic.com.ph  | Local SEO    |  Local Basic  |   Local SEO - Local Basic    |      Active       |
+      | client                     |   category     |     product      |           categProduct            |  productStatus    |
+      | lorraine@truelogic.com.ph  | Organic SEO    |  Organic Silver  |   Organic SEO - Organic Silver    |      Active       |
       
   # Scenario Description:
   # Given Im a Workforce Specialist
@@ -197,8 +196,8 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	#	When I access app.compass/login
 	#	And I Deploy the Task
 	#	Then Ill see the 'tasks were deployed successfully' modal
-  @CPSSMOKETEST @LocalSEO @LocalSEO_TS03 @TAA-255
-  Scenario Outline: LocalSEO_TS03
+  @CPSSMOKETEST @OrganicSEO @OrganicSEO_TS03 @TAA-487
+  Scenario Outline: OrganicSEO_TS03
 	  Given Im a Workforce Specialist
 	  When I navigate to "Login"
 	  And I populate COM01_Username with "lorraine@truelogic.com.ph"
@@ -210,7 +209,7 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 		And I click COM14_DeployMenu link
 		Then I will see the COM09_TaskDeployments Header
 		
-		When I search the "Little Miss BBQ" in the COM09_CampaignSearch textfield
+		When I search the "Uniqlo" in the COM09_CampaignSearch textfield
 		And I search the "-" in the COM09_LastDeployment textfield
 		And I click the COM09_Deploy button of latest campaign without Deploy Info
 		Then Ill see the COM10_DeploymentInformation Section
@@ -228,7 +227,7 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 		Examples: 
       | client                   | category     |  product      |        categProduct          |  productStatus    |       taskName           |
       | lorraine@truelogic.com.ph| Local SEO    |  Local Basic  |   Local SEO - Local Basic    |      Active       | Update Campaign Roadmap  |
-     
+      
   # Scenario Description:
 	#Given Im an SEO Delegator
 	#And the tasks were already available in the For Delegation Section
@@ -237,8 +236,8 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	#When Im now an SEO Contributor
 	#And I click the 'Click to Complete' button
 	#Then Ill see that the Task Status is set to Completed
-  @CPSSMOKETEST @LocalSEO @LocalSEO_TS04 @TAA-263
-  Scenario Outline: LocalSEO_TS04
+  @CPSSMOKETEST @OrganicSEO @OrganicSEO_TS04 @TAA-490
+  Scenario Outline: OrganicSEO_TS04
   Given I am an SEO Specialist
   When I navigate to "Login"
   And I populate COM01_Username with "wigsseospecialist@gmail.com"
@@ -246,8 +245,8 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
   And I click COM01_LogIn button
   Then Ill see that Ive login successfully
   
-  When I enter the campaign "Little Miss BBQ" in the COM14_GlobalSearch textfield
-	And I select "Little Miss BBQ" in the Campaign Result Section
+  When I enter the campaign "Uniqlo" in the COM14_GlobalSearch textfield
+	And I select "Uniqlo" in the Campaign Result Section
 	Then Ill see the COM08_ProjectManagement tab
 	
 	When I hover to COM06_SEO tab
@@ -267,7 +266,7 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
   
   When I hover to COM06_ProjectManagement tab
 	And I select COM06_Projects link
-	And I select "Local Basic" Project under the COM08_Project table 
+	And I select "Organic Silver" Project under the COM08_Project table 
 	Then Ill see the COM08_<taskName> in the subprojects page 
 	  
 	When I click on the COM08_TaskEdit icon of "Update Campaign Roadmap"
@@ -299,13 +298,11 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
   And I click on the COM24_ClickToComplete button 
 	Then I will be able to see that the COM24_TaskStatus text is "COMPLETED"
 	
-	Examples: 
-    | client                   | category     |  product      |        categProduct          |  productStatus    |       taskName           |
-    | lorraine@truelogic.com.ph| Local SEO    |  Local Basic  |   Local SEO - Local Basic    |      Active       | Update Campaign Roadmap  |
+	Examples:  
+    | client                   |   category     |     product      |           categProduct            |  productStatus    |       taskName           |
+    | lorraine@truelogic.com.ph| Organic SEO    |  Organic Silver  |   Organic SEO - Organic Silver    |      Active       | Update Campaign Roadmap  |
     
-    
-    
-# Scenario Description:
+  #Scenario Description:
 	#Given Im a Content Assignee
 	#And the tasks were already available in the For Delegation Section
 	#When I assign the tasks to a particular assignee
@@ -313,8 +310,8 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	#When I progressed the tasks
 	#And I click the 'Click to Complete' button
 	#Then Ill see that the Task Status is set to Completed
-  @CPSSMOKETEST @LocalSEO @LocalSEO_TS05 @TAA-271
-  Scenario Outline: LocalSEO_TS05
+  @CPSSMOKETEST @OrganicSEO @OrganicSEO_TS05 @TAA-493
+  Scenario Outline: OrganicSEO_TS05
 	Given I am a Content Specialist
 	When I navigate to "Login"
 	And I populate COM01_Username with "wigscontentcontributor@gmail.com"
@@ -322,13 +319,13 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	And I click COM01_LogIn button
 	Then Ill see that Ive login successfully
 	
-	When I enter the campaign "Little Miss BBQ" in the COM14_GlobalSearch textfield
-	And I select "Little Miss BBQ" in the Campaign Result Section
+	When I enter the campaign "Uniqlo" in the COM14_GlobalSearch textfield
+	And I select "Uniqlo" in the Campaign Result Section
 	Then Ill see the COM08_ProjectManagement tab
 	
 	When I hover to COM06_ProjectManagement tab
 	And I select COM06_Projects link
-	And I select "Local Basic" Project under the COM08_Project table 
+	And I select "Organic Silver" Project under the COM08_Project table 
 	Then Ill see the COM08_<taskName> in the subprojects page 
 	
 	When I populate COM08_TaskSearch textfield with "Guest Blog Outreach #1 Creation"
@@ -376,11 +373,10 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	Then Ill see that the COM08_TaskStatus of "Guest Blog Outreach #1 Creation" is "Completed"
 
 	Examples: 
-    | client                   | category     |  product      |        categProduct          |  productStatus    |       taskName           |
-    | lorraine@truelogic.com.ph| Local SEO    |  Local Basic  |   Local SEO - Local Basic    |      Active       | Update Campaign Roadmap  |
+    | client                   | category       |  product         |          categProduct             |  productStatus    |       taskName           |
+    | lorraine@truelogic.com.ph| Organic SEO    |  Organic Silver  |   Organic SEO - Organic Silver    |      Active       | Update Campaign Roadmap  |   
     
-    
-# Scenario Description:
+	#Scenario Description:
 	#Given Im a DMG Assignee
 	#And the tasks were already available in the For Delegation Section
 	#When I assign the tasks to a particular assignee
@@ -388,8 +384,8 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	#When I progressed the tasks
 	#And I click the 'Click to Complete' button
 	#Then Ill see that the Task Status is set to Completed
-  @CPSSMOKETEST @LocalSEO @LocalSEO_TS06 @TAA-272
-  Scenario Outline: LocalSEO_TS06
+  @CPSSMOKETEST @OrganicSEO @OrganicSEO_TS06 @TAA-496
+  Scenario Outline: OrganicSEO_TS06
 	Given I am a DMG Specialist
 	When I navigate to "Login"
 	And I populate COM01_Username with "wigsdmgcontributor@gmail.com"
@@ -397,13 +393,13 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	And I click COM01_LogIn button
 	Then Ill see that Ive login successfully
 	
-	When I enter the campaign "Little Miss BBQ" in the COM14_GlobalSearch textfield
-	And I select "Little Miss BBQ" in the Campaign Result Section
+	When I enter the campaign "Uniqlo" in the COM14_GlobalSearch textfield
+	And I select "Uniqlo" in the Campaign Result Section
 	Then Ill see the COM08_ProjectManagement tab
 	
 	When I hover to COM06_ProjectManagement tab
 	And I select COM06_Projects link
-	And I select "Local Basic" Project under the COM08_Project table 
+	And I select "Organic Silver" Project under the COM08_Project table 
 	Then Ill see the COM08_<taskName> in the subprojects page 
 	
 	When I populate COM08_TaskSearch textfield with "Guest Blog Outreach #1 Submission"
@@ -420,5 +416,6 @@ Feature: [TAA-248] [Compass]: Compass WIGS Test Suite v0.1
 	Then I will be able to see that the COM24_TaskStatus text is "ON-HOLD"
 
 	Examples: 
-    | client                   | category     |  product      |        categProduct          |  productStatus    |       taskName           |
-    | lorraine@truelogic.com.ph| Local SEO    |  Local Basic  |   Local SEO - Local Basic    |      Active       | Update Campaign Roadmap  |
+    | client                   |   category     |     product      |            categProduct           |  productStatus    |       taskName           |
+    | lorraine@truelogic.com.ph| Organic SEO    |  Organic Silver  |   Organic SEO - Organic Silver    |      Active       | Update Campaign Roadmap  |
+   

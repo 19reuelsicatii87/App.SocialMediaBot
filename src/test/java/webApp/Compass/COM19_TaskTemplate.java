@@ -170,14 +170,20 @@ public class COM19_TaskTemplate extends WEBHelper{
 				 MainSubtaskClientApproval_checkbox.click();
 			 }
 			 
-			SelectByVisibleText(MainSubtaskOutputReqs_select, jsonFile.getOutputRequirements().get(i));
+			 String outputRequirements = jsonFile.getOutputRequirements().get(i);
+			 Thread.sleep(2000);
+			 if(outputRequirements.equals("None")){
+				 
+			 }else{
+				 SelectByVisibleText(MainSubtaskOutputReqs_select, outputRequirements);
+			 }
 
 			 String taskDependencies = jsonFile.getTaskDependencies().get(i);
 			 Thread.sleep(2000);
 			 if(taskDependencies.equals("None")){
 				 
 			 }else{
-				 SelectByVisibleText(MainSubtasTaskDependencies_select, jsonFile.getTaskDependencies().get(i));
+				 SelectByVisibleText(MainSubtasTaskDependencies_select, taskDependencies);
 			 }
 			 
 			 String tabsSetup = jsonFile.getTabsSetup().get(i);
@@ -187,7 +193,7 @@ public class COM19_TaskTemplate extends WEBHelper{
 				 Thread.sleep(1000);
 				 MainSubtasTaskTabs_link.click();
 				 Thread.sleep(2000);
-				 SelectTabSetupByKeyword(jsonFile.getTabsSetup().get(i)).click();
+				 SelectTabSetupByKeyword(tabsSetup).click();
 			 }
 			 
 			 MainSubtaskSave_button.click();
