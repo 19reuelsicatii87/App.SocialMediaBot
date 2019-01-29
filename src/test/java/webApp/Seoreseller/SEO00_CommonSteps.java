@@ -65,7 +65,6 @@ public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//a[text()='Landing Pages']")
 	WebElement LandingPage_link;
 	
-	
 	@FindBy(xpath="(//i[@class='fa fa-paper-plane-o btn-send-email'])[1]")
 	WebElement WebAuditPaperPlane_button;
 	
@@ -111,6 +110,17 @@ public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//div[text()='Message sent']")
 	WebElement  MessageSentNotif_text;
 	
+	@FindBy(xpath="//a[text()='Support']")
+	WebElement Support_link;
+	
+	@FindBy(xpath="//a[contains(.,'Getting Started')]")
+	WebElement GettingStarted_link;
+	
+	@FindBy(xpath="//p[text()='Learn the basics to get productive with our marketing suite in minutes.']")
+	WebElement LearnTheBasic_text;
+	
+	@FindBy(xpath="//h2[text()='Getting Started']")
+	WebElement HelpCenterGettingStarted_header;
 	
 	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
@@ -271,5 +281,42 @@ public class SEO00_CommonSteps extends WEBHelper{
 	public void ill_see_the_SEO00_MessageSentNotification(){
 			Assert.assertEquals(true, MessageSentNotif_text.isDisplayed());
 	}
+	
+	
+	@When("^I hover to SEO00_SupportMenu link$")
+	public void i_hover_to_support_menu(){
+		MouseHover(Support_link);
+		
+	}
+	
+    @Then("^Ill see the SEO00_GettingStarted link")
+	public void ill_see_the_getting_started_link(){
+			Assert.assertEquals(true, GettingStarted_link.isDisplayed());
+	}
+    
+    @Then("^Ill see the SEO00_LearnTheBasic \"([^\"]*)\" text")
+   	public void ill_see_the_learn_the_basics_text(String text){
+   			Assert.assertEquals(true, LearnTheBasic_text.isDisplayed());
+   			Assert.assertEquals(text, LearnTheBasic_text.getText());
+   	}
+    
+    
+    @When("^I click the SEO00_GettingStarted link$")
+	public void i_click_the_getting_started_link(){
+		MouseHover(GettingStarted_link);
+		GettingStarted_link.click();
+		
+	}
+    
+    @Then("^Ill be redirected to the SEO00_Helpcenter")
+   	public void ill_be_redirected_to_helpcenter() throws InterruptedException{
+    		ReUsablesKeyword.switchToLatestTab();
+   			Assert.assertEquals(true, driver.getCurrentUrl().contains("helpcenter"));
+   	}
+    
+    @Then("^Ill see the SEO00_GettingStarted header")
+   	public void ill_see_the_getting_started_window(){
+   			Assert.assertEquals(true, HelpCenterGettingStarted_header.isDisplayed());
+   	}
 	
 }
