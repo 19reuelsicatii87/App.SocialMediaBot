@@ -121,4 +121,36 @@ public class SEO22_SettingsUsers extends WEBHelper{
 		}
 
 	}
+	
+	@When("^I populate SEO22_EmailAddress textfield with ([^\"]*)")
+	public void i_populate_email_address_textfield_with_value(String email) throws Throwable, UnhandledAlertException {
+		String[] emailParts = email.split("@");
+		String finalString = emailParts[0]+"+"+dateNoMin+"@"+emailParts[1];
+		Email_textfield.sendKeys(finalString);	
+	}
+	
+	@When("^I populate SEO22_Username textfield with ([^\"]*)")
+	public void i_populate_username_textfield_with_value(String username) throws Throwable, UnhandledAlertException {
+		Username_textfield.sendKeys(username+dateNoSpace);
+		
+	}
+	
+	@When("^I select ([^\"]*) in SEO22_Role dropdown")
+	public void i_select_role_value_under_role_dropwdown(String role) throws Throwable, UnhandledAlertException {
+		SelectByVisibleText(Role_dropdown, role);
+		
+	}
+	
+	@When("^I populate SEO22_Password textfield with ([^\"]*)")
+	public void i_populate_password_textfield_with_value(String password) throws Throwable, UnhandledAlertException {
+		Password_textfield.sendKeys(password);
+		
+	}
+	
+	@When("^I click the SEO22_Save button")
+	public void i_click_save_button() throws Throwable, UnhandledAlertException {
+		Save_button.click();
+		
+	}
+
 }
