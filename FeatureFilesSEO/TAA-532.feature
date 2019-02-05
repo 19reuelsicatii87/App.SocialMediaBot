@@ -38,7 +38,6 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |
       
 	#Scenario Description:
-	#Given I am a Partner
 	#When I navigate to the Manage Users Page
 	#And I click the Add New User button
 	#Then Ill be able to add New Users
@@ -70,3 +69,32 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
 			| FirstName | LastName   | email                     | password  |      userEmailAdd       |   username   | roleClassification |  userPassword  |
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |  EmployeeTS02@gmail.com | EmployeeTS02 |     Employee       |     emp12345   |
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |  ClientTS02@gmail.com   |  ClientTS02  |     Client         |     cli12345   |
+      
+	#Scenario Description:
+	#When I navigate to the Manage Users Page
+	#And I click the Add New User button
+	#And the email is already used in same/other partner account
+	#Then Ill see the "This Email is already in use." text
+  @SRSSMOKETEST @ManageUsers @ManageUsers_TS03 @TAA-541
+  Scenario Outline: TAA-541
+		Given Im a new Partner
+	  When I navigate to "Login"
+	  And I populate the SEOE6_EmailAddress textfield with <email>
+	  And I populate the SEOE6_Password textfield with <password>
+	  And I click the SEO06_LoginToYourDashBoard button
+	  And I wait for page to load
+	  Then Ill see the SEO00_Dashboard page
+	  
+	  When I click the SEO01_UserAvatar button
+		And I click the SEO01_ManageUsers list
+		Then Ill be able to see the SEO22_ManageUsers Page
+		
+		When I click the SEO22_AddNewUser button
+		And I enter SEO22_EmailAddress textfield with an existing email <userEmailAdd>
+		And I click the SEO22_Save button
+		Then Ill see the SEO22_EmailAlreadyUsed 'This Email is already in use.' text
+    
+    Examples: 
+			| FirstName | LastName   | email                     | password  |          userEmailAdd             |  
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |  EmployeeTS02+190204855@gmail.com | 
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |      lorraine@truelogic.com.ph    | 
