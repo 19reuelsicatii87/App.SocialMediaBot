@@ -128,3 +128,31 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
 			| FirstName | LastName   | email                     | password  |           username          |  
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |  EmployeeTS0220190204165732 | 
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |            lorraine         | 
+      
+	#Scenario Description:
+	#When I navigate to the Manage Users Page
+	#And I click the Add New User button
+	#And the password is less than 8 characters
+	#Then Ill see the "The Password field must be at least 8 characters in length." text
+	@SRSSMOKETEST @ManageUsers @ManageUsers_TS05 @TAA-545
+  Scenario Outline: TAA-545
+		Given Im a new Partner
+	  When I navigate to "Login"
+	  And I populate the SEOE6_EmailAddress textfield with <email>
+	  And I populate the SEOE6_Password textfield with <password>
+	  And I click the SEO06_LoginToYourDashBoard button
+	  And I wait for page to load
+	  Then Ill see the SEO00_Dashboard page
+	  
+	  When I click the SEO01_UserAvatar button
+		And I click the SEO01_ManageUsers list
+		Then Ill be able to see the SEO22_ManageUsers Page
+		
+		When I click the SEO22_AddNewUser button
+		And I populate SEO22_Password textfield with <userPassword>
+		And I click the SEO22_Save button
+		Then Ill see the SEO22_UsernamMustBeUnique 'The Password field must be at least 8 characters in length.' text
+		
+    Examples: 
+			| FirstName | LastName   | email                     | password  |  userPassword  |  
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |     12345      | 
