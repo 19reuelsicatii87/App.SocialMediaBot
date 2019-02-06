@@ -20,7 +20,7 @@ import test.Utilities.Mail;
 @CucumberOptions(
 		format = { "pretty", "html:target/cucumber","json:target/JSON/R2_SrsSmokeTestManageUsers.json" },
         features = {"@target/ManageUsersRerun.txt"},
-        glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox"},
+        glue = {"cucumber.Framework","webApp.Compass", "webApp.Seoreseller", "webApp.PayPerContent", "webApp.Mailbox", "webApp.AccessHub"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/R2_SrsSmokeTestManageUsersReport.html","rerun:target/ManageUsersRerun2.txt"}
    
 

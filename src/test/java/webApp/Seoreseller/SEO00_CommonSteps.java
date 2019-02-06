@@ -155,6 +155,9 @@ public class SEO00_CommonSteps extends WEBHelper{
 	@FindBy(xpath="//h3[text()='Contact Us Today!']")
 	WebElement ContactUsToday_header;
 	
+	@FindBy(xpath="//label[text()='Your Branded Dashboard']/ancestor::div[@class='form-group relative']//i")
+	WebElement DashboardRedirect_link;
+	
 	public SEO00_CommonSteps() {
 		PageFactory.initElements(driver, this);
 		
@@ -442,5 +445,16 @@ public class SEO00_CommonSteps extends WEBHelper{
    			Assert.assertEquals(true, ContactUsToday_header.isDisplayed());
    	}
     
+    @When("^I click the SEO00_Home link")
+   	public void i_click_home() throws InterruptedException{
+    	Thread.sleep(3000);
+		JS.executeScript("window.scrollTo(0,0)", SrsHome_link);
+   	    SrsHome_link.click();
+   	}
+    
+    @When("^I click the SEO00_BrandedDashboardRedirect link")
+   	public void i_click_dashboard_redirect_link(){
+    	DashboardRedirect_link.click();
+   	}
     
 }
