@@ -217,6 +217,10 @@ public class SEO01_Home extends WEBHelper{
 	@FindBy(xpath="//div[@class='intercom-borderless-dismiss-button']")
 	WebElement IntercomCloseChat_button;
 	
+	@FindBy(xpath="//div[@id='user-account-container']//li/a[@href='/settings/users']")
+	WebElement ManageUsers_list;
+	
+	
 	public SEO01_Home() {
 		
 		PageFactory.initElements(driver, this);
@@ -557,4 +561,9 @@ public class SEO01_Home extends WEBHelper{
 		LeadGeneratorIcon_link.click();
 		Thread.sleep(2000);
 	}	
+	
+	@When("^I click the SEO01_ManageUsers list$")
+	public void i_click_the_manage_users() throws Throwable, UnhandledAlertException {
+		ManageUsers_list.click();
+	}
 }
