@@ -52,6 +52,24 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	@FindBy(xpath="//div[text()='The Username field must contain a unique value.']")
 	WebElement UsernameFieldMustBeUnique_text;
 	
+	@FindBy(xpath="//div[text()='The Password field must be at least 8 characters in length.']")
+	WebElement PasswordMustBeAtleast8chars_text;
+	
+	@FindBy(xpath="//h4[text()='Delete User']")
+	WebElement DeleteUser_header;
+	
+	@FindBy(xpath="//button[text()='Yes']")
+	WebElement Yes_button;
+	
+	@FindBy(xpath="//button[text()='No']")
+	WebElement No_button;
+	
+	@FindBy(xpath="//div[text()='Are you sure you want to delete this user?']")
+	WebElement AreYouSureYouWantToDeleteUser_text;
+	
+	@FindBy(xpath="(//a[@title='Delete User'])[1]")
+	WebElement FirstDeleteUser_button;
+	
 	public SEO22_SettingsUsers() {
 		PageFactory.initElements(driver, this);
 	}
@@ -181,4 +199,57 @@ public class SEO22_SettingsUsers extends WEBHelper{
 		WD.until(ExpectedConditions.elementToBeClickable(Save_button));
 		Assert.assertEquals(true, UsernameFieldMustBeUnique_text.isDisplayed());
 	}
+	
+	
+	@Then("^Ill see the SEO22_UsernamMustBeUnique 'The Password field must be at least 8 characters in length.' text")
+	public void ill_see_atleast_8_character_in_length_text() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(Save_button));
+		Assert.assertEquals(true, PasswordMustBeAtleast8chars_text.isDisplayed());
+	}
+	
+	
+	@Then("^Ill see the SEO22_DeleteUser Modal")
+	public void i_see_delete_user_modal() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(Yes_button));
+		Assert.assertEquals(true, DeleteUser_header.isDisplayed());
+
+	}
+	
+	@Then("^Ill see the SEO22_Yes button")
+	public void ill_see_yes_button() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, Yes_button.isDisplayed());
+
+	}
+	
+	@Then("^Ill see the SEO22_No button")
+	public void ill_see_no_button() throws Throwable, UnhandledAlertException {
+		Assert.assertEquals(true, No_button.isDisplayed());
+
+	}
+	
+	
+	@Then("^Ill see the SEO22_Xclose button of Delete User Modal")
+	public void ill_see_x_button_of_delete_user_modal() throws Throwable, UnhandledAlertException {
+		Thread.sleep(3000);
+		if(driver.findElements(By.xpath("//div[@class='modal-header']/button")).size()!= 0){
+			Assert.assertTrue(true);
+		}else{
+			Assert.fail();
+		}
+
+	}
+	
+	
+	@Then("^Ill see the SEO22_Confirmation 'Are you sure you want to delete this user' text")
+	public void i_see_are_you_sure_you_want_to_delete_text(){
+		Assert.assertEquals(true, AreYouSureYouWantToDeleteUser_text.isDisplayed());
+
+	}
+	
+	@When("^I click the first SEO22_DeleteUser button")
+	public void i_click_theA_first_delete_user_button() throws Throwable, UnhandledAlertException {
+		FirstDeleteUser_button.click();
+		
+	}
+	
 }

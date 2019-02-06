@@ -156,3 +156,34 @@ Feature: [TAA-519] [SEOReseller] Manage Users Menu Smoke/Regression TestSuite
     Examples: 
 			| FirstName | LastName   | email                     | password  |  userPassword  |  
       | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |     12345      | 
+      
+	#Scenario Description:
+	#Given I am a Partner
+	#When I navigate to the Manage Users Page
+	#And I click a delecte user button
+	#Then Ill see the Delete User Modal
+	#And Ill see that the UI of Delete User Modal is aligned with the requirements
+  @SRSSMOKETEST @ManageUsers @ManageUsers_TS06 @TAA-547
+  Scenario Outline: TAA-547
+		Given Im a new Partner
+    When I navigate to "Login"
+    And I populate the SEOE6_EmailAddress textfield with <email>
+    And I populate the SEOE6_Password textfield with <password>
+    And I click the SEO06_LoginToYourDashBoard button
+    And I wait for page to load
+    Then Ill see the SEO00_Dashboard page
+    
+    When I click the SEO01_UserAvatar button
+		And I click the SEO01_ManageUsers list
+		Then Ill be able to see the SEO22_ManageUsers Page
+		
+		When I click the first SEO22_DeleteUser button
+		Then Ill see the SEO22_DeleteUser Modal
+		And Ill see the SEO22_Confirmation 'Are you sure you want to delete this user' text
+		And Ill see the SEO22_Yes button
+		And Ill see the SEO22_No button
+		And Ill see the SEO22_Xclose button of Delete User Modal
+    
+    Examples: 
+			| FirstName | LastName   | email                     | password  |
+      | RND       | Automation | lorraine@truelogic.com.ph | 123456789 |
