@@ -49,6 +49,9 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	@FindBy(xpath="//div[text()='This Email is already in use.']")
 	WebElement EmailAlreadyUsed_text;
 	
+	@FindBy(xpath="//div[text()='The Username field must contain a unique value.']")
+	WebElement UsernameFieldMustBeUnique_text;
+	
 	public SEO22_SettingsUsers() {
 		PageFactory.initElements(driver, this);
 	}
@@ -144,6 +147,11 @@ public class SEO22_SettingsUsers extends WEBHelper{
 		
 	}
 	
+	@When("^I enter SEO22_Username textfield with an existing user ([^\"]*)")
+	public void i_enter_username_textfield_with_existing_user(String username) throws Throwable, UnhandledAlertException {
+		Username_textfield.sendKeys(username);
+	}
+	
 	@When("^I select ([^\"]*) in SEO22_Role dropdown")
 	public void i_select_role_value_under_role_dropwdown(String role) throws Throwable, UnhandledAlertException {
 		SelectByVisibleText(Role_dropdown, role);
@@ -166,5 +174,11 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	public void ill_see_email_already_used_text() throws Throwable, UnhandledAlertException {
 		WD.until(ExpectedConditions.elementToBeClickable(Save_button));
 		Assert.assertEquals(true, EmailAlreadyUsed_text.isDisplayed());
+	}
+	
+	@Then("^Ill see the SEO22_UsernamMustBeUnique 'The Username field must contain a unique value.' text")
+	public void ill_see_username_must_contain_unique_text() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(Save_button));
+		Assert.assertEquals(true, UsernameFieldMustBeUnique_text.isDisplayed());
 	}
 }
