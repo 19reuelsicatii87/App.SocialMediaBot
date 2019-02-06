@@ -70,6 +70,12 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	@FindBy(xpath="(//a[@title='Delete User'])[1]")
 	WebElement FirstDeleteUser_button;
 	
+	public static final WebElement EditIconOfSpecificUser(String email){
+		WebElement editIconOfSpecificUser = driver.findElement(By.xpath("//a[text()='"+email+"']/ancestor::tr//a[@alt='Edit User']"));
+		return editIconOfSpecificUser;
+	}
+	
+	
 	public SEO22_SettingsUsers() {
 		PageFactory.initElements(driver, this);
 	}
@@ -250,6 +256,12 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	public void i_click_theA_first_delete_user_button() throws Throwable, UnhandledAlertException {
 		FirstDeleteUser_button.click();
 		
+	}
+	
+
+	@When("^I click the SEO22_Edit button of ([^\"]*)")
+	public void i_click_edit_icon_of_user_value(String email) throws Throwable, UnhandledAlertException {
+		EditIconOfSpecificUser(email).click();		
 	}
 	
 }
