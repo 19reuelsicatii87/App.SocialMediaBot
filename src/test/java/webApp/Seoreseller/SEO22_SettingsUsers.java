@@ -45,6 +45,9 @@ public class SEO22_SettingsUsers extends WEBHelper{
 	
 	@FindBy(xpath="//div[@class='modal-header']/button")
 	WebElement AddNewUserModalX_button;
+
+	@FindBy(xpath="//div[text()='This Email is already in use.']")
+	WebElement EmailAlreadyUsed_text;
 	
 	public SEO22_SettingsUsers() {
 		PageFactory.initElements(driver, this);
@@ -129,6 +132,12 @@ public class SEO22_SettingsUsers extends WEBHelper{
 		Email_textfield.sendKeys(finalString);	
 	}
 	
+	@When("^I enter SEO22_EmailAddress textfield with an existing email ([^\"]*)")
+	public void i_enter_email_address_textfield_with_existing_email_value(String email) throws Throwable, UnhandledAlertException {
+		Email_textfield.sendKeys(email);	
+	}
+	
+	
 	@When("^I populate SEO22_Username textfield with ([^\"]*)")
 	public void i_populate_username_textfield_with_value(String username) throws Throwable, UnhandledAlertException {
 		Username_textfield.sendKeys(username+dateNoSpace);
@@ -152,5 +161,10 @@ public class SEO22_SettingsUsers extends WEBHelper{
 		Save_button.click();
 		
 	}
-
+	
+	@Then("^Ill see the SEO22_EmailAlreadyUsed 'This Email is already in use.' text")
+	public void ill_see_email_already_used_text() throws Throwable, UnhandledAlertException {
+		WD.until(ExpectedConditions.elementToBeClickable(Save_button));
+		Assert.assertEquals(true, EmailAlreadyUsed_text.isDisplayed());
+	}
 }
