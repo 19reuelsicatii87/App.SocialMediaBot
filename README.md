@@ -1,2 +1,2 @@
 # TestAutomation
-GQA Test Automation Project
+TestAutomation Project
