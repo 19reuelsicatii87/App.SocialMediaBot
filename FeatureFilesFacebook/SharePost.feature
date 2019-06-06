@@ -13,7 +13,13 @@ Feature: [Facebook]: SharePost Bot
     And I populate FB01_Password textfield with <Password>
     And I click FB01_LogIn button
     Then Ill see that Ive login successfully
+    When I populate FB02_Search textfield with <PageName>
+    And I click FB02_Search button
+    And I click FB02_Secondary header whose text is <SecondaryHeader>
+    And I click FB02_Page Result whose text is <PageName>
+    And I click FB03_SharePost button whose position is "1"
+    And I click FB03_SharePost dropdown whose text is <SharePostdropdown>
 
     Examples: 
-      | Username             | Password   |   |
-      | awingsicat@gmail.com | @w1ng12345 | 1 |
+      | Username             | Password   | PageName                     | SecondaryHeader | SharePostdropdown   |
+      | awingsicat@gmail.com | @w1ng12345 | KB White Gluta Plus - Makati | Pages           | Share Now (Friends) |

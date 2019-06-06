@@ -33,13 +33,7 @@ public class FB02_Home extends WEBHelper {
 	}
 
 	@When("^I populate FB02_Search textfield with ([^\"]*)$")
-	public void i_populate_Username_with_value(String keyword) throws Throwable, UnhandledAlertException {
-		log.info("I populate FB02_Search textfield with " + keyword);
-		Search_txtfield.sendKeys(keyword);
-	}
-
-	@When("^I populate FB02_Username textfield with \"([^\"]*)\"$")
-	public void i_populate_Username_with_variable(String keyword) throws Throwable, UnhandledAlertException {
+	public void i_populate_FB02_Search_with_value(String keyword) throws Throwable, UnhandledAlertException {
 		log.info("I populate FB02_Search textfield with " + keyword);
 		Search_txtfield.sendKeys(keyword);
 	}
