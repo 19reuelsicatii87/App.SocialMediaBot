@@ -24,28 +24,33 @@ public class FB01_Login extends WEBHelper {
 		PageFactory.initElements(driver, this);		
 	}
 
-	@When("^I populate FB01_Username with ([^\"]*)$")
+	@When("^I populate FB01_Username textfield with ([^\"]*)$")
 	public void i_populate_Username_with_value(String username) throws Throwable, UnhandledAlertException {
+		log.info("I populate FB01_Username with" + username);
 		Username_txtfield.sendKeys(username);
 	}
 
-	@When("^I populate FB01_Username with \"([^\"]*)\"$")
+	@When("^I populate FB01_Username textfield with \"([^\"]*)\"$")
 	public void i_populate_Username_with_variable(String username) throws Throwable, UnhandledAlertException {
+		log.info("I populate FB01_Username with" + username);
 		Username_txtfield.sendKeys(username);
 	}
 
-	@When("^I populate FB01_Password with ([^\"]*)$")
+	@When("^I populate FB01_Password textfield with ([^\"]*)$")
 	public void i_populate_Password_with_value(String password) throws Throwable, UnhandledAlertException {
+		log.info("I populate FB01_Password with" + password);
 		Password_txtfield.sendKeys(password);
 	}
 
-	@When("^I populate FB01_Password with \"([^\"]*)\"$")
+	@When("^I populate FB01_Password textfield with \"([^\"]*)\"$")
 	public void i_populate_Password_with_variable(String password) throws Throwable, UnhandledAlertException {
+		log.info("I populate FB01_Password with" + password);
 		Password_txtfield.sendKeys(password);
 	}
 
 	@When("^I click FB01_LogIn button$")
 	public void i_click_LogIn_button() throws Throwable, UnhandledAlertException {
+		log.info("I click FB01_LogIn button");
 		Login_button.click();
 	}
 

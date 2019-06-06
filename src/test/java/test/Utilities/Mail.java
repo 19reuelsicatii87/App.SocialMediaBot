@@ -1,11 +1,6 @@
 package test.Utilities;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
@@ -13,7 +8,6 @@ import java.util.Properties;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
-import javax.mail.Authenticator;
 import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -28,245 +22,190 @@ import javax.mail.internet.MimeMultipart;
 
 import cucumber.Framework.WEBHelper;
 
+public class Mail extends WEBHelper {
 
+	public static void SendReport(String ReportName, String URLKey, String Subject) throws Exception {
 
-public class Mail extends WEBHelper
-{
-  
-	public static void SendReport(String ReportName, String URLKey, String Subject) throws Exception
-    {
-   	
-    	
-    	String BrowserType=GetPropertValue("Data/TestProperties.xml","BrowserType");
-    	String URL=URLKey;
-    	String filename="target/" + ReportName;		
-		
+		String BrowserType = GetPropertValue("Properties/TestProperties.xml", "BrowserType");
+		String URL = URLKey;
+		String filename = "target/" + ReportName;
+
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
 		String timeStamp = sdf.format(date);
-		
 
-         
-		 String subject = Subject + timeStamp;
-         String to = GetPropertValue("Data/EmailProperties.xml", "recipients");//change accordingly  
-         String from = GetPropertValue("Data/EmailProperties.xml", "from"); 
-         String host = GetPropertValue("Data/EmailProperties.xml", "SMTP_HOST_NAME");//or IP address  
-         String Port = GetPropertValue("Data/EmailProperties.xml", "SMTP_PORT");
-         String password = GetPropertValue("Data/EmailProperties.xml", "password");
-         
-         
-        //Get the session object         
-        Properties props = new Properties();
- 		props.put("mail.smtp.auth", "true");
- 		props.put("mail.smtp.starttls.enable", "true");
- 		props.put("mail.smtp.host", host);
- 		props.put("mail.smtp.port", Port);
- 		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+		String subject = Subject + timeStamp;
+		String to = GetPropertValue("Properties/EmailProperties.xml", "recipients");// change accordingly
+		String from = GetPropertValue("Properties/EmailProperties.xml", "from");
+		String host = GetPropertValue("Properties/EmailProperties.xml", "SMTP_HOST_NAME");// or IP address
+		String Port = GetPropertValue("Properties/EmailProperties.xml", "SMTP_PORT");
+		String password = GetPropertValue("Properties/EmailProperties.xml", "password");
 
-         
-        Session session = Session.getDefaultInstance(props,  
-        		   new javax.mail.Authenticator() {  
-        		   protected PasswordAuthentication getPasswordAuthentication() {  
-        		   return new PasswordAuthentication(from, password);//change accordingly  
-        		   }  
-        		  });  
-         
+		// Get the session object
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", host);
+		props.put("mail.smtp.port", Port);
+		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(from, password);// change accordingly
+			}
+		});
 
-        //Compose the message  
-         try{  
-        	 Message  message = new MimeMessage(session);  
-        	 message.setFrom(new InternetAddress(from));  
-            
-            String[] recipientList = to.split(",");
-            InternetAddress[] recipientAddress = new InternetAddress[recipientList.length];
-            int counter = 0;
-            for (String recipient : recipientList) {
-                recipientAddress[counter] = new InternetAddress(recipient.trim());
-                counter++;
-            }
-            message.setRecipients(Message.RecipientType.TO, recipientAddress);
-            message.setSubject(subject); 
-            
-            String content=
-            		"Hi All,"  
-            				+ System.lineSeparator()
-            				+ System.lineSeparator() 
-            				+ System.lineSeparator() +
-            		"Attached is the Test Automation execution summary as of " + timeStamp
-            				+ System.lineSeparator() 
-            				+ System.lineSeparator() + 
-            		"Browser Name = " + BrowserType 
-            				+ System.lineSeparator() + 
-            		"TestEnv = " + URL 
-            				+ System.lineSeparator()
-            				+ System.lineSeparator()
-            				+ System.lineSeparator() + 
-            		
-            				
-            		"regards," + System.lineSeparator() + 
-            		"Test Automation Team."
-            		
-            		
-            				+ System.lineSeparator()
-            				+ System.lineSeparator()
-            				+ System.lineSeparator() + 
-            		
-            		"Note: Please Use Chrome browser for attached result view for better experiance";
-            
-        
-            BodyPart messageBodyPart = new MimeBodyPart();
-          
-            //Now set the actual message
-            messageBodyPart.setText(content);
-            
-            //Create a multipar message
-            Multipart multipart = new MimeMultipart();
+		// Compose the message
+		try {
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
 
-            //Set text message part
-            multipart.addBodyPart(messageBodyPart);
+			String[] recipientList = to.split(",");
+			InternetAddress[] recipientAddress = new InternetAddress[recipientList.length];
+			int counter = 0;
+			for (String recipient : recipientList) {
+				recipientAddress[counter] = new InternetAddress(recipient.trim());
+				counter++;
+			}
+			message.setRecipients(Message.RecipientType.TO, recipientAddress);
+			message.setSubject(subject);
 
-            //Part two is attachment
-            messageBodyPart = new MimeBodyPart();
-            
-         
-            //Data source
-            DataSource source = new FileDataSource(filename);
-            messageBodyPart.setDataHandler(new DataHandler(source));
-            messageBodyPart.setFileName(ReportName);
-            multipart.addBodyPart(messageBodyPart);
-           
+			String content = "Hi All," + System.lineSeparator() + System.lineSeparator() + System.lineSeparator()
+					+ "Attached is the Test Automation execution summary as of " + timeStamp + System.lineSeparator()
+					+ System.lineSeparator() + "Browser Name = " + BrowserType + System.lineSeparator() + "TestEnv = "
+					+ URL + System.lineSeparator() + System.lineSeparator() + System.lineSeparator() +
 
-            //Send the complete message parts
-            message.setContent(multipart,"text/html");            
-            Transport.send(message);  
-            System.out.println("message sent successfully....");  
-     
-         }catch (MessagingException mex) {mex.printStackTrace();}  
-      }  
-	
-	
-	public static void SendReports(String ReportName, String URLKey, String Subject) throws Exception
-    {
+					"regards," + System.lineSeparator() + "Test Automation Team."
 
-    	
-    	
-    	
-    	String BrowserType=GetPropertValue("Data/TestProperties.xml","BrowserType");
-    	String URL=GetPropertValue("Data/TestProperties.xml", URLKey);
-		
+					+ System.lineSeparator() + System.lineSeparator() + System.lineSeparator() +
+
+					"Note: Please Use Chrome browser for attached result view for better experiance";
+
+			BodyPart messageBodyPart = new MimeBodyPart();
+
+			// Now set the actual message
+			messageBodyPart.setText(content);
+
+			// Create a multipar message
+			Multipart multipart = new MimeMultipart();
+
+			// Set text message part
+			multipart.addBodyPart(messageBodyPart);
+
+			// Part two is attachment
+			messageBodyPart = new MimeBodyPart();
+
+			// Data source
+			DataSource source = new FileDataSource(filename);
+			messageBodyPart.setDataHandler(new DataHandler(source));
+			messageBodyPart.setFileName(ReportName);
+			multipart.addBodyPart(messageBodyPart);
+
+			// Send the complete message parts
+			message.setContent(multipart, "text/html");
+			Transport.send(message);
+			System.out.println("message sent successfully....");
+
+		} catch (MessagingException mex) {
+			mex.printStackTrace();
+		}
+	}
+
+	public static void SendReports(String ReportName, String URLKey, String Subject) throws Exception {
+
+		String BrowserType = GetPropertValue("Properties/TestProperties.xml", "BrowserType");
+		String URL = GetPropertValue("Properties/TestProperties.xml", URLKey);
+
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
 		String timeStamp = sdf.format(date);
-       
-    	String subject = Subject + timeStamp;
-        String to = GetPropertValue("Data/EmailProperties.xml", "recipients");//change accordingly  
-        String from = GetPropertValue("Data/EmailProperties.xml", "from"); 
-        String host = GetPropertValue("Data/EmailProperties.xml", "SMTP_HOST_NAME");//or IP address  
-        String Port = GetPropertValue("Data/EmailProperties.xml", "SMTP_PORT");
-        String password = GetPropertValue("Data/EmailProperties.xml", "password");
-         
-         
-        Properties props = new Properties();
- 		props.put("mail.smtp.auth", "true");
- 		props.put("mail.smtp.starttls.enable", "true");
- 		props.put("mail.smtp.host", host);
- 		props.put("mail.smtp.port", Port);
- 		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-         
-        Session session = Session.getDefaultInstance(props,  
-        		   new javax.mail.Authenticator() {  
-        		   protected PasswordAuthentication getPasswordAuthentication() {  
-        		   return new PasswordAuthentication(from, password);//change accordingly  
-        		   }  
-        		  });  
-         
 
-        //Compose the message  
-         try{  
-        	 Message  message = new MimeMessage(session);  
-        	 message.setFrom(new InternetAddress(from));  
-            
-            String[] recipientList = to.split(",");
-            InternetAddress[] recipientAddress = new InternetAddress[recipientList.length];
-            int counter = 0;
-            for (String recipient : recipientList) {
-                recipientAddress[counter] = new InternetAddress(recipient.trim());
-                counter++;
-            }
-            message.setRecipients(Message.RecipientType.TO, recipientAddress);
-            message.setSubject(subject); 
-            
-            String content=
-            		"Hi All,"  
-            				+ System.lineSeparator()
-            				+ System.lineSeparator() 
-            				+ System.lineSeparator() +
-            		"Attached is the Test Automation execution summary as of " + timeStamp
-            				+ System.lineSeparator() 
-            				+ System.lineSeparator() + 
-            		"Browser Name =" + BrowserType 
-            				+ System.lineSeparator() + 
-            		"TestEnv =" + URL 
-            				+ System.lineSeparator()
-            				+ System.lineSeparator()
-            				+ System.lineSeparator() + 
-            		
-            				
-            		"regards," + System.lineSeparator() + 
-            		"Test Automation Team."
-            		
-            		
-            				+ System.lineSeparator()
-            				+ System.lineSeparator()
-            				+ System.lineSeparator() + 
-            		
-            		"Note: Please Use Chrome browser for attached result view for better experiance";
-            
-        
-            BodyPart messageBodyPart = new MimeBodyPart();
-          
-            //Now set the actual message
-            messageBodyPart.setText(content);
-            
-            //Create a multipar message
-            Multipart multipart = new MimeMultipart();
+		String subject = Subject + timeStamp;
+		String to = GetPropertValue("Properties/EmailProperties.xml", "recipients");// change accordingly
+		String from = GetPropertValue("Properties/EmailProperties.xml", "from");
+		String host = GetPropertValue("Properties/EmailProperties.xml", "SMTP_HOST_NAME");// or IP address
+		String Port = GetPropertValue("Properties/EmailProperties.xml", "SMTP_PORT");
+		String password = GetPropertValue("Properties/EmailProperties.xml", "password");
 
-            //Set text message part
-            multipart.addBodyPart(messageBodyPart);
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", host);
+		props.put("mail.smtp.port", Port);
+		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-            //Part two is attachment
-            messageBodyPart = new MimeBodyPart();
-            
-         
-          
-            //DataSource source;
-            File dir = new File("target/");
-            String list[] = dir.list();
-         
-            for (int i=0, n=list.length; i<n; i++) {
-              File f = new File(list[i]);
-              
-              if (f.toString().contains("html") ) {
-            	  messageBodyPart = new MimeBodyPart();
-            	  System.out.println(f);
-                  DataSource source = new FileDataSource("target/"+f);
-                  messageBodyPart.setDataHandler(new DataHandler(source));
-                  messageBodyPart.setFileName(f.toString());
-                  multipart.addBodyPart(messageBodyPart);
-              }
-            }
-           
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(from, password);// change accordingly
+			}
+		});
 
-            //Send the complete message parts
-            message.setContent(multipart,"text/html");            
-            Transport.send(message);  
-            WEBHelper.log.info("message sent successfully....");
-            System.out.println("message sent successfully....");  
-     
-         }catch (MessagingException mex) {mex.printStackTrace();}  
-      } 
-		
-		
-    }
+		// Compose the message
+		try {
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
 
+			String[] recipientList = to.split(",");
+			InternetAddress[] recipientAddress = new InternetAddress[recipientList.length];
+			int counter = 0;
+			for (String recipient : recipientList) {
+				recipientAddress[counter] = new InternetAddress(recipient.trim());
+				counter++;
+			}
+			message.setRecipients(Message.RecipientType.TO, recipientAddress);
+			message.setSubject(subject);
+
+			String content = "Hi All," + System.lineSeparator() + System.lineSeparator() + System.lineSeparator()
+					+ "Attached is the Test Automation execution summary as of " + timeStamp + System.lineSeparator()
+					+ System.lineSeparator() + "Browser Name =" + BrowserType + System.lineSeparator() + "TestEnv ="
+					+ URL + System.lineSeparator() + System.lineSeparator() + System.lineSeparator() +
+
+					"regards," + System.lineSeparator() + "Test Automation Team."
+
+					+ System.lineSeparator() + System.lineSeparator() + System.lineSeparator() +
+
+					"Note: Please Use Chrome browser for attached result view for better experiance";
+
+			BodyPart messageBodyPart = new MimeBodyPart();
+
+			// Now set the actual message
+			messageBodyPart.setText(content);
+
+			// Create a multipar message
+			Multipart multipart = new MimeMultipart();
+
+			// Set text message part
+			multipart.addBodyPart(messageBodyPart);
+
+			// Part two is attachment
+			messageBodyPart = new MimeBodyPart();
+
+			// DataSource source;
+			File dir = new File("target/");
+			String list[] = dir.list();
+
+			for (int i = 0, n = list.length; i < n; i++) {
+				File f = new File(list[i]);
+
+				if (f.toString().contains("html")) {
+					messageBodyPart = new MimeBodyPart();
+					System.out.println(f);
+					DataSource source = new FileDataSource("target/" + f);
+					messageBodyPart.setDataHandler(new DataHandler(source));
+					messageBodyPart.setFileName(f.toString());
+					multipart.addBodyPart(messageBodyPart);
+				}
+			}
+
+			// Send the complete message parts
+			message.setContent(multipart, "text/html");
+			Transport.send(message);
+			WEBHelper.log.info("message sent successfully....");
+			System.out.println("message sent successfully....");
+
+		} catch (MessagingException mex) {
+			mex.printStackTrace();
+		}
+	}
+
+}

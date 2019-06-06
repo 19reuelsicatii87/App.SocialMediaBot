@@ -105,73 +105,12 @@ public class WEBHelper{
 	public static void GetDriverObject() 
 	{
 		
-		System.out.println("Helper - Scenario Name: " + SetUp.ScenarioName);		
-		switch (SetUp.ScenarioName)
-		{		
-			case "COMSMOKETEST_TS06": 
-				BrowserType = "FIREFOX";	 
-	        break;
-			
-			case "COMSMOKETEST_TS07":  
-				BrowserType = "FIREFOX";
-			break;
-			
-			case "COMSMOKETEST_TS08": 
-				BrowserType = "FIREFOX";
-	        break;
-			
-			case "COMSMOKETEST_TS09": 
-				BrowserType = "FIREFOX";
-	        break;
-	        
-			case "LocalSEO_TS01": 
-				BrowserType = "FIREFOX";
-	        break; 
-	        
-			case "LocalSEO_TS04": 
-				BrowserType = "FIREFOX";
-	        break; 
-	        
-			case "OrganicSEO_TS01": 
-				BrowserType = "FIREFOX";
-	        break; 
-	        
-			case "OrganicSEO_TS04": 
-				BrowserType = "FIREFOX";
-	        break; 
-	        
-			case "WebDesign_TS01": 
-				BrowserType = "FIREFOX";
-	        break; 
-	        
-   			case "TAA-382":
-				BrowserType = "FIREFOX";
-		    break; 
-		        
-			default: 
-				BrowserType = GetPropertValue("Data/TestProperties.xml","BrowserType");		        
-			break;
-		
-		}	
+		BrowserType = GetPropertValue("Properties/TestProperties.xml","BrowserType");	
 		
 		log.info("Execution will be begin on Browser name " + BrowserType );
-		String Environment = GetPropertValue("Data/TestProperties.xml","Environment");
+		String Environment = GetPropertValue("Properties/TestProperties.xml","Environment");
 		log.info("Execution will be begin on Environment: " + Environment );
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		
-		try 
-		{
-			log.info("Execute TASK KILL");
-			//Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe");
-			Runtime.getRuntime().exec("taskkill /F /IM IEDriverServer.exe");
-			Runtime.getRuntime().exec("run");
-		} catch (IOException e) 
-		
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		DesiredCapabilities capabilities = new DesiredCapabilities();		
 		
 		if(driver==null)
 		{
@@ -268,11 +207,8 @@ public class WEBHelper{
 	public static String GetApplication() throws IOException, InterruptedException
 	{
 		String App = null;
-		if (SetUp.getScenarioID().contains("seoreseller")) {
-			App = "Seoreseller";
-		}
-		else if (SetUp.getScenarioID().contains("compass")) {
-			App = "Compass";
+		if (SetUp.getScenarioID().contains("facebook")) {
+			App = "FB";
 		}
 		
 		return App;
@@ -281,7 +217,7 @@ public class WEBHelper{
 	public static String GetTestEnv() throws IOException, InterruptedException
 	{
 		String TestEnv = null;
-		TestEnv = GetPropertValue("Data/TestProperties.xml","TestEnv");		
+		TestEnv = GetPropertValue("Properties/TestProperties.xml","TestEnv");		
 		
 		return TestEnv;
 	}

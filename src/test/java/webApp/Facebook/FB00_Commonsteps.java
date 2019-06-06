@@ -19,11 +19,13 @@ public class FB00_Commonsteps extends WEBHelper {
 		PageFactory.initElements(driver, this);
 	}
 
-	@Given("^Im an Facebook User$")
-	public void im_an_Account_Manager() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		// throw new PendingException();
+	@Given("^Im a Facebook User$")
+	public void im_a_Facebook_User() throws Throwable {
+		log.info("Im a Facebook User");
 		Thread.sleep(3000);
+		
+		
+
 	}
 
 }

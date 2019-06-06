@@ -28,8 +28,8 @@ public class CommonSteps extends WEBHelper {
 	@When("^I navigate to \"([^\"]*)\"$")
 	public void i_navigate_to_URL_variable(String Path) throws Throwable {
 		Thread.sleep(5000);
-		log.info("User Navigate to :" + GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
-		driver.get(GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
+		log.info("User Navigate to :" + GetPropertValue("Properties/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
+		driver.get(GetPropertValue("Properties/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
 			  
 	}
 	
@@ -37,8 +37,8 @@ public class CommonSteps extends WEBHelper {
 	public void i_navigate_back_to_URL_variable(String Path) throws Throwable {
 		
 		Thread.sleep(5000);
-		log.info("User Navigate to :" + GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
-		driver.get(GetPropertValue("Data/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
+		log.info("User Navigate to :" + GetPropertValue("Properties/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
+		driver.get(GetPropertValue("Properties/TestProperties.xml", GetApplication() + GetTestEnv() + "_" + Path));
 	  
 	}
 	
@@ -80,7 +80,7 @@ public class CommonSteps extends WEBHelper {
 		}else{
 			String ToEmail = UUID.randomUUID().toString().replace("-", "");
 			RequestSpecBuilder reqB = new RequestSpecBuilder();
-			reqB.setBaseUri(GetPropertValue("Data/TestProperties.xml", "Lumen" + GetTestEnv()));
+			reqB.setBaseUri(GetPropertValue("Properties/TestProperties.xml", "Lumen" + GetTestEnv()));
 			reqB.setBasePath("admin/tools/email-updater");
 			reqB.addParam("site_id", "1");
 			reqB.addParam("from_email", email);

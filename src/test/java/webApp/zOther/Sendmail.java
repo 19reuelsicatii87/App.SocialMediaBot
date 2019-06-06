@@ -40,7 +40,7 @@ public class Sendmail
     	 FileInputStream fis;
     	 //Data From Test Config
     	try {
-			fis = new FileInputStream("Data/TestProperties.xml");
+			fis = new FileInputStream("Properties/TestProperties.xml");
 			TestDataproperties.loadFromXML(fis);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
