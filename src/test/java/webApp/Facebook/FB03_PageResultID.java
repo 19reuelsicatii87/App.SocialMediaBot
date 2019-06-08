@@ -2,6 +2,7 @@ package webApp.Facebook;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -45,12 +46,15 @@ public class FB03_PageResultID extends WEBHelper {
 	public void i_click_FB03_SharePost_button_whose_position_is_variable(String position)
 			throws Throwable, UnhandledAlertException {
 		log.info("I click FB03_SharePost button whose position is " + position);
+		int x=0;
 		for (int i = 0; i < 100; i++) {
+			x=x+400;
 			try {
 				SharePost_button(position).click();
 				break;
-			} catch (Exception e) {
-				JS.executeScript("window.scrollTo(0, 2000);");
+			} catch (NoSuchElementException e) {
+				System.out.println("X-Value: " + x);
+				JS.executeScript("window.scrollTo(0, "+ x +");");
 				Thread.sleep(1000);
 			}			
 		}
@@ -60,12 +64,15 @@ public class FB03_PageResultID extends WEBHelper {
 	public void i_click_FB03_SharePost_button_whose_position_is_value(String position)
 			throws Throwable, UnhandledAlertException {
 		log.info("I click FB03_SharePost button whose position is " + position);
+		int x=0;
 		for (int i = 0; i < 100; i++) {
+			x=x+400;
 			try {
 				SharePost_button(position).click();
 				break;
-			} catch (Exception e) {
-				JS.executeScript("window.scrollTo(0, 2000);");
+			} catch (NoSuchElementException e) {
+				System.out.println("X-Value: " + x);
+				JS.executeScript("window.scrollTo(0, "+ x +");");
 				Thread.sleep(1000);
 			}			
 		}
