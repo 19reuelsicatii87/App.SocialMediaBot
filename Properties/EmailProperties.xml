@@ -7,8 +7,8 @@
 	<entry key ="SMTP_HOST_NAME">smtp.gmail.com</entry>
 	<entry key ="SMTP_PORT">587</entry>
 	<entry key ="reportType">Basic</entry>
-	<entry key ="recipients">lorraine@truelogic.com.ph,reuel@truelogic.com.ph,emir@truelogic.com.ph,chew@truelogic.com.ph</entry>
+	<entry key ="recipients">reuelsicatii@yahoo.com.ph,jenelle1210@yahoo.com</entry>
 	<entry key ="subject">GQA Automation Report</entry>
-	<entry key ="from">testautomation@truelogic.com.ph</entry>
-	<entry key ="password">TLOStest123</entry>
+	<entry key ="from">NimdaTobAidemLaicos@gmail.com</entry>
+	<entry key ="password">@dm1n12345</entry>
 </properties>

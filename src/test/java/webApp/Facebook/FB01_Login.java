@@ -26,25 +26,25 @@ public class FB01_Login extends WEBHelper {
 
 	@When("^I populate FB01_Username textfield with ([^\"]*)$")
 	public void i_populate_Username_with_value(String username) throws Throwable, UnhandledAlertException {
-		log.info("I populate FB01_Username with" + username);
+		log.info("I populate FB01_Username with " + username);
 		Username_txtfield.sendKeys(username);
 	}
 
 	@When("^I populate FB01_Username textfield with \"([^\"]*)\"$")
 	public void i_populate_Username_with_variable(String username) throws Throwable, UnhandledAlertException {
-		log.info("I populate FB01_Username with" + username);
+		log.info("I populate FB01_Username with " + username);
 		Username_txtfield.sendKeys(username);
 	}
 
 	@When("^I populate FB01_Password textfield with ([^\"]*)$")
 	public void i_populate_Password_with_value(String password) throws Throwable, UnhandledAlertException {
-		log.info("I populate FB01_Password with" + password);
+		log.info("I populate FB01_Password with " + password);
 		Password_txtfield.sendKeys(password);
 	}
 
 	@When("^I populate FB01_Password textfield with \"([^\"]*)\"$")
 	public void i_populate_Password_with_variable(String password) throws Throwable, UnhandledAlertException {
-		log.info("I populate FB01_Password with" + password);
+		log.info("I populate FB01_Password with " + password);
 		Password_txtfield.sendKeys(password);
 	}
 

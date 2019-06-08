@@ -76,10 +76,10 @@ public class WEBHelper{
 		 
 
 	static String BrowserType;
-	static int I_wait=60;
-	static int S_wait=60;
-	static int WD_wait=60;
-	static int PG_wait=60;
+	static int I_wait=15;
+	static int S_wait=15;
+	static int WD_wait=15;
+	static int PG_wait=15;
 	
 	
 		 
@@ -103,12 +103,10 @@ public class WEBHelper{
 	
 	 
 	public static void GetDriverObject() 
-	{
-		
-		BrowserType = GetPropertValue("Properties/TestProperties.xml","BrowserType");	
-		
+	{		
+		BrowserType = GetPropertValue("Properties/TestProperties.xml","BrowserType");			
 		log.info("Execution will be begin on Browser name " + BrowserType );
-		String Environment = GetPropertValue("Properties/TestProperties.xml","Environment");
+		String Environment = GetPropertValue("Properties/TestProperties.xml","TestEnv");
 		log.info("Execution will be begin on Environment: " + Environment );
 		DesiredCapabilities capabilities = new DesiredCapabilities();		
 		
@@ -116,10 +114,17 @@ public class WEBHelper{
 		{
 			if(BrowserType.equalsIgnoreCase("IE")) 
 			{			
+				
+				try {
+					log.info("Execute TASK KILL against pre-existing IEDRIVERSERVER");
+					Runtime.getRuntime().exec("taskkill /F /IM IEDriverServer.exe /T");
+					Thread.sleep(5000);
+				} catch (IOException | InterruptedException e) {
+					log.info("Pre-existing IEDRIVERSERVER not killed");
+				}
 
 				capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-				capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-				
+				capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);				
 				System.setProperty("webdriver.ie.driver", "Drivers/IEDriverServer.exe");
 				driver = new InternetExplorerDriver(capabilities);				
 				driver.manage().window().maximize();
@@ -128,7 +133,16 @@ public class WEBHelper{
 			
 			
 			else if(BrowserType.equalsIgnoreCase("CHROME")) 
-			{				
+			{		
+				
+				try {
+					log.info("Execute TASK KILL against pre-existing CHROMEDRIVER");
+					Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
+					Thread.sleep(5000);
+
+				} catch (IOException | InterruptedException e) {
+					log.info("Pre-existing CHROMEDRIVER not killed");
+				}
 								
 				System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
 				ChromeOptions options = new ChromeOptions();
@@ -140,6 +154,14 @@ public class WEBHelper{
 			
 			else if(BrowserType.equalsIgnoreCase("FIREFOX")) 
 			{
+				
+				try {
+					log.info("Execute TASK KILL against pre-existing FIREFOXDRIVER");
+					Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe /T");
+					Thread.sleep(5000);
+				} catch (IOException | InterruptedException e) {
+					log.info("Pre-existing FIREFOXDRIVER not killed");
+				}
 
 				System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
 				FirefoxBinary FfBinary = new FirefoxBinary(new File (System.getProperty("user.dir") + "\\Browsers\\FF64_v46\\firefox.exe"));
