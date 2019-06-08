@@ -81,14 +81,14 @@ public class FB03_PageResultID extends WEBHelper {
 	@When("^I click FB03_SharePost dropdown whose text is ([^\"]*)$")
 	public void i_click_FB03_SharePost_dropdown_whose_text_is_varriable(String Sharetext)
 			throws Throwable, UnhandledAlertException {
-		log.info("I click FB03_SharePost dropdown whose text is" + Sharetext);
+		log.info("I click FB03_SharePost dropdown whose text is " + Sharetext);
 		SharePost_dropdown(Sharetext).click();
 	}
 	
 	@When("^I click FB03_SharePost dropdown whose text is \"([^\"]*)\"$")
 	public void i_click_FB03_SharePost_dropdown_whose_text_is_value(String Sharetext)
 			throws Throwable, UnhandledAlertException {
-		log.info("I click FB03_SharePost dropdown whose text is" + Sharetext);
+		log.info("I click FB03_SharePost dropdown whose text is " + Sharetext);
 		SharePost_dropdown(Sharetext).click();
 	}
 	
