@@ -47,7 +47,7 @@ public class FB03_PageResultID extends WEBHelper {
 			throws Throwable, UnhandledAlertException {
 		log.info("I click FB03_SharePost button whose position is " + position);
 		int x=0;
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 20; i++) {
 			x=x+400;
 			try {
 				SharePost_button(position).click();
@@ -65,7 +65,7 @@ public class FB03_PageResultID extends WEBHelper {
 			throws Throwable, UnhandledAlertException {
 		log.info("I click FB03_SharePost button whose position is " + position);
 		int x=0;
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 20; i++) {
 			x=x+400;
 			try {
 				SharePost_button(position).click();

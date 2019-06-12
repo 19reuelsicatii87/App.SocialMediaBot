@@ -7,6 +7,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -125,7 +126,18 @@ public class CommonSteps extends WEBHelper {
 			Assert.fail("Page Title Validation got failed for Page Name::" + arg1 + " Actual ::" + driver.getTitle());
 
 		}
-
+	}
+	
+	@When("^I scroll the page down \"(\\d+)\" times$")
+	public void i_scroll_the_page_down_value_times(int position)
+			throws Throwable, UnhandledAlertException {
+		log.info("I scroll the page down "+position+" times");
+		int x=0;
+		for (int i = 0; i < position; i++) {
+			x=x+300;
+			JS.executeScript("window.scrollTo(0, "+ x +");");
+			Thread.sleep(1000);	
+		}
 	}
 
 }

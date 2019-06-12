@@ -48,34 +48,34 @@ Feature: [Facebook]: SharePost Bot
     And I wait for 3000 millisecond
     And I click FB03_SharePost button whose position is "0"
     And I click FB03_SharePost dropdown whose text is "Share in a Group"
-    And I wait for 3000 millisecond
+    And I wait for 5000 millisecond
     And I populate FB03_GroupName textfield with <GroupName>
     And I wait for 3000 millisecond
     And I click FB03_GroupPost button
     And I wait for 3000 millisecond
     And I click FB03_SharePost button whose position is "1"
     And I click FB03_SharePost dropdown whose text is "Share in a Group"
-    And I wait for 3000 millisecond
+    And I wait for 5000 millisecond
     And I populate FB03_GroupName textfield with <GroupName>
     And I wait for 3000 millisecond
     And I click FB03_GroupPost button
     And I wait for 3000 millisecond
     And I click FB03_SharePost button whose position is "2"
     And I click FB03_SharePost dropdown whose text is "Share in a Group"
-    And I wait for 3000 millisecond
+    And I wait for 5000 millisecond
     And I populate FB03_GroupName textfield with <GroupName>
     And I wait for 3000 millisecond
     And I click FB03_GroupPost button
 
     Examples: 
       | Username             | Password   | PageURL                                  | GroupName                                                              |
-      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | MAKATI  BUY AND SELL                                                   |
-      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | Makati City Buy and Sell                                               |
-      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | Buy and Sell QC • Manila • Makati • Taguig • Pasay • Paranaque • Rizal |
-      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | Buy and Sell @ Taguig Pasay Makati Paranaque                           |
-      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | Pateros Pasig Taguig Makati Gadget,Etc. Buy And Sell                   |
       | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/mcmfashionshop/ | MAKATI  BUY AND SELL                                                   |
       | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/mcmfashionshop/ | Makati City Buy and Sell                                               |
       | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/mcmfashionshop/ | Buy and Sell QC • Manila • Makati • Taguig • Pasay • Paranaque • Rizal |
       | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/mcmfashionshop/ | Buy and Sell @ Taguig Pasay Makati Paranaque                           |
       | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/mcmfashionshop/ | Pateros Pasig Taguig Makati Gadget,Etc. Buy And Sell                   |
+      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | MAKATI  BUY AND SELL                                                   |
+      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | Makati City Buy and Sell                                               |
+      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | Buy and Sell QC • Manila • Makati • Taguig • Pasay • Paranaque • Rizal |
+      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | Buy and Sell @ Taguig Pasay Makati Paranaque                           |
+      | awingsicat@gmail.com | @w1ng12345 | https://web.facebook.com/kbstarskin/     | Pateros Pasig Taguig Makati Gadget,Etc. Buy And Sell                   |
