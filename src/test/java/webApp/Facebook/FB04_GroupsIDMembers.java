@@ -30,8 +30,8 @@ public class FB04_GroupsIDMembers extends WEBHelper {
 		PageFactory.initElements(driver, this);
 	}
 
-	@When("^I add the first \"(\\d+)\" profiles$")
-	public void i_add_the_first_value_profile(int ProfileNumber) throws Throwable, UnhandledAlertException {
+	@When("^I add the first \"(\\d+)\" profiles from Group$")
+	public void i_add_the_first_value_profile_from_Group(int ProfileNumber) throws Throwable, UnhandledAlertException {
 		log.info("I add the first " + ProfileNumber + " profiles");
 
 		int x = 0;
