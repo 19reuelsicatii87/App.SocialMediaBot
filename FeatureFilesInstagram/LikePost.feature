@@ -18,7 +18,7 @@ Feature: [Instagram]: LikePost Bot
     And I wait for 10000 millisecond
     And I click IG03_TopRecentPost button
     And I wait for 3000 millisecond
-    And I click IG03_LikePost button for 50
+    And I click IG03_LikePost button for 10
 
     Examples: 
       | Username         | Password         | PageURL                                                           |
