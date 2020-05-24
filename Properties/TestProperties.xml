@@ -14,6 +14,7 @@
 	
 <!-- Use below configuration for Compass Web Application -->
 	<entry key = "FBPRD_Login">https://web.facebook.com/</entry>	
+	<entry key = "IGPRD_Login">https://www.instagram.com/accounts/login/</entry>	
 	
 </properties>
 

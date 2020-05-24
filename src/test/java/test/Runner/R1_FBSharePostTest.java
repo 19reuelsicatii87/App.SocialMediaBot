@@ -17,11 +17,11 @@ import test.Utilities.Mail;
 		format = { "pretty", "html:target/cucumber", "json:target/JSON/R1_SharePostTestReport.json" }, features = {
 				"." }, glue = { "cucumber.Framework", "webApp.Facebook" }, plugin = {
 						"com.cucumber.listener.ExtentCucumberFormatter:target/R1_SharePostTestReport.html",
-						"rerun:target/rerun.txt" }, tags = { "@AddAFriend"}
+						"rerun:target/rerun.txt" }, tags = { "@SharePost_TS01"}
 
 )
 
-public class R1_AddAFriendTest extends WEBHelper {
+public class R1_FBSharePostTest extends WEBHelper {
 
 	@BeforeClass
 	public static void BeforeClass() throws Exception {

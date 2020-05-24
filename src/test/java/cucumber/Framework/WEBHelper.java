@@ -233,6 +233,10 @@ public class WEBHelper{
 			App = "FB";
 		}
 		
+		else if (SetUp.getScenarioID().contains("instagram")) {
+			App = "IG";
+		}
+		
 		return App;
 	}
 	
