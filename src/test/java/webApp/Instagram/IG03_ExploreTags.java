@@ -19,10 +19,10 @@ public class IG03_ExploreTags extends WEBHelper {
 				.findElements(By.xpath("//h2[contains(text(),'Most recent')]/following-sibling::div//a"));
 		return MostRecentPost_LinkList;
 	}
-	
+
 	@FindBy(xpath = "//h2/div[contains(text(),'Top posts')]/ancestor::div//article//a[1]")
 	WebElement TopRecentPost_Button;
-	
+
 	@FindBy(xpath = "//h2[contains(text(),'Most recent')]/following-sibling::div//a[@xpath=\"1\"]")
 	WebElement MostRecentPost_Button;
 
@@ -35,7 +35,7 @@ public class IG03_ExploreTags extends WEBHelper {
 	public IG03_ExploreTags() {
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	@When("^I click IG03_TopRecentPost button$")
 	public void i_click_IG03_TopRecentPost_button() throws Throwable, UnhandledAlertException {
 		TopRecentPost_Button.click();
@@ -44,25 +44,67 @@ public class IG03_ExploreTags extends WEBHelper {
 	@When("^I click IG03_MostRecentPost button$")
 	public void i_click_IG03_MostRecentPost_button() throws Throwable, UnhandledAlertException {
 		MostRecentPost_Button.click();
-	}	
+	}
 
 	@When("^I click IG03_LikePost button for (\\d+)$")
 	public void i_click_IG03_LikePost_button_for(int NextCounter) throws Throwable, UnhandledAlertException {
 
-		for (int i = 0; i < NextCounter; i++) {
+		int i = 0;
+		while (i < NextCounter) {
 
-			if (driver.findElement(By.xpath("//article[1]//span[1]/button[1]/*[@height=\"24\"]")).getAttribute("aria-label")
-					.contains("#Unlike")) {
+			if (driver.findElement(By.xpath("//article[1]//span[1]/button[1]/*[@height=\"24\"]"))
+					.getAttribute("aria-label").contains("Unlike")) {
 
 				// Do Nothing
+				log.info("Do Nothing -- " + i);
+
+				// Click Next button
+				driver.findElement(By.xpath("//a[text()='Next']")).click();
 			}
 
 			else {
 
-				Thread.sleep(3000);
+				// Click Like and Next button
+				Thread.sleep(1000);
 				driver.findElement(By.xpath("//section[1]//span[1]//button[1]")).click();
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 				driver.findElement(By.xpath("//a[text()='Next']")).click();
+				i++;
+
+			}
+		}
+	}
+
+	@When("^I populate IG03_CommentPost textfield with ([^\"]*) for (\\d+)$")
+	public void i_populate_IG03_CommentPost_textfield_with_variable(String Username, int NextCounter)
+			throws Throwable, UnhandledAlertException {
+
+		int i = 0;
+		while (i < NextCounter) {
+
+			if (driver.findElement(By.xpath("//article[1]//span[1]/button[1]/*[@height=\"24\"]"))
+					.getAttribute("aria-label").contains("Unlike")) {
+
+				// Do Nothing
+				log.info("Do Nothing -- " + i);
+
+				// Click Next button
+				driver.findElement(By.xpath("//a[text()='Next']")).click();
+			}
+
+			else {
+
+				// Click and populate Comment, Click Next button
+				Thread.sleep(1000);
+				driver.findElement(By.xpath("//textarea[@placeholder='Add a comment…']")).click();
+				Thread.sleep(1000);
+				driver.findElement(By.xpath("//textarea[@placeholder='Add a comment…']"))
+						.sendKeys("Hey! awesome post. You may also want to view ours. Visit our Profile @" + Username);
+				Thread.sleep(1000);
+				driver.findElement(By.xpath("//button[text()='Post']")).click();
+				Thread.sleep(1000);				
+				driver.findElement(By.xpath("//a[text()='Next']")).click();
+				i++;
 
 			}
 		}

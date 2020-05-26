@@ -14,14 +14,14 @@ import test.Utilities.Mail;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-		format = { "pretty", "html:target/cucumber", "json:target/JSON/R1_IGLikePostTestReport.json" }, features = {
+		format = { "pretty", "html:target/cucumber", "json:target/JSON/R1_IGCommentPostTestReport.json" }, features = {
 				"." }, glue = { "cucumber.Framework", "webApp.Instagram" }, plugin = {
-						"com.cucumber.listener.ExtentCucumberFormatter:target/R1_IGLikePostTestReport.html",
-						"rerun:target/rerun.txt" }, tags = {"@LikePost"}
+						"com.cucumber.listener.ExtentCucumberFormatter:target/R1_IGCommentPostTestReport.html",
+						"rerun:target/rerun.txt" }, tags = { "@CommentPost"}
 
 )
 
-public class R1_IGLikePostTest extends WEBHelper {
+public class R1_IGCommentPostTest extends WEBHelper {
 
 	@BeforeClass
 	public static void BeforeClass() throws Exception {

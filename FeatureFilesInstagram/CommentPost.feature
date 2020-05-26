@@ -5,7 +5,7 @@ Feature: [Instagram]: LikePost Bot
   #Given Im a Instagram User
   #When I like a post from /Explore/Tags
   #Then I'll see that I've successfully like it
-  @LikePost @LikePost_TS01
+  @CommentPost @CommentPost_TS01
   Scenario Outline: SharePost_TS01
     Given Im a Instagram User
     When I navigate to "Login"
@@ -18,7 +18,7 @@ Feature: [Instagram]: LikePost Bot
     And I wait for 10000 millisecond
     And I click IG03_TopRecentPost button
     And I wait for 3000 millisecond
-    And I click IG03_LikePost button for 10
+    And I populate IG03_CommentPost textfield with <Username> for 10
 
     Examples: 
       | Username         | Password         | PageURL                                                           |
